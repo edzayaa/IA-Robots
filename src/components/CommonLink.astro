@@ -1,0 +1,117 @@
+---
+interface Props {
+  content: string;
+  href?: string;
+  classes?: string;
+  tagType?: "a" | "button";
+}
+
+const { content, href, classes, tagType = "a" } = Astro.props;
+---
+
+{
+  tagType == "a" ? (
+    <a href={href} class={`common-link ${classes}`}>
+      {content}
+      <img
+        class="out-img"
+        src="/icons/link_arrow.svg"
+        alt=""
+        width="40"
+        height="40"
+        fetchpriority="low"
+      />
+    </a>
+  ) : (
+    <button class={`common-link ${classes}`}>
+      {content}
+      <img
+        class="out-img"
+        src="/icons/link_arrow.svg"
+        alt=""
+        width="40"
+        height="40"
+        fetchpriority="low"
+      />
+    </button>
+  )
+}
+
+<style lang="scss">
+  .common-link {
+    min-width: calc(var(--fs) * 8);
+    width: initial;
+    height: calc(var(--fs) * 3);
+    border-radius: calc(var(--fs) * 1.875);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: calc(var(--fs) * 2.25);
+    padding-right: calc(var(--fs) * 0.31);
+    text-transform: uppercase;
+    color: #000;
+    font-family: "Helvetica Now Display";
+    font-size: var(--fs);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 1rem */
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: scale 0.15s ease-out;
+    user-select: none;
+    -webkit-user-select: none;
+    &:hover {
+      scale: 1.05;
+    }
+    &.full-width {
+      width: 100%;
+    }
+    &.aligned-center {
+      justify-self: center;
+    }
+    &.aligned-end {
+      justify-self: end;
+    }
+    &.icon-right {
+      position: relative;
+      padding-left: calc(var(--fs) * 0.31);
+      padding-right: calc(var(--fs) * 0.31);
+      img {
+        position: absolute;
+        top: 50%;
+        right: calc(var(--fs) * 0.31);
+        transform: translate(0%, -50%);
+      }
+    }
+    img {
+      width: calc(var(--fs) * 2.5);
+      height: calc(var(--fs) * 2.5);
+      margin-left: calc(var(--fs) * 1.25);
+    }
+  }
+
+  @media (orientation: portrait) {
+    .common-link {
+      min-width: calc(var(--fs) * 3);
+      height: calc(var(--fs) * 2.0625);
+      border-radius: calc(var(--fs) * 1.28);
+      padding-left: calc(var(--fs) * 1.55);
+      padding-right: calc(var(--fs) * 0.2);
+      font-size: calc(var(--fs) * 0.6875);
+      &.mob-submit {
+        font-size: calc(var(--fs) * 0.52975);
+        height: calc(var(--fs) * 1.58);
+        img {
+          width: calc(var(--fs) * 1.32);
+          height: calc(var(--fs) * 1.32);
+        }
+      }
+      img {
+        width: calc(var(--fs) * 1.71875);
+        height: calc(var(--fs) * 1.71875);
+        margin-left: calc(var(--fs) * 0.875);
+      }
+    }
+  }
+</style>

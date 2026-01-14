@@ -1,0 +1,98 @@
+---
+
+---
+
+<>
+  <script
+    is:inline
+    defer
+    fetchpriority="high"
+    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script
+    is:inline
+    defer
+    fetchpriority="high"
+    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"
+  ></script>
+  <script
+    is:inline
+    defer
+    fetchpriority="high"
+    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"
+  ></script>
+
+  <script>
+    import { navigate } from "astro:transitions/client";
+    import { fonts } from "../scripts/utils/fonts";
+    import { footer } from "../scripts/footer";
+    import { goHome } from "../scripts/goHome";
+    import { menu } from "../scripts/menu";
+    import { readPathname } from "../scripts/utils/pathname";
+    import { pages } from "../scripts/pages";
+    import { resolution, mm, breakPoints } from "../scripts/utils/resolution";
+    import { intro } from "../scripts/preloader";
+
+    fonts();
+
+    let scrollbar: any;
+    let pathname: string = readPathname();
+    const logo = document.querySelector("#preloader > .logo");
+    logo?.classList.remove("intro");
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (pathname === "/") {
+        const introTl = intro() as any;
+        introTl.tweenTo(introTl.totalDuration());
+      }
+    });
+
+    document.addEventListener("astro:page-load", () => {
+      pathname = readPathname();
+
+      const logo = document.querySelector("#preloader > .logo");
+      logo?.classList.remove("intro");
+
+      mm.add(breakPoints, (context: any) => {
+        const { isPortraitRes, isDesktopRes } = context.conditions;
+        resolution.isPortrait = isPortraitRes;
+
+        if (isDesktopRes) {
+          scrollbar = ScrollSmoother.create({
+            smooth: 1.5,
+            smoothTouch: 0,
+          });
+          ScrollTrigger.normalizeScroll(true);
+        }
+
+        return () => {
+          ScrollTrigger.killAll();
+        };
+      });
+
+      switch (pathname) {
+        case pages.home.path:
+          console.log("loading home js");
+          import("../scripts/home").then(({ home }) => home());
+
+          break;
+
+        case pages.quadruped.path:
+          console.log("loading quadruped js");
+          import("../scripts/quadruped").then(({ quadruped }) => quadruped());
+          break;
+
+        default:
+          break;
+      }
+
+      goHome();
+      menu();
+      footer();
+    });
+
+    document.addEventListener("astro:before-swap", () => {
+      ScrollTrigger.killAll();
+      scrollbar.kill();
+    });
+  </script>
+</>

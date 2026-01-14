@@ -1,0 +1,434 @@
+---
+import ScriptsLayout from "./ScriptsLayout.astro";
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
+import Menu from "../components/Menu.astro";
+import { ClientRouter } from "astro:transitions";
+import Preloader from "../components/Preloader.astro";
+import { pages } from "../scripts/pages";
+
+interface Props {
+  // title: string;
+  // description: string;
+  htmlClasses?: string;
+  bodyClasses?: string;
+  renderFooter?: boolean;
+}
+
+const { htmlClasses, bodyClasses, renderFooter = true } = Astro.props;
+
+const routePattern = decodeURI(Astro.routePattern);
+const isHome = routePattern == "/";
+
+const headData = Object.values(pages)
+  .filter((page) => page.path == routePattern)
+  .map(({ title, description }) => ({
+    title,
+    description,
+  }))[0];
+console.log(headData, "valss");
+const title = headData?.title ? headData?.title : "404 - Not found";
+const description = headData?.description
+  ? headData?.description
+  : "Page not found, Ai Robots";
+---
+
+<html lang="en-US" data-page={routePattern} class={htmlClasses}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="" />
+    <meta name="author" content="MDX" />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{`${title} - AI ROBOTS`}</title>
+
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="/icons/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="website.com" />
+    <meta property="twitter:url" content="https://website.com/" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="/icons/logo.png" />
+    <slot name="preload" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <ClientRouter fallback="swap" />
+  </head>
+  <body class={bodyClasses}>
+    <Preloader visible={isHome ? "visible" : "invisible"} />
+    <Header />
+    <Menu />
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <main transition:name={routePattern}>
+          <slot />
+        </main>
+        {renderFooter && <Footer />}
+      </div>
+    </div>
+    <ScriptsLayout />
+    <slot name="script" />
+    <slot name="script-2" />
+    <slot name="fixed" />
+    <slot name="fixed-2" />
+  </body>
+</html>
+
+<style lang="scss" is:global>
+  :root {
+    --fs: 0.85vw;
+    --hor-padding: 2.5vw;
+    --aqua: #44fafc;
+    --Gray-Paragraph: #cbcbcb;
+    --White: #fff;
+    --top-space: min(calc(var(--fs) * 20), 30vh);
+    --MAIN-BLUE: #6289ff;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    font-family: "Work Sans", sans-serif;
+    font-style: normal;
+    width: 100%;
+    height: 100svh;
+    background-color: #000;
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  ::selection {
+    background-color: rgba(255, 255, 255, 0.35);
+  }
+  ::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  #smooth-content {
+    overflow: hidden;
+  }
+
+  body {
+    margin: 0 auto;
+    line-height: 1.25;
+    -webkit-font-smoothing: antialiased;
+    scrollbar-gutter: stable;
+    position: relative;
+  }
+
+  html,
+  body {
+    // overflow: hidden;
+  }
+
+  body[data-is-home="false"] {
+    main {
+      background-color: #000;
+      position: relative;
+      z-index: 2;
+    }
+  }
+  main {
+    // min-height: 100vh;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  img,
+  picture {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  input,
+  a,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    outline: none;
+    border: none;
+  }
+
+  input,
+  textarea {
+    background: none;
+  }
+
+  a {
+    text-decoration: none !important;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  button {
+    background: none;
+    user-select: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  a,
+  button {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -webkit-user-drag: none !important;
+  }
+
+  button div {
+    user-select: none;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  .under-dev {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  section {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+  }
+
+  .primary-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--fs) * 0.25) calc(var(--fs) * 0.25)
+      calc(var(--fs) * 0.25) calc(var(--fs) * 1);
+    border-radius: var(--fs);
+    background: #fff;
+    color: #131313;
+    font-family: "Work Sans";
+    font-size: calc(var(--fs) * 1.15388);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: calc(var(--fs) * -0.04613);
+
+    .icon {
+      width: calc(var(--fs) * 2.1875);
+      height: calc(var(--fs) * 2.125);
+      border-radius: calc(var(--fs) * 0.72113);
+      background: linear-gradient(224deg, #6c8ae3 -47.2%, #3d60c9 74.45%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: calc(var(--fs) * 0.625);
+      pointer-events: none;
+      img {
+        width: calc(var(--fs) * 1.32469);
+        height: calc(var(--fs) * 1.02556);
+      }
+    }
+  }
+
+  @media (orientation: landscape) {
+    .br-desktop {
+      display: block;
+    }
+    .br-mobile {
+      display: none;
+    }
+  }
+
+  @media (orientation: portrait) {
+    :root {
+      --hor-padding: 3vw;
+      --fs: 3.5vw;
+      --top-space: min(calc(var(--fs) * 10), 15vh);
+    }
+    html {
+      overflow: initial;
+      &.fixed {
+        overflow: hidden !important;
+      }
+    }
+
+    main {
+      min-height: unset;
+      z-index: 0;
+    }
+    .br-desktop {
+      display: none;
+    }
+    .br-mobile {
+      display: block;
+    }
+
+    .heading-1 {
+      font-size: calc(var(--fs) * 4.12856);
+    }
+
+    .heading-2 {
+      font-size: calc(var(--fs) * 2.1875);
+      span {
+        color: #fff;
+      }
+    }
+    .text {
+      font-size: calc(var(--fs) * 0.875);
+    }
+
+    .little-heading {
+      font-size: calc(var(--fs) * 0.63863);
+
+      img {
+        width: calc(var(--fs) * 0.632);
+        height: calc(var(--fs) * 0.632);
+        margin-right: calc(var(--fs) * 0.29);
+      }
+      span {
+        margin: 0 calc(var(--fs) * 0.15);
+      }
+    }
+
+    .section-bck {
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: radial-gradient(
+        55.09% 55.09% at 51.04% 50%,
+        #130236 0%,
+        #000 100%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img,
+      picture {
+        width: calc(var(--fs) * 120 * 0.6);
+        height: calc(var(--fs) * 67.5 * 0.6);
+        max-width: none;
+      }
+    }
+
+    .primary-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: calc(var(--fs) * 0.2) calc(var(--fs) * 0.25)
+        calc(var(--fs) * 0.2) calc(var(--fs) * 0.875);
+      border-radius: calc(var(--fs) * 0.75);
+      font-size: calc(var(--fs) * 0.875);
+      letter-spacing: calc(var(--fs) * -0.035);
+
+      .icon {
+        width: calc(var(--fs) * 1.97);
+        height: calc(var(--fs) * 1.92);
+        border-radius: calc(var(--fs) * 0.625);
+        margin-left: calc(var(--fs) * 0.57);
+        img {
+          width: calc(var(--fs) * 1.08);
+          height: calc(var(--fs) * 0.84);
+        }
+      }
+    }
+  }
+
+  @media (min-width: 681px) and (orientation: portrait) {
+    :root {
+      --fs: 2vw;
+      --top-padding: calc(var(--fs) * 3);
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 680px) and (orientation: portrait) {
+    :root {
+      --fs: 3.5vw;
+      --top-padding: calc(var(--fs) * 3);
+      --top-space: min(calc(var(--fs) * 5), 7.5vh);
+    }
+  }
+
+  @media (max-width: 480px) and (orientation: portrait) {
+  }
+
+  @media (max-width: 480px) and (min-aspect-ratio: 0.55) and (orientation: portrait) {
+  }
+
+  @media (max-width: 300px) and (orientation: portrait) {
+    :root {
+      --fs: 4.5vw;
+    }
+  }
+
+  @media (max-height: 500px) and (orientation: landscape) {
+  }
+
+  @media (max-width: 200px) and (orientation: portrait) {
+    /* NO WAY */
+  }
+  @media (max-height: 200px) and (orientation: landscape) {
+    /* NO WAY */
+  }
+</style>

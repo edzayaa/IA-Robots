@@ -1,0 +1,105 @@
+---
+import Layout from "../layouts/Layout.astro";
+import hero_home_2 from "../assets/hero_home_2.png";
+import { Picture } from "astro:assets";
+---
+
+<Layout renderFooter={false} htmlClasses="fixed">
+  <section>
+    <Picture
+      class="shot"
+      src={hero_home_2}
+      alt="Ai Robots"
+      formats={["avif", "webp"]}
+    />
+    <h1>404</h1>
+    <p>This page doesn't exist yet!</p>
+  </section>
+</Layout>
+
+<style lang="scss">
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    & > * {
+      color: #fff;
+      z-index: 1;
+    }
+    h1,
+    p {
+      text-align: center;
+      font-family: "Work Sans", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1; /* 100% */
+    }
+    h1 {
+      font-size: calc(var(--fs) * 15);
+      font-weight: 900;
+    }
+    p {
+      font-size: calc(var(--fs) * 1.5);
+      font-style: italic;
+      margin-top: calc(var(--fs) * 1);
+    }
+    .shot {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.5;
+      filter: blur(calc(var(--fs) * 0.1));
+      -webkit-filter: blur(calc(var(--fs) * 0.1));
+      animation: playing 12s ease-in-out infinite;
+      @keyframes playing {
+        10% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05) translateX(-2%);
+        }
+      }
+    }
+  }
+
+  @media (orientation: portrait) {
+    section {
+      min-height: unset;
+      height: 100svh;
+      h1 {
+        font-size: calc(var(--fs) * 7.5);
+        font-weight: 900;
+      }
+      p {
+        font-size: calc(var(--fs) * 1.25);
+        font-style: italic;
+      }
+      @keyframes playing {
+        20% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05) translateY(-2%);
+        }
+      }
+    }
+  }
+</style>
+
+<style is:global lang="scss">
+  @media (orientation: landscape) {
+    header {
+      // grid-template-columns: max-content;
+      // place-items: center !important;
+      // place-content: center !important;
+      .menus {
+        visibility: hidden;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+interface Props {
+  visible: "visible" | "invisible";
+}
+const { visible = "invisible" } = Astro.props;
+---
+
+<aside
+  id="preloader"
+  class={visible}
+  transition:animate="none"
+  style={{ display: import.meta.env.DEV ? "none" : "flex" }}
+>
+  <div class="logo intro">
+    <img
+      src="/logos/ai_robots_logo.svg"
+      alt="Ai Robots Brand"
+      width=""
+      height=""
+    />
+  </div>
+</aside>
+
+<style lang="scss">
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200000;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    // opacity: 1 !important;
+    // visibility: visible !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.invisible {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .logo {
+      overflow: hidden;
+      width: calc(var(--fs) * 15.4375);
+      height: calc(var(--fs) * 2.0625);
+      &.intro {
+        opacity: 0;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+</style>

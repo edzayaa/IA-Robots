@@ -1,0 +1,296 @@
+<>
+  <header transition:persist="header" transition:animate="none">
+    <a href="/" class="brand-link home-link" aria-label="Click to go home">
+      <img
+        src="/logos/ai_robots_logo.svg"
+        alt="Ai Robots Brand"
+        width=""
+        height=""
+      />
+    </a>
+
+    <div class="menus">
+      <button aria-label="Click to open mobile menu" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+      <button aria-label="Click to search">
+        <img src="/icons/magnifier.svg" alt="Search" />
+      </button>
+      <span></span>
+      <button aria-label="Click to check account">
+        <img src="/icons/user.svg" alt="User Account" />
+      </button>
+      <button aria-label="Click to open the cart">
+        <img src="/icons/bag.svg" alt="Cart" />
+      </button>
+    </div>
+  </header>
+  <nav transition:persist="nav" transition:animate="none">
+    <a href="/" class="home-link">
+      <img src="/icons/home.png" alt="Home" />
+      home</a
+    >
+    <a href="/humanoid">humanoid</a>
+    <a href="/quadruped">quadruped</a>
+    <a href="/digital-human">digital human</a>
+    <a href="/industry">industry</a>
+  </nav>
+</>
+
+<style lang="scss">
+  header {
+    position: fixed;
+    top: calc(var(--fs) * 2.5);
+    left: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--hor-padding);
+    z-index: 10;
+    pointer-events: none;
+    & > * {
+      pointer-events: auto;
+    }
+
+    .brand-link {
+      width: calc(var(--fs) * 13.1875);
+      height: calc(var(--fs) * 1.625);
+      background: none !important;
+      border: none !important;
+      &:hover {
+        background: none !important;
+        border: none !important;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .menus {
+      display: flex;
+      align-items: center;
+      button {
+        width: calc(var(--fs) * 2.8125);
+        height: calc(var(--fs) * 2.8125);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(var(--fs) * 2.8125);
+        height: calc(var(--fs) * 2.8125);
+        border-radius: calc(var(--fs) * 0.875);
+        border-top: 0.5px solid #242222;
+        border-bottom: 0.5px solid #242222;
+        background: rgba(18, 18, 18, 0.4);
+        backdrop-filter: blur(0.5vw);
+        -webkit-backdrop-filter: blur(0.5vw);
+        transition: background-color 0.15s ease-in;
+        margin-right: calc(var(--fs));
+        &:last-of-type {
+          margin-right: 0;
+        }
+        &#hamburger,
+        span {
+          display: none;
+        }
+        img {
+          height: calc(var(--fs) * 1.3);
+          width: auto;
+        }
+      }
+    }
+    a,
+    button {
+      &.active,
+      &:hover {
+        font-weight: 500;
+        background-color: #282828 !important;
+        border-bottom: calc(var(--fs) * 0.005) solid #666 !important;
+      }
+    }
+  }
+
+  nav {
+    border-radius: calc(var(--fs) * 0.875);
+    // border: 0.5px solid #242222;
+    background: rgba(18, 18, 18, 0.4);
+    backdrop-filter: blur(0.5vw);
+    -webkit-backdrop-filter: blur(0.5vw);
+    height: calc(var(--fs) * 3.5);
+    padding: calc(var(--fs) * 0.35) calc(var(--fs) * 0.35);
+    padding-right: calc(var(--fs) * 1);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    grid-auto-rows: 1fr;
+    gap: calc(var(--fs));
+    place-items: center;
+    place-content: center;
+    position: fixed;
+    top: calc(var(--fs) * 2.5);
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 10;
+
+    a {
+      color: #fff;
+      font-family: "Work Sans";
+      font-size: var(--fs);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+      border-radius: calc(var(--fs) * 0.875);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 calc(var(--fs) * 1.5);
+      text-transform: capitalize;
+      transition: background-color 0.15s ease-in;
+
+      img {
+        width: calc(var(--fs) * 1.25);
+        height: calc(var(--fs) * 1.25);
+        margin-right: calc(var(--fs) * 0.5);
+      }
+    }
+    a,
+    button {
+      &.active,
+      &:hover {
+        font-weight: 500;
+        background-color: #282828 !important;
+        border-bottom: calc(var(--fs) * 0.005) solid #666 !important;
+      }
+    }
+  }
+
+  @media (orientation: portrait) and (min-width: 681px) {
+    header {
+      --fs: 1.25vw;
+      --height: calc(var(--fs) * 4);
+
+      .menus {
+        button {
+          width: var(--height);
+          height: var(--height);
+          margin-right: calc(var(--fs) * 0.75);
+          img {
+            height: calc(var(--fs) * 1.75);
+            width: auto;
+          }
+        }
+      }
+    }
+    nav {
+      --fs: 1.25vw;
+      --height: calc(var(--fs) * 4);
+
+      border-radius: calc(var(--fs) * 0.875);
+      border: 0.5px solid #242222;
+      background: #121212;
+      backdrop-filter: blur(32.75px);
+      padding: calc(var(--fs) * 0.35) calc(var(--fs) * 0.35) !important;
+      gap: 0;
+      height: var(--height);
+      a {
+        font-size: calc(var(--fs) * 1.25);
+        padding: 0 calc(var(--fs) * 0.75);
+      }
+    }
+  }
+
+  @media (orientation: portrait) and (max-width: 680px) {
+    header {
+      top: calc(var(--fs) * 1.44);
+      grid-template-columns: 100%;
+      padding: 0 var(--hor-padding);
+      a,
+      button {
+        &.active,
+        &:hover {
+          font-weight: 500;
+          background: none !important;
+          border: none !important;
+        }
+      }
+      .brand-link {
+        width: calc(var(--fs) * 9.56213);
+        height: calc(var(--fs) * 1.17831);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .menus {
+        display: grid;
+        grid-template-columns: repeat(2, max-content) 1fr repeat(2, max-content);
+        gap: calc(var(--fs) * 0.25);
+        height: 100%;
+        width: 100%;
+        button {
+          border-radius: initial;
+          border-top: initial;
+          border-bottom: initial;
+          background-color: initial;
+          backdrop-filter: unset !important;
+          -webkit-backdrop-filter: unset !important;
+          transition: background-color 0.15s ease-in;
+          width: initial;
+          height: initial;
+          &#hamburger {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: calc(var(--fs) * 1.953);
+            height: 100%;
+            padding: calc(var(--fs) * 0.25) 0;
+            transition: transform 0.15s ease-out;
+            &.open {
+              transform: translateX(35%);
+              span {
+                &:first-of-type {
+                  transform: rotate(45deg) translateY(calc(var(--fs) * 0.727));
+                }
+                &:nth-of-type(2) {
+                  opacity: 0;
+                }
+                &:last-of-type {
+                  transform: rotate(-45deg) translateY(calc(var(--fs) * -0.727));
+                }
+              }
+            }
+            span {
+              width: 70%;
+              height: 1.5px;
+              background-color: #fff;
+              display: block;
+              border-radius: 1px;
+              pointer-events: none;
+              transition:
+                transform 0.15s ease-out,
+                opacity 0.15s ease-in !important;
+              &:nth-of-type(2) {
+                width: 100%;
+              }
+            }
+          }
+          img {
+            height: 100%;
+            width: auto;
+          }
+        }
+      }
+    }
+    nav {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+</style>

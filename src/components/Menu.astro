@@ -1,0 +1,224 @@
+---
+import { menuLinks } from "../scripts/utils/menuButtons";
+---
+
+<aside id="menu" transition:animate="none">
+  <div class="menu-wrapper">
+    {
+      menuLinks.map((group, index) => (
+        <div class="accordion accordion-1 hidden accordion-group">
+          {index == 0 ? (
+            <a href="/" class="btn home-link">
+              {group.name}
+              <img src="/icons/home.png" alt="" loading="lazy" />
+            </a>
+          ) : (
+            <button class="btn">
+              {group.name}
+              <img src="/icons/chevron-down.svg" alt="" loading="lazy" />
+            </button>
+          )}
+
+          {group.options && (
+            <div class="accordion child">
+              {group?.options?.map((option) => (
+                <div class="hidden accordion-2 accordion-group">
+                  <button class="btn">
+                    {option.name}
+
+                    <img src="/icons/chevron-down.svg" alt="" loading="lazy" />
+                  </button>
+
+                  <div class="products child">
+                    {option.products.map((product) => (
+                      <a href={product.link}>
+                        <img
+                          src={
+                            product.image
+                              ? product.image
+                              : "/images/menu/go2_w.png"
+                          }
+                          alt=""
+                          loading="lazy"
+                        />
+                        <span>{product.name}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</aside>
+
+<style lang="scss">
+  #menu {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  @media (orientation: portrait) and (max-width: 681px) {
+    #menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 5;
+      background-color: #000;
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      padding-top: calc(var(--fs) * 5);
+      padding-bottom: calc(var(--fs) * 5);
+      transform: translateY(-100%);
+      transition: transform 0.25s ease-out;
+      overflow-y: auto;
+      & > * {
+        opacity: 0;
+        transition: opacity 0.15s ease-in 0.2s;
+      }
+      &.open {
+        transform: translateY(0);
+        & > * {
+          opacity: 1;
+        }
+      }
+      .menu-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        height: fit-content;
+        & > * {
+          width: 100%;
+        }
+      }
+
+      .accordion-1 .btn,
+      .accordion-2 .btn {
+        color: #fff;
+        text-align: left;
+        font-family: "Work Sans";
+        font-size: calc(var(--fs) * 1.375);
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-transform: capitalize;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .accordion-1 {
+        position: relative;
+        &::after {
+          content: "";
+          width: 100%;
+          height: 0.5px;
+          background: radial-gradient(#fff, #fff0);
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          opacity: 0.35;
+        }
+        .btn {
+          padding: calc(var(--fs) * 1) calc(var(--hor-padding));
+        }
+      }
+      .accordion-2 {
+        padding: 0;
+        .btn {
+          padding: calc(var(--fs) * 0.75) 0;
+          padding-left: calc(var(--fs) * 2);
+          padding-right: calc(var(--fs) * 1);
+          color: #969696;
+          img {
+            opacity: 0.35;
+          }
+        }
+        .products {
+          display: grid;
+          grid-auto-flow: column;
+          grid-auto-columns: max-content;
+          gap: calc(var(--fs) * 0.3);
+          padding: 0 calc(var(--hor-padding)) calc(var(--fs) * 2);
+          overflow-x: auto;
+
+          a {
+            width: calc(var(--fs) * 11.25238);
+            height: calc(var(--fs) * 12.87919);
+            border-radius: calc(var(--fs));
+            overflow: hidden;
+            background-color: #121212;
+            text-transform: capitalize;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            position: relative;
+            padding: calc(var(--fs));
+            transition: background-color 0.15s ease-in;
+            &:hover {
+              background-color: #262626;
+            }
+            img {
+              width: 60%;
+              height: 60%;
+              margin-bottom: calc(var(--fs) * 1);
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -60%);
+              object-fit: cover;
+            }
+            span {
+              color: #fff;
+              font-family: "Work Sans";
+              font-size: calc(var(--fs) * 1.0625);
+              font-style: normal;
+              font-weight: 500;
+              line-height: normal;
+            }
+          }
+        }
+      }
+      .accordion-group {
+        overflow: hidden;
+
+        .btn {
+          img {
+            transition: transform 0.15s ease-in;
+            transform: rotate(180deg);
+          }
+        }
+        .child {
+          transition-property: display, opacity;
+          transition-duration: 0.25s;
+          transition-timing-function: ease-in-out;
+          transition-behavior: allow-discrete;
+          @starting-style {
+            opacity: 0;
+          }
+        }
+
+        &.hidden {
+          .child {
+            display: none !important;
+            visibility: hidden !important;
+          }
+          .btn {
+            img {
+              transform: rotate(0deg) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>
