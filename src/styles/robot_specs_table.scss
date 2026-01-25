@@ -1,0 +1,159 @@
+.table {
+  margin-top: calc(var(--fs) * 4);
+  .head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .span {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+      align-items: center;
+      gap: calc(var(--fs));
+      div {
+        --dimension: calc(var(--fs) * 0.1);
+        width: calc(var(--fs) * 6.25);
+        height: var(--dimension);
+        background: var(--line-color);
+        position: relative;
+        &:first-of-type {
+          &::after {
+            content: "";
+            display: block;
+            background: var(--line-color);
+            width: calc(var(--dimension) * 4);
+            height: calc(var(--dimension) * 4);
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(0%, -50%) rotate(45deg);
+          }
+        }
+        &:last-of-type {
+          &::before {
+            content: "";
+            display: block;
+            background: var(--line-color);
+            width: calc(var(--dimension) * 4);
+            height: calc(var(--dimension) * 4);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(0%, -50%) rotate(45deg);
+          }
+        }
+      }
+      span {
+        color: #6289ff;
+        font-family: "Work Sans";
+        font-size: calc(var(--fs) * 1.25);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: capitalize;
+        display: block;
+      }
+    }
+
+    h2 {
+      margin-top: calc(var(--fs) * 1.875);
+    }
+  }
+  .robot-spec-table {
+    width: calc(var(--fs) * 101.875);
+    border-collapse: collapse;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: calc(var(--fs) * 2.5);
+  }
+
+  .robot-spec-table th {
+    color: #ffffff;
+    font-size: calc(var(--fs) * 1.5);
+    text-transform: capitalize;
+    background-color: #0a0a0a;
+    border-top: none !important;
+  }
+
+  .robot-spec-table th,
+  .robot-spec-table td {
+    padding: calc(var(--fs) * 2.19) calc(var(--fs) * 7.5);
+    padding-right: 0;
+    width: calc(100% / 3);
+    min-width: calc(100% / 3);
+    border: 1px solid #282828;
+    border-right: none;
+    border-left: none;
+    text-align: left;
+  }
+
+  .robot-spec-table td {
+    color: var(--Gray-Paragraph, #cbcbcb);
+    font-size: calc(var(--fs) * 1.25);
+  }
+  .robot-spec-table tbody tr:nth-child(odd) {
+    background-color: #101010;
+  }
+
+  .robot-spec-table tbody tr:nth-child(even) {
+    background-color: #0a0a0a;
+  }
+}
+
+@media (orientation: portrait) {
+  .table {
+    margin-top: calc(var(--fs) * 1);
+    padding: 0 calc(var(--hor-padding));
+    .head {
+      .span {
+        gap: calc(var(--fs) * 2);
+        div {
+          --dimension: calc(var(--fs) * 0.085);
+          width: calc(var(--fs) * 5);
+          height: var(--dimension);
+          position: relative;
+          &:first-of-type {
+            background: linear-gradient(-90deg, var(--line-color), #00000000);
+          }
+          &:last-of-type {
+            background: linear-gradient(90deg, var(--line-color), #00000000);
+          }
+        }
+        span {
+          font-size: calc(var(--fs) * 0.875);
+        }
+      }
+
+      h2 {
+        margin-top: calc(var(--fs) * 1.875);
+      }
+    }
+    .robot-spec-table {
+      width: 100%;
+      padding: 0 calc(var(--hor-padding));
+      margin-top: calc(var(--fs) * 1.63);
+      border-style: hidden;
+    }
+
+    .robot-spec-table th {
+      font-size: calc(var(--fs) * 1.0625);
+    }
+
+    .robot-spec-table th,
+    .robot-spec-table td {
+      padding: calc(var(--fs) * 1) calc(var(--fs) * 0.81);
+      width: calc(100% / 3);
+      min-width: calc(100% / 3);
+      border: 1px solid #282828 !important;
+    }
+
+    .robot-spec-table td {
+      font-size: calc(var(--fs) * 0.875);
+    }
+  }
+}

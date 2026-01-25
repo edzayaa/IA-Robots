@@ -62,7 +62,6 @@ export function footer() {
                     start: "top bottom",
                     end: "top bottom-=5%",
                     scrub: true,
-                    markers: import.meta.env.DEV,
                     id: "footer"
                 },
             })

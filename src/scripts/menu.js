@@ -42,14 +42,19 @@ export function menu() {
     document.addEventListener("astro:before-swap", () => {
         hamburger.removeEventListener("click", hamburgerClick);
 
+
         accordionGroups.forEach((group, index) => {
             if (index == 0) return;
 
             const button = group.querySelector("button");
-            btns.push(button)
+            // btns.push(button)
 
             button.removeEventListener("click", () => btnClick(index));
+
         });
+
+        menuBtn.classList.remove("open");
+        hamburger.classList.remove("open");
     });
 
 

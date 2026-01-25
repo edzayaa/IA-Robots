@@ -1,0 +1,39 @@
+@use "./robot_specs_table.scss";
+
+#tech-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: unset;
+  padding-top: calc(var(--top-space) * 0.5);
+  picture {
+    width: calc(var(--fs) * 82.5);
+    height: calc(var(--fs) * 44);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  #tech-section {
+    padding-top: calc(var(--top-space) * 1.5);
+    picture {
+      width: 120%;
+      max-width: unset;
+      height: calc(var(--fs) * 17.18);
+    }
+  }
+
+  @media (min-aspect-ratio: 0.625) {
+    #tech-section {
+      padding-top: calc(var(--top-space) * 2);
+      picture {
+        width: calc(var(--fs) * 82.5 * 0.85);
+        height: calc(var(--fs) * 44 * 0.85);
+      }
+    }
+  }
+}

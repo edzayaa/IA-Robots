@@ -1,0 +1,782 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import heroImg from "../../../assets/go2_w/unitree_go2_w_hero.png";
+import { Picture } from "astro:assets";
+import newPic from "../../../assets/go2/new_go2.png";
+import openPlatform from "../../../assets/go2/open_platform.png";
+
+import { Image } from "astro:assets";
+import blue_shade from "@assets/blue_shade.png";
+import "@styles/cards_section.scss";
+import ButtonPrimary from "@components/ButtonPrimary";
+import ButtonSecondary from "@components/ButtonSecondary";
+import enhanced from "@assets/go2/go2.png";
+import "@styles/book_section.scss";
+import book_bck from "@assets/book_bck.png";
+
+import "@styles/shot_section.scss";
+import "@styles/new_section.scss";
+import "@styles/simple_section.scss";
+import "@styles/tech_section.scss";
+
+---
+
+<Layout>
+  <section id="hero-section">
+    <div class="hero-shot">
+      <video class="media" playsinline muted loop preload="metadata">
+        <source src="/videos/go2/hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <div class="content">
+      <h1 class="h1">Unitree Go2</h1>
+      <p class="subtitle-3">Transformative Newborn</p>
+    </div>
+    <div class="sub-content">
+      <p class="h1">
+        The World’s Most Intelligent and <br /> Accessible Quadruped Robot
+      </p>
+      <span class="paragraph-1">
+        Experience the future of companion robotics with the Go2, featuring the
+        standard ultra-wide 4D LiDAR and the revolutionary Intelligent
+        Side-follow System (ISS 2.0).
+      </span>
+
+      <!-- <ButtonPrimary content="Watch Video" /> -->
+    </div>
+  </section>
+  <section id="new-section">
+    <div class="content">
+      <!-- <div class="line-element">
+        <div></div>
+        <span> Wheeled Legged Robot Dog</span>
+        <div></div>
+      </div> -->
+      <h2 class="h1">Motor perfomanced <br /> enhanced by 30%</h2>
+      <!-- <p>Transformative Newborn</p> -->
+    </div>
+    <div class="shot">
+      <Picture
+        src={newPic}
+        alt={"Go2 New Model "}
+        fetchpriority={"high"}
+        quality={"max"}
+      />
+      <div class="detail">
+        <p>Standard Ultra-<br />wide 4D LiDAR L1</p>
+        <span>Sensing </span>
+        <img src="/images/indicator.svg" alt="" loading="lazy" />
+      </div>
+      <div class="detail">
+        <p>ISS 2.0 Intelligent <br /> Side-follow System</p>
+        <span>Intelligence </span>
+        <img src="/images/indicator.svg" alt="" loading="lazy" />
+      </div>
+      <div class="detail">
+        <p>Affordability</p>
+        <span> Starting from $1600 (Go2 AIR)</span>
+        <img src="/images/indicator.svg" alt="" loading="lazy" />
+      </div>
+      <div class="detail">
+        <p>Motor performance <br /> enhanced by 30%</p>
+        <span> Performance</span>
+        <img src="/images/indicator.svg" alt="" loading="lazy" />
+      </div>
+    </div>
+
+    <Image class={"blue-shade"} src={blue_shade} alt={""} format="webp" />
+  </section>
+  <section class="simple-section">
+    <h2 class="h1">3D LiDAR Mapping</h2>
+    <p class="paragraph-1">
+      With L1 LiDAR and a dedicated App, you can construct point cloud map
+      within a certain area, and specify a path for Go2 to move autonomously.
+    </p>
+    <div class="media-wrapper">
+      <video playsinline muted loop preload="metadata" class="media">
+        <source src="/videos/go2/1.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </section>
+  <section class="simple-section">
+    <h2 class="h1">Intelligent Side-follow <br /> System 2.0 (ISS 2.0)</h2>
+    <p class="paragraph-1">
+      The ISS 2.0 uses new wireless vector positioning and control technology to
+      improve positioning accuracy by 50%. The robot can track and follow its
+      user over a distance of 30m, navigating complex terrain with an optimized
+      obstacle avoidance strategy. This makes the Go2 a truly hands-free,
+      intelligent companion.
+    </p>
+    <div class="media-wrapper">
+      <video playsinline muted loop preload="metadata" class="media">
+        <source src="/videos/go2/2.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </section>
+
+  <section class="simple-section shadow-type-desktop shadow-type-tablet shadow-type-mobile">
+    <h2 class="h1">
+      Enhanced Power <br class="br-tablet" /> and <br
+        class="br-desktop br-mobile"
+      /> Endurance
+    </h2>
+    <p class="paragraph-1">
+      The Go2 boasts a 30% enhancement in motor performance with a peak joint
+      torque of 45 N.m. The battery capacity has also been upgraded by 150% to
+      8,000mAh (Standard) or an optional 15,000mAh ultra-long life battery,
+      providing up to 2-4 hours of endurance and improving motor efficiency and
+      stability.
+    </p>
+    <div class="media-wrapper">
+      <Picture
+        src={enhanced}
+        alt={"Enhanced Power and Endurance"}
+        fetchpriority={"high"}
+        quality={"max"}
+      />
+    </div>
+  </section>
+
+  <section class="simple-section last-go2">
+    <h2 class="h1">Open Platform for  <br> Learning and Fun</h2>
+    <p class="paragraph-1">
+      The Go2 is an ideal platform for learning and development. It supports
+      Graphical Programming for easy, drag-and-drop program design, making
+      robotics accessible to beginners. It also supports Secondary Development
+      and features OTA Upgrades to continuously improve the user experience and
+      intelligence over time.
+    </p>
+    <div class="media-wrapper">
+      <Picture
+        src={openPlatform}
+        alt={"Enhanced Power and Endurance"}
+        fetchpriority={"high"}
+        quality={"max"}
+      />
+    </div>
+  </section>
+  <section id="tech-section">
+    <!-- <Picture src={specs} alt={"Technical specifications"} /> -->
+
+    <div class="table">
+      <div class="head">
+        <div class="line-element big-desktop">
+          <div></div>
+          <span> Go2</span>
+          <div></div>
+        </div>
+        <h2 class="h1">Technical Specifications</h2>
+      </div>
+
+      <table class="robot-spec-table">
+        <thead>
+          <tr>
+            <th>Characteristic</th>
+            <th>Value</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Weight (with battery)</td>
+            <td>18kg</td>
+            <td>Highly portable for a wheeled-legged robot.</td>
+          </tr>
+          <tr>
+            <td>Payload (Max)</td>
+            <td>8kg (MAX ~ 12kg)</td>
+            <td>Suitable for various sensors and payloads.</td>
+          </tr>
+          <tr>
+            <td>Speed Range</td>
+            <td>0 - 2.5 m/s</td>
+            <td>Efficient wheeled movement and dynamic legged motion.</td>
+          </tr>
+          <tr>
+            <td>Endurance</td>
+            <td>1.5 - 3h (15000mAh battery)</td>
+            <td>Varies based on mode of locomotion and load.</td>
+          </tr>
+          <tr>
+            <td>Max Joint Torque</td>
+            <td>45 N.m</td>
+            <td>Ensures responsive and stable movement.</td>
+          </tr>
+          <tr>
+            <td>Obstacle Crossing</td>
+            <td>Up to 70cm</td>
+            <td>Superior capability for overcoming large obstacles.</td>
+          </tr>
+          <tr>
+            <td>Sensing</td>
+            <td>3D LiDAR + HD Wide-angle Camera</td>
+            <td>Advanced environmental awareness.</td>
+          </tr>
+          <tr>
+            <td>Computing</td>
+            <td>8-core CPU, Orin NX optional</td>
+            <td>Powerful core for AI and development.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section class="cards-section">
+    <h2 class="h2">Enhance Your Go2 <br class="br-mobile" /> Capabilities</h2>
+    <div class="cards">
+      <div class="card no-shot with-border">
+        <strong class="shade"></strong>
+        <strong class="shade"></strong>
+
+        <!-- <h3>z1</h3> -->
+        <span> Long Endurance Battery </span>
+
+        <p>
+          Double your Go2's operational time for extended adventures or
+          research.
+        </p>
+        <div class="buttons">
+          <ButtonPrimary content="Add to cart" />
+          <ButtonSecondary content="Learn more" />
+        </div>
+        <!-- <Picture
+          class="shot"
+          src={card_1}
+          alt="Robot"
+          fetchpriority={"high"}
+          quality={"max"}
+        /> -->
+      </div>
+      <div class="card no-shot with-border">
+        <strong class="shade"></strong>
+        <strong class="shade"></strong>
+        <!-- <h3>Battery</h3> -->
+        <span> NVIDIA Jetson Orin NX </span>
+        <p>
+          Boost the computing core for high-speed AI processing and complex
+          model deployment (EDU model).
+        </p>
+        <div class="buttons">
+          <ButtonPrimary content="Add to cart" />
+          <ButtonSecondary content="Learn more" />
+        </div>
+        <!-- <Picture
+          class="shot"
+          src={card_2}
+          alt="Robot"
+          fetchpriority={"high"}
+          quality={"max"}
+        /> -->
+      </div>
+      <div class="card no-shot with-border">
+        <strong class="shade"></strong>
+        <strong class="shade"></strong>
+        <!-- <h3>SDK</h3> -->
+        <span> Unitree D1 Servo <br /> Mechanical Arm </span>
+        <p>
+          Integrate a lightweight arm for basic manipulation and interaction
+          tasks.
+        </p>
+        <div class="buttons">
+          <ButtonPrimary content="Add to cart" />
+          <ButtonSecondary content="Learn more" />
+        </div>
+        <!-- <Picture
+          class="shot"
+          src={card_3}
+          alt="Robot"
+          fetchpriority={"high"}
+          quality={"max"}
+        /> -->
+      </div>
+    </div>
+  </section>
+  <section class="book-section">
+    <div class="book-wrapper">
+      <div class="first">
+        <strong class="shade"></strong>
+        <strong class="shade"></strong>
+        <h4 class="title">Ready to Start Your Robotics Journey?</h4>
+        <p class="paragraph-1">
+          The Unitree Go2-W is available exclusively through AIROBOTS in Greece.
+          Contact us to explore its full potential for your research or
+          commercial needs.
+        </p>
+        <div class="buttons">
+          <ButtonPrimary content="Request a quote" />
+          <ButtonSecondary content="Contact Sales Team" />
+        </div>
+      </div>
+      <div class="second">
+        <Picture
+          class="book-bck"
+          src={book_bck}
+          alt=""
+          fetchpriority={"high"}
+          quality={"max"}
+        />
+        <Picture
+          class="book-shot"
+          src={newPic}
+          alt=""
+          fetchpriority={"high"}
+          quality={"max"}
+        />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss" is:global>
+  #hero-section {
+    padding-top: calc(var(--top-space) * 0.5);
+    padding-bottom: calc(var(--top-space) * 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      background: linear-gradient(#000, #00000000);
+      opacity: 0.5;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-shot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 100%);
+      }
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: bottom center;
+      }
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      p {
+        margin-top: calc(var(--fs) * 1.25);
+      }
+    }
+    .sub-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .h1 {
+        text-align: center;
+      }
+      .paragraph-1 {
+        margin-top: calc(var(--fs) * 1);
+        width: calc(var(--fs) * 38.6875);
+      }
+      .primary-btn {
+        margin-top: calc(var(--fs) * 3.12);
+      }
+    }
+  }
+
+  #new-section {
+    .shot {
+      picture {
+        width: calc(var(--fs) * 40);
+        height: calc(var(--fs) * 40);
+      }
+    }
+  }
+
+  // .shot-section {
+  //   display: flex;
+  //   align-items: flex-end;
+  //   height: 100vh;
+  //   padding: 0 calc(var(--hor-padding)) calc(var(--top-space) * 0.25);
+  //   overflow: hidden;
+  //   &::after {
+  //     content: "";
+  //     position: absolute;
+  //     bottom: -1%;
+  //     left: 0;
+  //     width: 100%;
+  //     height: 50%;
+  //     pointer-events: none;
+  //     background: linear-gradient(#00000000, #000);
+  //   }
+  //   .media {
+  //     position: absolute;
+  //     top: 0;
+  //     left: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     object-fit: cover;
+  //     z-index: -1;
+  //   }
+  //   .content {
+  //     display: grid;
+  //     grid-auto-flow: row;
+  //     gap: calc(var(--fs) * 1);
+  //     grid-auto-rows: max-content;
+  //     width: 50vw;
+  //     position: relative;
+  //     z-index: 2;
+  //     & > * {
+  //       text-align: left;
+  //     }
+  //     p {
+  //       width: 90%;
+  //     }
+  //   }
+  //   &:nth-of-type(odd) {
+  //     justify-content: flex-end;
+  //   }
+  //   &.last {
+  //     justify-content: center !important;
+
+  //     .content {
+  //       & > * {
+  //         text-align: center;
+  //       }
+  //     }
+  //   }
+  // }
+  #media-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: unset;
+    padding: calc(var(--top-space) * 0.5) 0 0;
+    video {
+      width: calc(var(--fs) * 72.1875);
+      height: calc(var(--fs) * 40.625);
+      object-fit: cover;
+
+      border-radius: calc(var(--fs) * 3.125);
+    }
+    h2 {
+      margin-top: calc(var(--fs) * 3.12);
+    }
+    .line-element {
+      margin-top: calc(var(--fs) * 1.5);
+      span {
+        text-transform: lowercase;
+      }
+    }
+  }
+
+  // #tech-section {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  //   min-height: unset;
+  //   padding-top: calc(var(--top-space) * 0.5);
+  //   picture {
+  //     width: calc(var(--fs) * 82.5);
+  //     height: calc(var(--fs) * 44);
+  //     img {
+  //       width: 100%;
+  //       height: 100%;
+  //       object-fit: cover;
+  //     }
+  //   }
+  // }
+
+  .book-section {
+    .book-wrapper {
+      .second {
+        .book-shot {
+          width: 110%;
+          height: 105%;
+          object-fit: cover;
+          transform: translate(-50%, 20%);
+        }
+      }
+    }
+  }
+
+  @media (orientation: portrait) {
+    #hero-section {
+      padding-top: calc(var(--top-space) * 2);
+      padding-bottom: calc(var(--top-space) * 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100svh;
+      min-height: unset;
+      .hero-shot video {
+        object-position: 30% 0%;
+      }
+      & > * {
+        z-index: 2;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p {
+          margin-top: calc(var(--fs) * 0.75);
+        }
+      }
+      .sub-content {
+        width: 100%;
+        .subtitle-2 {
+          margin-top: calc(var(--fs) * 1.19);
+        }
+        .paragraph-1 {
+          padding: 0 calc(var(--hor-padding) * 4);
+          margin-top: calc(var(--fs) * 0.75);
+          width: 100%;
+        }
+        .primary-btn {
+          margin-top: calc(var(--fs) * 2.25);
+        }
+      }
+    }
+
+    #new-section {
+      .shot {
+        picture {
+          width: calc(var(--fs) * 22.5);
+          height: calc(var(--fs) * 22.5);
+        }
+      }
+    }
+
+    // .shot-section {
+    //   height: initial;
+    //   min-height: unset;
+    //   padding: 0;
+    //   padding-bottom: calc(var(--fs) * 5);
+    //   overflow: hidden;
+    //   display: flex;
+    //   flex-direction: column;
+    //   align-items: center;
+    //   justify-content: flex-start !important;
+    //   &::after {
+    //     display: none;
+    //   }
+    //   .media {
+    //     position: static;
+    //     top: unset;
+    //     left: unset;
+    //     width: 100%;
+    //     height: calc(var(--fs) * 19.375);
+    //     object-fit: cover;
+    //     object-position: top center;
+    //     z-index: -1;
+    //   }
+    //   .content {
+    //     gap: calc(var(--fs) * 1.25);
+    //     width: 100%;
+    //     padding: 0 calc(var(--hor-padding));
+    //     margin-top: calc(var(--fs) * -3.5);
+    //     position: relative;
+    //     &::after {
+    //       content: "";
+    //       position: absolute;
+    //       top: 0;
+    //       left: 0;
+    //       transform: translateY(-25%);
+    //       width: 100%;
+    //       height: calc(var(--fs) * 5);
+    //       pointer-events: none;
+    //       z-index: 1;
+    //       background: linear-gradient(#00000000, #000);
+    //     }
+    //     & > * {
+    //       text-align: left !important;
+    //       z-index: 2;
+    //       position: relative;
+    //     }
+    //     h2 {
+    //       font-weight: 600;
+    //     }
+    //     p {
+    //       width: 95%;
+    //     }
+    //   }
+
+    //   &.last {
+    //     justify-content: flex-start !important;
+    //   }
+    // }
+
+    #media-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: unset;
+      padding: calc(var(--top-space) * 0.25) calc(var(--hor-padding)) 0;
+      video {
+        width: 100%;
+        height: calc(var(--fs) * 14.56);
+        border-radius: calc(var(--fs) * 1.875);
+      }
+      h2 {
+        margin-top: calc(var(--fs) * 1.22);
+        font-weight: 600;
+      }
+    }
+
+    // #tech-section {
+    //   padding-top: calc(var(--top-space) * 0.5);
+    //   picture {
+    //     width: 120%;
+    //     max-width: unset;
+    //     height: calc(var(--fs) * 17.18);
+    //   }
+    // }
+
+    @media (min-aspect-ratio: 0.625) {
+      #hero-section {
+        padding-top: calc(var(--top-space) * 2);
+        padding-bottom: calc(var(--top-space) * 0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        height: 100svh;
+        min-height: unset;
+        .hero-shot video {
+          object-position: 40% 0%;
+        }
+        .content {
+          p {
+            margin-top: calc(var(--fs) * 1.25);
+          }
+        }
+        .sub-content {
+          width: 100%;
+          .subtitle-2 {
+            margin-top: calc(var(--fs) * 1.19);
+          }
+          .paragraph-1 {
+            padding: 0 calc(var(--hor-padding) * 5);
+            margin-top: calc(var(--fs) * 0.75);
+          }
+          .primary-btn {
+            margin-top: calc(var(--fs) * 2.25);
+          }
+        }
+      }
+
+      #new-section {
+        .shot {
+          picture {
+            width: calc(var(--fs) * 40);
+            height: calc(var(--fs) * 40);
+          }
+        }
+      }
+
+      // .shot-section {
+      //   height: initial;
+      //   min-height: unset;
+      //   padding: 0;
+      //   padding-bottom: calc(var(--fs) * 5);
+      //   overflow: hidden;
+      //   display: flex;
+      //   flex-direction: column;
+      //   align-items: center;
+      //   justify-content: flex-start !important;
+      //   &::after {
+      //     display: none;
+      //   }
+      //   .media {
+      //     position: static;
+      //     top: unset;
+      //     left: unset;
+      //     width: 100%;
+      //     height: calc(var(--fs) * 35);
+      //     object-fit: cover;
+      //     object-position: top center;
+      //     z-index: -1;
+      //   }
+      //   .content {
+      //     gap: calc(var(--fs) * 1.25);
+      //     width: 100%;
+      //     padding: 0 calc(var(--hor-padding));
+      //     margin-top: calc(var(--fs) * -3.5);
+      //     position: relative;
+      //     &::after {
+      //       content: "";
+      //       position: absolute;
+      //       top: 0;
+      //       left: 0;
+      //       transform: translateY(-75%);
+      //       width: 100%;
+      //       height: calc(var(--fs) * 15);
+      //       pointer-events: none;
+      //       z-index: 1;
+      //       background: linear-gradient(#00000000, #000);
+      //     }
+      //     & > * {
+      //       text-align: left !important;
+      //       z-index: 2;
+      //       position: relative;
+      //     }
+      //     h2 {
+      //       font-weight: 600;
+      //     }
+      //     p {
+      //       width: 95%;
+      //     }
+      //   }
+
+      //   &.last {
+      //     justify-content: flex-start !important;
+      //   }
+      // }
+
+      #media-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: unset;
+        padding: calc(var(--top-space) * 0.25) calc(var(--hor-padding)) 0;
+        video {
+          width: 100%;
+          height: calc(var(--fs) * 28.4375);
+          border-radius: calc(var(--fs) * 1.875);
+        }
+        h2 {
+          margin-top: calc(var(--fs) * 1.22);
+          font-weight: 600;
+        }
+      }
+
+      // #tech-section {
+      //   padding-top: calc(var(--top-space) * 2);
+      //   picture {
+      //     width: calc(var(--fs) * 82.5 * 0.85);
+      //     height: calc(var(--fs) * 44 * 0.85);
+      //   }
+      // }
+    }
+  }
+</style>

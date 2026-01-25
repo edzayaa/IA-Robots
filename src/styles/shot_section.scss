@@ -1,0 +1,175 @@
+.shot-section {
+  display: flex;
+  align-items: flex-end;
+  height: 100vh;
+  padding: 0 calc(var(--hor-padding)) calc(var(--top-space) * 0.25);
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -1%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    pointer-events: none;
+    background: linear-gradient(#00000000, #000);
+  }
+  .media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  .content {
+    display: grid;
+    grid-auto-flow: row;
+    gap: calc(var(--fs) * 1);
+    grid-auto-rows: max-content;
+    width: 50vw;
+    position: relative;
+    z-index: 2;
+    & > * {
+      text-align: left;
+    }
+    p {
+      width: 90%;
+    }
+  }
+  &:nth-of-type(odd) {
+    justify-content: flex-end;
+  }
+  &.last {
+    justify-content: center !important;
+
+    .content {
+      & > * {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  .shot-section {
+    height: initial;
+    min-height: unset;
+    padding: 0;
+    padding-bottom: calc(var(--fs) * 5);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start !important;
+    &::after {
+      display: none;
+    }
+    .media {
+      position: static;
+      top: unset;
+      left: unset;
+      width: 100%;
+      height: calc(var(--fs) * 19.375);
+      object-fit: cover;
+      object-position: top center;
+      z-index: -1;
+    }
+    .content {
+      gap: calc(var(--fs) * 1.25);
+      width: 100%;
+      padding: 0 calc(var(--hor-padding));
+      margin-top: calc(var(--fs) * -3.5);
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-25%);
+        width: 100%;
+        height: calc(var(--fs) * 5);
+        pointer-events: none;
+        z-index: 1;
+        background: linear-gradient(#00000000, #000);
+      }
+      & > * {
+        text-align: left !important;
+        z-index: 2;
+        position: relative;
+      }
+      h2 {
+        font-weight: 600;
+      }
+      p {
+        width: 95%;
+      }
+    }
+
+    &.last {
+      justify-content: flex-start !important;
+    }
+  }
+
+  @media (min-aspect-ratio: 0.625) {
+    .shot-section {
+      height: initial;
+      min-height: unset;
+      padding: 0;
+      padding-bottom: calc(var(--fs) * 5);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start !important;
+      &::after {
+        display: none;
+      }
+      .media {
+        position: static;
+        top: unset;
+        left: unset;
+        width: 100%;
+        height: calc(var(--fs) * 35);
+        object-fit: cover;
+        object-position: top center;
+        z-index: -1;
+      }
+      .content {
+        gap: calc(var(--fs) * 1.25);
+        width: 100%;
+        padding: 0 calc(var(--hor-padding));
+        margin-top: calc(var(--fs) * -3.5);
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: translateY(-75%);
+          width: 100%;
+          height: calc(var(--fs) * 15);
+          pointer-events: none;
+          z-index: 1;
+          background: linear-gradient(#00000000, #000);
+        }
+        & > * {
+          text-align: left !important;
+          z-index: 2;
+          position: relative;
+        }
+        h2 {
+          font-weight: 600;
+        }
+        p {
+          width: 95%;
+        }
+      }
+
+      &.last {
+        justify-content: flex-start !important;
+      }
+    }
+  }
+}
