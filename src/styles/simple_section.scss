@@ -91,6 +91,7 @@
     }
     &.align-end-desktop {
       align-content: end;
+      place-content: end;
     }
     &#swap-section {
       height: 80vh;
@@ -103,8 +104,6 @@
         }
       }
     }
-
-    
   }
 }
 

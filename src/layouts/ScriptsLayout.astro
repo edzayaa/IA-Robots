@@ -74,7 +74,6 @@
       switch (pathname) {
         case pages.home.path:
           import("../scripts/home").then(({ home }) => home());
-
           break;
 
         case pages.quadruped.path:
@@ -91,25 +90,38 @@
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
+          break;
+
         case pages.go2.path:
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
+          break;
 
         case pages.b2.path:
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
+          break;
+
         case pages.a2.path:
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
+          break;
 
         case pages.manipulators.path:
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
           break;
+
+        case pages.perception.path:
+          import("../scripts/video_media").then(({ video_media }) =>
+            video_media(),
+          );
+          break;
+
         default:
           break;
       }

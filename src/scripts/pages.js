@@ -88,9 +88,15 @@ export const pages = {
     },
     manipulators:
     {
-        path: "/quadruped/manipulators",
+        path: "/quadruped/z1-d1",
         title: "Manipulators Z1 / D1",
         description: "Manipulators Z1 / D1",
+    },
+    perception:
+    {
+        path: "/quadruped/l2-4d-lidar",
+        title: "4D LIDAR L2",
+        description: "4D LIDAR L2",
     },
 
 }

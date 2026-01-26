@@ -176,7 +176,6 @@ menuLinks;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-
       border-radius: inherit !important;
       height: 100%;
       display: flex;
@@ -217,7 +216,8 @@ menuLinks;
       display: grid;
       grid-auto-flow: column;
       grid-auto-columns: max-content;
-      gap: calc(var(--fs) * 1.75);
+      gap: 0;
+      justify-content: space-between;
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.25s ease-in;
@@ -249,7 +249,8 @@ menuLinks;
           font-style: normal;
           font-weight: 500;
           line-height: normal;
-          width: calc(var(--fs) * 12.6875);
+          // width: calc(var(--fs) * 12.6875);
+          width: 100%;
           height: calc(var(--fs) * 2.5);
           padding: 0;
           display: flex;
@@ -323,15 +324,20 @@ menuLinks;
 
     .sub-nav {
       min-height: calc(var(--fs) * 15);
-      grid-template-columns: repeat(2, 1fr);
-      gap: calc(var(--fs) * 1) !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      grid-auto-flow: unset !important;
+      grid-auto-columns: unset !important;
+      column-gap: calc(var(--fs) * 1) !important;
+      row-gap: calc(var(--fs) * 2) !important;
+      padding: calc(var(--fs) * 1) !important;
+      background-color: rgba(18, 18, 18, 0.95) !important;
       .group {
         gap: calc(var(--fs) * 0.5) !important;
         span {
           font-size: calc(var(--fs) * 0.75) !important;
         }
         a {
-          font-size: calc(var(--fs) * 1) !important;
+          font-size: calc(var(--fs) * 0.75) !important;
           width: 100% !important;
           height: calc(var(--fs) * 2.25) !important;
           border: none !important;

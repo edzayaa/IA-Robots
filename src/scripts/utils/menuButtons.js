@@ -100,6 +100,18 @@ export const menuLinks = [
                 ]
             },
 
+            {
+                name: "Perception",
+                products: [
+                    {
+                        name: "4D LIDAR L2",
+                        thumbnail: "/images/menu/desktop/quadruped/4d.png", image: "/images/menu/4d.png",
+                        link: pages.perception.path
+                    },
+
+                ]
+            },
+
         ]
     },
 
