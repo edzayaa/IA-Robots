@@ -45,6 +45,19 @@
   }
 }
 
+@media (orientation: landscape) {
+  .primary-btn {
+    &.icon-right {
+      .icon {
+        position: absolute;
+        top: 50%;
+        right: calc(var(--fs) * 0.25);
+        transform: translate(0%, -50%);
+      }
+    }
+  }
+}
+
 @media (orientation: portrait) {
   .primary-btn {
     display: flex;
@@ -71,6 +84,12 @@
     .primary-btn {
       font-size: calc(var(--fs) * 1.13625);
       height: calc(var(--fs) * 2.625);
+
+      &.icon-right {
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        padding-left: calc(var(--fs) * 2);
+      }
     }
   }
 }

@@ -19,6 +19,7 @@ import { Image } from "astro:assets";
 import Preloader from "../components/Preloader.astro";
 import ProgressBar from "../components/ProgressBar.astro";
 import ButtonPrimary from "@components/ButtonPrimary";
+import { pages } from "@/scripts/pages";
 ---
 
 <Layout>
@@ -54,13 +55,12 @@ import ButtonPrimary from "@components/ButtonPrimary";
               The world's most advanced universal humanoid robot. Featuring 31
               DOF, 360N·m joint torque, and a 2070 TOPS compute platform.
             </p>
-            <!-- <button class="primary-btn">
-              Discover H2
-              <div class="icon">
-                <img src="/icons/arrow_right.svg" alt="Arrow pointing right" />
-              </div>
-            </button> -->
-            <ButtonPrimary content="Discover H2" />
+
+            <ButtonPrimary
+              content="Discover H2"
+              type="a"
+              href={pages.h2.path}
+            />
           </div>
           <div class="splide__slide">
             <Picture
@@ -83,13 +83,8 @@ import ButtonPrimary from "@components/ButtonPrimary";
               >6m/s speed, built for extreme environments and critical
               inspection missions.
             </p>
-            <!-- <button class="primary-btn">
-              Explore B2
-              <div class="icon">
-                <img src="/icons/arrow_right.svg" alt="Arrow pointing right" />
-              </div>
-            </button> -->
-            <ButtonPrimary content="Explore B2" />
+
+            <ButtonPrimary content="Explore B2" type="a" href={pages.b2.path} />
           </div>
           <div class="splide__slide">
             <Picture
@@ -111,13 +106,12 @@ import ButtonPrimary from "@components/ButtonPrimary";
               The most accessible and intelligent companion robot. Equipped with
               4D LiDAR, ISS 2.0 side-follow, and a powerful AI core.
             </p>
-            <!-- <button class="primary-btn">
-              Lear About Go2
-              <div class="icon">
-                <img src="/icons/arrow_right.svg" alt="Arrow pointing right" />
-              </div>
-            </button> -->
-            <ButtonPrimary content="Lear About Go2" />
+
+            <ButtonPrimary
+              content="Learn About Go2"
+              type="a"
+              href={pages.go2.path}
+            />
           </div>
           <div class="splide__slide">
             <Picture
@@ -139,13 +133,8 @@ import ButtonPrimary from "@components/ButtonPrimary";
               The ultimate hybrid mobility platform. Combines legs and wheels
               for 15 km/h speed and 25km range with a heavy payload.
             </p>
-            <!-- <button class="primary-btn">
-              See B2-W
-              <div class="icon">
-                <img src="/icons/arrow_right.svg" alt="Arrow pointing right" />
-              </div>
-            </button> -->
-            <ButtonPrimary content="See B2-W" />
+
+            <ButtonPrimary content="See B2-W" type="a" href={pages.b2_w.path} />
           </div>
         </div>
       </div>
@@ -411,7 +400,11 @@ import ButtonPrimary from "@components/ButtonPrimary";
         <img src="/icons/arrow_right.svg" alt="Arrow pointing right" />
       </div>
     </button> -->
-    <ButtonPrimary content="Order Your Go2 Now" />
+    <ButtonPrimary
+      content="Order Your Go2 Now"
+      type="a"
+      href={pages.go2.path}
+    />
   </section>
 </Layout>
 
@@ -477,7 +470,6 @@ import ButtonPrimary from "@components/ButtonPrimary";
           object-fit: cover;
           z-index: 0;
         }
-       
 
         .title {
           color: var(--White, #fff);
@@ -1126,7 +1118,6 @@ import ButtonPrimary from "@components/ButtonPrimary";
               object-position: 62.5% 0%;
             }
           }
-      
 
           .title {
             margin-top: calc(var(--fs) * 1);
@@ -1467,7 +1458,6 @@ import ButtonPrimary from "@components/ButtonPrimary";
                 object-position: 62.5% 0%;
               }
             }
-            
 
             .title {
               margin-top: calc(var(--fs) * 1.33);

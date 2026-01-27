@@ -16,23 +16,23 @@ export const menuLinks = [
                 {
                     name: "h2",
                     thumbnail: "/images/menu/desktop/humanoid/h2.png", image: "/images/menu/h2.png",
-                    link: ""
+                    link: pages.h2.path
                 },
 
                 {
                     name: "r1",
                     thumbnail: "/images/menu/desktop/humanoid/r1.png", image: "/images/menu/r1.png",
-                    link: ""
+                    link: pages.r1.path
                 },
                 {
                     name: "g1",
                     thumbnail: "/images/menu/desktop/humanoid/g1.png", image: "/images/menu/g1.png",
-                    link: ""
+                    link: pages.g1.path
                 },
                 {
                     name: "h1/h2",
                     thumbnail: "/images/menu/desktop/humanoid/h1_h2.png", image: "/images/menu/h2.png",
-                    link: ""
+                    link: pages["h1-h2"].path
                 },
             ]
         }]
@@ -119,16 +119,26 @@ export const menuLinks = [
     {
         name: "digital human",
         href: "/digital-human",
-        options: [{
-            name: "digital human robot",
-            products: [
-                {
-                    name: "h2",
-                    thumbnail: "", image: "",
-                    link: ""
-                }
-            ]
-        }]
+        options: [
+
+
+
+            {
+                name: "Digital Human",
+                products: [
+                    {
+                        name: pages.holographic_cabinet.name,
+                        thumbnail: "/images/menu/desktop/digital/holo.png", image: "/images/menu/go2_w.png",
+                        link: pages.holographic_cabinet.path
+                    },
+                    {
+                        name: pages.oled_mobile_robot.name,
+                        thumbnail: "/images/menu/desktop/digital/holo.png", image: "/images/menu/b2_w.png",
+                        link: pages.oled_mobile_robot.path
+                    },
+
+                ]
+            },]
     },
 
     {

@@ -33,7 +33,7 @@
         z-index: 1;
       }
       .media-wrapper {
-        width: auto;
+        width: calc(var(--fs) * 80);
         height: calc(var(--fs) * 60);
         margin-top: calc(var(--fs) * -10);
       }

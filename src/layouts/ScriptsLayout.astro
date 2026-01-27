@@ -122,6 +122,12 @@
           );
           break;
 
+        case pages.product.path:
+          import("../scripts/product_page").then(({ product_page }) =>
+            product_page(),
+          );
+          break;
+
         default:
           break;
       }

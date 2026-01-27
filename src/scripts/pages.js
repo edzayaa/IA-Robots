@@ -32,25 +32,25 @@ export const pages = {
 
     g1:
     {
-        path: "/quadruped/g1",
+        path: "/humanoid/g1",
         title: "G1",
         description: "Unitree G1",
     },
     r1:
     {
-        path: "/quadruped/r1",
+        path: "/humanoid/r1",
         title: "R1",
         description: "Unitree R1",
     },
     'h1-h2':
     {
-        path: "/quadruped/h1-h2",
+        path: "/humanoid/h1-h2",
         title: "H1/H2",
         description: "Unitree H1/H2",
     },
     h2:
     {
-        path: "/quadruped/h2",
+        path: "/humanoid/h2",
         title: "H2",
         description: "Unitree H2",
     },
@@ -98,5 +98,23 @@ export const pages = {
         title: "4D LIDAR L2",
         description: "4D LIDAR L2",
     },
+    holographic_cabinet: {
+        path: "/digital-human/holographic-cabinet",
+        title: "Holographic Cabinet KIEFER",
+        description: "Holographic Cabinet KIEFER",
+        name: "Holographic Cabinet KIEFER",
+    },
+    oled_mobile_robot: {
+        path: "/digital-human/oled-mobile-robot",
+        title: "OLED Mobile Robot KIEFER",
+        description: "OLED Mobile Robot KIEFER",
+        name: "OLED Mobile Robot KIEFER",
+    },
+
+    product: {
+        path: "/product",
+        title: "Product",
+        description: "Product",
+    }
 
 }

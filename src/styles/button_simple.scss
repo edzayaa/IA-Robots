@@ -1,0 +1,38 @@
+.button-simple {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: calc(var(--fs) * 0.25);
+  padding-left: calc(var(--fs) * 1);
+  border-radius: calc(var(--fs) * 0.75);
+  color: var(--Gray-Paragraph, #cbcbcb);
+
+  font-family: "Work Sans";
+  font-size: calc(var(--fs) * 1.15388);
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: calc(var(--fs) * -0.04613);
+  height: calc(var(--fs) * 2.625);
+  position: relative;
+  z-index: 1;
+  text-transform: capitalize;
+  transition: border-color 0.15s ease-in;
+  border: 1px solid #353535;
+  &:hover {
+    border-color: #fff;
+    color: #fff;
+  }
+}
+
+@media (orientation: portrait) {
+  .button-simple {
+    font-size: calc(var(--fs) * 0.875);
+  }
+
+  @media (min-aspect-ratio: 0.625) {
+    .button-simple {
+      font-size: calc(var(--fs) * 1.13625);
+    }
+  }
+}

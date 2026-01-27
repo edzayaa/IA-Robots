@@ -101,7 +101,6 @@ const description = headData?.description
   :root {
     --fs: 0.85vw;
     --hor-padding: 2.5vw;
-    --aqua: #44fafc;
     --Gray-Paragraph: #cbcbcb;
     --White: #fff;
     --top-space: min(calc(var(--fs) * 20), 30vh);
@@ -214,6 +213,12 @@ const description = headData?.description
     user-select: none;
     cursor: pointer;
     padding: 0;
+    & > * {
+      pointer-events: none !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -webkit-user-drag: none !important;
+    }
   }
 
   a,
@@ -303,6 +308,15 @@ const description = headData?.description
     /* Desktop/Paragraph  1 Regular */
     font-family: "Work Sans";
     font-size: calc(var(--fs) * 1.125);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .paragraph-2 {
+    color: var(--Gray-Paragraph, #cbcbcb);
+    /* Desktop/Paragraph 2 */
+    font-family: "Work Sans";
+    font-size: var(--fs);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -411,6 +425,9 @@ const description = headData?.description
   .margin-0 {
     margin: 0 !important;
   }
+  .m-b-5 {
+    margin-bottom: calc(var(--fs) * 5);
+  }
   .border-radius-0 {
     border-radius: 0 !important;
   }
@@ -422,6 +439,12 @@ const description = headData?.description
   }
   .overflow-hidden {
     overflow: hidden !important;
+  }
+
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   @media (orientation: landscape) {
@@ -446,6 +469,9 @@ const description = headData?.description
 
   .color-black {
     color: #000;
+  }
+  .color-blue {
+    color: var(--MAIN-BLUE);
   }
 
   @media (orientation: portrait) {
@@ -487,7 +513,11 @@ const description = headData?.description
       font-size: calc(var(--fs) * 1.0625);
     }
     .paragraph-1 {
-      font-size: calc(var(--fs) * 0.875);
+      font-size: calc(var(--fs) * 0.75);
+    }
+
+    .paragraph-2 {
+      font-size: calc(var(--fs) * 0.75);
     }
 
     main {
@@ -618,6 +648,9 @@ const description = headData?.description
       }
       .paragraph-1 {
         font-size: calc(var(--fs) * 1.125);
+      }
+      .paragraph-2 {
+        font-size: calc(var(--fs) * 0.75);
       }
       .with-border {
         --border-width: calc(var(--fs) * 0.1);
