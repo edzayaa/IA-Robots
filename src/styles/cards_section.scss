@@ -189,92 +189,92 @@
   }
 
   @media (min-aspect-ratio: 0.625) {
-      .cards-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: calc(var(--fs) * 7.5);
-    padding: 0;
-    min-height: unset;
-    h2 {
-      margin-bottom: calc(var(--fs) * 2.25);
-    }
-    .cards {
-      grid-template-columns: none;
-      grid-auto-columns: max-content;
-      grid-auto-flow: column;
-      gap: calc(var(--fs) * 0.63);
-      width: 100%;
-      padding: 0 calc(var(--hor-padding));
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      .card {
-        scroll-snap-align: center;
-        width: calc(var(--fs) * 36);
-        min-height: calc(var(--fs) * 10);
-        border-radius: calc(var(--fs) * 0.725);
-        padding-top: calc(var(--fs) * 6.5);
-        padding-bottom: calc(var(--fs) * 6.5);
+    .cards-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: calc(var(--fs) * 7.5);
+      padding: 0;
+      min-height: unset;
+      h2 {
+        margin-bottom: calc(var(--fs) * 2.25);
+      }
+      .cards {
+        grid-template-columns: none;
+        grid-auto-columns: max-content;
+        grid-auto-flow: column;
+        gap: calc(var(--fs) * 0.63);
+        width: 100%;
+        padding: 0 calc(var(--hor-padding));
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        .card {
+          scroll-snap-align: center;
+          width: calc(var(--fs) * 36);
+          min-height: calc(var(--fs) * 10);
+          border-radius: calc(var(--fs) * 0.725);
+          padding-top: calc(var(--fs) * 6.5);
+          // padding-bottom: calc(var(--fs) * 6.5);
 
-        &.no-shot {
-          padding: calc(var(--fs) * 3.25) 0;
+          &.no-shot {
+            padding: calc(var(--fs) * 3.25) 0;
+            picture {
+              display: none;
+            }
+            .shade:first-of-type {
+              display: none;
+            }
+          }
+
+          & > * {
+            width: 60%;
+            text-align: center;
+          }
+          h3 {
+            font-size: calc(var(--fs) * 1.75);
+          }
+          span {
+            font-size: calc(var(--fs) * 1.375);
+            width: 75%;
+          }
+          p {
+            font-size: calc(var(--fs) * 1.125);
+            margin-top: calc(var(--fs));
+            width: 60%;
+          }
+          .buttons {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: max-content;
+            grid-auto-rows: max-content;
+            gap: calc(var(--fs) * 0.75);
+            margin-top: calc(var(--fs) * 1.25);
+          }
           picture {
-            display: none;
+            width: 100%;
+            margin-top: calc(var(--fs) * 1);
           }
-          .shade:first-of-type {
-            display: none;
+          .shot {
+            width: 100%;
+            height: calc(var(--fs) * 20);
+            object-position: bottom center;
           }
-        }
-
-        & > * {
-          width: 60%;
-          text-align: center;
-        }
-        h3 {
-          font-size: calc(var(--fs) * 1.75);
-        }
-        span {
-          font-size: calc(var(--fs) * 1.375);
-          width: 75%;
-        }
-        p {
-          font-size: calc(var(--fs) * 1.125);
-          margin-top: calc(var(--fs));
-          width: 60%;
-        }
-        .buttons {
-          display: grid;
-          grid-auto-flow: column;
-          grid-auto-columns: max-content;
-          grid-auto-rows: max-content;
-          gap: calc(var(--fs) * 0.75);
-          margin-top: calc(var(--fs) * 1.25);
-        }
-        picture {
-          width: 100%;
-          margin-top: calc(var(--fs) * 1);
-        }
-        .shot {
-          width: 100%;
-          height: calc(var(--fs) * 11.5);
-          object-position: bottom center;
-        }
-        .shade {
-          width: calc(var(--fs) * 16.25);
-          height: calc(var(--fs) * 16.25);
-          &:first-of-type {
-            bottom: 0;
-            left: 0;
-            transform: translate(-35%, 50%);
-          }
-          &:last-of-type {
-            top: 0;
-            right: 50%;
-            transform: translate(50%, -50%);
+          .shade {
+            width: calc(var(--fs) * 16.25);
+            height: calc(var(--fs) * 16.25);
+            &:first-of-type {
+              bottom: 0;
+              left: 0;
+              transform: translate(-35%, 50%);
+            }
+            &:last-of-type {
+              top: 0;
+              right: 50%;
+              transform: translate(50%, -50%);
+            }
           }
         }
       }
     }
-  }
   }
 }

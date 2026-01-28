@@ -57,6 +57,7 @@ const description = headData?.description
     <meta name="twitter:description" content="" />
     <meta name="twitter:image" content="/icons/logo.png" />
     <slot name="preload" />
+    <link rel="preload" as="image" href="/logos/ai_robots_logo.svg" type="image/svg+xml" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -441,6 +442,11 @@ const description = headData?.description
     justify-content: center;
   }
 
+  .last-elem {
+    padding-bottom: 0 !important;
+    margin-bottom: calc(var(--fs) * -0.25) !important;
+  }
+
   @media (orientation: landscape) {
     .br-desktop {
       display: block !important;
@@ -458,6 +464,19 @@ const description = headData?.description
           font-size: calc(var(--fs) * 1.625);
         }
       }
+    }
+
+    .flex-end-row {
+      justify-content: flex-end !important;
+    }
+    .flex-start-row {
+      justify-content: flex-start !important;
+    }
+    .flex-align-end {
+      align-items: flex-end !important;
+    }
+    .flex-align-start {
+      align-items: flex-start !important;
     }
   }
 
@@ -507,7 +526,7 @@ const description = headData?.description
       font-size: calc(var(--fs) * 1.0625);
     }
     .paragraph-1 {
-      font-size: calc(var(--fs) * 0.75);
+      font-size: calc(var(--fs) * 0.875);
     }
 
     .paragraph-2 {

@@ -14,7 +14,8 @@
     pointer-events: none;
     background: linear-gradient(#00000000, #000);
   }
-  .media {
+  .media,
+  .shot {
     position: absolute;
     top: 0;
     left: 0;
@@ -50,6 +51,17 @@
       }
     }
   }
+  
+}
+
+@media (orientation: landscape) {
+  .shot-section {
+    &.robust {
+      padding-top: calc(var(--fs) * 12);
+      margin-top: calc(var(--top-space) * 0.5);
+      margin-left: calc(var(--hor-padding));
+    }
+  }
 }
 
 @media (orientation: portrait) {
@@ -66,7 +78,7 @@
     &::after {
       display: none;
     }
-    .media {
+    .media, .shot {
       position: static;
       top: unset;
       left: unset;
@@ -126,7 +138,7 @@
       &::after {
         display: none;
       }
-      .media {
+      .media, .shot {
         position: static;
         top: unset;
         left: unset;

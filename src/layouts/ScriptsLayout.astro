@@ -122,6 +122,24 @@
           );
           break;
 
+        case pages["h1-h2"].path:
+          import("../scripts/video_media").then(({ video_media }) =>
+            video_media(),
+          );
+          break;
+
+        case pages.h2.path:
+          import("../scripts/video_media").then(({ video_media }) =>
+            video_media(),
+          );
+          break;
+
+        case pages.r1.path:
+          import("../scripts/video_media").then(({ video_media }) =>
+            video_media(),
+          );
+          break;
+
         case pages.product.path:
           import("../scripts/product_page").then(({ product_page }) =>
             product_page(),
