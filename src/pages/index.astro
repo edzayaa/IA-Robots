@@ -18,6 +18,8 @@ import future_robotics from "../assets/future_robotics.png";
 import { Image } from "astro:assets";
 import Preloader from "../components/Preloader.astro";
 import ProgressBar from "../components/ProgressBar.astro";
+import ButtonPrimary from "@components/ButtonPrimary";
+import { pages } from "@/scripts/pages";
 ---
 
 <Layout>
@@ -43,22 +45,22 @@ import ProgressBar from "../components/ProgressBar.astro";
               quality="high"
               loading="eager"
             />
-            <div class="span">
+            <div class="line-element">
               <div></div>
               <span> destiny awakening</span>
               <div></div>
             </div>
-            <h1 class="title">Unitree H2</h1>
-            <p>
+            <h1 class="title h1">Unitree H2</h1>
+            <p class="paragraph-1">
               The world's most advanced universal humanoid robot. Featuring 31
               DOF, 360N·m joint torque, and a 2070 TOPS compute platform.
             </p>
-            <button class="primary-btn">
-              Discover H2
-              <div class="icon">
-                <img src="/icons/arrow_right.svg" alt="Arrow pointing right" />
-              </div>
-            </button>
+
+            <ButtonPrimary
+              content="Discover H2"
+              type="a"
+              href={pages.h2.path}
+            />
           </div>
           <div class="splide__slide">
             <Picture
@@ -70,23 +72,19 @@ import ProgressBar from "../components/ProgressBar.astro";
               quality="high"
               loading="eager"
             />
-            <div class="span">
+            <div class="line-element">
               <div></div>
               <span> Go Beyond the Limits </span>
               <div></div>
             </div>
-            <h1 class="title">Unitree B2</h1>
-            <p>
+            <h1 class="title h1">Unitree B2</h1>
+            <p class="paragraph-1">
               The fastest industrial-grade quadruped. IP67-rated, 40kg payload,
               >6m/s speed, built for extreme environments and critical
               inspection missions.
             </p>
-            <button class="primary-btn">
-              Explore B2
-              <div class="icon">
-                <img src="/icons/arrow_right.svg" alt="Arrow pointing right" />
-              </div>
-            </button>
+
+            <ButtonPrimary content="Explore B2" type="a" href={pages.b2.path} />
           </div>
           <div class="splide__slide">
             <Picture
@@ -98,22 +96,22 @@ import ProgressBar from "../components/ProgressBar.astro";
               quality="high"
               loading="eager"
             />
-            <div class="span">
+            <div class="line-element">
               <div></div>
               <span> New Creature of Embodied AI </span>
               <div></div>
             </div>
-            <h1 class="title">Unitree Go2</h1>
-            <p>
+            <h1 class="title h1">Unitree Go2</h1>
+            <p class="paragraph-1">
               The most accessible and intelligent companion robot. Equipped with
               4D LiDAR, ISS 2.0 side-follow, and a powerful AI core.
             </p>
-            <button class="primary-btn">
-              Lear About Go2
-              <div class="icon">
-                <img src="/icons/arrow_right.svg" alt="Arrow pointing right" />
-              </div>
-            </button>
+
+            <ButtonPrimary
+              content="Learn About Go2"
+              type="a"
+              href={pages.go2.path}
+            />
           </div>
           <div class="splide__slide">
             <Picture
@@ -125,22 +123,18 @@ import ProgressBar from "../components/ProgressBar.astro";
               quality="high"
               loading="eager"
             />
-            <div class="span">
+            <div class="line-element">
               <div></div>
               <span> Go Further with Higher Efficiency </span>
               <div></div>
             </div>
-            <h1 class="title">Unitree B2-w</h1>
-            <p>
+            <h1 class="title h1">Unitree B2-w</h1>
+            <p class="paragraph-1">
               The ultimate hybrid mobility platform. Combines legs and wheels
               for 15 km/h speed and 25km range with a heavy payload.
             </p>
-            <button class="primary-btn">
-              See B2-W
-              <div class="icon">
-                <img src="/icons/arrow_right.svg" alt="Arrow pointing right" />
-              </div>
-            </button>
+
+            <ButtonPrimary content="See B2-W" type="a" href={pages.b2_w.path} />
           </div>
         </div>
       </div>
@@ -161,11 +155,10 @@ import ProgressBar from "../components/ProgressBar.astro";
       <img src="/icons/scroll_down.svg" alt="Scroll down" />
       down
     </div>
-    <!-- <Picture src={texture} alt={""} class={"texture"} /> -->
   </section>
   <section id="autonomy-section">
-    <div class="h2">
-      <h2>advanced autonomy</h2>
+    <div class="h2-wrapper">
+      <h2 class="h1">advanced autonomy</h2>
     </div>
 
     <Picture
@@ -220,11 +213,11 @@ import ProgressBar from "../components/ProgressBar.astro";
   </section>
   <section id="redefining-section">
     <div class="head">
-      <div class="h2">
-        <h2>redefining robotics</h2>
+      <div class="h2-wrapper">
+        <h2 class="h1">redefining robotics</h2>
       </div>
 
-      <p>Value for Every Market</p>
+      <p>Value for Every Market.</p>
     </div>
     <div class="info">
       <h2>Next-Gen Companion</h2>
@@ -238,7 +231,7 @@ import ProgressBar from "../components/ProgressBar.astro";
       <div class="splide">
         <div class="splide__track">
           <div class="splide__list">
-            <div class="splide__slide">
+            <div class="splide__slide with-border">
               <strong class="shade"></strong>
               <strong class="shade"></strong>
               <img src="/icons/ray.png" alt="" class="icon" />
@@ -248,7 +241,7 @@ import ProgressBar from "../components/ProgressBar.astro";
                 by a sophisticated Large Behavior Model.
               </p>
             </div>
-            <div class="splide__slide">
+            <div class="splide__slide with-border">
               <strong class="shade"></strong>
               <strong class="shade"></strong>
               <img src="/icons/infinity.svg" alt="" class="icon" />
@@ -258,7 +251,7 @@ import ProgressBar from "../components/ProgressBar.astro";
                 indoor/outdoor navigation.
               </p>
             </div>
-            <div class="splide__slide">
+            <div class="splide__slide with-border">
               <strong class="shade"></strong>
               <strong class="shade"></strong>
               <img src="/icons/side.png" alt="" class="icon" />
@@ -293,7 +286,7 @@ import ProgressBar from "../components/ProgressBar.astro";
   </section>
   <section id="target-section">
     <div class="head">
-      <h2>
+      <h2 class="h1">
         Targeted <br />
         Inspections
       </h2>
@@ -398,18 +391,22 @@ import ProgressBar from "../components/ProgressBar.astro";
       quality="high"
       formats={["avif", "webp"]}
     />
-    <h2>Step into the Future <br /> of Robotics.</h2>
+    <h2 class="h1">
+      Step into the Future <br class="br-mobile br-tablet" /> of <br
+        class="br-desktop"
+      /> Robotics.
+    </h2>
     <p>Embrace the power of Embodied AI today.</p>
-    <button class="primary-btn">
-      Order Your Go2 Now
-      <div class="icon">
-        <img src="/icons/arrow_right.svg" alt="Arrow pointing right" />
-      </div>
-    </button>
+
+    <ButtonPrimary
+      content="Order Your Go2 Now"
+      type="a"
+      href={pages.go2.path}
+    />
   </section>
 </Layout>
 
-<style lang="scss">
+<style lang="scss" is:global>
   // section {
   //   background-color: gray;
   //   background-color: black;
@@ -471,63 +468,11 @@ import ProgressBar from "../components/ProgressBar.astro";
           object-fit: cover;
           z-index: 0;
         }
-        .span {
-          display: grid;
-          grid-auto-flow: column;
-          grid-auto-columns: max-content;
-          align-items: center;
-          gap: calc(var(--fs));
-          div {
-            --dimension: calc(var(--fs) * 0.1);
-            --line-color: #1a45c8;
-            width: calc(var(--fs) * 6.25);
-            height: var(--dimension);
-            background: var(--line-color);
-            position: relative;
-            &:first-of-type {
-              &::after {
-                content: "";
-                display: block;
-                background: var(--line-color);
-                width: calc(var(--dimension) * 4);
-                height: calc(var(--dimension) * 4);
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translate(0%, -50%) rotate(45deg);
-              }
-            }
-            &:last-of-type {
-              &::before {
-                content: "";
-                display: block;
-                background: var(--line-color);
-                width: calc(var(--dimension) * 4);
-                height: calc(var(--dimension) * 4);
-                position: absolute;
-                left: 0;
-                top: 50%;
-                transform: translate(0%, -50%) rotate(45deg);
-              }
-            }
-          }
-          span {
-            color: #6289ff;
-            font-family: "Work Sans";
-            font-size: calc(var(--fs) * 1.25);
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            text-transform: capitalize;
-            display: block;
-          }
-        }
 
         .title {
           color: var(--White, #fff);
           text-align: center;
           font-family: "Work Sans";
-          font-size: calc(var(--fs) * 5);
           font-style: normal;
           font-weight: 500;
           line-height: 1; /* 100% */
@@ -535,11 +480,6 @@ import ProgressBar from "../components/ProgressBar.astro";
         }
         p {
           color: #cbcbcb;
-          text-align: center;
-          font-family: "Work Sans";
-          font-size: calc(var(--fs) * 1.25);
-          font-style: normal;
-          font-weight: 400;
           line-height: 1.25;
           margin-top: calc(var(--fs) * 2);
           width: calc(var(--fs) * 45.9);
@@ -653,17 +593,11 @@ import ProgressBar from "../components/ProgressBar.astro";
       transform: translate(-50%, 0%);
       z-index: 0;
     }
-    .h2 {
+    .h2-wrapper {
       overflow: hidden;
       h2 {
-        color: #fff;
         text-align: center;
-        font-family: "Work Sans";
-        font-size: calc(var(--fs) * 5);
-        font-style: normal;
-        font-weight: 500;
-        line-height: 1.25; /* 100% */
-        text-transform: capitalize;
+        line-height: 1.25;
       }
     }
 
@@ -684,8 +618,8 @@ import ProgressBar from "../components/ProgressBar.astro";
         width: calc(var(--fs) * 36.5);
         position: relative;
         .img {
-          width: calc(var(--fs) * 5);
-          height: calc(var(--fs) * 5);
+          width: calc(var(--fs) * 4.3);
+          height: calc(var(--fs) * 4.3);
           grid-row: 1 / 3;
         }
         .autonomy-line {
@@ -702,7 +636,7 @@ import ProgressBar from "../components/ProgressBar.astro";
         p {
           color: #fff;
           font-family: "Work Sans";
-          font-size: calc(var(--fs) * 1.875);
+          font-size: calc(var(--fs) * 1.625);
           font-style: normal;
           font-weight: 500;
           line-height: normal;
@@ -711,7 +645,7 @@ import ProgressBar from "../components/ProgressBar.astro";
         span {
           color: #cbcbcb;
           font-family: "Work Sans";
-          font-size: calc(var(--fs) * 1.25);
+          font-size: calc(var(--fs) * 1.125);
           font-style: normal;
           font-weight: 400;
           line-height: normal;
@@ -753,24 +687,17 @@ import ProgressBar from "../components/ProgressBar.astro";
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      .h2 {
+      .h2-wrapper {
         overflow: hidden;
-        h2 {
-          color: var(--White, #fff);
-          text-align: center;
-          font-family: "Work Sans";
-          font-size: calc(var(--fs) * 5);
-          font-style: normal;
-          font-weight: 500;
-          line-height: 1.25; /* 100% */
-          text-transform: capitalize;
+        .h1 {
+          line-height: 1.25;
         }
       }
 
       p {
         color: var(--Gray-Paragraph, #cbcbcb);
         font-family: "Work Sans";
-        font-size: calc(var(--fs) * 1.875);
+        font-size: calc(var(--fs) * 1.625);
         font-style: normal;
         font-weight: 500;
         line-height: normal;
@@ -788,6 +715,7 @@ import ProgressBar from "../components/ProgressBar.astro";
         font-style: normal;
         font-weight: 500;
         line-height: normal;
+        text-align: left;
       }
       span {
         color: var(--Gray-Paragraph, #cbcbcb);
@@ -796,17 +724,17 @@ import ProgressBar from "../components/ProgressBar.astro";
         font-style: normal;
         font-weight: 500;
         line-height: normal;
-        margin-top: calc(var(--fs) * 1.25);
+        margin-top: calc(var(--fs) * 0.875);
         display: block;
       }
       p {
         color: var(--Gray-Paragraph, #cbcbcb);
         font-family: "Work Sans";
-        font-size: calc(var(--fs) * 1.25);
+        font-size: calc(var(--fs) * 1);
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        margin-top: calc(var(--fs) * 1);
+        margin-top: calc(var(--fs) * 0.875);
       }
       .splide {
         visibility: visible !important;
@@ -821,43 +749,11 @@ import ProgressBar from "../components/ProgressBar.astro";
         column-gap: calc(var(--fs) * 1.44);
         row-gap: calc(var(--fs) * 0.625);
         width: 100%;
-        min-height: calc(var(--fs) * 11.125);
+        min-height: calc(var(--fs) * 10);
         border-radius: calc(var(--fs) * 1.25);
-        position: relative;
-        overflow: hidden;
-        background: linear-gradient(
-          15deg,
-          rgba(50, 50, 50, 0.5) 35%,
-          rgba(255, 255, 255, 0.25) 80%
-        );
         padding: calc(var(--fs) * 2.56) calc(var(--fs) * 3);
 
-        --border-width: calc(var(--fs) * 0.1);
-        & > * {
-          z-index: 2;
-          position: relative;
-        }
-        &::before {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          transform: translate(-50%, 0%);
-          width: calc(100% - calc(var(--border-width)));
-          height: calc(100% - calc(var(--border-width) * 0.5));
-          z-index: 1;
-          background: rgba(15, 15, 15, 1);
-          border-radius: calc(var(--fs) * 1.25);
-          pointer-events: none;
-        }
         .shade {
-          width: calc(var(--fs) * 16.25 * 3);
-          height: calc(var(--fs) * 16.25 * 3);
-          position: absolute;
-          background: radial-gradient(#262626, rgba(0, 0, 0, 0) 50%);
-          transition: opacity 0.35s ease-in-out;
-          pointer-events: none;
-          margin: 0;
           grid-column: unset !important;
           grid-row: unset !important;
 
@@ -873,11 +769,6 @@ import ProgressBar from "../components/ProgressBar.astro";
           }
         }
 
-        // &:hover {
-        //   .shade {
-        //     opacity: 1;
-        //   }
-        // }
         .icon {
           width: calc(var(--fs) * 5);
           height: calc(var(--fs) * 5);
@@ -933,10 +824,9 @@ import ProgressBar from "../components/ProgressBar.astro";
       h2 {
         color: var(--White, #fff);
         font-family: "Work Sans";
-        font-size: calc(var(--fs) * 5);
         font-style: normal;
         font-weight: 500;
-        line-height: 1; /* 100% */
+        line-height: 1.25; /* 100% */
       }
       span {
         color: var(--Gray-Paragraph, #cbcbcb);
@@ -1014,7 +904,7 @@ import ProgressBar from "../components/ProgressBar.astro";
         p {
           color: #fff;
           font-family: "Work Sans";
-          font-size: calc(var(--fs) * 1.875);
+          font-size: calc(var(--fs) * 1.625);
           font-style: normal;
           font-weight: 500;
           line-height: normal;
@@ -1022,7 +912,7 @@ import ProgressBar from "../components/ProgressBar.astro";
         span {
           color: var(--Gray-Paragraph, #cbcbcb);
           font-family: "Work Sans";
-          font-size: calc(var(--fs) * 1.25);
+          font-size: calc(var(--fs) * 1.125);
           font-style: normal;
           font-weight: 400;
           line-height: normal;
@@ -1075,7 +965,6 @@ import ProgressBar from "../components/ProgressBar.astro";
       color: var(--White, #fff);
       text-align: center;
       font-family: "Work Sans";
-      font-size: calc(var(--fs) * 5);
       font-style: normal;
       font-weight: 500;
       line-height: 1; /* 100% */
@@ -1083,7 +972,7 @@ import ProgressBar from "../components/ProgressBar.astro";
     p {
       color: var(--Gray-Paragraph, #cbcbcb);
       font-family: "Work Sans";
-      font-size: calc(var(--fs) * 1.875);
+      font-size: calc(var(--fs) * 1.625);
       font-style: normal;
       font-weight: 500;
       line-height: normal;
@@ -1207,19 +1096,8 @@ import ProgressBar from "../components/ProgressBar.astro";
               object-position: 62.5% 0%;
             }
           }
-          .span {
-            div {
-              --dimension: calc(var(--fs) * 0.085);
-              width: calc(var(--fs) * 3.25);
-              height: var(--dimension);
-            }
-            span {
-              font-size: calc(var(--fs) * 0.875);
-            }
-          }
 
           .title {
-            font-size: calc(var(--fs) * 2.1875);
             margin-top: calc(var(--fs) * 1);
           }
           p {
@@ -1277,10 +1155,7 @@ import ProgressBar from "../components/ProgressBar.astro";
         margin: 0 auto;
         margin-top: calc(var(--fs) * 2.25);
       }
-      .h2 {
-        h2 {
-          font-size: calc(var(--fs) * 2.1875);
-        }
+      .h2-wrapper {
       }
       .autonomy-details {
         grid-template-columns: 100%;
@@ -1331,10 +1206,7 @@ import ProgressBar from "../components/ProgressBar.astro";
         grid-column: 1 / 2;
         grid-row: 1 / 2;
         padding: 0 calc(var(--hor-padding) * 1.5);
-        .h2 {
-          h2 {
-            font-size: calc(var(--fs) * 2.1875);
-          }
+        .h2-wrapper {
         }
 
         p {
@@ -1371,24 +1243,7 @@ import ProgressBar from "../components/ProgressBar.astro";
           );
           padding: calc(var(--fs) * 1) calc(var(--fs) * 0.81);
 
-          --border-width: calc(var(--fs) * 0.085);
-          &::before {
-            width: calc(100% - calc(var(--border-width)));
-            height: calc(100% - calc(var(--border-width) * 0.5));
-            border-radius: calc(var(--fs) * 1);
-          }
           .shade {
-            width: calc(var(--fs) * 16.25 * 3);
-            height: calc(var(--fs) * 16.25 * 3);
-            position: absolute;
-            background: radial-gradient(#262626, rgba(0, 0, 0, 0) 50%);
-            opacity: 0;
-            transition: opacity 0.35s ease-in-out;
-            pointer-events: none;
-            margin: 0;
-            grid-column: unset !important;
-            grid-row: unset !important;
-
             &:first-of-type {
               bottom: 0;
               left: 0;
@@ -1401,17 +1256,13 @@ import ProgressBar from "../components/ProgressBar.astro";
             }
           }
 
-          &:hover {
-            .shade {
-              opacity: 1;
-            }
-          }
           .icon {
             width: calc(var(--fs) * 2.5);
             height: calc(var(--fs) * 2.5);
           }
           span {
             font-size: calc(var(--fs) * 1.0625);
+            color: #fff;
           }
           span,
           p {
@@ -1505,7 +1356,7 @@ import ProgressBar from "../components/ProgressBar.astro";
             align-self: flex-start;
             filter: blur(5px);
             -webkit-filter: blur(5px);
-            transition: filter 0.25s linear;
+            transition: filter 0.1s linear;
           }
           &.is-active {
             .media {
@@ -1538,7 +1389,7 @@ import ProgressBar from "../components/ProgressBar.astro";
       }
     }
 
-    @media (min-width: 681px) {
+    @media (min-aspect-ratio: 0.625) {
       #hero-section {
         #hero-splide {
           .splide__arrows {
@@ -1580,19 +1431,8 @@ import ProgressBar from "../components/ProgressBar.astro";
                 object-position: 62.5% 0%;
               }
             }
-            .span {
-              div {
-                --dimension: calc(var(--fs) * 0.1);
-                width: calc(var(--fs) * 5);
-                height: var(--dimension);
-              }
-              span {
-                font-size: calc(var(--fs) * 1.375);
-              }
-            }
 
             .title {
-              font-size: calc(var(--fs) * 3.75);
               margin-top: calc(var(--fs) * 1.33);
             }
             p {
@@ -1626,10 +1466,7 @@ import ProgressBar from "../components/ProgressBar.astro";
           height: calc(var(--fs) * 33.56);
           margin-top: calc(var(--fs) * 4);
         }
-        .h2 {
-          h2 {
-            font-size: calc(var(--fs) * 3.4325);
-          }
+        .h2-wrapper {
         }
 
         .autonomy-details {
@@ -1668,10 +1505,7 @@ import ProgressBar from "../components/ProgressBar.astro";
           grid-column: 1 / 2;
           grid-row: 1 / 2;
           padding: 0 calc(var(--hor-padding) * 1.5);
-          .h2 {
-            h2 {
-              font-size: calc(var(--fs) * 3.75);
-            }
+          .h2-wrapper {
           }
 
           p {
@@ -1700,11 +1534,6 @@ import ProgressBar from "../components/ProgressBar.astro";
               rgba(255, 255, 255, 0.25) 80%
             );
             padding: calc(var(--fs) * 1.5) calc(var(--fs) * 0.81 * 1.5);
-            --border-width: calc(var(--fs) * 0.1);
-            .shade {
-              width: calc(var(--fs) * 16.25 * 3);
-              height: calc(var(--fs) * 16.25 * 3);
-            }
 
             .icon {
               width: calc(var(--fs) * 2.5 * 1.25);

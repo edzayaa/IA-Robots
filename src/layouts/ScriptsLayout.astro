@@ -26,11 +26,13 @@
     import { fonts } from "../scripts/utils/fonts";
     import { footer } from "../scripts/footer";
     import { goHome } from "../scripts/goHome";
+    import { nav } from "../scripts/nav";
     import { menu } from "../scripts/menu";
     import { readPathname } from "../scripts/utils/pathname";
     import { pages } from "../scripts/pages";
     import { resolution, mm, breakPoints } from "../scripts/utils/resolution";
     import { intro } from "../scripts/preloader";
+    import { active_link } from "@/scripts/active_link";
 
     fonts();
 
@@ -71,23 +73,71 @@
 
       switch (pathname) {
         case pages.home.path:
-          console.log("loading home js");
           import("../scripts/home").then(({ home }) => home());
-
           break;
 
         case pages.quadruped.path:
-          console.log("loading quadruped js");
           import("../scripts/quadruped").then(({ quadruped }) => quadruped());
+          break;
+
+        case pages.go2_w.path:
+          import("../scripts/video_media").then(({ video_media }) =>
+            video_media(),
+          );
+          break;
+
+        case pages.b2_w.path:
+          import("../scripts/video_media").then(({ video_media }) =>
+            video_media(),
+          );
+          break;
+
+        case pages.go2.path:
+          import("../scripts/video_media").then(({ video_media }) =>
+            video_media(),
+          );
+          break;
+
+        case pages.b2.path:
+          import("../scripts/video_media").then(({ video_media }) =>
+            video_media(),
+          );
+          break;
+
+        case pages.a2.path:
+          import("../scripts/video_media").then(({ video_media }) =>
+            video_media(),
+          );
+          break;
+
+        case pages.manipulators.path:
+          import("../scripts/video_media").then(({ video_media }) =>
+            video_media(),
+          );
+          break;
+
+        case pages.perception.path:
+          import("../scripts/video_media").then(({ video_media }) =>
+            video_media(),
+          );
+          break;
+
+        case pages.product.path:
+          import("../scripts/product_page").then(({ product_page }) =>
+            product_page(),
+          );
           break;
 
         default:
           break;
       }
+      console.log("Loading: ", pathname);
 
       goHome();
+      nav();
       menu();
       footer();
+      active_link();
     });
 
     document.addEventListener("astro:before-swap", () => {

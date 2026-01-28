@@ -1,0 +1,727 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import heroImg from "../../../assets/b2_w/unitree_b2_w_hero.png";
+import { Picture } from "astro:assets";
+import b2_w from "../../../assets/b2_w/b2_w.png";
+import { Image } from "astro:assets";
+import blue_shade from "@assets/blue_shade.png";
+import specs from "@assets/b2_w/specs.png";
+import "@styles/robot_specs_table.scss";
+import "@styles/cards_section.scss";
+import ButtonPrimary from "@components/ButtonPrimary";
+import ButtonSecondary from "@components/ButtonSecondary";
+import book_bck from "@assets/book_bck.png";
+import book_img from "../../../assets/b2_w/book_img.png";
+
+import "@styles/book_section.scss";
+import "@styles/shot_section.scss";
+import "@styles/tech_section.scss";
+import { pages } from "@/scripts/pages";
+---
+
+<Layout>
+  <section id="hero-section">
+    <Picture
+      class="hero-shot"
+      src={heroImg}
+      alt="Unitree B2-W "
+      loading="eager"
+      fetchpriority={"high"}
+      quality={"high"}
+    />
+    <div class="content">
+      <h1 class="h1">Unitree B2-W</h1>
+      <p class="subtitle-3">Go Further with Higher Efficiency</p>
+    </div>
+    <div class="sub-content">
+      <p class="subtitle-2">
+        The Ultra-Efficient, Long-Range <br class="br-mobile" /> Industrial Wheeled-Legged
+        Robot
+      </p>
+      <span class="paragraph-1">
+        Combining the B2's industrial power with high-speed wheel efficiency,
+        the B2-W is the ultimate platform for long-distance, heavy-payload
+        missions in complex industrial environments.
+      </span>
+
+      <ButtonPrimary content="buy now" type="a" href={pages.product.path} />
+    </div>
+  </section>
+  <section id="new-section">
+    <div class="content">
+      <div class="line-element">
+        <div></div>
+        <span> Wheeled Legged Robot Dog</span>
+        <div></div>
+      </div>
+      <h2 class="h1 text-center">
+        Brand New Intelligent <br class="br-mobile" /> Species
+      </h2>
+      <p>Transformative Newborn</p>
+    </div>
+    <div class="shot">
+      <Picture
+        src={b2_w}
+        alt={"B2-W New Model "}
+        fetchpriority={"high"}
+        quality={"max"}
+      />
+      <div class="detail">
+        <p>20 km/h</p>
+        <span> Max Speed</span>
+        <img src="/images/indicator.svg" alt="" loading="lazy" />
+      </div>
+      <div class="detail">
+        <p>IP67 Ingress <br /> Protection</p>
+        <span> Protection</span>
+        <img src="/images/indicator.svg" alt="" loading="lazy" />
+      </div>
+      <div class="detail">
+        <p>50 km with 40kg load</p>
+        <span> Max Endurance </span>
+        <img src="/images/indicator.svg" alt="" loading="lazy" />
+      </div>
+      <div class="detail">
+        <p>Continuous Stair <br /> Climbing (20-25cm)</p>
+        <span> Mobility</span>
+        <img src="/images/indicator.svg" alt="" loading="lazy" />
+      </div>
+    </div>
+
+    <Image class={"blue-shade"} src={blue_shade} alt={""} format="webp" />
+  </section>
+  <section class="shot-section">
+    <video
+      playsinline
+      muted
+      loop
+      preload="metadata"
+      width=""
+      height=""
+      class="media"
+    >
+      <source src="/videos/b2_w/1.mp4" type="video/mp4" />
+    </video>
+    <div class="content">
+      <h2 class="h1">
+        Superior Endurance <br class="br-mobile" /> and High-<br
+          class="br-desktop"
+        />Speed Travel
+      </h2>
+      <p class="paragraph-1">
+        The B2-W is engineered for maximum operational reach. Its wheeled-legged
+        design allows it to achieve a maximum speed of 20 km/h on flat terrain,
+        while its massive >2kwh battery enables a maximum endurance of 50 km
+        even with a 40kg load. This makes it the ideal choice for patrolling
+        large facilities and long-distance logistics
+      </p>
+    </div>
+  </section>
+  <section class="shot-section second">
+    <!-- <Picture
+      class="media"
+      src={go2_w_2}
+      alt={"Go2 New Model "}
+      fetchpriority={"high"}
+      quality={"max"}
+    /> -->
+    <video
+      playsinline
+      muted
+      loop
+      preload="metadata"
+      width=""
+      height=""
+      class="media"
+    >
+      <source src="/videos/b2_w/2.mp4" type="video/mp4" />
+    </video>
+    <div class="content">
+      <h2 class="h1">
+        Highly Dynamic <br /> Hybrid <br /> Motion
+      </h2>
+      <p class="paragraph-1">
+        This robot excels at transitioning between locomotion modes. It uses its
+        wheels for speed and efficiency but seamlessly engages its legs to
+        overcome obstacles. It is capable of continuous stair climbing
+        (20-25cm), tackling slopes greater than 45°, and crossing trenches,
+        maintaining balance and stability on rough surfaces through the rapid
+        and synergistic response of its high-performance leg joints
+      </p>
+    </div>
+  </section>
+  <section class="shot-section">
+    <video
+      playsinline
+      muted
+      loop
+      preload="metadata"
+      width=""
+      height=""
+      class="media"
+    >
+      <source src="/videos/b2_w/3.mp4" type="video/mp4" />
+    </video>
+    <div class="content">
+      <h2 class="h1">Industrial-Grade Power <br /> and Sensing</h2>
+      <p class="paragraph-1">
+        Built on the robust B2 platform, the B2-W features IP67 ingress
+        protection, ensuring reliability in dust and water-prone environments.
+        Its sensing suite includes a 32-wire Automotive-grade LiDAR and
+        high-resolution cameras, providing the data necessary for safe,
+        autonomous navigation and high-accuracy inspection. The wheel motors
+        themselves deliver a max torque of 50 N.m, contributing to the robot's
+        immense pulling force.
+      </p>
+    </div>
+  </section>
+  <!-- <section id="media-section">
+    <video
+      class="media"
+      playsinline
+      muted
+      loop
+      preload="metadata"
+      poster="/videos/go2_w_poster.jpg"
+    >
+      <source src="/videos/go2_w.mp4" type="video/mp4" />
+    </video>
+    <h2>Unlock a variety of <br /> peripheral additions</h2>
+    <div class="span">
+      <div></div>
+      <span> free combination, unlimited expansion</span>
+      <div></div>
+    </div>
+  </section> -->
+  <section id="tech-section">
+    <Picture src={specs} alt={"Technical specifications"} />
+
+    <div class="table">
+      <div class="head">
+        <div class="line-element big-desktop">
+          <div></div>
+          <span> B2-W</span>
+          <div></div>
+        </div>
+        <h2 class="h1">Technical Specifications</h2>
+      </div>
+
+      <table class="robot-spec-table">
+        <thead>
+          <tr>
+            <th>Characteristic</th>
+            <th>Value</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Weight (with battery)</td>
+            <td>18kg</td>
+            <td>Highly portable for a wheeled-legged robot.</td>
+          </tr>
+          <tr>
+            <td>Payload (Max)</td>
+            <td>8kg (MAX ~ 12kg)</td>
+            <td>Suitable for various sensors and payloads.</td>
+          </tr>
+          <tr>
+            <td>Speed Range</td>
+            <td>0 - 2.5 m/s</td>
+            <td>Efficient wheeled movement and dynamic legged motion.</td>
+          </tr>
+          <tr>
+            <td>Endurance</td>
+            <td>1.5 - 3h (15000mAh battery)</td>
+            <td>Varies based on mode of locomotion and load.</td>
+          </tr>
+          <tr>
+            <td>Max Joint Torque</td>
+            <td>45 N.m</td>
+            <td>Ensures responsive and stable movement.</td>
+          </tr>
+          <tr>
+            <td>Obstacle Crossing</td>
+            <td>Up to 70cm</td>
+            <td>Superior capability for overcoming large obstacles.</td>
+          </tr>
+          <tr>
+            <td>Sensing</td>
+            <td>3D LiDAR + HD Wide-angle Camera</td>
+            <td>Advanced environmental awareness.</td>
+          </tr>
+          <tr>
+            <td>Computing</td>
+            <td>8-core CPU, Orin NX optional</td>
+            <td>Powerful core for AI and development.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section class="cards-section">
+    <h2 class="h1">
+      Maximize Your B2-W's <br class="br-mobile" /> Operational Reach
+    </h2>
+    <div class="cards">
+      <div class="card with-border no-shot">
+        <strong class="shade"></strong>
+        <strong class="shade"></strong>
+
+        <!-- <h3>z1</h3> -->
+        <span> Specialized Payloads </span>
+        <p>
+          Integrate thermal cameras, gas sensors, or other custom equipment for
+          specific inspection tasks.
+        </p>
+        <div class="buttons">
+          <ButtonPrimary content="Add to cart" />
+          <ButtonSecondary content="Learn more" />
+        </div>
+      </div>
+      <div class="card with-border no-shot">
+        <strong class="shade"></strong>
+        <strong class="shade"></strong>
+        <!-- <h3>Battery</h3> -->
+        <span> Autonomous Charging Dock </span>
+        <p>Enable 24/7 autonomous operation with automated recharging.</p>
+        <div class="buttons">
+          <ButtonPrimary content="Add to cart" />
+          <ButtonSecondary content="Learn more" />
+        </div>
+      </div>
+      <div class="card with-border no-shot">
+        <strong class="shade"></strong>
+        <strong class="shade"></strong>
+        <!-- <h3>SDK</h3> -->
+        <span> Unitree SDK </span>
+        <p>
+          Access the open-source development kit for custom programming and
+          algorithm testing.
+        </p>
+        <div class="buttons">
+          <ButtonPrimary content="Add to cart" />
+          <ButtonSecondary content="Learn more" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="book-section">
+    <div class="book-wrapper">
+      <div class="first">
+        <strong class="shade"></strong>
+        <strong class="shade"></strong>
+        <h4 class="title">
+          Go Further, Achieve <br class="br-mobile" /> More <br
+            class="br-desktop"
+          /> with the B2-W
+        </h4>
+        <p class="paragraph-1">
+          The Unitree B2-W is the definitive solution for large-scale,
+          long-distance industrial automation. Contact AIROBOTS to discuss
+          deployment and integration in Greece.
+        </p>
+        <div class="buttons">
+          <ButtonPrimary
+            content="Request a quote"
+            type="a"
+            href={pages.product.path}
+          />
+          <ButtonSecondary content="Schedule an Industrial Demo" />
+        </div>
+      </div>
+      <div class="second">
+        <Picture
+          class="book-bck"
+          src={book_bck}
+          alt=""
+          fetchpriority={"high"}
+          quality={"max"}
+        />
+        <Picture
+          class="book-shot"
+          src={book_img}
+          alt=""
+          fetchpriority={"high"}
+          quality={"max"}
+        />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss" is:global>
+  #hero-section {
+    padding-top: calc(var(--top-space) * 0.5);
+    padding-bottom: calc(var(--top-space) * 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100vh;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      background: linear-gradient(#000, #00000000);
+      opacity: 0.5;
+      z-index: 1;
+      pointer-events: none;
+    }
+    picture {
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-shot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: bottom center;
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .subtitle-3 {
+        margin-top: calc(var(--fs) * 1.25);
+      }
+    }
+    .sub-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: calc(var(--fs) * 45);
+      margin-top: calc(var(--fs) * 1.44);
+      .paragraph-1 {
+        margin-top: calc(var(--fs) * 1.44);
+        width: 95%;
+      }
+      .primary-btn {
+        margin-top: calc(var(--fs) * 3.12);
+      }
+    }
+  }
+
+  #new-section {
+    padding-top: calc(var(--top-space) * 0.25);
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: max-content;
+    grid-template-columns: 100%;
+    gap: min(calc(var(--fs) * 10), 9vh);
+    place-items: center;
+    place-content: center;
+    .content {
+      display: grid;
+      grid-auto-flow: row;
+      gap: calc(var(--fs) * 1.25);
+      place-items: center;
+      place-content: center;
+      p {
+        color: var(--Gray-Paragraph, #cbcbcb);
+        text-align: center;
+        font-family: "Work Sans";
+        font-size: calc(var(--fs) * 1.875);
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+    .shot {
+      position: relative;
+      picture {
+        width: calc(var(--fs) * 39.3125);
+        height: calc(var(--fs) * 36);
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 0% 85%;
+        }
+      }
+      .detail {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        p {
+          color: var(--White, #fff);
+          font-family: "Work Sans";
+          font-size: calc(var(--fs) * 2.375);
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+        span {
+          color: var(--MAIN-BLUE, #6289ff);
+          font-family: "Work Sans";
+          font-size: calc(var(--fs) * 1.15388);
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          letter-spacing: calc(var(--fs) * -0.04613);
+          margin-top: calc(var(--fs) * 0.62);
+        }
+        img {
+          width: calc(var(--fs) * 19.5);
+          height: calc(var(--fs) * 4.37813);
+          margin-top: calc(var(--fs) * 1.34);
+        }
+        &:nth-of-type(odd) {
+          img {
+            transform: translateX(25%);
+          }
+        }
+        &:nth-of-type(even) {
+          img {
+            transform: scaleX(-1) translateX(35%);
+          }
+        }
+        &:nth-of-type(1) {
+          top: 0;
+          left: 0;
+          transform: translate(
+            calc(var(--fs) * -5 - 100%),
+            calc(var(--fs) * -2)
+          );
+        }
+        &:nth-of-type(3) {
+          bottom: 0;
+          left: 0;
+          transform: translate(
+            calc(var(--fs) * -5 - 100%),
+            calc(var(--fs) * -2)
+          );
+        }
+        &:nth-of-type(2) {
+          top: 0;
+          right: 0;
+          transform: translate(
+            calc(var(--fs) * 7.5 + 100%),
+            calc(var(--fs) * -2)
+          );
+        }
+
+        &:nth-of-type(4) {
+          bottom: 0;
+          right: 0;
+          transform: translate(
+            calc(var(--fs) * 7.5 + 100%),
+            calc(var(--fs) * -2)
+          );
+        }
+      }
+    }
+
+    .blue-shade {
+      position: absolute;
+      z-index: -1;
+      width: 70vw;
+      height: auto;
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+  }
+  .shot-section.second {
+    .content {
+      .h1 {
+        br:first-of-type {
+          display: none;
+        }
+      }
+    }
+  }
+  #media-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: unset;
+    padding: calc(var(--top-space) * 0.5) 0 0;
+    video {
+      width: calc(var(--fs) * 72.1875);
+      height: calc(var(--fs) * 40.625);
+      object-fit: cover;
+
+      border-radius: calc(var(--fs) * 3.125);
+    }
+    h2 {
+      margin-top: calc(var(--fs) * 3.12);
+    }
+    .span {
+      margin-top: calc(var(--fs) * 1.5);
+      div {
+        &:first-of-type {
+          background: linear-gradient(-90deg, var(--line-color), #00000000);
+        }
+        &:last-of-type {
+          background: linear-gradient(90deg, var(--line-color), #00000000);
+        }
+      }
+    }
+  }
+
+  .book-section {
+    .book-wrapper {
+      .second {
+        .book-shot {
+          width: 125%;
+          height: auto;
+          max-width: none;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-48.5%, 25%);
+        }
+      }
+    }
+  }
+
+  @media (orientation: portrait) {
+    .span {
+      gap: calc(var(--fs));
+      div {
+        --dimension: calc(var(--fs) * 0.1);
+        width: calc(var(--fs) * 6.25);
+        &:first-of-type {
+          background: linear-gradient(90deg, #00000000, var(--line-color));
+          &::after {
+            width: calc(var(--dimension) * 3);
+            height: calc(var(--dimension) * 3);
+          }
+        }
+        &:last-of-type {
+          background: linear-gradient(-90deg, #00000000, var(--line-color));
+          &::before {
+            width: calc(var(--dimension) * 3);
+            height: calc(var(--dimension) * 3);
+          }
+        }
+      }
+      span {
+        font-size: calc(var(--fs) * 0.875);
+      }
+    }
+    #hero-section {
+      padding-top: calc(var(--top-space) * 0.5);
+      padding-bottom: calc(var(--top-space) * 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100svh;
+      min-height: unset;
+      &:before {
+        display: none;
+      }
+      .hero-shot {
+        object-position: 70% center;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .subtitle-3 {
+          margin-top: calc(var(--fs) * 0.75);
+        }
+      }
+      .sub-content {
+        width: 75%;
+        margin-top: calc(var(--fs) * 2);
+        .subtitle-2 {
+          font-size: calc(var(--fs) * 1.375);
+          width: 100%;
+        }
+        .paragraph-1 {
+          padding: 0;
+          margin-top: calc(var(--fs) * 0.75);
+          width: 100%;
+        }
+        .primary-btn {
+          margin-top: calc(var(--fs) * 2.25);
+        }
+      }
+    }
+
+    #new-section {
+      padding: calc(var(--top-space) * 2) 0;
+      gap: min(calc(var(--fs) * 7.5), 6.5vh);
+      min-height: unset;
+      .content {
+        gap: calc(var(--fs) * 0.625);
+
+        p {
+          font-size: calc(var(--fs) * 1.125);
+        }
+      }
+      .shot {
+        picture {
+          width: calc(var(--fs) * 39.3125 * 0.6);
+          height: calc(var(--fs) * 29 * 0.8);
+          img {
+            object-position: 0% 85%;
+          }
+        }
+        .detail {
+          display: none;
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+
+      .blue-shade {
+        width: 150vw;
+        opacity: 0.75;
+      }
+    }
+
+    #media-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: unset;
+      padding: calc(var(--top-space) * 0.25) calc(var(--hor-padding)) 0;
+      video {
+        width: 100%;
+        height: calc(var(--fs) * 14.56);
+        border-radius: calc(var(--fs) * 1.875);
+      }
+      h2 {
+        margin-top: calc(var(--fs) * 1.22);
+        font-weight: 600;
+      }
+      .span {
+        div {
+          width: calc(var(--fs) * 5);
+        }
+      }
+    }
+
+    @media (min-aspect-ratio: 0.625) {
+      .shot-section.second {
+        .content {
+          .h1 {
+            br:last-of-type {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>
