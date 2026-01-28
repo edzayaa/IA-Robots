@@ -140,6 +140,12 @@
           );
           break;
 
+        case pages.g1.path:
+          import("../scripts/video_media").then(({ video_media }) =>
+            video_media(),
+          );
+          break;
+
         case pages.product.path:
           import("../scripts/product_page").then(({ product_page }) =>
             product_page(),

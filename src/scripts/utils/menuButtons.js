@@ -3,13 +3,13 @@ import { pages } from "../pages";
 export const menuLinks = [
     {
         name: "home",
-        href: "/",
+        href: pages.home.path,
         icon: "/icons/home.png",
         className: "home-link",
     },
     {
         name: "humanoid",
-        href: "/humanoid",
+        href: pages.humanoid.path,
         options: [{
             name: "humanoid robot",
             products: [
@@ -40,7 +40,7 @@ export const menuLinks = [
 
     {
         name: "quadruped",
-        href: "/quadruped",
+        href: pages.quadruped.path,
         options: [
 
             {
@@ -118,7 +118,7 @@ export const menuLinks = [
 
     {
         name: "digital human",
-        href: "/digital-human",
+        href: pages.digital.path,
         options: [
 
 
@@ -143,7 +143,7 @@ export const menuLinks = [
 
     {
         name: "industry",
-        href: "/industry",
+        href: pages.industry.path,
         options: [{
             name: "industry robot",
             products: [

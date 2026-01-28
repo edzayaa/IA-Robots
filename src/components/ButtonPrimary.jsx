@@ -27,7 +27,7 @@ function ButtonPrimaryInner({ content }) {
   return (
     <>
       {content}
-      <div class="icon">
+      <div className="icon">
         <img src="/icons/arrow_right.svg" alt="Arrow pointing right" />
       </div>
     </>

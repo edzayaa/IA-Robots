@@ -10,7 +10,7 @@ export const pages = {
         description: "Ai Robots Company",
     },
     humanoid: {
-        path: "/humanoid",
+        // path: "/humanoid",
         title: "Humanoid",
         description: "Humanoid Robots",
     },
@@ -20,7 +20,7 @@ export const pages = {
         description: "Quadruped Robots",
     },
     digital: {
-        path: "/digital-human",
+        // path: "/digital-human",
         title: "Digital Human",
         description: "Digital Human Robots",
     },
@@ -60,47 +60,53 @@ export const pages = {
         title: "Unitree R1",
         description: "Unitree Unitree R1",
     },
+    g1:
+    {
+        path: "/unitree-g1",
+        title: "Unitree G1",
+        description: "Unitree Unitree G1",
+    },
     go2_w:
     {
-        path: "/quadruped/unitree-go2-w",
+        path: "/unitree-go2-w",
         title: "Go2-W",
         description: "Unitree Go2-W",
     },
     b2_w:
     {
-        path: "/quadruped/unitree-b2-w",
+        path: "/unitree-b2-w",
         title: "B2-W",
         description: "Unitree B2-W",
     },
 
     go2:
     {
-        path: "/quadruped/unitree-go2",
+        path: "/unitree-go2",
         title: "Go2",
         description: "Unitree Go2",
     },
     b2:
     {
-        path: "/quadruped/unitree-b2",
+        path: "/unitree-b2",
         title: "B2",
         description: "Unitree B2",
     },
 
     a2:
     {
-        path: "/quadruped/unitree-a2",
+        path: "/unitree-a2",
         title: "A2",
         description: "Unitree A2",
     },
     manipulators:
     {
-        path: "/quadruped/z1-d1",
+        path: "/z1-d1",
         title: "Manipulators Z1 / D1",
         description: "Manipulators Z1 / D1",
     },
     perception:
     {
-        path: "/quadruped/l2-4d-lidar",
+        path: "/l2-4d-lidar",
         title: "4D LIDAR L2",
         description: "4D LIDAR L2",
     },

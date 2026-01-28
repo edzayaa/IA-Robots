@@ -1,6 +1,14 @@
 export function video_media() {
     const mediaElems = Array.from(document.querySelectorAll("video.media"));
-    // if (import.meta.env.DEV) return;
+    if (import.meta.env.DEV) {
+        mediaElems.forEach((media) => {
+            media.addEventListener("playing", () => {
+                media.pause()
+            })
+            media.play()
+        })
+        return;
+    }
 
     mediaElems.forEach((media, index) => {
         ScrollTrigger.create({

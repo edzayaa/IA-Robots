@@ -19,6 +19,7 @@ const { htmlClasses, bodyClasses, renderFooter = true } = Astro.props;
 
 const routePattern = decodeURI(Astro.routePattern);
 const isHome = routePattern == "/";
+console.log(routePattern)
 
 const headData = Object.values(pages)
   .filter((page) => page.path == routePattern)
@@ -26,7 +27,7 @@ const headData = Object.values(pages)
     title,
     description,
   }))[0];
-console.log(headData, "valss");
+console.log(headData, "values");
 const title = headData?.title ? headData?.title : "404 - Not found";
 const description = headData?.description
   ? headData?.description
