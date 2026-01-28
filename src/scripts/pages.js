@@ -44,15 +44,21 @@ export const pages = {
     },
     'h1-h2':
     {
-        path: "/humanoid/h1-h2",
-        title: "H1/H2",
+        path: "/unitree-h1-h2",
+        title: "Unitree H1/H2",
         description: "Unitree H1/H2",
     },
     h2:
     {
-        path: "/humanoid/h2",
-        title: "H2",
+        path: "/unitree-h2",
+        title: "Unitree H2",
         description: "Unitree H2",
+    },
+    r1:
+    {
+        path: "/unitree-r1",
+        title: "Unitree R1",
+        description: "Unitree Unitree R1",
     },
     go2_w:
     {
