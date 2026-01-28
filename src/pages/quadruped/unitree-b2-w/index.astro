@@ -16,6 +16,7 @@ import book_img from "../../../assets/b2_w/book_img.png";
 import "@styles/book_section.scss";
 import "@styles/shot_section.scss";
 import "@styles/tech_section.scss";
+import { pages } from "@/scripts/pages";
 ---
 
 <Layout>
@@ -43,17 +44,19 @@ import "@styles/tech_section.scss";
         missions in complex industrial environments.
       </span>
 
-      <ButtonPrimary content="buy now" />
+      <ButtonPrimary content="buy now" type="a" href={pages.product.path} />
     </div>
   </section>
   <section id="new-section">
     <div class="content">
-      <div class="span">
+      <div class="line-element">
         <div></div>
         <span> Wheeled Legged Robot Dog</span>
         <div></div>
       </div>
-      <h2>Brand New Intelligent <br class="br-mobile" /> Species</h2>
+      <h2 class="h1 text-center">
+        Brand New Intelligent <br class="br-mobile" /> Species
+      </h2>
       <p>Transformative Newborn</p>
     </div>
     <div class="shot">
@@ -319,7 +322,11 @@ import "@styles/tech_section.scss";
           deployment and integration in Greece.
         </p>
         <div class="buttons">
-          <ButtonPrimary content="Request a quote" />
+          <ButtonPrimary
+            content="Request a quote"
+            type="a"
+            href={pages.product.path}
+          />
           <ButtonSecondary content="Schedule an Industrial Demo" />
         </div>
       </div>

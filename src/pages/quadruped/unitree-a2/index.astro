@@ -19,6 +19,7 @@ import "@styles/shot_section.scss";
 import "@styles/new_section.scss";
 import "@styles/simple_section.scss";
 import "@styles/tech_section.scss";
+import { pages } from "@/scripts/pages";
 ---
 
 <Layout>
@@ -323,7 +324,11 @@ import "@styles/tech_section.scss";
           and deployment options in Greece.
         </p>
         <div class="buttons">
-          <ButtonPrimary content="Request a quote" />
+          <ButtonPrimary
+            content="Request a quote"
+            type="a"
+            href={pages.product.path}
+          />
           <ButtonSecondary content="Contact Sales Team" />
         </div>
       </div>

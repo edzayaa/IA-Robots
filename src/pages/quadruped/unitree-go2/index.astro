@@ -18,7 +18,7 @@ import "@styles/shot_section.scss";
 import "@styles/new_section.scss";
 import "@styles/simple_section.scss";
 import "@styles/tech_section.scss";
-
+import { pages } from "@/scripts/pages";
 ---
 
 <Layout>
@@ -53,7 +53,7 @@ import "@styles/tech_section.scss";
         <span> Wheeled Legged Robot Dog</span>
         <div></div>
       </div> -->
-      <h2 class="h1">Motor perfomanced <br /> enhanced by 30%</h2>
+      <h2 class="h1 text-center">Motor perfomance <br /> enhanced by 30%</h2>
       <!-- <p>Transformative Newborn</p> -->
     </div>
     <div class="shot">
@@ -115,7 +115,9 @@ import "@styles/tech_section.scss";
     </div>
   </section>
 
-  <section class="simple-section shadow-type-desktop shadow-type-tablet shadow-type-mobile">
+  <section
+    class="simple-section shadow-type-desktop shadow-type-tablet shadow-type-mobile"
+  >
     <h2 class="h1">
       Enhanced Power <br class="br-tablet" /> and <br
         class="br-desktop br-mobile"
@@ -139,7 +141,7 @@ import "@styles/tech_section.scss";
   </section>
 
   <section class="simple-section last-go2">
-    <h2 class="h1">Open Platform for  <br> Learning and Fun</h2>
+    <h2 class="h1">Open Platform for <br /> Learning and Fun</h2>
     <p class="paragraph-1">
       The Go2 is an ideal platform for learning and development. It supports
       Graphical Programming for easy, drag-and-drop program design, making
@@ -223,7 +225,9 @@ import "@styles/tech_section.scss";
     </div>
   </section>
   <section class="cards-section">
-    <h2 class="h2">Enhance Your Go2 <br class="br-mobile" /> Capabilities</h2>
+    <h2 class="h2">
+      Enhance Your Go2 <br class="br-mobile br-tablet" /> Capabilities
+    </h2>
     <div class="cards">
       <div class="card no-shot with-border">
         <strong class="shade"></strong>
@@ -304,7 +308,11 @@ import "@styles/tech_section.scss";
           commercial needs.
         </p>
         <div class="buttons">
-          <ButtonPrimary content="Request a quote" />
+          <ButtonPrimary
+            content="Request a quote"
+            type="a"
+            href={pages.product.path}
+          />
           <ButtonSecondary content="Contact Sales Team" />
         </div>
       </div>

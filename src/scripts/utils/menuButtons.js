@@ -128,12 +128,12 @@ export const menuLinks = [
                 products: [
                     {
                         name: pages.holographic_cabinet.name,
-                        thumbnail: "/images/menu/desktop/digital/holo.png", image: "/images/menu/go2_w.png",
+                        thumbnail: "/images/menu/desktop/digital/holo.png", image: "/images/menu/digital.png",
                         link: pages.holographic_cabinet.path
                     },
                     {
                         name: pages.oled_mobile_robot.name,
-                        thumbnail: "/images/menu/desktop/digital/holo.png", image: "/images/menu/b2_w.png",
+                        thumbnail: "/images/menu/desktop/digital/holo.png", image: "/images/menu/digital.png",
                         link: pages.oled_mobile_robot.path
                     },
 

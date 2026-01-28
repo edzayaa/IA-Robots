@@ -17,6 +17,7 @@ import "@styles/shot_section.scss";
 import "@styles/new_section.scss";
 import "@styles/simple_section.scss";
 import "@styles/tech_section.scss";
+import { pages } from "@/scripts/pages";
 ---
 
 <Layout>
@@ -43,7 +44,7 @@ import "@styles/tech_section.scss";
         advanced SLAM and autonomous navigation.
       </span>
 
-      <ButtonPrimary content="buy now" />
+      <ButtonPrimary content="buy now" type="a" href={pages.product.path} />
     </div>
   </section>
   <section id="new-section">
@@ -225,7 +226,7 @@ import "@styles/tech_section.scss";
     </div>
   </section>
   <section class="cards-section">
-    <h2 class="h2">Compatible Robotics Platforms</h2>
+    <h2 class="h2">Compatible Robotics <br class="br-tablet" /> Platforms</h2>
     <div class="cards">
       <div class="card no-shot with-border">
         <strong class="shade"></strong>
@@ -301,7 +302,11 @@ import "@styles/tech_section.scss";
           LiDAR into your existing or planned robotics platform.
         </p>
         <div class="buttons">
-          <ButtonPrimary content="Request a quote" />
+          <ButtonPrimary
+            content="Request a quote"
+            type="a"
+            href={pages.product.path}
+          />
           <ButtonSecondary content="Contact Technical Support" />
         </div>
       </div>

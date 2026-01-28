@@ -51,7 +51,7 @@ import { pages } from "@/scripts/pages";
               <div></div>
             </div>
             <h1 class="title h1">Unitree H2</h1>
-            <p>
+            <p class="paragraph-1">
               The world's most advanced universal humanoid robot. Featuring 31
               DOF, 360N·m joint torque, and a 2070 TOPS compute platform.
             </p>
@@ -78,7 +78,7 @@ import { pages } from "@/scripts/pages";
               <div></div>
             </div>
             <h1 class="title h1">Unitree B2</h1>
-            <p>
+            <p class="paragraph-1">
               The fastest industrial-grade quadruped. IP67-rated, 40kg payload,
               >6m/s speed, built for extreme environments and critical
               inspection missions.
@@ -102,7 +102,7 @@ import { pages } from "@/scripts/pages";
               <div></div>
             </div>
             <h1 class="title h1">Unitree Go2</h1>
-            <p>
+            <p class="paragraph-1">
               The most accessible and intelligent companion robot. Equipped with
               4D LiDAR, ISS 2.0 side-follow, and a powerful AI core.
             </p>
@@ -129,7 +129,7 @@ import { pages } from "@/scripts/pages";
               <div></div>
             </div>
             <h1 class="title h1">Unitree B2-w</h1>
-            <p>
+            <p class="paragraph-1">
               The ultimate hybrid mobility platform. Combines legs and wheels
               for 15 km/h speed and 25km range with a heavy payload.
             </p>
@@ -155,11 +155,10 @@ import { pages } from "@/scripts/pages";
       <img src="/icons/scroll_down.svg" alt="Scroll down" />
       down
     </div>
-    <!-- <Picture src={texture} alt={""} class={"texture"} /> -->
   </section>
   <section id="autonomy-section">
-    <div class="h2">
-      <h2>advanced autonomy</h2>
+    <div class="h2-wrapper">
+      <h2 class="h1">advanced autonomy</h2>
     </div>
 
     <Picture
@@ -214,11 +213,11 @@ import { pages } from "@/scripts/pages";
   </section>
   <section id="redefining-section">
     <div class="head">
-      <div class="h2">
-        <h2>redefining robotics</h2>
+      <div class="h2-wrapper">
+        <h2 class="h1">redefining robotics</h2>
       </div>
 
-      <p>Value for Every Market</p>
+      <p>Value for Every Market.</p>
     </div>
     <div class="info">
       <h2>Next-Gen Companion</h2>
@@ -287,7 +286,7 @@ import { pages } from "@/scripts/pages";
   </section>
   <section id="target-section">
     <div class="head">
-      <h2>
+      <h2 class="h1">
         Targeted <br />
         Inspections
       </h2>
@@ -392,14 +391,13 @@ import { pages } from "@/scripts/pages";
       quality="high"
       formats={["avif", "webp"]}
     />
-    <h2>Step into the Future <br /> of Robotics.</h2>
+    <h2 class="h1">
+      Step into the Future <br class="br-mobile br-tablet" /> of <br
+        class="br-desktop"
+      /> Robotics.
+    </h2>
     <p>Embrace the power of Embodied AI today.</p>
-    <!-- <button class="primary-btn">
-      Order Your Go2 Now
-      <div class="icon">
-        <img src="/icons/arrow_right.svg" alt="Arrow pointing right" />
-      </div>
-    </button> -->
+
     <ButtonPrimary
       content="Order Your Go2 Now"
       type="a"
@@ -482,11 +480,6 @@ import { pages } from "@/scripts/pages";
         }
         p {
           color: #cbcbcb;
-          text-align: center;
-          font-family: "Work Sans";
-          font-size: calc(var(--fs) * 1.25);
-          font-style: normal;
-          font-weight: 400;
           line-height: 1.25;
           margin-top: calc(var(--fs) * 2);
           width: calc(var(--fs) * 45.9);
@@ -600,17 +593,11 @@ import { pages } from "@/scripts/pages";
       transform: translate(-50%, 0%);
       z-index: 0;
     }
-    .h2 {
+    .h2-wrapper {
       overflow: hidden;
       h2 {
-        color: #fff;
         text-align: center;
-        font-family: "Work Sans";
-        font-size: calc(var(--fs) * 5);
-        font-style: normal;
-        font-weight: 500;
-        line-height: 1.25; /* 100% */
-        text-transform: capitalize;
+        line-height: 1.25;
       }
     }
 
@@ -631,8 +618,8 @@ import { pages } from "@/scripts/pages";
         width: calc(var(--fs) * 36.5);
         position: relative;
         .img {
-          width: calc(var(--fs) * 5);
-          height: calc(var(--fs) * 5);
+          width: calc(var(--fs) * 4.3);
+          height: calc(var(--fs) * 4.3);
           grid-row: 1 / 3;
         }
         .autonomy-line {
@@ -649,7 +636,7 @@ import { pages } from "@/scripts/pages";
         p {
           color: #fff;
           font-family: "Work Sans";
-          font-size: calc(var(--fs) * 1.875);
+          font-size: calc(var(--fs) * 1.625);
           font-style: normal;
           font-weight: 500;
           line-height: normal;
@@ -658,7 +645,7 @@ import { pages } from "@/scripts/pages";
         span {
           color: #cbcbcb;
           font-family: "Work Sans";
-          font-size: calc(var(--fs) * 1.25);
+          font-size: calc(var(--fs) * 1.125);
           font-style: normal;
           font-weight: 400;
           line-height: normal;
@@ -700,24 +687,17 @@ import { pages } from "@/scripts/pages";
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      .h2 {
+      .h2-wrapper {
         overflow: hidden;
-        h2 {
-          color: var(--White, #fff);
-          text-align: center;
-          font-family: "Work Sans";
-          font-size: calc(var(--fs) * 5);
-          font-style: normal;
-          font-weight: 500;
-          line-height: 1.25; /* 100% */
-          text-transform: capitalize;
+        .h1 {
+          line-height: 1.25;
         }
       }
 
       p {
         color: var(--Gray-Paragraph, #cbcbcb);
         font-family: "Work Sans";
-        font-size: calc(var(--fs) * 1.875);
+        font-size: calc(var(--fs) * 1.625);
         font-style: normal;
         font-weight: 500;
         line-height: normal;
@@ -735,6 +715,7 @@ import { pages } from "@/scripts/pages";
         font-style: normal;
         font-weight: 500;
         line-height: normal;
+        text-align: left;
       }
       span {
         color: var(--Gray-Paragraph, #cbcbcb);
@@ -743,17 +724,17 @@ import { pages } from "@/scripts/pages";
         font-style: normal;
         font-weight: 500;
         line-height: normal;
-        margin-top: calc(var(--fs) * 1.25);
+        margin-top: calc(var(--fs) * 0.875);
         display: block;
       }
       p {
         color: var(--Gray-Paragraph, #cbcbcb);
         font-family: "Work Sans";
-        font-size: calc(var(--fs) * 1.25);
+        font-size: calc(var(--fs) * 1);
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        margin-top: calc(var(--fs) * 1);
+        margin-top: calc(var(--fs) * 0.875);
       }
       .splide {
         visibility: visible !important;
@@ -768,9 +749,8 @@ import { pages } from "@/scripts/pages";
         column-gap: calc(var(--fs) * 1.44);
         row-gap: calc(var(--fs) * 0.625);
         width: 100%;
-        min-height: calc(var(--fs) * 11.125);
+        min-height: calc(var(--fs) * 10);
         border-radius: calc(var(--fs) * 1.25);
-
         padding: calc(var(--fs) * 2.56) calc(var(--fs) * 3);
 
         .shade {
@@ -844,10 +824,9 @@ import { pages } from "@/scripts/pages";
       h2 {
         color: var(--White, #fff);
         font-family: "Work Sans";
-        font-size: calc(var(--fs) * 5);
         font-style: normal;
         font-weight: 500;
-        line-height: 1; /* 100% */
+        line-height: 1.25; /* 100% */
       }
       span {
         color: var(--Gray-Paragraph, #cbcbcb);
@@ -925,7 +904,7 @@ import { pages } from "@/scripts/pages";
         p {
           color: #fff;
           font-family: "Work Sans";
-          font-size: calc(var(--fs) * 1.875);
+          font-size: calc(var(--fs) * 1.625);
           font-style: normal;
           font-weight: 500;
           line-height: normal;
@@ -933,7 +912,7 @@ import { pages } from "@/scripts/pages";
         span {
           color: var(--Gray-Paragraph, #cbcbcb);
           font-family: "Work Sans";
-          font-size: calc(var(--fs) * 1.25);
+          font-size: calc(var(--fs) * 1.125);
           font-style: normal;
           font-weight: 400;
           line-height: normal;
@@ -986,7 +965,6 @@ import { pages } from "@/scripts/pages";
       color: var(--White, #fff);
       text-align: center;
       font-family: "Work Sans";
-      font-size: calc(var(--fs) * 5);
       font-style: normal;
       font-weight: 500;
       line-height: 1; /* 100% */
@@ -994,7 +972,7 @@ import { pages } from "@/scripts/pages";
     p {
       color: var(--Gray-Paragraph, #cbcbcb);
       font-family: "Work Sans";
-      font-size: calc(var(--fs) * 1.875);
+      font-size: calc(var(--fs) * 1.625);
       font-style: normal;
       font-weight: 500;
       line-height: normal;
@@ -1177,10 +1155,7 @@ import { pages } from "@/scripts/pages";
         margin: 0 auto;
         margin-top: calc(var(--fs) * 2.25);
       }
-      .h2 {
-        h2 {
-          font-size: calc(var(--fs) * 2.1875);
-        }
+      .h2-wrapper {
       }
       .autonomy-details {
         grid-template-columns: 100%;
@@ -1231,10 +1206,7 @@ import { pages } from "@/scripts/pages";
         grid-column: 1 / 2;
         grid-row: 1 / 2;
         padding: 0 calc(var(--hor-padding) * 1.5);
-        .h2 {
-          h2 {
-            font-size: calc(var(--fs) * 2.1875);
-          }
+        .h2-wrapper {
         }
 
         p {
@@ -1290,6 +1262,7 @@ import { pages } from "@/scripts/pages";
           }
           span {
             font-size: calc(var(--fs) * 1.0625);
+            color: #fff;
           }
           span,
           p {
@@ -1383,7 +1356,7 @@ import { pages } from "@/scripts/pages";
             align-self: flex-start;
             filter: blur(5px);
             -webkit-filter: blur(5px);
-            transition: filter 0.25s linear;
+            transition: filter 0.1s linear;
           }
           &.is-active {
             .media {
@@ -1493,10 +1466,7 @@ import { pages } from "@/scripts/pages";
           height: calc(var(--fs) * 33.56);
           margin-top: calc(var(--fs) * 4);
         }
-        .h2 {
-          h2 {
-            font-size: calc(var(--fs) * 3.4325);
-          }
+        .h2-wrapper {
         }
 
         .autonomy-details {
@@ -1535,10 +1505,7 @@ import { pages } from "@/scripts/pages";
           grid-column: 1 / 2;
           grid-row: 1 / 2;
           padding: 0 calc(var(--hor-padding) * 1.5);
-          .h2 {
-            h2 {
-              font-size: calc(var(--fs) * 3.75);
-            }
+          .h2-wrapper {
           }
 
           p {

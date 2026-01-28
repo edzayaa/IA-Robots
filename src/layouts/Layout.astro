@@ -251,17 +251,6 @@ const description = headData?.description
     text-wrap: balance;
   }
 
-  h1,
-  h2 {
-    color: var(--White, #fff);
-    text-align: center;
-    font-family: "Work Sans";
-    font-size: calc(var(--fs) * 5);
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1; /* 100% */
-  }
-
   .h1 {
     color: var(--White, #fff);
     font-family: "Work Sans";
@@ -269,6 +258,7 @@ const description = headData?.description
     font-style: normal;
     font-weight: 500;
     line-height: 1; /* 100% */
+    text-transform: capitalize;
   }
 
   .h2 {
@@ -320,6 +310,10 @@ const description = headData?.description
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+
+  .text-center {
+    text-align: center;
   }
 
   .under-dev {

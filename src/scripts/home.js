@@ -86,7 +86,7 @@ export function home() {
                     toggleActions: "restart none none reset",
                 }
             })
-                .from("#autonomy-section .h2 h2", {
+                .from("#autonomy-section .h2-wrapper h2", {
                     yPercent: 105,
                     duration: 1.5,
                 })
@@ -118,7 +118,7 @@ export function home() {
                         scrub: true,
                     }
                 })
-                    .from("#redefining-section > .head > .h2 > h2", {
+                    .from("#redefining-section > .head > .h2-wrapper > h2", {
                         yPercent: 110,
                     })
                     .from("#redefining-section > .head > p", {
@@ -335,7 +335,7 @@ export function home() {
                     pagination: false,
                     autoplay: import.meta.env.PROD,
                     interval: 2500,
-                    speed: 2000,
+                    speed: 500,
                     rewind: true,
                     pauseOnHover: false,
                     pauseOnFocus: false,
@@ -354,7 +354,6 @@ export function home() {
                 )
 
                 targetSplideMobile.on("move", (newIndex) => {
-                    console.log(newIndex, "indexsss")
                     gsap.set(loadedBar, {
                         scaleX: (newIndex + 1) * 1 / targetSplideMobile.length,
                     });

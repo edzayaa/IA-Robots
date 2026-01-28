@@ -27,6 +27,9 @@
 
 @media (orientation: landscape) {
   .simple-section {
+    h2 {
+      text-align: center;
+    }
     &.shadow-type-desktop {
       h2,
       .paragraph-1 {
@@ -220,6 +223,7 @@
           margin-top: calc(var(--fs) * -5);
           width: calc(var(--fs) * 98.375 * 0.85) !important;
           height: calc(var(--fs) * 64.9375 * 0.85) !important;
+          z-index: -1;
         }
       }
       &.shadow-type-desktop.full-tablet {

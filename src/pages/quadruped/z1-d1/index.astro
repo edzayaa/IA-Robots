@@ -11,6 +11,7 @@ import ButtonSecondary from "@components/ButtonSecondary";
 import newPic from "../../../assets/manipulators/manipulator.png";
 
 import book_bck from "@assets/book_bck.png";
+import { pages } from "@/scripts/pages";
 ---
 
 <Layout>
@@ -32,7 +33,12 @@ import book_bck from "@assets/book_bck.png";
         dexterous hands to unlock complex manipulation, inspection, and
         interaction tasks.
       </p>
-      <ButtonPrimary content="buy now" className="black-type" />
+      <ButtonPrimary
+        content="buy now"
+        className="black-type"
+        type="a"
+        href={pages.product.path}
+      />
     </div>
   </section>
   <section class="right-img-section manipulator">
@@ -306,7 +312,11 @@ import book_bck from "@assets/book_bck.png";
           platform.
         </p>
         <div class="buttons">
-          <ButtonPrimary content="Request a quote" />
+          <ButtonPrimary
+            content="Request a quote"
+            type="a"
+            href={pages.product.path}
+          />
           <ButtonSecondary content="Contact Sales Team" />
         </div>
       </div>
