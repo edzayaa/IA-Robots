@@ -1,0 +1,262 @@
+.book-section {
+  width: 100%;
+  padding: calc(var(--top-space) * 0.5) calc(var(--hor-padding)) !important;
+  min-height: unset;
+  .book-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    min-height: calc(var(--fs) * 57.625);
+    border-radius: calc(var(--fs) * 3.75);
+    background: #121212;
+    overflow: hidden;
+    & > * {
+      overflow: hidden;
+    }
+    .first {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 0 calc(var(--fs) * 4.5);
+      position: relative;
+      & > * {
+        z-index: 1;
+      }
+      .shade {
+        z-index: 0 !important;
+        &:first-of-type {
+          bottom: 0;
+          left: 0;
+          transform: translate(-50%, 50%);
+        }
+        &:last-of-type {
+          top: 0;
+          right: 0;
+          transform: translate(50%, -50%);
+        }
+      }
+      .title {
+        color: var(--White, #fff);
+        font-family: "Work Sans";
+        font-size: calc(var(--fs) * 3.75);
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1; /* 100% */
+      }
+      .paragraph-1 {
+        margin-top: calc(var(--fs) * 1.75);
+        text-align: left;
+      }
+      .buttons {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+        gap: calc(var(--fs));
+        margin-top: calc(var(--fs) * 1.5);
+        button {
+          text-transform: none;
+          &::first-letter {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+    .second {
+      position: relative;
+      .book-bck {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0%);
+      }
+      .book-shot {
+        position: absolute;
+        width: 100%;
+        height: 95%;
+        object-fit: fill;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-45%, 10%);
+        z-index: 1;
+      }
+    }
+  }
+}
+
+@media (orientation: landscape) and (min-aspect-ratio: 1.8) {
+  .book-section {
+    .book-wrapper {
+      min-height: 38.5vw;
+      height: 70vh;
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  .book-section {
+    width: 100%;
+    padding: calc(var(--top-space) * 1.5) calc(var(--hor-padding)) !important;
+    .book-wrapper {
+      display: grid;
+      grid-template-columns: 100%;
+      grid-auto-flow: row;
+      grid-auto-rows: max-content;
+      min-height: initial;
+      border-radius: calc(var(--fs) * 1.875);
+
+      .first {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: calc(var(--fs) * 3.5) calc(var(--fs) * 2.5)
+          calc(var(--fs) * 1.75);
+        position: relative;
+        & > * {
+          text-align: center;
+        }
+        .shade {
+          &:first-of-type {
+            bottom: 0;
+            left: 0;
+            transform: translate(-50%, 50%);
+          }
+          &:last-of-type {
+            top: 0;
+            right: 0;
+            transform: translate(50%, -50%);
+          }
+        }
+        .title {
+          font-size: calc(var(--fs) * 2.1875);
+          line-height: 1.1;
+        }
+        .paragraph-1 {
+          margin-top: calc(var(--fs) * 1.56);
+          text-align: center;
+        }
+        .buttons {
+          grid-auto-flow: row;
+          grid-auto-columns: max-content;
+          grid-auto-rows: max-content;
+          gap: calc(var(--fs) * 0.875);
+          place-items: center;
+          place-content: center;
+          align-self: center;
+          margin-top: calc(var(--fs) * 1.56);
+        }
+      }
+      .second {
+        position: relative;
+        height: 100vw;
+        .book-bck {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          top: 0;
+          left: 50%;
+          transform: translate(-50%, 0%);
+        }
+        .book-shot {
+          position: absolute;
+          width: 100%;
+          height: 95%;
+          object-fit: fill;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-45%, 10%);
+          z-index: 1;
+        }
+      }
+    }
+  }
+
+  @media (min-aspect-ratio: 0.625) {
+    .book-section {
+      width: 100%;
+      padding: calc(var(--top-space) * 1.5) calc(var(--hor-padding)) !important;
+      .book-wrapper {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-auto-flow: row;
+        grid-auto-rows: max-content;
+        min-height: initial;
+        border-radius: calc(var(--fs) * 2.7);
+        .first {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: calc(var(--fs) * 6.5) calc(var(--fs) * 3) calc(var(--fs) * 5);
+          position: relative;
+          & > * {
+            text-align: center;
+          }
+          .shade {
+            &:first-of-type {
+              bottom: 100%;
+              left: 0;
+              transform: translate(-50%, 50%);
+            }
+            &:last-of-type {
+              top: 100%;
+              right: 0;
+              transform: translate(50%, -50%);
+            }
+          }
+          .title {
+            font-size: calc(var(--fs) * 3.125);
+            line-height: 1.1;
+            br {
+              display: none;
+            }
+          }
+          .paragraph-1 {
+            margin-top: calc(var(--fs) * 1.56);
+            width: 70%;
+          }
+          .buttons {
+            grid-auto-flow: column;
+            grid-auto-columns: max-content;
+            grid-auto-rows: max-content;
+            gap: calc(var(--fs) * 0.875);
+            place-items: center;
+            place-content: center;
+            align-self: center;
+            margin-top: calc(var(--fs) * 1.56);
+            button {
+              height: calc(var(--fs) * 3) !important;
+            }
+          }
+        }
+        .second {
+          position: relative;
+          height: calc(var(--fs) * 38.5);
+          .book-bck {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0%);
+          }
+          .book-shot {
+            position: absolute;
+            width: 100%;
+            height: 95%;
+            object-fit: fill;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 10%);
+            z-index: 1;
+          }
+        }
+      }
+    }
+  }
+}

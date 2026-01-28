@@ -1,0 +1,213 @@
+---
+import ButtonPrimary from "@components/ButtonPrimary";
+import ButtonSecondary from "@components/ButtonSecondary";
+import ButtonSimple from "@components/ButtonSimple";
+import ProductSplides from "@components/product/ProductSplides";
+import Faqs from "@components/Faqs";
+
+import "@styles/cards_section.scss";
+import "@styles/tech_section.scss";
+import "@styles/product_layout.scss";
+import "@styles/faqs_section.scss";
+---
+
+<section id="product-section">
+  <p class="pagination paragraph-1">
+    <span>home</span> > <span>unitree go2</span> > <strong>
+      Customize your Go2</strong
+    >
+  </p>
+  <ProductSplides client:load />
+  <h1 class="h1">Unitree Go2</h1>
+  <p class="subtitle-2 color-blue">$2,800.00 USD</p>
+  <div class="details">
+    <div>
+      <img
+        src="/icons/product_icon_1.svg"
+        alt=""
+        loading="lazy"
+        fetchpriority="high"
+      />
+      <p class="paragraph-2">Order now and ship within 1 months</p>
+    </div>
+    <div>
+      <img
+        src="/icons/product_icon_2.svg"
+        alt=""
+        loading="lazy"
+        fetchpriority="high"
+      />
+      <p class="paragraph-2">Shipping costs between $399 and $1000</p>
+    </div>
+    <div>
+      <img
+        src="/icons/product_icon_2.svg"
+        alt=""
+        loading="lazy"
+        fetchpriority="high"
+      />
+      <p class="paragraph-2">
+        Tax included for most countries (including US), Consult customer service
+        for details.
+      </p>
+    </div>
+  </div>
+  <div class="version">
+    <span class="title">version</span>
+    <button class="paragraph-2"> Go2 Pro（without controller) </button>
+    <button class="paragraph-2"> Go2 Pro（with controller) </button>
+    <button class="paragraph-2"> Go2 Air（without controller) </button>
+    <button class="paragraph-2"> Go2 Air（with controller) </button>
+    <button class="paragraph-2"> Go2 X (with controller) </button>
+  </div>
+  <div class="add-to-cart">
+    <span class="title"> quantity </span>
+    <div class="counter">
+      <button class="flex-center">
+        <img src="/icons/minus.svg" alt="Minus Button" loading="lazy" />
+      </button>
+      <input type="text" class="flex-center" value="1" />
+      <button class="flex-center">
+        <img src="/icons/plus.svg" alt="Minus Button" loading="lazy" />
+      </button>
+    </div>
+    <div class="buttons">
+      <ButtonSimple content="add to cart" />
+      <ButtonPrimary content="buy now" className="icon-right" />
+    </div>
+  </div>
+</section>
+<section class="cards-section">
+  <h2 class="h2">Enhance Your Go2 <br class="br-mobile" /> Capabilities</h2>
+  <div class="cards">
+    <div class="card no-shot with-border">
+      <strong class="shade"></strong>
+      <strong class="shade"></strong>
+
+      <h3>z1</h3>
+      <span> Long Endurance Battery </span>
+
+      <p>
+        Double your Go2's operational time for extended adventures or research.
+      </p>
+      <div class="buttons">
+        <ButtonPrimary content="Add to cart" />
+        <ButtonSecondary content="Learn more" />
+      </div>
+      <!-- <Picture
+          class="shot"
+          src={card_1}
+          alt="Robot"
+          fetchpriority={"high"}
+          quality={"max"}
+        /> -->
+    </div>
+    <div class="card no-shot with-border">
+      <strong class="shade"></strong>
+      <strong class="shade"></strong>
+      <h3>Battery</h3>
+      <span> NVIDIA Jetson Orin NX </span>
+      <p>
+        Boost the computing core for high-speed AI processing and complex model
+        deployment (EDU model).
+      </p>
+      <div class="buttons">
+        <ButtonPrimary content="Add to cart" />
+        <ButtonSecondary content="Learn more" />
+      </div>
+      <!-- <Picture
+          class="shot"
+          src={card_2}
+          alt="Robot"
+          fetchpriority={"high"}
+          quality={"max"}
+        /> -->
+    </div>
+    <div class="card no-shot with-border">
+      <strong class="shade"></strong>
+      <strong class="shade"></strong>
+      <h3>SDK</h3>
+      <span> Unitree D1 Servo <br /> Mechanical Arm </span>
+      <p>
+        Integrate a lightweight arm for basic manipulation and interaction
+        tasks.
+      </p>
+      <div class="buttons">
+        <ButtonPrimary content="Add to cart" />
+        <ButtonSecondary content="Learn more" />
+      </div>
+      <!-- <Picture
+          class="shot"
+          src={card_3}
+          alt="Robot"
+          fetchpriority={"high"}
+          quality={"max"}
+        /> -->
+    </div>
+  </div>
+</section>
+<section id="tech-section" class="m-b-5">
+  <div class="table">
+    <div class="head">
+      <div class="line-element big-desktop">
+        <div></div>
+        <span> Go2</span>
+        <div></div>
+      </div>
+      <h2 class="h1">Technical Specifications</h2>
+    </div>
+
+    <table class="robot-spec-table">
+      <thead>
+        <tr>
+          <th>Characteristic</th>
+          <th>Value</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Weight (with battery)</td>
+          <td>18kg</td>
+          <td>Highly portable for a wheeled-legged robot.</td>
+        </tr>
+        <tr>
+          <td>Payload (Max)</td>
+          <td>8kg (MAX ~ 12kg)</td>
+          <td>Suitable for various sensors and payloads.</td>
+        </tr>
+        <tr>
+          <td>Speed Range</td>
+          <td>0 - 2.5 m/s</td>
+          <td>Efficient wheeled movement and dynamic legged motion.</td>
+        </tr>
+        <tr>
+          <td>Endurance</td>
+          <td>1.5 - 3h (15000mAh battery)</td>
+          <td>Varies based on mode of locomotion and load.</td>
+        </tr>
+        <tr>
+          <td>Max Joint Torque</td>
+          <td>45 N.m</td>
+          <td>Ensures responsive and stable movement.</td>
+        </tr>
+        <tr>
+          <td>Obstacle Crossing</td>
+          <td>Up to 70cm</td>
+          <td>Superior capability for overcoming large obstacles.</td>
+        </tr>
+        <tr>
+          <td>Sensing</td>
+          <td>3D LiDAR + HD Wide-angle Camera</td>
+          <td>Advanced environmental awareness.</td>
+        </tr>
+        <tr>
+          <td>Computing</td>
+          <td>8-core CPU, Orin NX optional</td>
+          <td>Powerful core for AI and development.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<Faqs client:load />

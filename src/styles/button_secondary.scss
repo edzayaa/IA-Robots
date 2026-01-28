@@ -1,0 +1,78 @@
+.secondary-btn {
+  --btn-height: calc(var(--fs) * 2.625);
+  color: #fff;
+  font-family: "Work Sans";
+  font-size: calc(var(--fs) * 1.15388);
+
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: calc(var(--fs) * -0.05538);
+  padding: 0 calc(var(--fs) * 1.27);
+  border-radius: var(--fs);
+  border: 0.25px solid #666;
+  height: var(--btn-height);
+  position: relative;
+  z-index: 1;
+  & > * {
+    pointer-events: none;
+  }
+  border: none;
+  overflow: hidden;
+  &:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      rgba(102, 102, 102, 0.25),
+      rgba(102, 102, 102, 0.15),
+      rgba(102, 102, 102, 0.85)
+    );
+    z-index: -1;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - calc(var(--fs) * 0.35));
+    height: calc(100% - calc(var(--fs) * 0.35));
+    background-color: #191919;
+
+    z-index: -1;
+    border-radius: calc(var(--fs) * 0.85);
+    transition: background-color 0.15s ease-in;
+  }
+  &:hover {
+    &::after {
+      background-color: #2b2b2b;
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  .secondary-btn {
+    --btn-height: calc(var(--fs) * 2.29762);
+    font-size: calc(var(--fs) * 0.875);
+    letter-spacing: calc(var(--fs) * -0.035);
+    border: none;
+    background: none;
+    height: var(--btn-height);
+    position: relative;
+    z-index: 1;
+    justify-self: center;
+    line-height: 1;
+  }
+
+  @media (min-aspect-ratio: 0.625) {
+    .secondary-btn {
+      --btn-height: calc(var(--fs) * 2.625);
+      font-size: calc(var(--fs) * 1.13625);
+    }
+  }
+}
