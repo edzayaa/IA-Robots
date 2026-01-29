@@ -78,7 +78,7 @@ export function home() {
             if (isPortraitRes) return;
             const autonomyTl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: "#autonomy-section > .h2",
+                    trigger: "#autonomy-section > .h2-wrapper",
                     start: "top bottom-=10%",
                     end: "top top",
                     endTrigger: "#autonomy-section",

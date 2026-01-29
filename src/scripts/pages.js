@@ -30,18 +30,7 @@ export const pages = {
         description: "Industry applications",
     },
 
-    g1:
-    {
-        path: "/humanoid/g1",
-        title: "G1",
-        description: "Unitree G1",
-    },
-    r1:
-    {
-        path: "/humanoid/r1",
-        title: "R1",
-        description: "Unitree R1",
-    },
+
     'h1-h2':
     {
         path: "/unitree-h1-h2",
@@ -111,13 +100,13 @@ export const pages = {
         description: "4D LIDAR L2",
     },
     holographic_cabinet: {
-        path: "/digital-human/holographic-cabinet",
+        path: "/holographic-cabinet",
         title: "Holographic Cabinet KIEFER",
         description: "Holographic Cabinet KIEFER",
         name: "Holographic Cabinet KIEFER",
     },
     oled_mobile_robot: {
-        path: "/digital-human/oled-mobile-robot",
+        path: "/oled-mobile-robot",
         title: "OLED Mobile Robot KIEFER",
         description: "OLED Mobile Robot KIEFER",
         name: "OLED Mobile Robot KIEFER",
