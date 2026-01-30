@@ -31,7 +31,7 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
       </button>
     </div>
   </header>
-  <nav transition:persist transition:animate="none">
+  <nav transition:animate="none">
     {
       menuLinks.map((link, index) =>
         link.isLink ? (
@@ -54,7 +54,7 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
     {
       menuLinks.map(
         (link, index) =>
-          index != 0 && (
+          link.options && (
             <div class="sub-nav" data-link={link.name}>
               {link.options?.map((group) => (
                 <div class="group">
@@ -222,7 +222,6 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
       position: absolute;
       top: 100%;
       left: 0;
-      transform: translateY(calc(var(--fs) * 1));
       padding: calc(var(--fs) * 1.37) calc(var(--fs) * 1.69);
       display: grid;
       grid-auto-flow: column;
@@ -231,7 +230,7 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
       justify-content: space-between;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.25s ease-in;
+      // transition: opacity 0.25s ease-in;
       & > * {
         pointer-events: none;
       }

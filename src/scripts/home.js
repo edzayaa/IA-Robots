@@ -1,12 +1,10 @@
 import Splide from "@splidejs/splide";
 import "@splidejs/splide/css";
-import { intro, preloader } from "./preloader";
+import { preloader } from "./preloader";
 import { breakPoints, mm, resolution } from "./utils/resolution";
 
 export function home() {
 
-    let lineSpan;
-    let splideIndicatorButtons;
     let heroSplide;
     let redefiningSplideMobile;
     let targetSplideMobile;
@@ -24,7 +22,7 @@ export function home() {
             })
 
 
-            const intro = gsap.timeline({
+            const introHome = gsap.timeline({
                 pausde: true,
             })
                 .fromTo(["header", "nav"], {
@@ -38,9 +36,22 @@ export function home() {
                 }, {
                     autoAlpha: 1,
                 }, "<50%")
+                .from([".hero-content > .content:first-of-type > *", ".scroll-down"], {
+                    y: "2vw",
+                    opacity: 0,
+                    stagger: 0.1,
+                }, "<")
+                .from("#hero-section .carousel-indicator", {
+                    opacity: 0,
+                    duration: 0.25
+                }, "-=0.25")
+                .from("#hero-section .splide .splide__arrows", {
+                    autoAlpha: 0,
+                    duration: 0.25
+                }, "<")
 
             const preloaderTl = preloader();
-            preloaderTl.add(intro, 0)
+            preloaderTl.add(introHome, 0)
             preloaderTl.progress(0).timeScale(1).tweenTo(preloaderTl.totalDuration())
 
         }
@@ -50,7 +61,7 @@ export function home() {
             heroSplide = new Splide("#hero-splide", {
                 type: "fade",
                 rewind: true,
-                autoplay: import.meta.env.PROD,
+                autoplay: true,
                 interval: 3500,
                 speed: 2000,
                 pauseOnHover: false,
@@ -65,18 +76,20 @@ export function home() {
             heroSplide.on("mounted", launch)
             heroSplide.mount();
 
-
-            lineSpan = document.querySelector(
+            const splideArrows = gsap.utils.toArray("#hero-section .splide .splide__arrows .splide__arrow");
+            const lineSpan = document.querySelector(
                 ".carousel-line span"
             );
-            splideIndicatorButtons = document.querySelectorAll(
+            const splideIndicatorButtons = gsap.utils.toArray(
                 ".carousel-steps button"
             );
-
             const totalSlides = heroSplide.length;
             const stepWidth = 100 / totalSlides;
             const slides = heroSplide.Components.Slides.get();
             const heroContents = gsap.utils.toArray("#hero-section .content");
+            const carouselIndicatorSteps = gsap.utils.toArray(
+                ".carousel-indicator .carousel-steps button"
+            )
 
             function setClip(newIndex) {
                 const prevIndex = heroSplide.Components.Controller.getPrev();
@@ -108,16 +121,22 @@ export function home() {
                     }
                 })
             }
-            // setClip(0)
 
             heroSplide.on("move", (newIndex) => {
                 gsap.set(lineSpan, {
                     xPercent: newIndex * stepWidth + 15,
                 });
+
+                if (isDesktopRes) {
+                    carouselIndicatorSteps.forEach((step, index) => {
+                        if (index <= newIndex) step.classList.add("active")
+                        else step.classList.remove("active")
+                    })
+                }
+
                 setClip(newIndex)
 
             })
-
 
             splideIndicatorButtons.forEach(
                 (button, index) => {
@@ -232,7 +251,7 @@ export function home() {
                 "#target-section .splide .splide__track .list .item video.media"
             );
 
-            const targetEntrance = gsap.timeline({
+            const targetVideosEntrance = gsap.timeline({
                 scrollTrigger: {
                     trigger: "#target-section",
                     start: "top bottom",
@@ -248,7 +267,28 @@ export function home() {
             });
 
 
+
+
             if (isDesktopRes) {
+                const targetEntrance = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: "#target-section > .head > .h2-wrapper",
+                        start: "top bottom",
+                        end: "top top+=25%",
+                        scrub: true,
+                    }
+                })
+                    .from("#target-section > .head > .h2-wrapper > h2", {
+                        yPercent: 110,
+                    })
+                    .from("#target-section > .head > span", {
+                        opacity: 0,
+                        ease: "power1.in"
+                    }, "<20%")
+                    .from("#target-section > .head > .progress", {
+                        opacity: 0,
+                        ease: "power1.in"
+                    }, "<20%")
 
                 const targetTL = gsap
                     .timeline({
@@ -465,7 +505,7 @@ export function home() {
                     [
                         "#future-section h2",
                         "#future-section p",
-                        "#future-section button",
+                        "#future-section .primary-btn",
                     ],
                     {
                         opacity: 0,

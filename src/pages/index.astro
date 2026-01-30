@@ -293,10 +293,12 @@ import { pages } from "@/scripts/pages";
   </section>
   <section id="target-section">
     <div class="head">
-      <h2 class="h1">
-        Targeted <br />
-        Inspections
-      </h2>
+      <div class="h2-wrapper overflow-hidden">
+        <h2 class="h1">
+          Targeted <br />
+          Inspections
+        </h2>
+      </div>
       <span> Lorem Ipsum door asit met </span>
       <div class="progress">
         <ProgressBar id="target-progress-bar" />
@@ -552,7 +554,7 @@ import { pages } from "@/scripts/pages";
     }
     .carousel-indicator {
       position: absolute;
-      bottom: calc(var(--fs) * 2);
+      bottom: calc(var(--fs) * 3.25);
       right: calc(var(--hor-padding) * 2);
       display: flex;
       align-items: center;
@@ -571,6 +573,10 @@ import { pages } from "@/scripts/pages";
           font-style: normal;
           font-weight: 400;
           line-height: normal;
+          opacity: 0.5;
+          &.active {
+            opacity: 1;
+          }
         }
       }
       .carousel-line {

@@ -17,6 +17,8 @@ export function intro_animations() {
             }
         })
 
+        if (intro_elements.length == 0) return;
+
         const introAnim = gsap.timeline({
             defaults: {
                 duration: 1,

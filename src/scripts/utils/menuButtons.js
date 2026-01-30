@@ -145,16 +145,16 @@ export const menuLinks = [
     {
         name: "industry",
         href: pages.industry.path,
-        options: [{
-            name: "industry robot",
-            products: [
-                {
-                    name: "h2",
-                    thumbnail: "", image: "",
-                    link: ""
-                }
-            ]
-        }],
+        // options: [{
+        //     name: "industry robot",
+        //     products: [
+        //         {
+        //             name: "h2",
+        //             thumbnail: "", image: "",
+        //             link: ""
+        //         }
+        //     ]
+        // }],
         isLink: true,
     },
 
