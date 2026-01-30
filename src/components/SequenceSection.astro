@@ -1,0 +1,29 @@
+---
+const { images } = Astro.props;
+---
+
+<section class="sequence-section" data-images={JSON.stringify(images)}>
+  <canvas id="sequence-canvas"></canvas>
+</section>
+
+<style lang="scss">
+  .sequence-section {
+    height: 1000vh;
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+    }
+  }
+
+  @media (orientation: portrait) {
+    .sequence-section {
+      height: 1000vh;
+      canvas {
+        width: 100%;
+      }
+    }
+  }
+</style>

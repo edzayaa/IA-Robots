@@ -142,6 +142,9 @@
           break;
 
         case pages.g1.path:
+          import("../scripts/sequence_frames").then(({ sequence_frames }) =>
+            sequence_frames(),
+          );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );

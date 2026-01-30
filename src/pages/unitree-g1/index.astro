@@ -19,6 +19,25 @@ import book_bck from "@assets/book_bck.png";
 import "@styles/shot_section.scss";
 import "@styles/tech_section.scss";
 import { pages } from "@/scripts/pages";
+import SequenceSection from "@components/SequenceSection.astro";
+import { getImage } from "astro:assets";
+
+const images = import.meta.glob("@assets/sequences/raw_g1/*.jpg");
+const imagesKeys = Object.keys(images);
+const imagesValues = Object.values(images);
+
+const resImages = await Promise.all(
+  imagesValues.map(async (img) => {
+    const imageModule = (await img()) as any; // Resolve the import
+    return await getImage({
+      src: imageModule.default,
+      format: "webp",
+      quality: "high",
+    });
+  }),
+);
+
+console.log(resImages[0]);
 ---
 
 <Layout>
@@ -56,47 +75,8 @@ import { pages } from "@/scripts/pages";
       />
     </div>
   </section>
-  <section id="new-section">
-    <div class="content">
-      <div class="line-element">
-        <div></div>
-        <span> Humanoid Robot</span>
-        <div></div>
-      </div>
-      <h2 class="h1 text-center">Brand New Intelligent Species</h2>
-      <p>Transformative Newborn</p>
-    </div>
-    <div class="shot">
-      <Picture
-        src={modelShot}
-        alt={"Go2 New Model "}
-        fetchpriority={"high"}
-        quality={"max"}
-      />
-      <div class="detail">
-        <p>31 Degrees of Freedom</p>
-        <span> Total DOF </span>
-        <img src="/images/indicator.svg" alt="" loading="lazy" />
-      </div>
-      <div class="detail">
-        <p>Up to 2070 TOPS <br /> (EDU Model)</p>
-        <span> AI Compute </span>
-        <img src="/images/indicator.svg" alt="" loading="lazy" />
-      </div>
-      <div class="detail">
-        <p>360 N.m</p>
-        <span> Peak Leg Torque </span>
-        <img src="/images/indicator.svg" alt="" loading="lazy" />
-      </div>
-      <div class="detail">
-        <p>182cm Tall, Aircraft-<br />Grade Materials</p>
-        <span> Design</span>
-        <img src="/images/indicator.svg" alt="" loading="lazy" />
-      </div>
-    </div>
 
-    <Image class={"blue-shade"} src={blue_shade} alt={""} format="webp" />
-  </section>
+  <SequenceSection images={resImages} />
   <section class="shot-section flex-start-row">
     <video
       playsinline
