@@ -94,7 +94,7 @@ const description = headData?.description
     <Preloader visible={isHome ? "visible" : "invisible"} />
     <Header desktopOpacity={headerDesktopOpacity} />
     <Menu />
-    <div id="smooth-wrapper" >
+    <div id="smooth-wrapper">
       <div id="smooth-content">
         <main>
           <slot />
@@ -485,6 +485,10 @@ const description = headData?.description
     opacity: 0;
   }
 
+  .capitalize {
+    text-transform: capitalize;
+  }
+
   @media (orientation: landscape) {
     .br-desktop {
       display: block !important;
@@ -523,6 +527,9 @@ const description = headData?.description
   }
   .color-blue {
     color: var(--MAIN-BLUE);
+  }
+  .color-white {
+    color: #fff !important;
   }
 
   @media (orientation: portrait) {

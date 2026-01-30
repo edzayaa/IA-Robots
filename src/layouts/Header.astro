@@ -1,4 +1,5 @@
 ---
+import Sidecart from "@components/Sidecart";
 import { menuLinks } from "../scripts/utils/menuButtons";
 
 const { headerOpacity: desktopOpacity = 1 } = Astro.props;
@@ -26,9 +27,7 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
       <button aria-label="Click to check account">
         <img src="/icons/user.svg" alt="User Account" />
       </button>
-      <button aria-label="Click to open the cart">
-        <img src="/icons/bag.svg" alt="Cart" />
-      </button>
+      <Sidecart client:load />
     </div>
   </header>
   <nav transition:animate="none">
@@ -82,7 +81,7 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
   </nav>
 </>
 
-<style lang="scss" define:vars={{ desktopOpacity }}>
+<style lang="scss" define:vars={{ desktopOpacity }} is:global>
   :root {
     --nav-background: rgba(18, 18, 18, 0.8);
     --nav-height: calc(var(--fs) * 3.5);
@@ -122,6 +121,10 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
     .menus {
       display: flex;
       align-items: center;
+      gap: calc(var(--fs) * 0.9);
+      span {
+        display: none;
+      }
       button {
         display: flex;
         align-items: center;
@@ -129,16 +132,11 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
         width: var(--button-height);
         height: var(--button-height);
         border-radius: calc(var(--fs) * 0.875);
-        // border-top: 0.5px solid #242222;
-        // border-bottom: 0.5px solid #242222;
         background: var(--nav-background);
         backdrop-filter: blur(0.5vw);
         -webkit-backdrop-filter: blur(0.5vw);
         transition: background-color 0.15s ease-in;
-        margin-right: calc(var(--fs) * 0.9);
-        &:last-of-type {
-          margin-right: 0;
-        }
+        margin: 0;
         &#hamburger,
         span {
           display: none;
@@ -330,6 +328,9 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
     }
     header {
       .menus {
+        span {
+          display: block;
+        }
         button {
           background: #121212 !important;
           backdrop-filter: unset !important;
@@ -349,6 +350,7 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
         height: calc(var(--fs) * 1);
       }
       .menus {
+        gap: 0;
         button {
           margin-right: calc(var(--fs) * 0.25);
           border-radius: calc(var(--fs) * 0.8);
@@ -459,7 +461,7 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
       .menus {
         display: grid;
         grid-template-columns: repeat(2, max-content) 1fr repeat(2, max-content);
-        gap: calc(var(--fs) * 0.25);
+        gap: calc(var(--fs) * 1);
         height: 100%;
         width: 100%;
         button {
