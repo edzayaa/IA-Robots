@@ -1,0 +1,246 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { Picture } from "astro:assets";
+import heroImg from "@assets/industry/hero.png";
+import { pages } from "@scripts/pages";
+
+const industries = [
+  {
+    name: "Industrial & Manufacturing",
+    info: "Unitree  robots are deployed in manufacturing and industrial settings to perform routine, high-risk,  and complex inspections autonomously. Equipped with thermal cameras, gas sensors, and  high-resolution optics, they ensure continuous operation and predictive maintenance,  reducing downtime and operational costs.",
+    href: "",
+  },
+  {
+    name: "Energy & Utilities",
+    info: "The  energy sector demands uncompromising reliability. Unitree robots provide a mobile,  intelligent platform for inspecting assets across the entire energy lifecycle, from generation  to distribution, ensuring operational continuity and regulatory compliance.",
+    href: "",
+  },
+  {
+    name: "Construction",
+    info: "Unitree  robots bring agility and precision to construction site management. They automate the  tedious tasks of site documentation and progress tracking, providing project managers  with real-time, actionable data.",
+    href: "",
+  },
+  {
+    name: "Logistics & Warehousing",
+    info: "The combination of  Unitree's mobile platforms (especially wheeled-legged models) and manipulators (Z1, D1 T) provides flexible automation solutions for the dynamic needs of logistics and  warehousing",
+    href: "",
+  },
+  {
+    name: "Security & Surveillance",
+    info: "Unitree  robots offer a dynamic alternative to static security cameras, providing mobile surveillance,  rapid response, and all-terrain perimeter monitoring in complex environments.",
+    href: "",
+  },
+  {
+    name: "Agriculture",
+    info: "Robotics is key to maximizing yield and efficiency in modern agriculture. Unitree's all-terrain mobility  is perfectly suited for navigating fields and farms, providing data for precision farming  techniques.",
+    href: "",
+  },
+  {
+    name: "Education & Research",
+    info: "Unitree  robots are the global standard for academic and research institutions, providing open, high performance hardware for advanced studies in dynamic motion, control systems, and  Embodied AI",
+    href: "",
+  },
+  {
+    name: "Personal & Entertainment",
+    info: "Unitree's  consumer-grade robots and Digital Human products bring the excitement of advanced  robotics into the home and public spaces, offering unique forms of interaction and  entertainment",
+    href: "",
+  },
+];
+---
+
+<Layout>
+  <section id="hero-section">
+    <h1 class="h1 text-center intro-anim">
+      Advanced Robotic <br class="br-mobile" /> Solutions <br
+        class="br-tablet"
+      /> for a <br class="br-desktop br-mobile" /> Smarter Greece
+    </h1>
+    <Picture
+      class="hero-shot intro-anim"
+      src={heroImg}
+      alt="Unitree Go2-W "
+      loading="eager"
+      fetchpriority={"high"}
+      quality={"high"}
+      formats={["avif", "webp"]}
+    />
+    <p class="subtitle-3 intro-anim">
+      AIROBOTS, the exclusive distributor of Unitree Robotics in Greece,
+      provides cutting-edge quadruped and humanoid robot platforms to solve
+      complex operational challenges across key industries. Our solutions
+      enhance safety, increase efficiency, and deliver unprecedented data
+      precision
+    </p>
+  </section>
+
+  <section id="industries-section" class="m-b-5">
+    {
+      industries.map((industry) => (
+        <a href={industry.href ? industry.href : pages["industry_single"].path} class="industry">
+          <h2 class="h2">{industry.name}</h2>
+          <p class="paragraph-1 text-start">{industry.info}</p>
+          <div
+            class="btn"
+            aria-label="Click to learn more about this industry solution"
+          >
+            <img src="/icons/arrow_circle.svg" alt="" loading="lazy" />
+          </div>
+        </a>
+      ))
+    }
+  </section>
+</Layout>
+
+<style lang="scss">
+  #hero-section {
+    padding-top: calc(var(--top-space) * 0.65);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .hero-shot {
+      width: calc(var(--fs) * 78);
+      height: calc(var(--fs) * 43.875);
+      border-radius: calc(var(--fs) * 1.875);
+      object-fit: cover;
+      margin-top: calc(var(--fs) * 5.69);
+    }
+    .subtitle-3 {
+      width: calc(var(--fs) * 59.9375);
+      text-align: center;
+      margin-top: calc(var(--fs) * 9.875);
+      color: #fff;
+    }
+  }
+
+  #industries-section {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: max-content;
+    gap: calc(var(--fs) * 1.19);
+    width: 100%;
+    padding: 0 calc(var(--hor-padding));
+    margin-top: calc(var(--top-space) * 0.5);
+    .industry {
+      display: grid;
+      grid-template-columns: 1fr calc(var(--fs) * 40) max-content;
+      align-items: center;
+      width: 100%;
+      min-height: calc(var(--fs) * 12.5);
+      border-radius: calc(var(--fs) * 3.85);
+      border: 1px solid #666;
+      background-color: rgba(18, 18, 18, 0);
+      padding: calc(var(--fs) * 3.63) calc(var(--fs) * 5);
+      transition: background-color 0.25s ease-in;
+      p {
+        padding-right: calc(var(--fs) * 5);
+        color: #fff;
+      }
+      .btn {
+        width: calc(var(--fs) * 4.6875);
+        height: calc(var(--fs) * 4.6875);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #383838;
+        background-color: #000;
+        transition: transform 0.2s ease-in-out;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &:hover {
+        background-color: var(--MAIN-BLUE);
+        .btn {
+          border-color: none !important;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  @media (orientation: portrait) {
+    #hero-section {
+      padding: calc(var(--top-space) * 2) calc(var(--hor-padding) * 1) 0;
+      min-height: unset;
+      .hero-shot {
+        width: 100%;
+        height: calc(var(--fs) * 14.5);
+        margin-top: calc(var(--fs) * 3.87);
+      }
+      .subtitle-3 {
+        width: 100%;
+        text-align: left;
+        margin-top: calc(var(--fs) * 5);
+        align-self: flex-start;
+      }
+    }
+
+    #industries-section {
+      padding: 0 calc(var(--hor-padding));
+      margin-top: calc(var(--fs) * 7.44);
+      gap: calc(var(--fs) * 1.56);
+      .industry {
+        grid-template-columns: 1fr max-content;
+        border-radius: calc(var(--fs) * 1.875);
+        min-height: calc(var(--fs) * 5);
+        padding: calc(var(--fs) * 3.19) calc(var(--fs) * 1.75);
+        row-gap: calc(var(--fs) * 1.75);
+        h2 {
+          grid-column: 1 / 2;
+        }
+        p {
+          padding-right: 0;
+          color: #fff;
+          grid-column: 1 / 2;
+        }
+        .btn {
+          width: calc(var(--fs) * 2.3125);
+          height: calc(var(--fs) * 2.3125);
+          grid-column: 2 / 3;
+          grid-row: 1 / 2;
+          align-self: start;
+        }
+      }
+    }
+
+    @media (min-aspect-ratio: 0.625) {
+      #hero-section {
+        padding: calc(var(--top-space) * 2) calc(var(--hor-padding) * 2) 0;
+        min-height: unset;
+        .hero-shot {
+          height: calc(var(--fs) * 24.625);
+          margin-top: calc(var(--fs) * 2.87);
+        }
+        h1 {
+          font-size: calc(var(--fs) * 2.1875);
+          line-height: 1.15;
+        }
+        .subtitle-3 {
+          margin-top: calc(var(--fs) * 7.25);
+          width: 85%;
+        }
+      }
+
+      #industries-section {
+        padding: 0 calc(var(--hor-padding) * 2);
+        margin-top: calc(var(--fs) * 7.44);
+        gap: calc(var(--fs) * 2);
+
+        .industry {
+          grid-template-columns: 1fr max-content;
+          border-radius: calc(var(--fs) * 1.875);
+          min-height: calc(var(--fs) * 5);
+          padding: calc(var(--fs) * 2.94) calc(var(--fs) * 2);
+          row-gap: calc(var(--fs) * 2);
+          h2 {
+            width: 85%;
+          }
+        }
+      }
+    }
+  }
+</style>

@@ -6,6 +6,7 @@ export const menuLinks = [
         href: pages.home.path,
         icon: "/icons/home.png",
         className: "home-link",
+        isLink: true,
     },
     {
         name: "humanoid",
@@ -112,7 +113,7 @@ export const menuLinks = [
                 ]
             },
 
-        ]
+        ],
     },
 
 
@@ -153,7 +154,8 @@ export const menuLinks = [
                     link: ""
                 }
             ]
-        }]
+        }],
+        isLink: true,
     },
 
 ];

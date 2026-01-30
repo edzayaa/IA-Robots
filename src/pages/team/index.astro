@@ -1,0 +1,282 @@
+---
+import Layout from "@layouts/Layout.astro";
+import team_2 from "@assets/team/member_2.jpg";
+import team_1 from "@assets/team/member_1.jpg";
+import team_3 from "@assets/team/member_3.jpg";
+import team_4 from "@assets/team/member_4.jpg";
+import { Picture } from "astro:assets";
+
+const members = [
+  {
+    name: "Tyler Vander Vegt",
+    role: "President",
+    imgSrc: team_1,
+  },
+  {
+    name: "Ashley Shinkwin",
+    role: "CEO",
+    imgSrc: team_2,
+  },
+  {
+    name: "Chris Monson",
+    role: "Sales & Estimating Manager",
+    imgSrc: team_3,
+  },
+  {
+    name: "Austin Vander Vegt",
+    role: "Project Manager",
+    imgSrc: team_4,
+  },
+  {
+    name: "Austin Vander Vegt",
+    role: "Project Manager",
+    imgSrc: team_4,
+  },
+  {
+    name: "Tyler Vander Vegt",
+    role: "President",
+    imgSrc: team_1,
+  },
+  {
+    name: "Ashley Shinkwin",
+    role: "CEO",
+    imgSrc: team_2,
+  },
+  {
+    name: "Chris Monson",
+    role: "Sales & Estimating Manager",
+    imgSrc: team_3,
+  },
+];
+---
+
+<Layout>
+  <section>
+    <div class="head">
+      <h1 class="h1 intro-anim">Meet our team</h1>
+      <p class="paragraph-1 intro-anim">
+        We are are a group of servant leaders focused on education, empowerment,
+        and bringing integrity to our industry.
+      </p>
+    </div>
+    <div class="team intro-anim">
+      {
+        members.map((member) => (
+          <div class="member-card">
+            <div class="shot">
+              <Picture
+                src={member.imgSrc as any}
+                alt={"Member"}
+                fetchpriority={"high"}
+                quality={"max"}
+                formats={["avif", "webp"]}
+              />
+              <div class="info">
+                <span class="paragraph-1">
+                  Lorem ipsum dolor sit amet consectetur. Quam nisl non dictumst
+                  dignissim fringilla curabitur tellus quisque at. Dictu
+                </span>
+              </div>
+            </div>
+
+            <p class="name">{member.name}</p>
+            <span class="role"> {member.role} </span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  section {
+    padding: calc(var(--top-space) * 0.75) calc(var(--hor-padding))
+      calc(var(--fs) * 5);
+    .head {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      & > * {
+        text-align: center;
+      }
+      h1 {
+        text-transform: none;
+      }
+      p {
+        width: calc(var(--fs) * 49.0625);
+        margin-top: calc(var(--fs) * 2.87);
+      }
+    }
+    .team {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      justify-content: start;
+      margin-top: calc(var(--fs) * 6);
+      row-gap: calc(var(--fs) * 2.44);
+      .member-card {
+        width: calc(var(--fs) * 27.1875);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        perspective: 100vw;
+
+        &:hover {
+          .shot {
+            transform: rotateY(180deg);
+            picture {
+              opacity: 0;
+            }
+            .info {
+              opacity: 1;
+            }
+          }
+        }
+        .shot {
+          width: 100%;
+          height: calc(var(--fs) * 27.0625);
+          position: relative;
+          border-radius: calc(var(--fs) * 1.875);
+          overflow: hidden;
+          transform-style: preserve-3d;
+          transform: rotateY(0deg);
+          transition: transform cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
+          picture {
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            transition: opacity cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          .info {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: var(--MAIN-BLUE, #6289ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 calc(var(--fs) * 2.5);
+            opacity: 0;
+            transition: opacity cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
+            transform: scaleX(-1);
+          }
+        }
+
+        .name {
+          color: #fff;
+          text-align: center;
+          font-family: "Work Sans";
+          font-size: calc(var(--fs) * 1.625);
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          margin-top: calc(var(--fs) * 1.25);
+          padding: 0 calc(var(--fs) * 1.06);
+          height: calc(var(--fs) * 2.5);
+          border-radius: calc(var(--fs) * 2);
+          border: 1px solid var(--MAIN-BLUE, #6289ff);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-transform: capitalize;
+        }
+        .role {
+          color: var(--Gray-Paragraph, #cbcbcb);
+          text-align: center;
+          font-family: "Work Sans";
+          font-size: calc(var(--fs) * 1.25);
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          margin-top: calc(var(--fs) * 1.63);
+          padding: 0 calc(var(--fs) * 1.06);
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  @media (orientation: portrait) {
+    @media (min-aspect-ratio: 0.625) {
+      section {
+        padding: calc(var(--top-space) * 2) calc(var(--hor-padding) * 1.85)
+          calc(var(--fs) * 5);
+        .head {
+          p {
+            width: calc(var(--fs) * 25.5);
+            margin-top: calc(var(--fs) * 1.25);
+          }
+        }
+        .team {
+          grid-template-columns: repeat(3, 1fr);
+          margin-top: calc(var(--fs) * 2.87);
+          row-gap: calc(var(--fs) * 2.87);
+          .member-card {
+            width: calc(var(--fs) * 14.39);
+            .shot {
+              height: calc(var(--fs) * 14.32);
+              border-radius: calc(var(--fs) * 1);
+            }
+
+            .name {
+              font-size: calc(var(--fs) * 1.375);
+              margin-top: calc(var(--fs) * 0.66);
+              padding: 0 calc(var(--fs) * 0.75);
+              height: calc(var(--fs) * 3.5);
+              border-radius: calc(var(--fs) * 3.5);
+            }
+            .role {
+              font-size: calc(var(--fs) * 1);
+              margin-top: calc(var(--fs) * 0.7);
+              padding: 0 calc(var(--fs) * 0.625);
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-aspect-ratio: 0.625) {
+      section {
+        padding: calc(var(--top-space) * 2) calc(var(--hor-padding) * 1)
+          calc(var(--fs) * 5);
+        .head {
+          p {
+            width: calc(var(--fs) * 20.75);
+            margin-top: calc(var(--fs) * 1.5);
+          }
+        }
+        .team {
+          grid-template-columns: repeat(2, 1fr);
+          margin-top: calc(var(--fs) * 4);
+          row-gap: calc(var(--fs) * 1.61);
+          justify-content: space-between;
+          .member-card {
+            width: calc(var(--fs) * 13);
+            .shot {
+              height: calc(var(--fs) * 12.46);
+              border-radius: calc(var(--fs) * 0.86);
+            }
+            .name {
+              font-size: calc(var(--fs) * 1.0625);
+              margin-top: calc(var(--fs) * 0.58);
+              padding: 0 calc(var(--fs) * 0.94);
+              height: calc(var(--fs) * 2.5);
+              border-radius: calc(var(--fs) * 2.5);
+            }
+            .role {
+              font-size: calc(var(--fs) * 1);
+              margin-top: calc(var(--fs) * 0.93);
+              padding: 0 calc(var(--fs) * 0.94);
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

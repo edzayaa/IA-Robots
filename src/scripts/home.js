@@ -22,8 +22,27 @@ export function home() {
                 opacity: 1,
                 delay: 0.5,
             })
+
+
+            const intro = gsap.timeline({
+                pausde: true,
+            })
+                .fromTo(["header", "nav"], {
+                    y: "2vw",
+                }, {
+                    y: "0vw",
+                    duration: 1,
+                }, 1)
+                .fromTo(["header", "nav"], {
+                    autoAlpha: 0,
+                }, {
+                    autoAlpha: 1,
+                }, "<50%")
+
             const preloaderTl = preloader();
+            preloaderTl.add(intro, 0)
             preloaderTl.progress(0).timeScale(1).tweenTo(preloaderTl.totalDuration())
+
         }
 
 
@@ -38,6 +57,8 @@ export function home() {
                 pauseOnFocus: false,
                 arrows: true,
                 pagination: false,
+                waitForTransition: true,
+                drag: false,
             })
 
 
@@ -54,12 +75,49 @@ export function home() {
 
             const totalSlides = heroSplide.length;
             const stepWidth = 100 / totalSlides;
+            const slides = heroSplide.Components.Slides.get();
+            const heroContents = gsap.utils.toArray("#hero-section .content");
+
+            function setClip(newIndex) {
+                const prevIndex = heroSplide.Components.Controller.getPrev();
+                const nextIndex = heroSplide.Components.Controller.getNext();
+
+                slides.forEach((splide, indexSlide) => {
+
+                    if (indexSlide == newIndex) {
+                        splide.slide.classList.remove("close-left");
+                        splide.slide.classList.remove("close-right");
+                    }
+                    if (splide.slide.classList.contains("close-left") && splide.slide.classList.contains("close-right")) return;
+
+                    if (indexSlide === nextIndex) {
+                        splide.slide.classList.add("close-right");
+                        splide.slide.classList.remove("close-left");
+                    }
+                    if (indexSlide === prevIndex) {
+                        splide.slide.classList.add("close-left");
+                        splide.slide.classList.remove("close-right");
+                    }
+
+                })
+
+                heroContents.forEach((content, indexContent) => {
+                    content.classList.remove("active")
+                    if (indexContent == newIndex) {
+                        content.classList.add("active")
+                    }
+                })
+            }
+            // setClip(0)
 
             heroSplide.on("move", (newIndex) => {
                 gsap.set(lineSpan, {
                     xPercent: newIndex * stepWidth + 15,
                 });
-            });
+                setClip(newIndex)
+
+            })
+
 
             splideIndicatorButtons.forEach(
                 (button, index) => {

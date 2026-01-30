@@ -29,6 +29,11 @@ export const pages = {
         title: "Industry",
         description: "Industry applications",
     },
+    industry_single: {
+        path: "/industry-single",
+        title: "Industry Single",
+        description: "Industry Application",
+    },
 
 
     'h1-h2':
@@ -116,6 +121,11 @@ export const pages = {
         path: "/product",
         title: "Product",
         description: "Product",
+    },
+    team: {
+        path: "/team",
+        title: "Team",
+        description: "Team",
     }
 
 }

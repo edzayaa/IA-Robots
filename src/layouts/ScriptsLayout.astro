@@ -33,6 +33,7 @@
     import { resolution, mm, breakPoints } from "../scripts/utils/resolution";
     import { intro } from "../scripts/preloader";
     import { active_link } from "@/scripts/active_link";
+    import { intro_animations } from "@/scripts/intro_animations";
 
     fonts();
 
@@ -158,6 +159,12 @@
           );
           break;
 
+        case pages.industry.path:
+          import("../scripts/industries").then(({ industries }) =>
+            industries(),
+          );
+          break;
+
         case pages.product.path:
           import("../scripts/product_page").then(({ product_page }) =>
             product_page(),
@@ -174,6 +181,7 @@
       menu();
       footer();
       active_link();
+      intro_animations();
     });
 
     document.addEventListener("astro:before-swap", () => {
