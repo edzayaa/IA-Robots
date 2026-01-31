@@ -79,7 +79,9 @@
             speed: 0.5,
             smoothTouch: 0,
           });
-          ScrollTrigger.normalizeScroll(true);
+          ScrollTrigger.normalizeScroll({
+            allowNestedScroll: true,
+          });
         }
 
         return () => {

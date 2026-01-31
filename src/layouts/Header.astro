@@ -1,4 +1,5 @@
 ---
+import Search from "@components/Search";
 import Sidecart from "@components/Sidecart";
 import { menuLinks } from "../scripts/utils/menuButtons";
 
@@ -20,9 +21,8 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
       <button aria-label="Click to open mobile menu" id="hamburger">
         <span></span><span></span><span></span>
       </button>
-      <button aria-label="Click to search">
-        <img src="/icons/magnifier.svg" alt="Search" />
-      </button>
+
+      <Search client:load />
       <span></span>
       <button aria-label="Click to check account">
         <img src="/icons/user.svg" alt="User Account" />
