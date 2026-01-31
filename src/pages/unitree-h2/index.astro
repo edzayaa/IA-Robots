@@ -611,6 +611,19 @@ import { pages } from "@/scripts/pages";
     }
   }
 
+  @media (orientation: landscape) {
+    .book-section {
+      .book-wrapper {
+        .second {
+          .book-shot {
+            object-fit: contain;
+            transform: translate(-50%, 20%) scale(1.35);
+          }
+        }
+      }
+    }
+  }
+
   @media (orientation: portrait) {
     #hero-section {
       padding-top: calc(var(--top-space) * 0.5);

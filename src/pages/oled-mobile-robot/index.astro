@@ -570,7 +570,10 @@ import { pages } from "@/scripts/pages";
         &:nth-of-type(2) {
           top: 0;
           right: 0;
-          transform: translate(calc(var(--fs) * 0 + 100%), calc(var(--fs) * 8.5));
+          transform: translate(
+            calc(var(--fs) * 0 + 100%),
+            calc(var(--fs) * 8.5)
+          );
         }
 
         &:nth-of-type(4) {
@@ -750,6 +753,19 @@ import { pages } from "@/scripts/pages";
             span {
               width: 85%;
             }
+          }
+        }
+      }
+    }
+  }
+
+  @media (orientation: landscape) {
+    .book-section {
+      .book-wrapper {
+        .second {
+          .book-shot {
+            object-fit: contain;
+            transform: translate(-50%, 20%) scale(1.35);
           }
         }
       }

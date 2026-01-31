@@ -41,8 +41,15 @@
     import { intro } from "../scripts/preloader";
     import { active_link } from "@/scripts/active_link";
     import { intro_animations } from "@/scripts/intro_animations";
+    import { table_animation } from "@/scripts/table_animation";
+    import { cards_animation } from "@/scripts/cards_animation";
+    import { book_animation } from "@/scripts/book_animation";
 
     fonts();
+
+    gsap.config({
+      nullTargetWarn: import.meta.env.DEV,
+    });
 
     let scrollbar: any;
     let pathname: string = readPathname();
@@ -119,6 +126,9 @@
           import("../scripts/sequence_frames").then(({ sequence_frames }) =>
             sequence_frames(),
           );
+          import("../scripts/simple_section_animation").then(
+            ({ simple_section_animation }) => simple_section_animation(),
+          );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
@@ -127,6 +137,9 @@
         case pages.b2.path:
           import("../scripts/sequence_frames").then(({ sequence_frames }) =>
             sequence_frames(),
+          );
+          import("../scripts/simple_section_animation").then(
+            ({ simple_section_animation }) => simple_section_animation(),
           );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
@@ -204,6 +217,7 @@
             ({ scroll_text_contained_animation }) =>
               scroll_text_contained_animation(),
           );
+
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
@@ -250,6 +264,9 @@
       footer();
       active_link();
       intro_animations();
+      table_animation();
+      cards_animation();
+      book_animation();
     });
 
     document.addEventListener("astro:before-swap", () => {
