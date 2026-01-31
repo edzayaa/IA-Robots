@@ -53,7 +53,9 @@ import { pages } from "@/scripts/pages";
         <span> Wheeled Legged Robot Dog</span>
         <div></div>
       </div> -->
-      <h2 class="h1">Go Beyond The <br class="br-mobile" /> Limits</h2>
+      <h2 class="h1 text-center">
+        Go Beyond The <br class="br-mobile" /> Limits
+      </h2>
       <!-- <p>Transformative Newborn</p> -->
     </div>
     <div class="shot">
@@ -152,7 +154,7 @@ import { pages } from "@/scripts/pages";
   </section>
 
   <section
-    class="simple-section full-img-desktop full-tablet margin-0 align-end-desktop p-5"
+    class="simple-section full-img-desktop full-tablet margin-0 align-end-desktop p-5 last-a2"
   >
     <h2 class="h1">
       Versatile Platform <br class="br-mobile" /> for <br class="br-tablet" /> Industrial
@@ -461,6 +463,15 @@ import { pages } from "@/scripts/pages";
     }
   }
 
+  .simple-section {
+    &.last-a2 {
+      place-items: start;
+      & > * {
+        text-align: left;
+      }
+    }
+  }
+
   // .shot-section {
   //   display: flex;
   //   align-items: flex-end;
@@ -616,6 +627,12 @@ import { pages } from "@/scripts/pages";
           width: calc(var(--fs) * 22.5);
           height: calc(var(--fs) * 22.5);
         }
+      }
+    }
+
+    .simple-section {
+      &.last-a2 {
+        padding-top: 0;
       }
     }
 

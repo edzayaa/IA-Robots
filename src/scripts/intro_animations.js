@@ -17,22 +17,37 @@ export function intro_animations() {
             }
         })
 
-        if (intro_elements.length == 0) return;
+        if (intro_elements.length > 0) {
 
-        const introAnim = gsap.timeline({
-            defaults: {
-                duration: 1,
-                ease: "power2.out"
-            },
-            delay: .25,
+            const introAnim = gsap.timeline({
+                defaults: {
+                    duration: 1,
+                    ease: "power2.out"
+                },
+                delay: .25,
+            })
+                .fromTo(intro_elements, {
+                    autoAlpha: 0,
+                    y: "2vw",
+                }, {
+                    autoAlpha: 1,
+                    y: "0vw",
+                    stagger: 0.15,
+                })
+        }
+
+
+        const heroFirstScroll = gsap.timeline({
+            scrollTrigger: {
+                trigger: "section",
+                start: "top top",
+                end: "bottom top-=25%",
+                scrub: true,
+                id: "scroll-hero"
+            }
         })
-            .fromTo(intro_elements, {
-                autoAlpha: 0,
-                y: "2vw",
-            }, {
-                autoAlpha: 1,
-                y: "0vw",
-                stagger: 0.15,
+            .to("#hero-section", {
+                opacity: 0,
             })
 
     })

@@ -21,6 +21,13 @@
     src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"
   ></script>
 
+  <script
+    is:inline
+    defer
+    fetchpriority="high"
+    src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"
+  ></script>
+
   <script>
     import { navigate } from "astro:transitions/client";
     import { fonts } from "../scripts/utils/fonts";
@@ -62,6 +69,7 @@
         if (isDesktopRes) {
           scrollbar = ScrollSmoother.create({
             smooth: 1.5,
+            speed: 0.5,
             smoothTouch: 0,
           });
           ScrollTrigger.normalizeScroll(true);
@@ -82,30 +90,53 @@
           break;
 
         case pages.go2_w.path:
+          import("../scripts/new_section_animation").then(
+            ({ new_section_animation }) => new_section_animation(),
+          );
+          import("../scripts/scroll_text_contained_animation").then(
+            ({ scroll_text_contained_animation }) =>
+              scroll_text_contained_animation(),
+          );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
           break;
 
         case pages.b2_w.path:
+          import("../scripts/new_section_animation").then(
+            ({ new_section_animation }) => new_section_animation(),
+          );
+          import("../scripts/scroll_text_contained_animation").then(
+            ({ scroll_text_contained_animation }) =>
+              scroll_text_contained_animation(),
+          );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
           break;
 
         case pages.go2.path:
+          import("../scripts/sequence_frames").then(({ sequence_frames }) =>
+            sequence_frames(),
+          );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
           break;
 
         case pages.b2.path:
+          import("../scripts/sequence_frames").then(({ sequence_frames }) =>
+            sequence_frames(),
+          );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
           break;
 
         case pages.a2.path:
+          import("../scripts/new_section_animation").then(
+            ({ new_section_animation }) => new_section_animation(),
+          );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
@@ -118,24 +149,48 @@
           break;
 
         case pages.perception.path:
+          import("../scripts/new_section_animation").then(
+            ({ new_section_animation }) => new_section_animation(),
+          );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
           break;
 
         case pages["h1-h2"].path:
+          import("../scripts/new_section_animation").then(
+            ({ new_section_animation }) => new_section_animation(),
+          );
+          import("../scripts/scroll_text_contained_animation").then(
+            ({ scroll_text_contained_animation }) =>
+              scroll_text_contained_animation(),
+          );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
           break;
 
         case pages.h2.path:
+          import("../scripts/new_section_animation").then(
+            ({ new_section_animation }) => new_section_animation(),
+          );
+          import("../scripts/scroll_text_contained_animation").then(
+            ({ scroll_text_contained_animation }) =>
+              scroll_text_contained_animation(),
+          );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
           break;
 
         case pages.r1.path:
+          import("../scripts/new_section_animation").then(
+            ({ new_section_animation }) => new_section_animation(),
+          );
+          import("../scripts/scroll_text_contained_animation").then(
+            ({ scroll_text_contained_animation }) =>
+              scroll_text_contained_animation(),
+          );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
@@ -145,18 +200,28 @@
           import("../scripts/sequence_frames").then(({ sequence_frames }) =>
             sequence_frames(),
           );
+          import("../scripts/scroll_text_contained_animation").then(
+            ({ scroll_text_contained_animation }) =>
+              scroll_text_contained_animation(),
+          );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
           break;
 
         case pages.holographic_cabinet.path:
+          import("../scripts/new_section_animation").then(
+            ({ new_section_animation }) => new_section_animation(),
+          );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );
           break;
 
         case pages.oled_mobile_robot.path:
+          import("../scripts/new_section_animation").then(
+            ({ new_section_animation }) => new_section_animation(),
+          );
           import("../scripts/video_media").then(({ video_media }) =>
             video_media(),
           );

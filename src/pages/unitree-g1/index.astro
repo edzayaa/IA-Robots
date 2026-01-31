@@ -18,12 +18,12 @@ import "@styles/book_section.scss";
 import book_bck from "@assets/book_bck.png";
 import "@styles/shot_section.scss";
 import "@styles/tech_section.scss";
+import "@styles/new_section.scss";
 import { pages } from "@/scripts/pages";
 import SequenceSection from "@components/SequenceSection.astro";
 import { getImage } from "astro:assets";
 
 const images = import.meta.glob("@assets/sequences/raw_g1/*.jpg");
-const imagesKeys = Object.keys(images);
 const imagesValues = Object.values(images);
 
 const resImages = await Promise.all(
@@ -75,9 +75,21 @@ console.log(resImages[0]);
       />
     </div>
   </section>
-
-  <SequenceSection images={resImages} />
-  <section class="shot-section flex-start-row">
+  <section id="new-section" class="sequence-section">
+    <div class="sequence-pin">
+      <div class="content">
+        <div class="line-element">
+          <div></div>
+          <span> Humanoid Robot</span>
+          <div></div>
+        </div>
+        <h2 class="h1 text-center">Brand New Intelligent Species</h2>
+        <p>Transformative Newborn</p>
+      </div>
+      <SequenceSection images={resImages} />
+    </div>
+  </section>
+  <section class="shot-section flex-start-row scroll-text-contained">
     <video
       playsinline
       muted
@@ -103,7 +115,7 @@ console.log(resImages[0]);
       </p>
     </div>
   </section>
-  <section class="shot-section flex-end-row">
+  <section class="shot-section flex-end-row scroll-text-contained">
     <video
       playsinline
       muted
@@ -127,7 +139,7 @@ console.log(resImages[0]);
       </p>
     </div>
   </section>
-  <section class="shot-section flex-start-row">
+  <section class="shot-section flex-start-row scroll-text-contained">
     <video
       playsinline
       muted
@@ -398,20 +410,15 @@ console.log(resImages[0]);
   }
 
   #new-section {
-    padding-top: calc(var(--top-space) * 0.25);
-    display: grid;
-    grid-auto-flow: row;
-    grid-auto-rows: max-content;
-    grid-template-columns: 100%;
-    gap: min(calc(var(--fs) * 7.5), 6.5vh);
+    display: flex;
+    align-items: flex-start;
     place-items: center;
     place-content: center;
+    height: 1000vh !important;
     .content {
-      display: grid;
-      grid-auto-flow: row;
-      gap: calc(var(--fs) * 1.25);
-      place-items: center;
-      place-content: center;
+      z-index: 1;
+      position: relative;
+      padding-top: calc(var(--fs) * 4);
 
       p {
         color: var(--Gray-Paragraph, #cbcbcb);
@@ -643,8 +650,6 @@ console.log(resImages[0]);
       min-height: unset;
       .content {
         gap: calc(var(--fs) * 0.625);
-        display: none;
-
         p {
           font-size: calc(var(--fs) * 1.125);
         }

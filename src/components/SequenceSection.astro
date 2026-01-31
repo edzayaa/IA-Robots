@@ -2,27 +2,113 @@
 const { images } = Astro.props;
 ---
 
-<section class="sequence-section" data-images={JSON.stringify(images)}>
+<div class="sequence-canvas" data-images={JSON.stringify(images)}>
   <canvas id="sequence-canvas"></canvas>
-</section>
+  <div class="specs">
+    <div class="spec">
+      <div class="wrapper-seq-elem overflow-hidden">
+        <span class="h1"> 20 km/h </span>
+      </div>
+      <div class="wrapper-seq-elem overflow-hidden">
+        <p class="subtitle-3">Max Speed</p>
+      </div>
+    </div>
+    <div class="spec">
+      <div class="wrapper-seq-elem overflow-hidden">
+        <span class="h1"> IP67 Ingress Protection</span>
+      </div>
+      <div class="wrapper-seq-elem overflow-hidden">
+        <p class="subtitle-3">Protection</p>
+      </div>
+    </div>
+    <div class="spec">
+      <div class="wrapper-seq-elem overflow-hidden">
+        <span class="h1"> 50 km with 40kg load </span>
+      </div>
+      <div class="wrapper-seq-elem overflow-hidden">
+        <p class="subtitle-3">Max Endurance</p>
+      </div>
+    </div>
+    <div class="spec">
+      <div class="wrapper-seq-elem overflow-hidden">
+        <span class="h1"> Continuous Stair Climbing (20-25cm) </span>
+      </div>
+      <div class="wrapper-seq-elem overflow-hidden">
+        <p class="subtitle-3">Mobility</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <style lang="scss">
-  .sequence-section {
-    height: 1000vh;
+  .sequence-canvas {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
     canvas {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100vh;
+      pointer-events: none;
+    }
+    .specs {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      .spec {
+        position: absolute;
+        bottom: calc(var(--fs) * 5);
+        left: calc(var(--hor-padding));
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: calc(var(--fs) * 0.875);
+        .wrapper-seq-elem {
+          opacity: 0;
+          & > * {
+            white-space: nowrap;
+            display: block;
+            line-height: 1.2 !important;
+          }
+        }
+      }
     }
   }
 
   @media (orientation: portrait) {
-    .sequence-section {
-      height: 1000vh;
-      canvas {
-        width: 100%;
+    @media (max-aspect-ratio: 0.625) {
+      .sequence-canvas {
+        .specs .spec {
+          bottom: calc(var(--fs) * 3.5);
+          gap: calc(var(--fs) * 0.5);
+          .h1 {
+            font-size: calc(var(--fs) * 1.45);
+          }
+          .subtitle-3 {
+            font-size: calc(var(--fs) * 1);
+          }
+        }
+      }
+    }
+
+    @media (min-aspect-ratio: 0.625) {
+      .sequence-canvas {
+        .specs .spec {
+          bottom: calc(var(--fs) * 3.5);
+          gap: calc(var(--fs) * 0.5);
+          .h1 {
+            font-size: calc(var(--fs) * 2.5);
+          }
+          .subtitle-3 {
+            font-size: calc(var(--fs) * 2);
+          }
+        }
       }
     }
   }

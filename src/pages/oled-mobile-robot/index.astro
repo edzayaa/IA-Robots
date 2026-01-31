@@ -570,7 +570,7 @@ import { pages } from "@/scripts/pages";
         &:nth-of-type(2) {
           top: 0;
           right: 0;
-          transform: translate(calc(var(--fs) * 0 + 100%), calc(var(--fs) * 2));
+          transform: translate(calc(var(--fs) * 0 + 100%), calc(var(--fs) * 8.5));
         }
 
         &:nth-of-type(4) {
@@ -1375,6 +1375,15 @@ import { pages } from "@/scripts/pages";
         h2 {
           margin-top: calc(var(--fs) * 1.22);
           font-weight: 600;
+        }
+      }
+    }
+    @media (max-aspect-ratio: 0.625) {
+      #hero-section {
+        .hero-video {
+          width: calc(var(--fs) * 26.92969 * 0.625);
+          height: calc(var(--fs) * 47.875 * 0.625);
+          border-radius: calc(var(--fs) * 3);
         }
       }
     }

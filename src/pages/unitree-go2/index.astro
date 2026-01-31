@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import heroImg from "@assets/go2_w/unitree_go2_w_hero.png";
-import { Picture } from "astro:assets";
+import { getImage, Picture } from "astro:assets";
 import newPic from "@assets/go2/new_go2.png";
 import openPlatform from "@assets/go2/open_platform.png";
 
@@ -19,6 +19,23 @@ import "@styles/new_section.scss";
 import "@styles/simple_section.scss";
 import "@styles/tech_section.scss";
 import { pages } from "@/scripts/pages";
+import SequenceSection from "@components/SequenceSection.astro";
+
+const images = import.meta.glob("@assets/sequences/raw_go2/*.jpg");
+const imagesValues = Object.values(images);
+
+const resImages = await Promise.all(
+  imagesValues.map(async (img) => {
+    const imageModule = (await img()) as any; // Resolve the import
+    return await getImage({
+      src: imageModule.default,
+      format: "webp",
+      quality: "high",
+    });
+  }),
+);
+
+console.log(resImages[0]);
 ---
 
 <Layout>
@@ -46,48 +63,21 @@ import { pages } from "@/scripts/pages";
       <!-- <ButtonPrimary content="Watch Video" /> -->
     </div>
   </section>
-  <section id="new-section">
-    <div class="content">
-      <!-- <div class="line-element">
-        <div></div>
-        <span> Wheeled Legged Robot Dog</span>
-        <div></div>
-      </div> -->
-      <h2 class="h1 text-center">Motor perfomance <br /> enhanced by 30%</h2>
-      <!-- <p>Transformative Newborn</p> -->
+  <section id="new-section" class="sequence-section">
+    <div class="sequence-pin">
+      <div class="content">
+        <div class="line-element">
+          <div></div>
+          <span> Humanoid Robot</span>
+          <div></div>
+        </div>
+        <h2 class="h1 text-center">Brand New Intelligent Species</h2>
+        <p>Transformative Newborn</p>
+      </div>
+      <SequenceSection images={resImages} />
     </div>
-    <div class="shot">
-      <Picture
-        src={newPic}
-        alt={"Go2 New Model "}
-        fetchpriority={"high"}
-        quality={"max"}
-      />
-      <div class="detail">
-        <p>Standard Ultra-<br />wide 4D LiDAR L1</p>
-        <span>Sensing </span>
-        <img src="/images/indicator.svg" alt="" loading="lazy" />
-      </div>
-      <div class="detail">
-        <p>ISS 2.0 Intelligent <br /> Side-follow System</p>
-        <span>Intelligence </span>
-        <img src="/images/indicator.svg" alt="" loading="lazy" />
-      </div>
-      <div class="detail">
-        <p>Affordability</p>
-        <span> Starting from $1600 (Go2 AIR)</span>
-        <img src="/images/indicator.svg" alt="" loading="lazy" />
-      </div>
-      <div class="detail">
-        <p>Motor performance <br /> enhanced by 30%</p>
-        <span> Performance</span>
-        <img src="/images/indicator.svg" alt="" loading="lazy" />
-      </div>
-    </div>
-
-    <Image class={"blue-shade"} src={blue_shade} alt={""} format="webp" />
   </section>
-  <section class="simple-section">
+  <section class="simple-section bck-black no-padding-top-mobile" id="first-simple">
     <h2 class="h1">3D LiDAR Mapping</h2>
     <p class="paragraph-1">
       With L1 LiDAR and a dedicated App, you can construct point cloud map
@@ -376,7 +366,7 @@ import { pages } from "@/scripts/pages";
       }
       video {
         width: 100%;
-        height: 100%;
+        height: 99%;
         object-fit: cover;
         object-position: bottom center;
       }
@@ -409,6 +399,11 @@ import { pages } from "@/scripts/pages";
   }
 
   #new-section {
+    .content {
+      z-index: 1;
+      position: relative;
+      padding-top: calc(var(--fs) * 4);
+    }
     .shot {
       picture {
         width: calc(var(--fs) * 40);

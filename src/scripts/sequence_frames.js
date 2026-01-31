@@ -34,7 +34,7 @@ function imagesLoader(imagesPaths) {
 }
 
 function render(sequenceRes, sequenceRef, ctx) {
-    if (sequenceRes && sequenceRes.length > 0) {
+    if (sequenceRes && sequenceRes.length > 0 && sequenceRes[0] !== null) {
         scaleImage(sequenceRes[sequenceRef.frame], ctx);
     }
 }
@@ -65,14 +65,20 @@ function scaleImage(img, ctx) {
 
 export async function sequence_frames() {
 
-    let isPortrait;
-    const sequenceElement = document.querySelector('.sequence-section');
 
-    if (!sequenceElement) {
+    let isPortrait;
+    const sequenceSection = document.querySelector('.sequence-section');
+
+    if (!sequenceSection) {
         console.log("Sequence element not found.");
         return
     };
-    const selector = gsap.utils.selector(sequenceElement);
+    const selector = gsap.utils.selector(sequenceSection);
+    const content = selector(".content")[0];
+
+    const contentElems = selector(".content > *");
+    const sequencePin = selector(".sequence-pin")[0];
+    const sequenceCanvas = selector(".sequence-canvas")[0];
     const canvas = selector("#sequence-canvas")[0];
     const ctx = canvas.getContext("2d");
 
@@ -80,28 +86,74 @@ export async function sequence_frames() {
         frame: 0,
     }
 
+
+    const entrance = gsap.timeline({
+        scrollTrigger: {
+            trigger: sequenceSection,
+            start: "top bottom",
+            end: "top top",
+            scrub: true,
+        }
+    })
+        .fromTo(sequenceCanvas, {
+            yPercent: window.innerHeight > window.innerWidth ? -5 : -35,
+        }, {
+            yPercent: 0,
+            duration: 2,
+        })
+        .from(sequenceCanvas, {
+            opacity: 0,
+            duration: 1.5,
+            ease: "power1.in"
+        }, "<")
+        .from(contentElems, {
+            opacity: 0,
+            y: "5vw",
+            stagger: 0.25,
+            duration: 0.75
+        }, 1)
+        .fromTo(content, {
+            y: "20vw",
+        }, {
+            y: "0vw",
+            ease: "power1.out",
+            duration: 1.5,
+        }, "<")
+     
+        .to(content, {
+            autoAlpha: 0, ease: "power1.in",
+            duration: 0.25,
+        }, "-=0.25")
+
     ScrollTrigger.create({
-        trigger: sequenceElement,
+        trigger: sequenceSection,
         start: "top top",
-        end: "bottom bottom",
-        markers: import.meta.env.DEV,
-        pin: canvas,
-        pinSpacing: true,
+        end: "bottom top",
+        markers: false,
+        pin: sequencePin,
+        pinSpacing: false,
     })
 
-    const images = JSON.parse(sequenceElement.dataset.images);
-    const res = await imagesLoader(images);
+    const imagesPaths = JSON.parse(sequenceCanvas.dataset.images);
+    // let resImages = new Array(imagesPaths.length).fill(null);
+
+    const resImages = await imagesLoader(imagesPaths);
+
 
     mm.add(breakPoints, (context) => {
         const { isPortraitRes } = context.conditions;
         isPortrait = isPortraitRes;
 
+
         const timeline = gsap.timeline({
             scrollTrigger: {
-                trigger: sequenceElement,
+                trigger: sequenceSection,
                 start: "top bottom",
-                end: "bottom center+=25%",
+                end: isPortraitRes ? "bottom center" : "bottom top+=35%",
                 scrub: true,
+            },
+            defaults: {
+                duration: 1,
             }
         })
             .fromTo(
@@ -110,19 +162,58 @@ export async function sequence_frames() {
                     frame: 0,
                 },
                 {
-                    frame: res.length - 1,
+                    frame: resImages.length - 1,
                     snap: "frame",
                     ease: "none",
-                    onUpdate: () => render(res, sequence, ctx),
+                    onUpdate: () => render(resImages, sequence, ctx),
                 },
-            );
-    })
+            )
+            .from(gsap.utils.toArray(".spec:nth-of-type(1) > .wrapper-seq-elem > *"), {
+                yPercent: 100,
+                duration: 0.1
+            }, 0.15)
+            .to(".spec:nth-of-type(1)", {
+                autoAlpha: 0, ease: "power1.in",
+                duration: 0.1,
+            }, ">")
+            .from(gsap.utils.toArray(".spec:nth-of-type(2) > .wrapper-seq-elem > *"), {
+                yPercent: 100,
+                duration: 0.1
+            }, ">")
+            .to(".spec:nth-of-type(2)", {
+                autoAlpha: 0, ease: "power1.in",
+                duration: 0.1,
+            }, ">")
+            .from(gsap.utils.toArray(".spec:nth-of-type(3) > .wrapper-seq-elem > *"), {
+                yPercent: 100,
+                duration: 0.1
+            }, ">")
+            .to(".spec:nth-of-type(3)", {
+                autoAlpha: 0, ease: "power1.in",
+                duration: 0.1,
+            }, ">")
+            .from(gsap.utils.toArray(".spec:nth-of-type(4) > .wrapper-seq-elem > *"), {
+                yPercent: 100,
+                duration: 0.1
+            }, ">")
+            .to(".spec:nth-of-type(4)", {
+                autoAlpha: 0, ease: "power1.in",
+                duration: 0.1,
+            }, ">")
 
+
+        gsap.set(".wrapper-seq-elem", {
+            opacity: 1
+        })
+
+    })
     sizing(canvas);
+
+    ScrollTrigger.refresh()
 
 
     window.addEventListener("resize", () => {
         sizing(canvas, isPortrait);
-        render(res, sequence, ctx);
+        render(resImages, sequence, ctx);
     });
 }
