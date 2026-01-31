@@ -1,0 +1,430 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { Picture } from "astro:assets";
+import heroImg from "@assets/industry_single/hero.png";
+import img_1 from "@assets/industry_single/1.png";
+import img_2 from "@assets/industry_single/2.png";
+import { pages } from "@scripts/pages";
+---
+
+<Layout>
+  <section id="hero-section">
+    <div class="wrapper">
+      <a class="back-btn paragraph-1 intro-anim" href={pages.industry.path}>
+        <div class="icon">
+          <img src="/icons/arrow_left.svg" alt="Click to go back" />
+        </div>
+        Solutions / Industries
+      </a>
+      <div class="title">
+        <span class="subtitle-3 intro-anim"> AI Robots for </span>
+        <h1 class="h1 text-center intro-anim">Industrial & Manufacturing</h1>
+      </div>
+
+      <Picture
+        class="hero-shot intro-anim intro-mobile-only"
+        src={heroImg}
+        alt="Unitree Go2-W "
+        loading="eager"
+        fetchpriority={"high"}
+        quality={"high"}
+        formats={["avif", "webp"]}
+      />
+    </div>
+
+    <p class="subtitle-3 intro-anim">
+      Unitree robots are deployed in manufacturing and industrial settings to
+      perform routine, high-risk, and complex inspections autonomously. Equipped
+      with thermal cameras, gas sensors, and high-resolution optics, they ensure
+      continuous operation and predictive maintenance, reducing downtime and
+      operational costs.
+    </p>
+  </section>
+  <section class="single-section">
+    <h2 class="h1">
+      Manufacturing
+      <br />
+      & Factories
+    </h2>
+    <Picture
+      src={img_1}
+      fetchpriority={"high"}
+      quality={"max"}
+      alt={"Single Industry"}
+      formats={["avif", "webp"]}
+    />
+    <ul>
+      <li>
+        <strong></strong>
+        <p class="subtitle-3">Quality Control</p>
+        <span class="paragraph-1">
+          Robots can perform automated visual inspections of products and
+          machinery, identifying defects with AI-driven precision that surpasses
+          human capability.
+        </span>
+      </li>
+      <li>
+        <strong></strong>
+        <p class="subtitle-3">Quality Control</p>
+        <span class="paragraph-1">
+          Robots can perform automated visual inspections of products and
+          machinery, identifying defects with AI-driven precision that surpasses
+          human capability.
+        </span>
+      </li>
+      <li>
+        <strong></strong>
+        <p class="subtitle-3">Quality Control</p>
+        <span class="paragraph-1">
+          Robots can perform automated visual inspections of products and
+          machinery, identifying defects with AI-driven precision that surpasses
+          human capability.
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="single-section m-b-5">
+    <h2 class="h1">
+      Industrial <br />
+      Inspection
+    </h2>
+    <Picture
+      src={img_2}
+      fetchpriority={"high"}
+      quality={"max"}
+      alt={"Single Industry"}
+      formats={["avif", "webp"]}
+    />
+    <ul>
+      <li>
+        <strong></strong>
+        <p class="subtitle-3">Oil & Gas Facilities</p>
+        <span class="paragraph-1">
+          Quadruped robots (B2, A2) navigate complex pipe racks and uneven
+          terrain to inspect for leaks, corrosion, and structural integrity,
+          removing human personnel from hazardous zones.
+        </span>
+      </li>
+      <li>
+        <strong></strong>
+        <p class="subtitle-3">Infrastructure Monitoring</p>
+        <span class="paragraph-1">
+          Inspection of bridges, tunnels, dams, and large-scale industrial
+          infrastructure, providing 3D mapping and high-resolution visual data
+          for maintenance planning.
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <style lang="scss">
+    #hero-section {
+      padding-top: calc(var(--top-space) * 0.65);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      .wrapper {
+        position: relative;
+        .back-btn {
+          height: calc(var(--fs) * 2.6875);
+          position: absolute;
+          left: calc(var(--fs) * 1.06);
+          top: calc(var(--fs) * 2);
+          border-radius: calc(var(--fs) * 3.75);
+          background: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(0.5vw);
+          -webkit-backdrop-filter: blur(0.5vw);
+          display: flex;
+          align-items: center;
+          color: #000;
+          padding-left: calc(var(--fs) * 0.1);
+          padding-right: calc(var(--fs) * 2.12);
+          transition: scale 0.15s ease-out;
+          transform: unset !important;
+          &:hover {
+            scale: 1.05 !important;
+          }
+          .icon {
+            width: calc(var(--fs) * 2.625);
+            height: calc(var(--fs) * 2.625);
+            border-radius: 50%;
+            background-color: #000;
+            margin-right: calc(var(--fs) * 1.69);
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+        .title {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          position: absolute;
+          left: calc(var(--fs) * 3);
+          bottom: calc(var(--fs) * 5.25);
+          & > * {
+            text-align: left;
+          }
+
+          span {
+            margin: 0;
+          }
+        }
+        picture {
+          width: calc(var(--fs) * 78);
+          height: calc(var(--fs) * 43.875);
+          border-radius: calc(var(--fs) * 1.875);
+          object-fit: cover;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .subtitle-3 {
+        width: calc(var(--fs) * 59.9375);
+        text-align: center;
+        margin-top: calc(var(--fs) * 10.5);
+        color: #fff;
+      }
+    }
+
+    .single-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: calc(var(--fs) * 12);
+      padding: 0 calc(var(--hor-padding) * 3);
+      padding-left: calc(var(--fs) * 1.5);
+      place-items: center;
+      place-content: center;
+      min-height: unset;
+      picture {
+        width: calc(var(--fs) * 25.75);
+        height: calc(var(--fs) * 38.875);
+        border-radius: calc(var(--fs) * 1.875);
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7.5vh;
+        padding: 0;
+        li {
+          display: grid;
+          grid-template-columns: max-content 1fr;
+          row-gap: calc(var(--fs) * 0.75);
+          grid-auto-rows: max-content;
+          width: calc(var(--fs) * 35);
+          strong {
+            display: block;
+            width: calc(var(--fs) * 0.125);
+            height: calc(var(--fs) * 1.5);
+            background-color: var(--MAIN-BLUE);
+            grid-column: 1 / 2;
+            margin-right: calc(var(--fs) * 0.75);
+            margin-top: calc(var(--fs) * 0.5);
+          }
+          & > * {
+            text-align: left;
+          }
+          .subtitle-3 {
+            color: #fff;
+            grid-column: 2/ 3;
+          }
+          .paragraph-1 {
+            grid-column: 2/ 3;
+          }
+        }
+      }
+    }
+
+    @media (orientation: portrait) {
+      #hero-section {
+        padding: calc(var(--top-space) * 1.5) calc(var(--hor-padding)) 0;
+        .wrapper {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          .back-btn {
+            height: calc(var(--fs) * 1.52);
+            position: static;
+            left: unset;
+            top: unset;
+            border-radius: calc(var(--fs) * 2);
+            backdrop-filter: blur(0.5vw);
+            -webkit-backdrop-filter: blur(0.5vw);
+            color: #fff;
+            padding-left: calc(var(--fs) * 0.1);
+            padding-right: calc(var(--fs) * 0.63);
+            font-size: calc(var(--fs) * 0.75);
+            .icon {
+              width: calc(var(--fs) * 1.49);
+              height: calc(var(--fs) * 1.49);
+              border-radius: 50%;
+              background-color: #000;
+              margin-right: calc(var(--fs) * 0.32);
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+          .title {
+            position: static;
+            left: unset;
+            bottom: unset;
+            margin-top: calc(var(--fs) * 2.54);
+            & > * {
+              text-align: left;
+            }
+
+            span {
+              margin: 0;
+              margin-bottom: calc(var(--fs) * 1.38);
+            }
+          }
+          picture {
+            width: 100%;
+            height: calc(var(--fs) * 18.56);
+            margin-top: calc(var(--fs) * 2.31);
+          }
+        }
+
+        .subtitle-3 {
+          width: 100%;
+          text-align: left;
+          margin-top: calc(var(--fs) * 5.69);
+          color: #fff;
+        }
+      }
+
+      .single-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        margin-top: calc(var(--fs) * 8.62);
+        padding: 0 calc(var(--hor-padding) * 1);
+        picture {
+          width: 100%;
+          height: calc(var(--fs) * 19.625);
+          border-radius: calc(var(--fs) * 1.25);
+          margin-top: calc(var(--fs) * 2.5);
+        }
+        ul {
+          gap: calc(var(--fs) * 3.5);
+          margin-top: calc(var(--fs) * 2);
+          width: 100%;
+          li {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            row-gap: calc(var(--fs) * 0);
+            width: 100%;
+            & > * {
+              text-align: left;
+            }
+            .subtitle-3 {
+              color: #fff;
+              grid-column: 2/ 3;
+              font-size: calc(var(--fs) * 1.0625);
+              font-weight: 500;
+            }
+            .paragraph-1 {
+              grid-column: 2/ 3;
+            }
+          }
+        }
+      }
+
+      @media (min-aspect-ratio: 0.625) {
+        #hero-section {
+          padding: calc(var(--top-space) * 1.5) calc(var(--hor-padding) * 2) 0;
+          .wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            .back-btn {
+              height: calc(var(--fs) * 2);
+              padding-left: calc(var(--fs) * 0.25);
+              padding-right: calc(var(--fs) * 0.875);
+              font-size: calc(var(--fs) * 1);
+              .icon {
+                width: calc(var(--fs) * 1.49);
+                height: calc(var(--fs) * 1.49);
+                border-radius: 50%;
+                background-color: #000;
+                margin-right: calc(var(--fs) * 0.32);
+                img {
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+            }
+            .title {
+              position: static;
+              left: unset;
+              bottom: unset;
+              margin-top: calc(var(--fs) * 2.54);
+              & > * {
+                text-align: left;
+              }
+
+              span {
+                margin: 0;
+                margin-bottom: calc(var(--fs) * 1.38);
+              }
+            }
+            picture {
+              width: 100%;
+              height: calc(var(--fs) * 32);
+              margin-top: calc(var(--fs) * 4.5);
+            }
+          }
+
+          .subtitle-3 {
+            margin-top: calc(var(--fs) * 3.8);
+          }
+        }
+
+        .single-section {
+          margin-top: calc(var(--fs) * 6.8);
+          padding: 0 calc(var(--hor-padding) * 2);
+          h2 {
+            line-height: 1.15;
+          }
+          picture {
+            height: calc(var(--fs) * 34.375);
+            margin-top: calc(var(--fs) * 3.3);
+          }
+          ul {
+            gap: calc(var(--fs) * 3.25);
+            margin-top: calc(var(--fs) * 3.44);
+            li {
+              .subtitle-3 {
+                color: #fff;
+                font-size: calc(var(--fs) * 1.375);
+              }
+              .paragraph-1 {
+                width: 95%;
+              }
+            }
+          }
+        }
+      }
+    }
+  </style>
+</Layout>

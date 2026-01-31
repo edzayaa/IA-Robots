@@ -5,7 +5,7 @@ import hero_home_1 from "../assets/hero_home_1.png";
 import hero_home_2 from "../assets/hero_home_2.png";
 import hero_home_3 from "../assets/hero_home_3.png";
 import hero_home_4 from "../assets/hero_home_4.png";
-import autonomy_robot from "../assets/autonomy_robot.png";
+import autonomy_robot from "../assets/autonomy_robot_2.png";
 import blue_shade from "../assets/blue_shade.png";
 import ellipse from "../assets/ellipse.png";
 import autonomy_line from "../assets/autonomy_line.png";
@@ -24,6 +24,69 @@ import { pages } from "@/scripts/pages";
 
 <Layout>
   <section id="hero-section">
+    <div class="hero-content">
+      <div class="content active">
+        <div class="line-element">
+          <div></div>
+          <span> destiny awakening</span>
+          <div></div>
+        </div>
+        <h1 class="title h1">Unitree H2</h1>
+        <p class="paragraph-1">
+          The world's most advanced universal humanoid robot. Featuring 31 DOF,
+          360N·m joint torque, and a 2070 TOPS compute platform.
+        </p>
+
+        <ButtonPrimary content="Discover H2" type="a" href={pages.h2.path} />
+      </div>
+      <div class="content">
+        <div class="line-element">
+          <div></div>
+          <span> Go Beyond the Limits </span>
+          <div></div>
+        </div>
+        <h1 class="title h1">Unitree B2</h1>
+        <p class="paragraph-1">
+          The fastest industrial-grade quadruped. IP67-rated, 40kg payload,
+          >6m/s speed, built for extreme environments and critical inspection
+          missions.
+        </p>
+
+        <ButtonPrimary content="Explore B2" type="a" href={pages.b2.path} />
+      </div>
+      <div class="content">
+        <div class="line-element">
+          <div></div>
+          <span> New Creature of Embodied AI </span>
+          <div></div>
+        </div>
+        <h1 class="title h1">Unitree Go2</h1>
+        <p class="paragraph-1">
+          The most accessible and intelligent companion robot. Equipped with 4D
+          LiDAR, ISS 2.0 side-follow, and a powerful AI core.
+        </p>
+
+        <ButtonPrimary
+          content="Learn About Go2"
+          type="a"
+          href={pages.go2.path}
+        />
+      </div>
+      <div class="content">
+        <div class="line-element">
+          <div></div>
+          <span> Go Further with Higher Efficiency </span>
+          <div></div>
+        </div>
+        <h1 class="title h1">Unitree B2-w</h1>
+        <p class="paragraph-1">
+          The ultimate hybrid mobility platform. Combines legs and wheels for 15
+          km/h speed and 25km range with a heavy payload.
+        </p>
+
+        <ButtonPrimary content="See B2-W" type="a" href={pages.b2_w.path} />
+      </div>
+    </div>
     <div class="splide" id="hero-splide">
       <div class="splide__arrows">
         <button class="splide__arrow splide__arrow--prev">
@@ -33,6 +96,7 @@ import { pages } from "@/scripts/pages";
           <img src="/icons/arrow_right.svg" alt="Arrow right" />
         </button>
       </div>
+
       <div class="splide__track">
         <div class="splide__list">
           <div class="splide__slide">
@@ -45,24 +109,8 @@ import { pages } from "@/scripts/pages";
               quality="high"
               loading="eager"
             />
-            <div class="line-element">
-              <div></div>
-              <span> destiny awakening</span>
-              <div></div>
-            </div>
-            <h1 class="title h1">Unitree H2</h1>
-            <p class="paragraph-1">
-              The world's most advanced universal humanoid robot. Featuring 31
-              DOF, 360N·m joint torque, and a 2070 TOPS compute platform.
-            </p>
-
-            <ButtonPrimary
-              content="Discover H2"
-              type="a"
-              href={pages.h2.path}
-            />
           </div>
-          <div class="splide__slide">
+          <div class="splide__slide close-right">
             <Picture
               class="shot"
               src={hero_home_2}
@@ -72,21 +120,8 @@ import { pages } from "@/scripts/pages";
               quality="high"
               loading="eager"
             />
-            <div class="line-element">
-              <div></div>
-              <span> Go Beyond the Limits </span>
-              <div></div>
-            </div>
-            <h1 class="title h1">Unitree B2</h1>
-            <p class="paragraph-1">
-              The fastest industrial-grade quadruped. IP67-rated, 40kg payload,
-              >6m/s speed, built for extreme environments and critical
-              inspection missions.
-            </p>
-
-            <ButtonPrimary content="Explore B2" type="a" href={pages.b2.path} />
           </div>
-          <div class="splide__slide">
+          <div class="splide__slide close-right">
             <Picture
               class="shot"
               src={hero_home_3}
@@ -96,24 +131,8 @@ import { pages } from "@/scripts/pages";
               quality="high"
               loading="eager"
             />
-            <div class="line-element">
-              <div></div>
-              <span> New Creature of Embodied AI </span>
-              <div></div>
-            </div>
-            <h1 class="title h1">Unitree Go2</h1>
-            <p class="paragraph-1">
-              The most accessible and intelligent companion robot. Equipped with
-              4D LiDAR, ISS 2.0 side-follow, and a powerful AI core.
-            </p>
-
-            <ButtonPrimary
-              content="Learn About Go2"
-              type="a"
-              href={pages.go2.path}
-            />
           </div>
-          <div class="splide__slide">
+          <div class="splide__slide close-left">
             <Picture
               class="shot"
               src={hero_home_4}
@@ -123,18 +142,6 @@ import { pages } from "@/scripts/pages";
               quality="high"
               loading="eager"
             />
-            <div class="line-element">
-              <div></div>
-              <span> Go Further with Higher Efficiency </span>
-              <div></div>
-            </div>
-            <h1 class="title h1">Unitree B2-w</h1>
-            <p class="paragraph-1">
-              The ultimate hybrid mobility platform. Combines legs and wheels
-              for 15 km/h speed and 25km range with a heavy payload.
-            </p>
-
-            <ButtonPrimary content="See B2-W" type="a" href={pages.b2_w.path} />
           </div>
         </div>
       </div>
@@ -161,12 +168,16 @@ import { pages } from "@/scripts/pages";
       <h2 class="h1">advanced autonomy</h2>
     </div>
 
-    <Picture
-      class="autonomy-robot"
-      src={autonomy_robot}
-      alt="Advanced autonomy"
-      formats={["avif", "webp"]}
-    />
+    <div class="autonomy-robot">
+      <Picture
+        src={autonomy_robot}
+        alt="Advanced autonomy"
+        formats={["avif", "webp"]}
+        fetchpriority={"high"}
+        quality={"max"}
+      />
+    </div>
+
     <Image class={"blue-shade"} src={blue_shade} alt={""} format="webp" />
     <Image class={"ellipse"} src={ellipse} alt={""} format="webp" />
 
@@ -286,10 +297,12 @@ import { pages } from "@/scripts/pages";
   </section>
   <section id="target-section">
     <div class="head">
-      <h2 class="h1">
-        Targeted <br />
-        Inspections
-      </h2>
+      <div class="h2-wrapper overflow-hidden">
+        <h2 class="h1">
+          Targeted <br />
+          Inspections
+        </h2>
+      </div>
       <span> Lorem Ipsum door asit met </span>
       <div class="progress">
         <ProgressBar id="target-progress-bar" />
@@ -411,6 +424,7 @@ import { pages } from "@/scripts/pages";
   //   background-color: gray;
   //   background-color: black;
   // }
+
   .bar-wrapper {
     display: none;
     visibility: hidden;
@@ -419,8 +433,55 @@ import { pages } from "@/scripts/pages";
   #hero-section {
     height: 100svh;
     opacity: 0;
+    .hero-content {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+
+      .content {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 15vh;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+
+        &.active {
+          opacity: 1;
+          z-index: 1;
+          transition: opacity 0.5s ease-in-out 0.5s;
+        }
+
+        .title {
+          color: var(--White, #fff);
+          text-align: center;
+          font-family: "Work Sans";
+          font-style: normal;
+          font-weight: 500;
+          line-height: 1; /* 100% */
+          margin-top: calc(var(--fs) * 1.5);
+        }
+        p {
+          color: #cbcbcb;
+          line-height: 1.25;
+          margin-top: calc(var(--fs) * 2);
+          width: calc(var(--fs) * 45.9);
+        }
+        .primary-btn {
+          margin-top: calc(var(--fs) * 2.5);
+        }
+      }
+    }
     #hero-splide {
       height: 100%;
+
       .splide__arrows {
         .splide__arrow {
           width: calc(var(--fs) * 4.4375);
@@ -428,9 +489,22 @@ import { pages } from "@/scripts/pages";
           border-radius: var(--fs);
           background: rgba(173, 173, 173, 0.25);
           outline: none;
+          &:hover {
+            &:first-of-type {
+              img {
+                transform: scale(-1.2, 1.2) !important;
+              }
+            }
+            &:last-of-type {
+              img {
+                transform: scale(1.2) !important;
+              }
+            }
+          }
           img {
             width: 55%;
             height: auto;
+            transition: transform 0.15s ease-out;
           }
           &:first-of-type {
             left: calc(var(--hor-padding) * 2);
@@ -455,7 +529,19 @@ import { pages } from "@/scripts/pages";
         height: 100%;
         position: relative;
         width: 100%;
-        padding-bottom: 15vh;
+        transition: clip-path 1s ease-in-out !important;
+        opacity: 1 !important;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        &.is-active {
+          clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+        &.close-right {
+          clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+        }
+        &.close-left {
+          clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+        }
+
         & > * {
           z-index: 1;
         }
@@ -468,30 +554,11 @@ import { pages } from "@/scripts/pages";
           object-fit: cover;
           z-index: 0;
         }
-
-        .title {
-          color: var(--White, #fff);
-          text-align: center;
-          font-family: "Work Sans";
-          font-style: normal;
-          font-weight: 500;
-          line-height: 1; /* 100% */
-          margin-top: calc(var(--fs) * 1.5);
-        }
-        p {
-          color: #cbcbcb;
-          line-height: 1.25;
-          margin-top: calc(var(--fs) * 2);
-          width: calc(var(--fs) * 45.9);
-        }
-        .primary-btn {
-          margin-top: calc(var(--fs) * 2.5);
-        }
       }
     }
     .carousel-indicator {
       position: absolute;
-      bottom: calc(var(--fs) * 2);
+      bottom: calc(var(--fs) * 3.25);
       right: calc(var(--hor-padding) * 2);
       display: flex;
       align-items: center;
@@ -510,6 +577,10 @@ import { pages } from "@/scripts/pages";
           font-style: normal;
           font-weight: 400;
           line-height: normal;
+          opacity: 0.5;
+          &.active {
+            opacity: 1;
+          }
         }
       }
       .carousel-line {
@@ -584,14 +655,28 @@ import { pages } from "@/scripts/pages";
       z-index: 1;
     }
     .autonomy-robot {
-      object-fit: cover;
-      width: calc(var(--fs) * 46.75 * 0.95);
+      width: calc(var(--fs) * 46.75 * 1);
       height: calc(var(--fs) * 39 * 0.95);
       position: absolute;
       bottom: 0;
       left: 50%;
       transform: translate(-50%, 0%);
       z-index: 0;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30%;
+        background: linear-gradient(#000000000, #000);
+      }
+      picture,
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
     .h2-wrapper {
       overflow: hidden;
@@ -608,14 +693,14 @@ import { pages } from "@/scripts/pages";
       justify-content: space-between;
       row-gap: calc(var(--fs) * 7.5);
       padding: 0 calc(var(--hor-padding) * 0.75);
-      margin-top: calc(var(--fs) * 6.5);
+      margin-top: calc(var(--fs) * 6.25);
       .detail {
         display: grid;
         grid-template-columns: max-content 1fr;
         grid-auto-rows: max-content;
         column-gap: calc(var(--fs) * 1.35);
         row-gap: calc(var(--fs) * 0.5);
-        width: calc(var(--fs) * 36.5);
+        width: calc(var(--fs) * 35);
         position: relative;
         .img {
           width: calc(var(--fs) * 4.3);
@@ -1002,7 +1087,6 @@ import { pages } from "@/scripts/pages";
   @media (orientation: landscape) and (min-aspect-ratio: 2) {
     #autonomy-section {
       .autonomy-robot {
-        object-fit: cover;
         width: calc(var(--fs) * 46.75 * 0.9);
         height: calc(var(--fs) * 39 * 0.9);
         position: absolute;
@@ -1052,6 +1136,23 @@ import { pages } from "@/scripts/pages";
     #hero-section {
       height: 100svh;
       min-height: unset;
+      .hero-content {
+        .content {
+          padding-bottom: 12.5vh;
+
+          .title {
+            margin-top: calc(var(--fs) * 1);
+          }
+          p {
+            font-size: calc(var(--fs) * 0.875);
+            margin-top: calc(var(--fs) * 1);
+            width: calc(var(--fs) * 15.5);
+          }
+          .primary-btn {
+            margin-top: calc(var(--fs) * 1);
+          }
+        }
+      }
       #hero-splide {
         .splide__arrows {
           .splide__arrow {
@@ -1074,7 +1175,6 @@ import { pages } from "@/scripts/pages";
           height: 100%;
         }
         .splide__slide {
-          padding-bottom: 12.5vh;
           & > * {
             z-index: 1;
           }
@@ -1095,18 +1195,6 @@ import { pages } from "@/scripts/pages";
             .shot {
               object-position: 62.5% 0%;
             }
-          }
-
-          .title {
-            margin-top: calc(var(--fs) * 1);
-          }
-          p {
-            font-size: calc(var(--fs) * 0.875);
-            margin-top: calc(var(--fs) * 1);
-            width: calc(var(--fs) * 15.5);
-          }
-          .primary-btn {
-            margin-top: calc(var(--fs) * 1);
           }
         }
       }
@@ -1145,10 +1233,9 @@ import { pages } from "@/scripts/pages";
       }
 
       .autonomy-robot {
-        object-fit: cover;
         width: calc(var(--fs) * 25.625);
-        height: calc(var(--fs) * 21.375);
-        position: static;
+        height: calc(var(--fs) * 20);
+        position: relative;
         bottom: unset;
         left: unset;
         transform: none;
@@ -1391,6 +1478,23 @@ import { pages } from "@/scripts/pages";
 
     @media (min-aspect-ratio: 0.625) {
       #hero-section {
+        .hero-content {
+          .content {
+            padding-bottom: 12.5vh;
+
+            .title {
+              margin-top: calc(var(--fs) * 1.33);
+            }
+            p {
+              font-size: calc(var(--fs) * 1.125);
+              margin-top: calc(var(--fs) * 1.7);
+              width: calc(var(--fs) * 28.125);
+            }
+            .primary-btn {
+              margin-top: calc(var(--fs) * 1.56);
+            }
+          }
+        }
         #hero-splide {
           .splide__arrows {
             .splide__arrow {
@@ -1409,7 +1513,6 @@ import { pages } from "@/scripts/pages";
             height: 100%;
           }
           .splide__slide {
-            padding-bottom: 12.5vh;
             & > * {
               z-index: 1;
             }
@@ -1430,18 +1533,6 @@ import { pages } from "@/scripts/pages";
               .shot {
                 object-position: 62.5% 0%;
               }
-            }
-
-            .title {
-              margin-top: calc(var(--fs) * 1.33);
-            }
-            p {
-              font-size: calc(var(--fs) * 1.125);
-              margin-top: calc(var(--fs) * 1.7);
-              width: calc(var(--fs) * 28.125);
-            }
-            .primary-btn {
-              margin-top: calc(var(--fs) * 1.56);
             }
           }
         }

@@ -2,7 +2,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { useEffect, useRef } from "react";
 
-export default function ProductSplides() {
+export default function ProductSplides({ className }) {
   const mainSplideRef = useRef(null);
   const thumbnailSplideRef = useRef(null);
 
@@ -18,7 +18,7 @@ export default function ProductSplides() {
   }, []);
 
   return (
-    <div className="shots" id="product-splides">
+    <div className={`shots ${className || ""}`} id="product-splides">
       <Splide
         ref={mainSplideRef}
         options={{

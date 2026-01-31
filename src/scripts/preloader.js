@@ -29,7 +29,8 @@ export function preloader(progress = 0) {
                 autoAlpha: 0,
                 immediateRender: false,
                 duration: 1,
-            }, "<50%");
+            }, "<50%")
+          
 
     })
 
@@ -44,7 +45,7 @@ export function preloader(progress = 0) {
 
 export function intro() {
     let introTl;
-    
+
 
     let ctx = gsap.context(() => {
 

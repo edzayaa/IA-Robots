@@ -1,0 +1,903 @@
+---
+import Layout from "@layouts/Layout.astro";
+import heroImg from "@assets/g1/hero.png";
+import { Picture } from "astro:assets";
+import modelShot from "@assets/g1/model.png";
+import { Image } from "astro:assets";
+import blue_shade from "@assets/blue_shade.png";
+import go2_w_1 from "@assets/go2_w/1.png";
+import go2_w_2 from "@assets/go2_w/2.png";
+import go2_w_3 from "@assets/go2_w/3.png";
+import go2_w_4 from "@assets/go2_w/4.png";
+import specs from "@assets/go2_w/specs.png";
+import "@styles/cards_section.scss";
+import ButtonPrimary from "@components/ButtonPrimary";
+import ButtonSecondary from "@components/ButtonSecondary";
+import robust from "@assets/h1_h2/robust.png";
+import "@styles/book_section.scss";
+import book_bck from "@assets/book_bck.png";
+import "@styles/shot_section.scss";
+import "@styles/tech_section.scss";
+import "@styles/new_section.scss";
+import { pages } from "@/scripts/pages";
+import SequenceSection from "@components/SequenceSection.astro";
+import { getImage } from "astro:assets";
+
+const images = import.meta.glob("@assets/sequences/raw_g1/*.jpg");
+const imagesValues = Object.values(images);
+
+const resImages = await Promise.all(
+  imagesValues.map(async (img) => {
+    const imageModule = (await img()) as any; // Resolve the import
+    return await getImage({
+      src: imageModule.default,
+      format: "webp",
+      quality: "high",
+    });
+  }),
+);
+
+console.log(resImages[0]);
+---
+
+<Layout>
+  <section id="hero-section">
+    <Picture
+      class="hero-shot"
+      src={heroImg}
+      alt="Unitree Go2-W "
+      loading="eager"
+      fetchpriority={"high"}
+      quality={"high"}
+      formats={["avif", "webp"]}
+    />
+    <div class="content">
+      <h1 class="h1">Unitree Go2-W</h1>
+      <p class="subtitle-3">Transformative Newborn</p>
+    </div>
+    <div class="sub-content">
+      <h1 class="h1 text-center intro-anim">
+        The Agile and Intelligent <br class="br-tablet br-mobile" /> Platform <br
+          class="br-desktop"
+        /> for Humanoid <br class="br-tablet br-mobile" /> AI Development
+      </h1>
+      <span class="paragraph-1 intro-anim">
+        The Unitree G1 is a compact, highly flexible, and cost-effective
+        humanoid agent, driven by Imitation and Reinforcement Learning, ready to
+        be the next generation of AI avatars.
+      </span>
+
+      <ButtonPrimary
+        content="Buy now"
+        type="a"
+        href={pages.product.path}
+        className="intro-anim"
+      />
+    </div>
+  </section>
+  <section id="new-section" class="sequence-section">
+    <div class="sequence-pin">
+      <div class="content">
+        <div class="line-element">
+          <div></div>
+          <span> Humanoid Robot</span>
+          <div></div>
+        </div>
+        <h2 class="h1 text-center">Brand New Intelligent Species</h2>
+        <p>Transformative Newborn</p>
+      </div>
+      <SequenceSection images={resImages} />
+    </div>
+  </section>
+  <section class="shot-section flex-start-row scroll-text-contained">
+    <video
+      playsinline
+      muted
+      loop
+      preload="metadata"
+      width=""
+      height=""
+      class="media"
+    >
+      <source src="/videos/g1/1.mp4" type="video/mp4" />
+    </video>
+    <div class="content">
+      <h2 class="h1">
+        Flexibility Beyond <br class="br-mobile br-tablet" /> Ordinary
+      </h2>
+      <p class="paragraph-1">
+        The G1 is engineered for maximum flexibility, featuring an extra large
+        joint movement angle space and up to 43 Degrees of Freedom (DOF) in the
+        EDU model. This high DOF allows for a wide range of complex motions and
+        tasks. The robot's core motion module delivers a maximum joint torque of
+        120 N.m, ensuring responsive and dynamic movement with a moving speed of
+        up to 2m/s.
+      </p>
+    </div>
+  </section>
+  <section class="shot-section flex-end-row scroll-text-contained">
+    <video
+      playsinline
+      muted
+      loop
+      preload="metadata"
+      width=""
+      height=""
+      class="media"
+    >
+      <source src="/videos/g1/2.mp4" type="video/mp4" />
+    </video>
+    <div class="content">
+      <h2 class="h1">AI and Perception for <br /> the Future</h2>
+      <p class="paragraph-1">
+        The G1 is a key part of the UnifoLM (Unitree Robot Unified Large Model)
+        ecosystem, accelerating robotics technology through AI-driven Imitation
+        and Reinforcement Learning. Its perception system includes a 3D LiDAR
+        and a Depth Camera for 360° detection, complemented by a 4 Microphone
+        Array for noise and echo cancellation, enabling advanced voice
+        interaction.
+      </p>
+    </div>
+  </section>
+  <section class="shot-section flex-start-row scroll-text-contained">
+    <video
+      playsinline
+      muted
+      loop
+      preload="metadata"
+      width=""
+      height=""
+      class="media"
+    >
+      <source src="/videos/g1/3.mp4" type="video/mp4" />
+    </video>
+    <div class="content">
+      <h2 class="h1">Development-Ready <br /> Platform</h2>
+      <p class="paragraph-1">
+        The G1 EDU model is an ideal platform for secondary development,
+        featuring an NVIDIA Jetson Orin high computing power module. This allows
+        users to easily integrate custom AI models and control algorithms. The
+        robot also features a Smart Battery (9000mAh) for approximately 2 hours
+        of endurance and full joint hollow electrical routing for a clean,
+        robust design.
+      </p>
+    </div>
+  </section>
+
+  <section id="tech-section">
+    <!-- <Picture src={specs} alt={"Technical specifications"} /> -->
+
+    <div class="table">
+      <div class="head">
+        <div class="line-element big-desktop">
+          <div></div>
+          <span> g1 </span>
+          <div></div>
+        </div>
+        <h2 class="h1">Technical Specifications</h2>
+      </div>
+
+      <table class="robot-spec-table">
+        <thead>
+          <tr>
+            <th>Characteristic</th>
+            <th>G1</th>
+            <th>g1 EDU</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Weight (with battery)</td>
+            <td>18kg</td>
+            <td>Highly portable for a wheeled-legged robot.</td>
+          </tr>
+          <tr>
+            <td>Payload (Max)</td>
+            <td>8kg (MAX ~ 12kg)</td>
+            <td>Suitable for various sensors and payloads.</td>
+          </tr>
+          <tr>
+            <td>Speed Range</td>
+            <td>0 - 2.5 m/s</td>
+            <td>Efficient wheeled movement and dynamic legged motion.</td>
+          </tr>
+          <tr>
+            <td>Endurance</td>
+            <td>1.5 - 3h (15000mAh battery)</td>
+            <td>Varies based on mode of locomotion and load.</td>
+          </tr>
+          <tr>
+            <td>Max Joint Torque</td>
+            <td>45 N.m</td>
+            <td>Ensures responsive and stable movement.</td>
+          </tr>
+          <tr>
+            <td>Obstacle Crossing</td>
+            <td>Up to 70cm</td>
+            <td>Superior capability for overcoming large obstacles.</td>
+          </tr>
+          <tr>
+            <td>Sensing</td>
+            <td>3D LiDAR + HD Wide-angle Camera</td>
+            <td>Advanced environmental awareness.</td>
+          </tr>
+          <tr>
+            <td>Computing</td>
+            <td>8-core CPU, Orin NX optional</td>
+            <td>Powerful core for AI and development.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section class="cards-section">
+    <h2 class="h2">
+      Unlock the Full <br class="br-tablet br-mobile" /> Potential of Your G1
+    </h2>
+    <div class="cards">
+      <div class="card with-border no-shot">
+        <strong class="shade"></strong>
+        <strong class="shade"></strong>
+
+        <!-- <h3>z1</h3> -->
+        <span> Dex3-1 Force Control Dexterous Hand </span>
+        <p>Essential for advanced manipulation and object interaction tasks.</p>
+        <div class="buttons">
+          <ButtonPrimary content="Add to cart" />
+          <ButtonSecondary content="Learn more" />
+        </div>
+        <!-- <Picture
+          class="shot"
+          src={card_1}
+          alt="Robot"
+          fetchpriority={"high"}
+          quality={"max"}
+        /> -->
+      </div>
+      <div class="card with-border no-shot">
+        <strong class="shade"></strong>
+        <strong class="shade"></strong>
+        <!-- <h3>Battery</h3> -->
+        <span>NVIDIA Jetson Orin Module </span>
+        <p>
+          Upgrade the computing core for high-speed AI processing and complex
+          model deployment.
+        </p>
+        <div class="buttons">
+          <ButtonPrimary content="Add to cart" />
+          <ButtonSecondary content="Learn more" />
+        </div>
+        <!-- <Picture
+          class="shot"
+          src={card_2}
+          alt="Robot"
+          fetchpriority={"high"}
+          quality={"max"}
+        /> -->
+      </div>
+      <div class="card with-border no-shot">
+        <strong class="shade"></strong>
+        <strong class="shade"></strong>
+        <!-- <h3>SDK</h3> -->
+        <span> Unitree SDK </span>
+        <p>
+          Utilize the official development kit to create custom gaits,
+          behaviors, and applications
+        </p>
+        <div class="buttons">
+          <ButtonPrimary content="Add to cart" />
+          <ButtonSecondary content="Learn more" />
+        </div>
+        <!-- <Picture
+          class="shot"
+          src={card_3}
+          alt="Robot"
+          fetchpriority={"high"}
+          quality={"max"}
+        /> -->
+      </div>
+    </div>
+  </section>
+  <section class="book-section">
+    <div class="book-wrapper">
+      <div class="first">
+        <strong class="shade"></strong>
+        <strong class="shade"></strong>
+        <h4 class="title">
+          Start Developing <br class="br-mobile br-tablet" /> the Next <br
+            class="br-desktop"
+          /> Generation
+          <br class="br-mobile br-tablet" /> of AI Avatars
+        </h4>
+        <p class="paragraph-1">
+          The Unitree G1 is available exclusively through AIROBOTS in Greece.
+          Contact us for sales inquiries, educational pricing, or to request a
+          live demonstration.
+        </p>
+        <div class="buttons">
+          <ButtonPrimary
+            content="Request a quote"
+            type="a"
+            href={pages.product.path}
+          />
+          <ButtonSecondary content="Contact Technical Support" />
+        </div>
+      </div>
+      <div class="second">
+        <Picture
+          class="book-bck"
+          src={book_bck}
+          alt=""
+          fetchpriority={"high"}
+          quality={"max"}
+        />
+        <Picture
+          class="book-shot"
+          src={modelShot}
+          alt=""
+          fetchpriority={"high"}
+          quality={"max"}
+        />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss" is:global>
+  #hero-section {
+    padding-top: calc(var(--top-space) * 0.5);
+    padding-bottom: calc(var(--top-space) * 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(#00000000, #000);
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+    }
+    & > * {
+      z-index: 1;
+    }
+    picture {
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-shot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: bottom center;
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      visibility: hidden;
+      p {
+        margin-top: calc(var(--fs) * 1.25);
+      }
+    }
+    .sub-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .paragraph-1 {
+        margin-top: calc(var(--fs) * 1);
+        width: calc(var(--fs) * 43.1875);
+      }
+      .primary-btn {
+        margin-top: calc(var(--fs) * 3.12);
+      }
+    }
+  }
+
+  #new-section {
+    display: flex;
+    align-items: flex-start;
+    place-items: center;
+    place-content: center;
+    height: 1000vh !important;
+    .content {
+      z-index: 1;
+      position: relative;
+      padding-top: calc(var(--fs) * 4);
+
+      p {
+        color: var(--Gray-Paragraph, #cbcbcb);
+        text-align: center;
+        font-family: "Work Sans";
+        font-size: calc(var(--fs) * 1.875);
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+    .shot {
+      position: relative;
+      picture {
+        width: calc(var(--fs) * 37.5);
+        height: calc(var(--fs) * 37.5);
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .detail {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        p {
+          color: var(--White, #fff);
+          font-family: "Work Sans";
+          font-size: calc(var(--fs) * 2.375);
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+        span {
+          color: var(--MAIN-BLUE, #6289ff);
+          font-family: "Work Sans";
+          font-size: calc(var(--fs) * 1.15388);
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          letter-spacing: calc(var(--fs) * -0.04613);
+          margin-top: calc(var(--fs) * 0.62);
+        }
+        img {
+          width: calc(var(--fs) * 19.5);
+          height: calc(var(--fs) * 4.37813);
+          margin-top: calc(var(--fs) * 1.34);
+        }
+        &:nth-of-type(odd) {
+          img {
+            transform: translateX(25%);
+          }
+        }
+        &:nth-of-type(even) {
+          img {
+            transform: scaleX(-1) translateX(35%);
+          }
+        }
+        &:nth-of-type(1) {
+          top: 0;
+          left: 0;
+          transform: translate(
+            calc(var(--fs) * 10 - 100%),
+            calc(var(--fs) * 5)
+          );
+        }
+        &:nth-of-type(3) {
+          bottom: 0;
+          left: 0;
+          transform: translate(
+            calc(var(--fs) * 5 - 100%),
+            calc(var(--fs) * -4)
+          );
+        }
+        &:nth-of-type(2) {
+          top: 0;
+          right: 0;
+          transform: translate(calc(var(--fs) * 0 + 100%), calc(var(--fs) * 2));
+        }
+
+        &:nth-of-type(4) {
+          bottom: 0;
+          right: 0;
+          transform: translate(
+            calc(var(--fs) * 0 + 100%),
+            calc(var(--fs) * -4)
+          );
+        }
+      }
+    }
+
+    .blue-shade {
+      position: absolute;
+      z-index: -1;
+      width: 70vw;
+      height: auto;
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+  }
+
+  // .shot-section {
+  //   display: flex;
+  //   align-items: flex-end;
+  //   height: 100vh;
+  //   padding: 0 calc(var(--hor-padding)) calc(var(--top-space) * 0.25);
+  //   overflow: hidden;
+  //   &::after {
+  //     content: "";
+  //     position: absolute;
+  //     bottom: -1%;
+  //     left: 0;
+  //     width: 100%;
+  //     height: 50%;
+  //     pointer-events: none;
+  //     background: linear-gradient(#00000000, #000);
+  //   }
+  //   .media {
+  //     position: absolute;
+  //     top: 0;
+  //     left: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     object-fit: cover;
+  //     z-index: -1;
+  //   }
+  //   .content {
+  //     display: grid;
+  //     grid-auto-flow: row;
+  //     gap: calc(var(--fs) * 1);
+  //     grid-auto-rows: max-content;
+  //     width: 50vw;
+  //     position: relative;
+  //     z-index: 2;
+  //     & > * {
+  //       text-align: left;
+  //     }
+  //     p {
+  //       width: 90%;
+  //     }
+  //   }
+  //   &:nth-of-type(odd) {
+  //     justify-content: flex-end;
+  //   }
+  //   &.last {
+  //     justify-content: center !important;
+
+  //     .content {
+  //       & > * {
+  //         text-align: center;
+  //       }
+  //     }
+  //   }
+  // }
+  #media-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: unset;
+    padding: calc(var(--top-space) * 0.5) 0 0;
+    video {
+      width: calc(var(--fs) * 72.1875);
+      height: calc(var(--fs) * 40.625);
+      object-fit: cover;
+
+      border-radius: calc(var(--fs) * 3.125);
+    }
+    h2 {
+      margin-top: calc(var(--fs) * 3.12);
+    }
+    .line-element {
+      margin-top: calc(var(--fs) * 1.5);
+      span {
+        text-transform: lowercase;
+      }
+    }
+  }
+
+  @media (orientation: landscape) {
+    .book-section {
+      .book-wrapper {
+        .second {
+          .book-shot {
+            object-fit: contain;
+            transform: translate(-50%, 20%) scale(1.35);
+          }
+        }
+      }
+    }
+  }
+  @media (orientation: portrait) {
+    #hero-section {
+      padding-top: calc(var(--top-space) * 0.5);
+      padding-bottom: calc(var(--top-space) * 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100svh;
+      min-height: unset;
+      .hero-shot {
+        object-position: 27.5% 0%;
+      }
+      & > * {
+        z-index: 2;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p {
+          margin-top: calc(var(--fs) * 0.75);
+        }
+      }
+      .sub-content {
+        width: 100%;
+        .subtitle-2 {
+          margin-top: calc(var(--fs) * 1.19);
+        }
+        .paragraph-1 {
+          padding: 0 calc(var(--hor-padding) * 4);
+          margin-top: calc(var(--fs) * 0.75);
+          width: 100%;
+        }
+        .primary-btn {
+          margin-top: calc(var(--fs) * 2.25);
+        }
+      }
+    }
+
+    #new-section {
+      padding: calc(var(--top-space) * 2) 0;
+      gap: min(calc(var(--fs) * 7.5), 6.5vh);
+      min-height: unset;
+      .content {
+        gap: calc(var(--fs) * 0.625);
+        p {
+          font-size: calc(var(--fs) * 1.125);
+        }
+      }
+      .shot {
+        picture {
+          width: calc(var(--fs) * 29.875);
+          height: calc(var(--fs) * 29.875);
+        }
+        .detail {
+          display: none;
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+
+      .blue-shade {
+        width: 150vw;
+        opacity: 0.75;
+      }
+    }
+
+    // .shot-section {
+    //   height: initial;
+    //   min-height: unset;
+    //   padding: 0;
+    //   padding-bottom: calc(var(--fs) * 5);
+    //   overflow: hidden;
+    //   display: flex;
+    //   flex-direction: column;
+    //   align-items: center;
+    //   justify-content: flex-start !important;
+    //   &::after {
+    //     display: none;
+    //   }
+    //   .media {
+    //     position: static;
+    //     top: unset;
+    //     left: unset;
+    //     width: 100%;
+    //     height: calc(var(--fs) * 19.375);
+    //     object-fit: cover;
+    //     object-position: top center;
+    //     z-index: -1;
+    //   }
+    //   .content {
+    //     gap: calc(var(--fs) * 1.25);
+    //     width: 100%;
+    //     padding: 0 calc(var(--hor-padding));
+    //     margin-top: calc(var(--fs) * -3.5);
+    //     position: relative;
+    //     &::after {
+    //       content: "";
+    //       position: absolute;
+    //       top: 0;
+    //       left: 0;
+    //       transform: translateY(-25%);
+    //       width: 100%;
+    //       height: calc(var(--fs) * 5);
+    //       pointer-events: none;
+    //       z-index: 1;
+    //       background: linear-gradient(#00000000, #000);
+    //     }
+    //     & > * {
+    //       text-align: left !important;
+    //       z-index: 2;
+    //       position: relative;
+    //     }
+    //     h2 {
+    //       font-weight: 600;
+    //     }
+    //     p {
+    //       width: 95%;
+    //     }
+    //   }
+
+    //   &.last {
+    //     justify-content: flex-start !important;
+    //   }
+    // }
+
+    #media-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: unset;
+      padding: calc(var(--top-space) * 0.25) calc(var(--hor-padding)) 0;
+      video {
+        width: 100%;
+        height: calc(var(--fs) * 14.56);
+        border-radius: calc(var(--fs) * 1.875);
+      }
+      h2 {
+        margin-top: calc(var(--fs) * 1.22);
+        font-weight: 600;
+      }
+    }
+
+    @media (min-aspect-ratio: 0.625) {
+      #hero-section {
+        padding-top: calc(var(--top-space) * 2);
+        padding-bottom: calc(var(--top-space) * 0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 100svh;
+        min-height: unset;
+        .hero-shot {
+          object-position: 15% 0%;
+        }
+
+        .content {
+          p {
+            margin-top: calc(var(--fs) * 1.25);
+          }
+        }
+        .sub-content {
+          width: 100%;
+          .subtitle-2 {
+            margin-top: calc(var(--fs) * 1.19);
+          }
+          .paragraph-1 {
+            padding: 0 calc(var(--hor-padding) * 5);
+            margin-top: calc(var(--fs) * 0.75);
+          }
+          .primary-btn {
+            margin-top: calc(var(--fs) * 2.25);
+          }
+        }
+      }
+
+      #new-section {
+        padding: calc(var(--top-space) * 2) 0;
+        gap: min(calc(var(--fs) * 7.5), 6.5vh);
+        min-height: unset;
+        .content {
+          gap: calc(var(--fs) * 0.625);
+
+          p {
+            font-size: calc(var(--fs) * 1.125);
+          }
+        }
+        .shot {
+          picture {
+            width: calc(var(--fs) * 49.5);
+            height: calc(var(--fs) * 49.5);
+          }
+          .detail {
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+
+        .blue-shade {
+          width: 150vw;
+          opacity: 0.75;
+        }
+      }
+
+      // .shot-section {
+      //   height: initial;
+      //   min-height: unset;
+      //   padding: 0;
+      //   padding-bottom: calc(var(--fs) * 5);
+      //   overflow: hidden;
+      //   display: flex;
+      //   flex-direction: column;
+      //   align-items: center;
+      //   justify-content: flex-start !important;
+      //   &::after {
+      //     display: none;
+      //   }
+      //   .media {
+      //     position: static;
+      //     top: unset;
+      //     left: unset;
+      //     width: 100%;
+      //     height: calc(var(--fs) * 35);
+      //     object-fit: cover;
+      //     object-position: top center;
+      //     z-index: -1;
+      //   }
+      //   .content {
+      //     gap: calc(var(--fs) * 1.25);
+      //     width: 100%;
+      //     padding: 0 calc(var(--hor-padding));
+      //     margin-top: calc(var(--fs) * -3.5);
+      //     position: relative;
+      //     &::after {
+      //       content: "";
+      //       position: absolute;
+      //       top: 0;
+      //       left: 0;
+      //       transform: translateY(-75%);
+      //       width: 100%;
+      //       height: calc(var(--fs) * 15);
+      //       pointer-events: none;
+      //       z-index: 1;
+      //       background: linear-gradient(#00000000, #000);
+      //     }
+      //     & > * {
+      //       text-align: left !important;
+      //       z-index: 2;
+      //       position: relative;
+      //     }
+      //     h2 {
+      //       font-weight: 600;
+      //     }
+      //     p {
+      //       width: 95%;
+      //     }
+      //   }
+
+      //   &.last {
+      //     justify-content: flex-start !important;
+      //   }
+      // }
+
+      #media-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: unset;
+        padding: calc(var(--top-space) * 0.25) calc(var(--hor-padding)) 0;
+        video {
+          width: 100%;
+          height: calc(var(--fs) * 28.4375);
+          border-radius: calc(var(--fs) * 1.875);
+        }
+        h2 {
+          margin-top: calc(var(--fs) * 1.22);
+          font-weight: 600;
+        }
+      }
+    }
+  }
+</style>

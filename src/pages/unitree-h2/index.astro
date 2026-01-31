@@ -36,16 +36,21 @@ import { pages } from "@/scripts/pages";
       <p class="subtitle-3">Transformative Newborn</p>
     </div>
     <div class="sub-content">
-      <h1 class="h1 text-center">
+      <h1 class="h1 text-center intro-anim">
         The World's Most Advanced Universal <br /> Humanoid
       </h1>
-      <span class="paragraph-1">
+      <span class="paragraph-1 intro-anim">
         Engineered for the future of Embodied AI, the Unitree H2 combines
         unparalleled power, agility, and intelligence to redefine human-robot
         collaboration.
       </span>
 
-      <ButtonPrimary content="Buy now" type="a" href={pages.product.path} />
+      <ButtonPrimary
+        content="Buy now"
+        type="a"
+        href={pages.product.path}
+        className="intro-anim"
+      />
     </div>
   </section>
   <section id="new-section">
@@ -89,7 +94,7 @@ import { pages } from "@/scripts/pages";
 
     <Image class={"blue-shade"} src={blue_shade} alt={""} format="webp" />
   </section>
-  <section class="shot-section flex-start-row">
+  <section class="shot-section flex-start-row scroll-text-contained">
     <video
       playsinline
       muted
@@ -103,11 +108,9 @@ import { pages } from "@/scripts/pages";
     </video>
     <div class="content">
       <h2 class="h1">
-        Unrivaled Power <br class="br-tablet" /> and <br
-          class="br-desktop br-mobile"
-        /> Dexterity
+        Unrivaled Power and <br class="br-desktop br-mobile" /> Dexterity
       </h2>
-      <p class="paragraph-1">
+      <p class="paragraph-1 text-start">
         The H2 is built on Unitree's latest high-performance joint motor
         technology, delivering a staggering 360 N.m of peak torque in its leg
         joints. This power, combined with 31 Degrees of Freedom (DOF) across its
@@ -118,7 +121,7 @@ import { pages } from "@/scripts/pages";
       </p>
     </div>
   </section>
-  <section class="shot-section flex-end-row">
+  <section class="shot-section flex-end-row scroll-text-contained">
     <video
       playsinline
       muted
@@ -132,7 +135,7 @@ import { pages } from "@/scripts/pages";
     </video>
     <div class="content">
       <h2 class="h1">The Core of <br class="br-mobile" /> Embodied AI</h2>
-      <p class="paragraph-1">
+      <p class="paragraph-1 text-start">
         The H2 is designed to be a platform for the next generation of
         intelligent systems. The EDU model can be equipped with a cutting-edge
         AI chip, providing up to 2070 TOPS of computing power. This massive
@@ -143,7 +146,7 @@ import { pages } from "@/scripts/pages";
       </p>
     </div>
   </section>
-  <section class="shot-section flex-start-row">
+  <section class="shot-section flex-start-row scroll-text-contained">
     <video
       playsinline
       muted
@@ -157,7 +160,7 @@ import { pages } from "@/scripts/pages";
     </video>
     <div class="content">
       <h2 class="h1">Advanced Sensory and <br /> Interaction Systems</h2>
-      <p class="paragraph-1">
+      <p class="paragraph-1 text-start">
         Perception is critical for a universal robot. The H2 features a Humanoid
         Binocular Camera and advanced sensors for high-resolution 3D
         environmental mapping and object recognition. The integrated Array
@@ -604,6 +607,19 @@ import { pages } from "@/scripts/pages";
       margin-top: calc(var(--fs) * 1.5);
       span {
         text-transform: lowercase;
+      }
+    }
+  }
+
+  @media (orientation: landscape) {
+    .book-section {
+      .book-wrapper {
+        .second {
+          .book-shot {
+            object-fit: contain;
+            transform: translate(-50%, 20%) scale(1.35);
+          }
+        }
       }
     }
   }

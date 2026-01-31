@@ -1,7 +1,9 @@
 ---
+import Search from "@components/Search";
+import Sidecart from "@components/Sidecart";
 import { menuLinks } from "../scripts/utils/menuButtons";
 
-menuLinks;
+const { headerOpacity: desktopOpacity = 1 } = Astro.props;
 ---
 
 <>
@@ -19,35 +21,39 @@ menuLinks;
       <button aria-label="Click to open mobile menu" id="hamburger">
         <span></span><span></span><span></span>
       </button>
-      <button aria-label="Click to search">
-        <img src="/icons/magnifier.svg" alt="Search" />
-      </button>
+
+      <Search client:load />
       <span></span>
       <button aria-label="Click to check account">
         <img src="/icons/user.svg" alt="User Account" />
       </button>
-      <button aria-label="Click to open the cart">
-        <img src="/icons/bag.svg" alt="Cart" />
-      </button>
+      <Sidecart client:load />
     </div>
   </header>
-  <nav transition:persist transition:animate="none">
+  <nav transition:animate="none">
     {
-      menuLinks.map((link, index) => (
-        <a
-          href={link.href}
-          class={`nav-link ${link.className ? link.className : ""}`}
-        >
-          {link.icon && <img src={link.icon} alt="" />}
-          {link.name}
-        </a>
-      ))
+      menuLinks.map((link, index) =>
+        link.isLink ? (
+          <a
+            href={link.href}
+            class={`nav-link ${link.className ? link.className : ""}`}
+          >
+            {link.icon && <img src={link.icon} alt="" />}
+            {link.name}
+          </a>
+        ) : (
+          <li class={`nav-link ${link.className ? link.className : ""}`}>
+            {link.icon && <img src={link.icon} alt="" />}
+            {link.name}
+          </li>
+        ),
+      )
     }
 
     {
       menuLinks.map(
         (link, index) =>
-          index != 0 && (
+          link.options && (
             <div class="sub-nav" data-link={link.name}>
               {link.options?.map((group) => (
                 <div class="group">
@@ -62,6 +68,12 @@ menuLinks;
                   ))}
                 </div>
               ))}
+              {link.href && (
+                <a href={link.href} class="own-link">
+                  {`About ${link.name}`}
+                  <img src="/icons/arrow_right.svg" alt="" loading="lazy" />
+                </a>
+              )}
             </div>
           ),
       )
@@ -69,7 +81,7 @@ menuLinks;
   </nav>
 </>
 
-<style lang="scss">
+<style lang="scss" define:vars={{ desktopOpacity }} is:global>
   :root {
     --nav-background: rgba(18, 18, 18, 0.8);
     --nav-height: calc(var(--fs) * 3.5);
@@ -109,6 +121,10 @@ menuLinks;
     .menus {
       display: flex;
       align-items: center;
+      gap: calc(var(--fs) * 0.9);
+      span {
+        display: none;
+      }
       button {
         display: flex;
         align-items: center;
@@ -116,16 +132,11 @@ menuLinks;
         width: var(--button-height);
         height: var(--button-height);
         border-radius: calc(var(--fs) * 0.875);
-        // border-top: 0.5px solid #242222;
-        // border-bottom: 0.5px solid #242222;
         background: var(--nav-background);
         backdrop-filter: blur(0.5vw);
         -webkit-backdrop-filter: blur(0.5vw);
         transition: background-color 0.15s ease-in;
-        margin-right: calc(var(--fs) * 0.9);
-        &:last-of-type {
-          margin-right: 0;
-        }
+        margin: 0;
         &#hamburger,
         span {
           display: none;
@@ -169,7 +180,7 @@ menuLinks;
     transform: translate(-50%, 0%);
     z-index: 10;
 
-    a {
+    .nav-link {
       color: #fff;
       font-family: "Work Sans";
       font-size: var(--fs);
@@ -184,15 +195,15 @@ menuLinks;
       padding: 0 calc(var(--fs) * 1.5);
       text-transform: capitalize;
       transition: background-color 0.15s ease-in;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-user-drag: none;
 
       img {
         width: calc(var(--fs) * 1.25);
         height: calc(var(--fs) * 1.25);
         margin-right: calc(var(--fs) * 0.5);
       }
-    }
-    a,
-    button {
       &.active,
       &:hover {
         font-weight: 500;
@@ -205,13 +216,10 @@ menuLinks;
       width: 100%;
       min-height: calc(var(--fs) * 15);
       border-radius: calc(var(--fs) * 0.875);
-      background: var(--nav-background);
-      backdrop-filter: blur(0.5vw);
-      -webkit-backdrop-filter: blur(0.5vw);
+      background: #121212;
       position: absolute;
       top: 100%;
       left: 0;
-      transform: translateY(calc(var(--fs) * 1));
       padding: calc(var(--fs) * 1.37) calc(var(--fs) * 1.69);
       display: grid;
       grid-auto-flow: column;
@@ -220,7 +228,7 @@ menuLinks;
       justify-content: space-between;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.25s ease-in;
+      // transition: opacity 0.25s ease-in;
       & > * {
         pointer-events: none;
       }
@@ -241,6 +249,7 @@ menuLinks;
           font-style: normal;
           font-weight: 400;
           line-height: 1.42; /* 142.857% */
+          text-transform: capitalize;
         }
         a {
           color: #fff;
@@ -249,7 +258,7 @@ menuLinks;
           font-style: normal;
           font-weight: 500;
           line-height: normal;
-          // width: calc(var(--fs) * 12.6875);
+          text-transform: capitalize;
           width: 100%;
           height: calc(var(--fs) * 2.5);
           padding: 0;
@@ -264,12 +273,52 @@ menuLinks;
             width: calc(var(--fs) * 2.25488);
             height: calc(var(--fs) * 1.875);
             object-fit: contain;
+            margin-right: calc(var(--fs) * 0.25);
           }
-          &:hover {
-            background-color: #363636;
+          &:hover,
+          &.active {
+            background-color: #363636 !important;
           }
         }
       }
+      .own-link {
+        grid-column: 1 / 5;
+        grid-row: 2 / 3;
+        margin-top: calc(var(--fs) * 2);
+        pointer-events: auto;
+        background-color: none;
+        border: none !important;
+        color: #fff;
+        font-family: "Work Sans";
+        font-size: calc(var(--fs) * 1.1538);
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: calc(var(--fs) * -0.04613);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(var(--fs) * 2.5);
+        justify-self: center;
+        padding: 0 calc(var(--fs) * 2);
+        border-radius: calc(var(--fs) * 0.75);
+        &:hover {
+          background-color: #363636;
+        }
+        img {
+          width: calc(var(--fs) * 1.32469);
+          height: calc(var(--fs) * 1.02556);
+          margin-left: calc(var(--fs) * 0.5);
+        }
+      }
+    }
+  }
+
+  @media (orientation: landscape) {
+    header,
+    nav {
+      opacity: var(--desktopOpacity);
     }
   }
 
@@ -279,6 +328,9 @@ menuLinks;
     }
     header {
       .menus {
+        span {
+          display: block;
+        }
         button {
           background: #121212 !important;
           backdrop-filter: unset !important;
@@ -298,6 +350,7 @@ menuLinks;
         height: calc(var(--fs) * 1);
       }
       .menus {
+        gap: 0;
         button {
           margin-right: calc(var(--fs) * 0.25);
           border-radius: calc(var(--fs) * 0.8);
@@ -316,7 +369,7 @@ menuLinks;
       padding: calc(var(--fs) * 0.35) calc(var(--fs) * 0.35) !important;
       gap: 0;
       top: calc(var(--fs) * 1.5);
-      a {
+      .nav-link {
         font-size: calc(var(--fs) * 0.75);
         padding: 0 calc(var(--fs) * 0.5);
       }
@@ -327,6 +380,7 @@ menuLinks;
       grid-template-columns: repeat(2, 1fr) !important;
       grid-auto-flow: unset !important;
       grid-auto-columns: unset !important;
+      grid-auto-rows: max-content !important;
       column-gap: calc(var(--fs) * 1) !important;
       row-gap: calc(var(--fs) * 2) !important;
       padding: calc(var(--fs) * 1) !important;
@@ -342,6 +396,37 @@ menuLinks;
           height: calc(var(--fs) * 2.25) !important;
           border: none !important;
           border-radius: calc(var(--fs) * 0.625) !important;
+        }
+      }
+      .own-link {
+        grid-column: 1 / 3 !important;
+        grid-row: 3 / 4 !important;
+        margin-top: calc(var(--fs) * 0) !important;
+        pointer-events: auto;
+        background-color: none;
+        border: none !important;
+        color: #fff;
+        font-family: "Work Sans";
+        font-size: calc(var(--fs) * 0.75) !important;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: calc(var(--fs) * -0.04613);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(var(--fs) * 2) !important;
+        justify-self: center;
+        padding: 0 calc(var(--fs) * 1) !important;
+        border-radius: calc(var(--fs) * 0.75);
+        &:hover {
+          background-color: #363636;
+        }
+        img {
+          width: calc(var(--fs) * 1.32469);
+          height: calc(var(--fs) * 1.02556);
+          margin-left: calc(var(--fs) * 0.5);
         }
       }
     }
@@ -376,7 +461,7 @@ menuLinks;
       .menus {
         display: grid;
         grid-template-columns: repeat(2, max-content) 1fr repeat(2, max-content);
-        gap: calc(var(--fs) * 0.25);
+        gap: calc(var(--fs) * 1);
         height: 100%;
         width: 100%;
         button {

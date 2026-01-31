@@ -13,12 +13,19 @@ interface Props {
   htmlClasses?: string;
   bodyClasses?: string;
   renderFooter?: boolean;
+  headerDesktopOpacity?: number;
 }
 
-const { htmlClasses, bodyClasses, renderFooter = true } = Astro.props;
+const {
+  htmlClasses,
+  bodyClasses,
+  renderFooter = true,
+  headerDesktopOpacity = 1,
+} = Astro.props;
 
 const routePattern = decodeURI(Astro.routePattern);
 const isHome = routePattern == "/";
+console.log(routePattern);
 
 const headData = Object.values(pages)
   .filter((page) => page.path == routePattern)
@@ -26,7 +33,7 @@ const headData = Object.values(pages)
     title,
     description,
   }))[0];
-console.log(headData, "valss");
+console.log(headData, "values");
 const title = headData?.title ? headData?.title : "404 - Not found";
 const description = headData?.description
   ? headData?.description
@@ -57,7 +64,12 @@ const description = headData?.description
     <meta name="twitter:description" content="" />
     <meta name="twitter:image" content="/icons/logo.png" />
     <slot name="preload" />
-    <link rel="preload" as="image" href="/logos/ai_robots_logo.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      as="image"
+      href="/logos/ai_robots_logo.svg"
+      type="image/svg+xml"
+    />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -80,7 +92,7 @@ const description = headData?.description
   </head>
   <body class={bodyClasses}>
     <Preloader visible={isHome ? "visible" : "invisible"} />
-    <Header />
+    <Header desktopOpacity={headerDesktopOpacity} />
     <Menu />
     <div id="smooth-wrapper">
       <div id="smooth-content">
@@ -316,6 +328,9 @@ const description = headData?.description
   .text-center {
     text-align: center;
   }
+  .text-start {
+    text-align: start;
+  }
 
   .under-dev {
     display: none;
@@ -441,10 +456,39 @@ const description = headData?.description
     align-items: center;
     justify-content: center;
   }
+  .flex-column {
+    flex-direction: column;
+  }
 
   .last-elem {
     padding-bottom: 0 !important;
     margin-bottom: calc(var(--fs) * -0.25) !important;
+  }
+
+  .intro-1 {
+    opacity: 0;
+  }
+
+  .intro-2 {
+    opacity: 0;
+  }
+
+  .capitalize {
+    text-transform: capitalize;
+  }
+
+  .sequence-section {
+    height: 700vh !important;
+    z-index: -2;
+    background-color: #000;
+    padding-top: 0 !important;
+    .sequence-pin {
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 
   @media (orientation: landscape) {
@@ -485,6 +529,12 @@ const description = headData?.description
   }
   .color-blue {
     color: var(--MAIN-BLUE);
+  }
+  .color-white {
+    color: #fff !important;
+  }
+  .bck-black {
+    background-color: #000;
   }
 
   @media (orientation: portrait) {
@@ -630,6 +680,17 @@ const description = headData?.description
         span {
           font-size: calc(var(--fs) * 0.875 * 0.85);
         }
+      }
+    }
+
+    .sequence-section {
+      margin-top: calc(var(--top-space) * 1);
+      .sequence-pin {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0 !important;
+        left: 0 !important;
       }
     }
 
