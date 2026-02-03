@@ -58,53 +58,7 @@
       height: 1px;
       background: #6666663a;
     }
-    .field {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-radius: var(--fs);
-      margin-top: calc(var(--fs) * 2.5);
-      overflow: hidden;
-      width: calc(var(--fs) * 30.3125 + calc(var(--fs) * 0.5));
-      height: calc(var(--fs) * 3 + calc(var(--fs) * 0.5));
-      background: linear-gradient(
-        -120deg,
-        rgba(102, 102, 102, 1),
-        #00000000 20%,
-        #00000000 50%,
-        rgba(102, 102, 102, 1) 90%
-      );
-      input {
-        width: calc(100% - calc(var(--fs) * 0.1));
-        height: calc(100% - calc(var(--fs) * 0.1));
-        padding-left: calc(var(--fs) * 1);
-        padding-right: calc(var(--fs) * 4);
-        background: #1c1c1c;
-        border-radius: inherit;
-      }
-      button {
-        position: absolute;
-        right: calc(var(--fs) * 0.5);
-        top: 50%;
-        transform: translate(0%, -50%);
-        width: calc(var(--fs) * 2.26);
-        height: calc(var(--fs) * 2.26);
-        border-radius: calc(var(--fs) * 0.75);
-        background: linear-gradient(224deg, #6c8ae3 -47.2%, #3d60c9 74.45%);
-        &:hover {
-          img {
-            transform: scale(1.1);
-          }
-        }
-        img {
-          width: 55%;
-          height: auto;
-          transition: transform 0.15s ease-out;
-        }
-      }
-    }
+    
   }
   .results {
     width: 100%;
@@ -230,26 +184,7 @@
     .head {
       padding: 0 calc(var(--hor-padding) * 3);
 
-      .field {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-radius: calc(var(--fs) * 0.875);
-        margin-top: calc(var(--fs) * 2.5);
-        width: calc(var(--fs) * 20 + calc(var(--fs) * 0.5));
-        height: calc(var(--fs) * 2.5 + calc(var(--fs) * 0.5));
-        input {
-          padding-left: calc(var(--fs) * 1);
-          padding-right: calc(var(--fs) * 4);
-          width: calc(100% - 1px);
-          height: calc(100% - 1px);
-        }
-        button {
-          right: calc(var(--fs) * 0.5);
-          top: 50%;
-        }
-      }
+      
     }
     .results {
       margin-top: calc(var(--fs) * 3.5);

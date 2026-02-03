@@ -7,12 +7,18 @@ export function intro_animations() {
         const intro_elements = gsap.utils.toArray(".intro-anim").filter(elem => {
             // checking resolution compatibility
             if (isDesktopRes) {
-                if (elem.classList.contains("intro-mobile-only")) return false;
+                if (elem.classList.contains("intro-mobile-only")) {
+                    elem.classList.remove("intro-anim");
+                    return false;
+                }
                 else return elem;
             }
 
             if (isPortraitRes) {
-                if (elem.classList.contains("intro-desktop-only")) return false;
+                if (elem.classList.contains("intro-desktop-only")) {
+                    elem.classList.remove("intro-anim");
+                    return false;
+                }
                 else return elem;
             }
         })

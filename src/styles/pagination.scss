@@ -1,0 +1,27 @@
+.pagination {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  text-align: left;
+  padding-bottom: calc(var(--fs) * 1.5);
+  span {
+    text-transform: capitalize;
+  }
+  strong {
+    color: #fff;
+  }
+}
+@media (orientation: portrait) {
+  @media (min-aspect-ratio: 0.625) {
+    .pagination {
+      padding-bottom: calc(var(--fs) * 0.75);
+      font-size: var(--fs);
+    }
+  }
+
+  @media (max-aspect-ratio: 0.625) {
+    .pagination {
+      padding-bottom: calc(var(--fs) * 1.25);
+      font-size: calc(var(--fs) * 0.75);
+    }
+  }
+}

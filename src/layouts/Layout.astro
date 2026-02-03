@@ -119,6 +119,11 @@ const description = headData?.description
     --top-space: min(calc(var(--fs) * 20), 30vh);
     --MAIN-BLUE: #6289ff !important;
     --line-color: var(--MAIN-BLUE) !important;
+    --border-gradient-color: linear-gradient(
+      90deg,
+      rgba(102, 102, 102, 1),
+      #00000000
+    );
   }
 
   *,
@@ -466,7 +471,7 @@ const description = headData?.description
   }
 
   .intro-anim {
-  opacity: 0;
+    opacity: 0;
   }
 
   .capitalize {
@@ -487,6 +492,25 @@ const description = headData?.description
     }
   }
 
+  .border-gradient {
+    overflow: hidden;
+    position: relative;
+    background: var(--border-gradient-color);
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% - 1px);
+      height: calc(100% - 1px);
+      background: #101010;
+      border-radius: inherit;
+      border: 1px solid rgba(0, 0, 0, 0);
+    }
+  }
+
+ 
   @media (orientation: landscape) {
     .br-desktop {
       display: block !important;

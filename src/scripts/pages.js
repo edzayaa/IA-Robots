@@ -126,6 +126,22 @@ export const pages = {
         path: "/team",
         title: "Team",
         description: "Team",
-    }
+    },
+    blog: {
+        path: "/blog",
+        title: "Blog",
+        description: "Blog",
+    },
+    blog_single: {
+        path: "/blog/single",
+        title: "Blog Single",
+        description: "Blog Single",
+    },
+    contact: {
+        path: "/contact",
+        title: "Contact",
+        description: "Contact",
+    },
+
 
 }

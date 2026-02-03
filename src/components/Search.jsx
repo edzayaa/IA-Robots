@@ -7,6 +7,7 @@ import ButtonPrimary from "./ButtonPrimary";
 import { v4 as uuid } from "uuid";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import "@styles/field.scss";
 
 const searchResults = new Array(8).fill(null);
 
@@ -54,7 +55,7 @@ export default function Search({}) {
                     />
                     <button
                       aria-label="Click to search"
-                      className="flex-center"
+                      className="flex-center btn-search"
                     >
                       <img src="/icons/magnifier.svg" alt="" loading="lazy" />
                     </button>

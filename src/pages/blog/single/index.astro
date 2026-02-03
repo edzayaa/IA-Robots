@@ -1,0 +1,620 @@
+---
+import Layout from "@layouts/Layout.astro";
+import "@styles/pagination.scss";
+import { Picture } from "astro:assets";
+import singleImg from "@assets/blog/single_hero.png";
+import ButtonPrimary from "@components/ButtonPrimary";
+import { links } from "@scripts/links";
+---
+
+<Layout>
+  <section>
+    <div class="hero intro-anim">
+      <div class="content">
+        <p class="pagination paragraph-1 intro-anim">
+          <span>home</span> > <span>unitree go2</span> > <strong>
+            Customize your Go2</strong
+          >
+        </p>
+        <h1 class="h1 intro-anim">Unitree B-W Showcased at ICRA 2023 London</h1>
+        <Picture
+          src={singleImg}
+          alt="Single Blog Page Image"
+          class={"intro-anim"}
+        />
+      </div>
+    </div>
+    <div class="details paragraph-1 intro-anim">
+      <div class="info">
+        <p>March 17,2025</p>
+        <span></span>
+        <p>7 min</p>
+        <span></span>
+        <p>By Joe Doe</p>
+      </div>
+      <div class="share">
+        <p>Share</p>
+        <a class="border-gradient" target="_blank">
+          <img src="/icons/link.svg" alt="" loading="lazy" />
+        </a>
+        <a class="border-gradient" href={links.linkedin} target="_blank">
+          <img src="/icons/linkedin.svg" alt="" loading="lazy" />
+        </a>
+        <a class="border-gradient" href={links.x} target="_blank">
+          <img src="/icons/x.svg" alt="" loading="lazy" />
+        </a>
+        <a class="border-gradient" href={links.facebook} target="_blank">
+          <img src="/icons/fb.svg" alt="" loading="lazy" />
+        </a>
+      </div>
+    </div>
+    <div class="post-container intro-anim">
+      <div class="post paragraph-1 text-start">
+        <p>
+          Unitree Robotics participated in ICRA for the sixth consecutive year.
+          Unitree Robotics exhibited Go1, B1, A1, and other quadruped robots at
+          ICRA. Unitree is a world-renowned robotics company that focuses on
+          self-development. LONDON, ENGLAND / ACCESSWIRE / June 2, 2023 / On May
+          29, ICRA 2023, the International Conference on Robotics and
+          Automation, was held in London, UK, which is the largest and most
+          influential international academic conference in the field of robotics
+          organized by the International Institute of Electrical and Electronics
+          Engineering (IEEE). Unitree Robotics, a leader in the foot-based
+          robotics industry, was invited to participate in this international
+          event to showcase the innovative power of Chinese technology companies
+          to the world.
+        </p>
+        <p>
+          At this year's ICRA 2023, Unitree Robotics officially launched the
+          Unitree B-W wheeled robot, which not only attracted a large number of
+          visitors to stop by and take photos, but also added fresh colors to
+          this year's ICRA. Several top robotics companies around the world
+          participated in the showcase. In addition to Unitree Robotics, seven
+          other exhibitors brought Unitree Robotics quadruped robots to ICRA,
+          highlighting Unitree Robotics' leading position in robotics technology
+          and strong leadership in the field. ICRA 2023 hosted a number of
+          robotics challenges on site, and the Quadruped Robotics Challenge QRC
+          was the first of a series of challenges, covering a range of events
+          from Quadruped Robotics Remote Control Race to Autonomous Traversal of
+          Challenging Terrain, and Unitree Robotics became the exclusive sponsor
+          of Quadruped Robotics in Greater China with its outstanding
+          technological strength. In addition, the competition also attracted
+          many world-renowned universities and research institutions from
+          Massachusetts Institute of Technology (MIT), Carnegie Mellon
+          University, Korea Institute of Science and Technology (KAIST), the
+          University of Hong Kong, Heriot-Watt University, Clemson University,
+          etc., and Unitree Robotics provided technical support and services to
+          the participating teams, contributing actively to the development of
+          the robotics field. Unitree Robotics has made a positive contribution
+          to the development of the robotics field.
+        </p>
+        <p>
+          In addition to a wide range of on-site challenges, well-known
+          technology companies such as Boston Dynamics, Dyson, Baidu, IIT and
+          PAL Robotics were also on hand to showcase their latest technologies
+          in the field of robotics.
+        </p>
+        <p>
+          Robots have long since turned from fantasy in science fiction movies
+          into reality and have permeated all walks of life, and intelligent
+          robots will accompany people's lives in the future, following them
+          like a shadow and being everywhere. Unitree Robotics has been invited
+          to participate in ICRA for six consecutive years, and every year,
+          Unitree Robotics will continue to put technological innovation in
+          first place as the leader of the foot robot industry in China, and
+          will continue to make breakthroughs and develop continuously to lead
+          the global foot robot industry to new heights.
+        </p>
+        <div class="share">
+          <p>Share</p>
+          <a class="border-gradient" target="_blank">
+            <img src="/icons/link.svg" alt="" loading="lazy" />
+          </a>
+          <a class="border-gradient" href={links.linkedin} target="_blank">
+            <img src="/icons/linkedin.svg" alt="" loading="lazy" />
+          </a>
+          <a class="border-gradient" href={links.x} target="_blank">
+            <img src="/icons/x.svg" alt="" loading="lazy" />
+          </a>
+          <a class="border-gradient" href={links.facebook} target="_blank">
+            <img src="/icons/fb.svg" alt="" loading="lazy" />
+          </a>
+        </div>
+      </div>
+      <div class="in-touch">
+        <div>
+          <p class="subtitle-3 color-white">
+            Subscribe to our newsletter for daily industry insights
+          </p>
+          <form class="field">
+            <input type="email" placeholder="Enter your email" />
+            <ButtonPrimary
+              client:load
+              content="submit"
+              className="inside-input"
+            />
+          </form>
+        </div>
+        <div>
+          <p class="subtitle-3 color-white">Follow Us</p>
+          <span class="paragraph-1">
+            Get the latest news and industry Inspiration.
+          </span>
+          <div class="socials">
+            <a href={links.x} target="_blank">
+              <img src="/icons/x.svg" alt="" loading="lazy" />
+            </a>
+            <a href={links.youtube} target="_blank">
+              <img src="/icons/youtube.svg" alt="" loading="lazy" />
+            </a>
+            <a href={links.facebook} target="_blank">
+              <img src="/icons/fb.svg" alt="" loading="lazy" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  .share {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: calc(var(--fs) * 1.13);
+    align-items: center;
+    p {
+      margin-right: calc(var(--fs) * 5);
+    }
+    a {
+      width: calc(var(--fs) * 3.4375);
+      height: calc(var(--fs) * 3.4375);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      img {
+        width: 40%;
+        height: 40%;
+        object-fit: contain;
+        z-index: 1;
+      }
+    }
+  }
+  section {
+    padding: 0 calc(var(--hor-padding)) calc(var(--fs) * 10);
+    .hero {
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        right: 0;
+        transform: translate(50%, 30%);
+        width: 100vw;
+        height: 50vw;
+        border-radius: 50%;
+        background: radial-gradient(var(--MAIN-BLUE), #00000000 50%);
+        opacity: 0.35;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: calc(var(--fs) * 2);
+        left: 50%;
+        transform: translate(-50%, 0%);
+        background-color: #767676;
+        width: 100%;
+        height: 1px;
+      }
+      .content {
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        grid-template-rows: max-content 1fr;
+        place-content: center;
+        align-items: center;
+        margin-top: 10vh;
+        & > * {
+          grid-column: 1 / 2;
+          padding: 0;
+          margin: 0;
+        }
+        .pagination {
+          margin: 0;
+          grid-row: 1 / 2;
+          align-self: flex-start;
+        }
+        h1 {
+          grid-row: 2 / 3;
+          align-self: flex-start;
+          margin-top: 5vh;
+        }
+
+        picture {
+          width: calc(var(--fs) * 44.375);
+          height: calc(var(--fs) * 25);
+          border-radius: calc(var(--fs) * 1.25);
+          overflow: hidden;
+          grid-row: 1 / 3;
+          grid-column: 2 / 3;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+
+    .details {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: calc(var(--fs) * 2.75);
+      .info {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+        gap: calc(var(--fs) * 4.44 / 2);
+        align-items: center;
+        span {
+          width: 1px;
+          height: calc(var(--fs) * 2.4);
+          background-color: #767676;
+        }
+      }
+    }
+    .post-container {
+      display: grid;
+      grid-template-columns: 1fr calc(var(--fs) * 32.9375);
+      align-items: start;
+      margin-top: calc(var(--fs) * 8);
+      gap: calc(var(--fs) * 9);
+      .post {
+        display: grid;
+        grid-auto-flow: row;
+        grid-auto-rows: max-content;
+        gap: calc(var(--fs) * 3);
+        .share {
+          display: none;
+        }
+      }
+      .in-touch {
+        div {
+          .field {
+            input {
+              color: #757575;
+              font-size: var(--fs);
+              font-style: normal;
+              font-weight: 300;
+              line-height: 134%; /* 1.34rem */
+              text-transform: capitalize;
+            }
+          }
+          .paragraph-1 {
+            margin-top: calc(var(--fs) * 2);
+            width: calc(var(--fs) * 15);
+            display: block;
+          }
+          & > * {
+            text-align: left;
+          }
+          &:first-of-type {
+            border-bottom: 1px solid #767676;
+            padding-bottom: calc(var(--fs) * 4.75);
+          }
+          &:last-of-type {
+            margin-top: calc(var(--fs) * 5);
+            .socials {
+              display: grid;
+              grid-auto-flow: column;
+              grid-auto-columns: max-content;
+              gap: calc(var(--fs) * 2.37);
+              align-items: center;
+              padding: 0;
+              border: unset;
+              margin-top: calc(var(--fs) * 2);
+              a {
+                img {
+                  height: calc(var(--fs) * 1.66);
+                  width: auto;
+                  object-fit: contain;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (orientation: portrait) {
+    .share {
+      gap: calc(var(--fs) * 1);
+      align-items: center;
+      p {
+        margin-right: calc(var(--fs) * 1);
+      }
+      a {
+        width: calc(var(--fs) * 2.55);
+        height: calc(var(--fs) * 2.55);
+      }
+    }
+    section {
+      padding: calc(var(--top-space) * 1.5) calc(var(--hor-padding) * 2)
+        calc(var(--fs) * 5);
+      .hero {
+        display: flex;
+        align-items: flex-start;
+        height: initial;
+        padding-bottom: calc(var(--fs) * 2.5);
+        &::before {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          bottom: 50%;
+          right: 50%;
+          transform: translate(50%, 60%);
+          width: 120vw;
+          height: 120vw;
+          border-radius: 50%;
+          background: radial-gradient(var(--MAIN-BLUE), #00000000 50%);
+          opacity: 0.5;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-50%, 50%);
+          background-color: #767676;
+          width: 100%;
+          height: 1px;
+        }
+        .content {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-self: flex-start;
+          margin: 0;
+          h1 {
+            grid-row: 2 / 3;
+            align-self: flex-start;
+            margin-top: calc(var(--fs) * 3.5);
+          }
+
+          picture {
+            width: 100%;
+            height: calc(var(--fs) * 25);
+            border-radius: calc(var(--fs) * 2.3);
+            margin-top: calc(var(--fs) * 5);
+          }
+        }
+      }
+
+      .details {
+        margin-top: calc(var(--fs) * 3);
+        .info {
+          gap: calc(var(--fs) * 1);
+          span {
+            width: 1px;
+            height: calc(var(--fs) * 2);
+          }
+        }
+      }
+      .post-container {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-auto-flow: row;
+        grid-auto-rows: max-content;
+        margin-top: calc(var(--fs) * 6);
+        gap: calc(var(--fs) * 6);
+        .post {
+          gap: calc(var(--fs) * 2);
+        }
+        .in-touch {
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          align-items: start;
+          div {
+            grid-row: 1/2;
+            margin: 0 !important;
+            border: unset !important;
+            display: grid;
+            grid-auto-flow: row;
+            grid-auto-rows: max-content;
+            gap: calc(var(--fs) * 2);
+            & > * {
+              margin: 0 !important;
+            }
+            .field {
+              input {
+                color: #757575;
+                font-size: var(--fs);
+                font-style: normal;
+                font-weight: 300;
+                line-height: 134%; /* 1.34rem */
+                text-transform: capitalize;
+              }
+            }
+            .paragraph-1 {
+              margin-top: calc(var(--fs) * 0);
+              width: 100%;
+              display: block;
+            }
+            & > * {
+              text-align: left;
+            }
+            &:first-of-type {
+              border-bottom: 1px solid #767676;
+              padding-bottom: calc(var(--fs) * 4.75);
+            }
+            &:last-of-type {
+              margin-top: calc(var(--fs) * 5);
+              & > * {
+                grid-row: auto;
+              }
+              .socials {
+                a {
+                  img {
+                    height: calc(var(--fs) * 1.66);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-aspect-ratio: 0.625) {
+      section {
+        padding: calc(var(--top-space) * 1.5) calc(var(--hor-padding) * 1)
+          calc(var(--fs) * 5);
+        .hero {
+          &::before {
+            bottom: 0%;
+            right: 0%;
+            transform: translate(50%, 50%);
+            width: 180vw;
+            height: 180vw;
+            background: radial-gradient(var(--MAIN-BLUE), #00000000 50%);
+            opacity: 0.35;
+          }
+          &::after {
+            background-color: #767676;
+            width: 100%;
+            height: 1px;
+          }
+          .content {
+            h1 {
+              grid-row: 2 / 3;
+              align-self: flex-start;
+              margin-top: calc(var(--fs) * 1.5);
+            }
+
+            picture {
+              height: calc(var(--fs) * 15);
+              border-radius: calc(var(--fs) * 1.25);
+              margin-top: calc(var(--fs) * 5);
+            }
+          }
+        }
+
+        .details {
+          margin-top: calc(var(--fs) * 2);
+          width: 100%;
+          .info {
+            gap: calc(var(--fs) * 2);
+            width: 100%;
+            place-items: center;
+            place-content: center;
+            span {
+              width: 1px;
+              height: calc(var(--fs) * 2);
+            }
+          }
+          .share {
+            gap: calc(var(--fs) * 1);
+            align-items: center;
+            display: none;
+            p {
+              margin-right: calc(var(--fs) * 1);
+            }
+            a {
+              width: calc(var(--fs) * 2.55);
+              height: calc(var(--fs) * 2.55);
+            }
+          }
+        }
+        .post-container {
+          margin-top: calc(var(--fs) * 2.5);
+          gap: calc(var(--fs) * 4.5);
+          .post {
+            gap: calc(var(--fs) * 2);
+            .share {
+              display: grid;
+              place-items: center;
+              place-content: center;
+              margin-top: calc(var(--fs) * 3);
+              & > * {
+                grid-column: auto;
+                grid-row: 2/3;
+              }
+              p {
+                grid-column: 1 / 5;
+                grid-row: 1/2;
+                text-align: center;
+                width: 100%;
+                margin: 0;
+              }
+            }
+          }
+          .in-touch {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-auto-flow: row;
+            grid-auto-rows: max-content;
+            align-items: start;
+            & > * {
+              grid-column: 1/2 !important;
+              grid-row: auto !important;
+            }
+            div {
+              grid-row: 1/2;
+              margin: 0 !important;
+              border: unset !important;
+              display: grid;
+              grid-auto-flow: row;
+              grid-auto-rows: max-content;
+              gap: calc(var(--fs) * 2);
+              & > * {
+                margin: 0 !important;
+              }
+              .field {
+                input {
+                  color: #757575;
+                  font-size: var(--fs);
+                  font-style: normal;
+                  font-weight: 300;
+                  line-height: 134%; /* 1.34rem */
+                  text-transform: capitalize;
+                }
+              }
+              .paragraph-1 {
+                margin-top: calc(var(--fs) * 0);
+                width: 100%;
+                display: block;
+              }
+              & > * {
+                text-align: left;
+              }
+              &:first-of-type {
+                border-bottom: 1px solid #767676;
+                padding-bottom: calc(var(--fs) * 4.75);
+              }
+              &:last-of-type {
+                margin-top: calc(var(--fs) * 5);
+                & > * {
+                  grid-row: auto;
+                }
+                .socials {
+                  a {
+                    img {
+                      height: calc(var(--fs) * 1.66);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

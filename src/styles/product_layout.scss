@@ -10,18 +10,18 @@
     text-align: left;
   }
 
-  .pagination {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    text-align: left;
-    padding-bottom: calc(var(--fs) * 1.5);
-    span {
-      text-transform: capitalize;
-    }
-    strong {
-      color: #fff;
-    }
-  }
+//   .pagination {
+//     grid-column: 1 / 2;
+//     grid-row: 1 / 2;
+//     text-align: left;
+//     padding-bottom: calc(var(--fs) * 1.5);
+//     span {
+//       text-transform: capitalize;
+//     }
+//     strong {
+//       color: #fff;
+//     }
+//   }
   .shots {
     width: calc(var(--fs) * 57.8125);
     height: calc(var(--fs) * 50.75);
