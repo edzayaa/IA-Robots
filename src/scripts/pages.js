@@ -156,6 +156,31 @@ export const pages = {
         path: "/locations",
         title: "Locations",
         description: "Locations",
+    },
+    privacy_policy: {
+        path: "/legal/privacy",
+        title: "Privacy Policy",
+        description: "Privacy Policy",
+    },
+    returns_refunds: {
+        path: "/legal/returns-refunds",
+        title: "Returns & Refunds",
+        description: "Returns & Refunds",
+    },
+    terms_conditions: {
+        path: "/legal/terms-conditions",
+        title: "Terms & Conditions",
+        description: "Terms & Conditions",
+    },
+    cookie_policy: {
+        path: "/legal/cookie-policy",
+        title: "Cookie Policy",
+        description: "Cookie Policy",
+    },
+    shipping_delivery: {
+        path: "/legal/shipping-delivery",
+        title: "Shipping & Delivery",
+        description: "Shipping & Delivery",
     }
 
 
