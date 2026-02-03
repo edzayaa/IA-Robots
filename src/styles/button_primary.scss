@@ -49,17 +49,16 @@
     right: calc(var(--fs) * 0.35);
     transform: translate(0%, -50%);
   }
-}
+  &.full-width {
+    width: 100%;
+  }
 
-@media (orientation: landscape) {
-  .primary-btn {
-    &.icon-right {
-      .icon {
-        position: absolute;
-        top: 50%;
-        right: calc(var(--fs) * 0.25);
-        transform: translate(0%, -50%);
-      }
+  &.icon-right {
+    .icon {
+      position: absolute;
+      top: 50%;
+      right: calc(var(--fs) * 0.25);
+      transform: translate(0%, -50%);
     }
   }
 }

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { v4 as uuid } from "uuid";
+import "@styles/faqs_section.scss";
 
 const faqs = new Array(8).fill({
   question: "What types of robots does Unitree produce? ",

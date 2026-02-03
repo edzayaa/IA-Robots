@@ -142,6 +142,21 @@ export const pages = {
         title: "Contact",
         description: "Contact",
     },
+    request_demo: {
+        path: "/request-demo",
+        title: "Request Demo",
+        description: "Request Demo",
+    },
+    tech_support: {
+        path: "/tech-support",
+        title: "Tech Support",
+        description: "Tech Support",
+    },
+    locations: {
+        path: "/locations",
+        title: "Locations",
+        description: "Locations",
+    }
 
 
 }
