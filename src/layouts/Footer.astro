@@ -70,14 +70,14 @@ import { pages } from "../scripts/pages";
       >Resources Overview
       <img src="/icons/chevron-down.svg" alt="" loading="lazy" />
     </button>
-    <a href="/getting-started">Getting Started Guides</a>
+    <!-- <a href="/getting-started">Getting Started Guides</a>
     <a href="/tech-docs">Technical Documentation</a>
     <a href="/construction">Construction</a>
     <a href="/tutorials"> Video Tutorials </a>
     <a href="/sdks"> SDK Downloads </a>
     <a href="/faqs"> FAQs </a>
-    <a href="/warranty"> Warranty & Maintenance </a>
-    <a href="/news"> News </a>
+    <a href="/warranty"> Warranty & Maintenance </a> -->
+    <a href={pages.blog.path}> blog </a>
   </div>
   <div class="links">
     <button
@@ -192,6 +192,7 @@ import { pages } from "../scripts/pages";
         font-weight: 400;
         line-height: normal;
         text-align: left;
+        text-transform: capitalize;
       }
       button {
         color: #fff;

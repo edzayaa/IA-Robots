@@ -5,6 +5,7 @@ import team_1 from "@assets/team/member_1.jpg";
 import team_3 from "@assets/team/member_3.jpg";
 import team_4 from "@assets/team/member_4.jpg";
 import { Picture } from "astro:assets";
+import ellipse from "@assets/ellipse_large.png";
 
 const members = [
   {
@@ -52,6 +53,17 @@ const members = [
 
 <Layout>
   <section>
+    <div class="ellipse-wrapper intro-anim">
+      <Picture
+        src={ellipse}
+        alt=""
+        class={"ellipse"}
+        fetchpriority={"high"}
+        quality={"max"}
+        loading={"eager"}
+      />
+    </div>
+
     <div class="head">
       <h1 class="h1 intro-anim">Meet our team</h1>
       <p class="paragraph-1 intro-anim">

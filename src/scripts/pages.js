@@ -157,6 +157,16 @@ export const pages = {
         title: "Locations",
         description: "Locations",
     },
+    careers: {
+        path: "/careers",
+        title: "Careers",
+        description: "Careers",
+    },
+    story: {
+        path: "/story",
+        title: "Story",
+        description: "Story",
+    },
     privacy_policy: {
         path: "/legal/privacy",
         title: "Privacy Policy",

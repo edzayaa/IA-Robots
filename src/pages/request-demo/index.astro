@@ -2,6 +2,8 @@
 import ButtonPrimary from "@components/ButtonPrimary";
 import Layout from "@layouts/Layout.astro";
 import "@styles/field.scss";
+import { Picture } from "astro:assets";
+import ellipse from "@assets/ellipse_large.png";
 
 const fields = [
   {
@@ -33,6 +35,16 @@ const fields = [
 
 <Layout>
   <section>
+    <div class="ellipse-wrapper intro-anim">
+      <Picture
+        src={ellipse}
+        alt=""
+        class={"ellipse"}
+        fetchpriority={"high"}
+        quality={"max"}
+        loading={"eager"}
+      />
+    </div>
     <h1 class="h1 text-center intro-anim">Request your Demo</h1>
     <p class="paragraph-1 intro-anim color-white">
       Please fill out the form below so we can prepare a demonstration tailored

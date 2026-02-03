@@ -510,6 +510,41 @@ const description = headData?.description
     }
   }
 
+  .ellipse-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    picture {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      width: 90vw;
+      max-width: unset;
+      height: initial;
+      display: block;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-user-drag: none;
+    }
+    .ellipse {
+      position: absolute;
+      top: 0;
+      right: 50%;
+      transform: translate(50%, calc(var(--fs) * -2.5));
+      width: 100%;
+      height: auto;
+      max-width: unset;
+    }
+  }
+
   @media (orientation: landscape) {
     .br-desktop {
       display: block !important;
@@ -713,10 +748,37 @@ const description = headData?.description
       }
     }
 
+    .ellipse-wrapper {
+      picture {
+        width: 250vw;
+        max-width: unset;
+      }
+      .ellipse {
+        position: absolute;
+        top: 0%;
+        right: 50%;
+        transform: translate(50%, -17%);
+        max-width: unset;
+      }
+    }
+
     @media (min-aspect-ratio: 0.625) {
       :root {
         --fs: 2vw;
         --top-padding: calc(var(--fs) * 3);
+      }
+      .ellipse-wrapper {
+        picture {
+          width: 200vw;
+        }
+        .ellipse {
+          position: absolute;
+          top: 0;
+          right: 50%;
+          transform: translate(50%, -2.5%);
+          max-width: unset;
+          width: 100%;
+        }
       }
 
       .br-desktop,

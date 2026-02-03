@@ -255,6 +255,10 @@
           );
           break;
 
+        case pages.careers.path:
+          import("../scripts/careers").then(({ careers }) => careers());
+          break;
+
         case pages.privacy_policy.path:
           import("../scripts/legal").then(({ legal }) => legal());
           break;
