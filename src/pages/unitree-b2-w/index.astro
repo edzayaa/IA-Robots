@@ -17,6 +17,22 @@ import "@styles/book_section.scss";
 import "@styles/shot_section.scss";
 import "@styles/tech_section.scss";
 import { pages } from "@/scripts/pages";
+
+const robotSpecsTable = [
+  ["Characteristic", "Value", "Notes"],
+  ["Max Speed", "20 km/h", "High-speed wheeled travel."],
+  [
+    "Max Endurance",
+    "50 km with 40kg load",
+    "Industry-leading range and payload capacity.",
+  ],
+  ["Ingress Protection", "IP67", "Fully protected against dust and water."],
+  ["Total Weight", "75kg (with battery)", "Robust industrial chassis."],
+  ["Battery Capacity", "2kwh", "Ultra-large capacity for long missions."],
+  ["Max Load (Standing)", "120kg", "High stationary load capacity."],
+  ["Continuous Stair Climbing", "20-25cm", "Excellent vertical mobility."],
+  ["Max Wheel Torque", "50 N.m", "Powerful wheel drive system."],
+];
 ---
 
 <Layout>
@@ -44,7 +60,12 @@ import { pages } from "@/scripts/pages";
         missions in complex industrial environments.
       </span>
 
-      <ButtonPrimary content="buy now" type="a" href={pages.product.path} className="intro-anim" />
+      <ButtonPrimary
+        content="buy now"
+        type="a"
+        href={pages.product.path}
+        className="intro-anim"
+      />
     </div>
   </section>
   <section id="new-section">
@@ -209,52 +230,27 @@ import { pages } from "@/scripts/pages";
       <table class="robot-spec-table">
         <thead>
           <tr>
-            <th>Characteristic</th>
-            <th>Value</th>
-            <th>Notes</th>
+            <th>
+              {robotSpecsTable[0][0]}
+            </th>
+            <th>
+              {robotSpecsTable[0][1]}
+            </th>
+            <th>
+              {robotSpecsTable[0][2]}
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Weight (with battery)</td>
-            <td>18kg</td>
-            <td>Highly portable for a wheeled-legged robot.</td>
-          </tr>
-          <tr>
-            <td>Payload (Max)</td>
-            <td>8kg (MAX ~ 12kg)</td>
-            <td>Suitable for various sensors and payloads.</td>
-          </tr>
-          <tr>
-            <td>Speed Range</td>
-            <td>0 - 2.5 m/s</td>
-            <td>Efficient wheeled movement and dynamic legged motion.</td>
-          </tr>
-          <tr>
-            <td>Endurance</td>
-            <td>1.5 - 3h (15000mAh battery)</td>
-            <td>Varies based on mode of locomotion and load.</td>
-          </tr>
-          <tr>
-            <td>Max Joint Torque</td>
-            <td>45 N.m</td>
-            <td>Ensures responsive and stable movement.</td>
-          </tr>
-          <tr>
-            <td>Obstacle Crossing</td>
-            <td>Up to 70cm</td>
-            <td>Superior capability for overcoming large obstacles.</td>
-          </tr>
-          <tr>
-            <td>Sensing</td>
-            <td>3D LiDAR + HD Wide-angle Camera</td>
-            <td>Advanced environmental awareness.</td>
-          </tr>
-          <tr>
-            <td>Computing</td>
-            <td>8-core CPU, Orin NX optional</td>
-            <td>Powerful core for AI and development.</td>
-          </tr>
+          {
+            robotSpecsTable.slice(1).map((item) => (
+              <tr>
+                <td>{item[0]}</td>
+                <td>{item[1]}</td>
+                <td>{item[2]}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>

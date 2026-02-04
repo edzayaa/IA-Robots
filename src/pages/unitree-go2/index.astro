@@ -36,6 +36,39 @@ const resImages = await Promise.all(
 );
 
 console.log(resImages[0]);
+
+const robotSpecsTable = [
+  ["Characteristic", "Value", "Notes"],
+  [
+    "Model Variants",
+    "AIR, PRO, EDU",
+    "Offering different levels of speed and computing power.",
+  ],
+  ["Weight (with battery)", "15kg", "Highly portable and lightweight."],
+  [
+    "Payload (Max EDU)",
+    "8kg (MAX ~ 12kg)",
+    "Suitable for carrying sensors and custom payloads.",
+  ],
+  ["Speed (Max EDU)", "03.7m/s (MAX 5m/s)", "High-speed dynamic motion."],
+  [
+    "Endurance (Standard)",
+    "About 2-4h (8000mAh)",
+    "Long endurance battery (15000mAh) optional.",
+  ],
+  ["Max Joint Torque", "45 N.m", "Enhanced power for dynamic actions."],
+  [
+    "Max Climb Drop Height",
+    "About 16cm (EDU)",
+    "Superior obstacle crossing capability",
+  ],
+  [
+    "Basic Computing Power",
+    "8-core High-performance CPU",
+    "Orin NX optional for EDU model",
+  ],
+  ["Sensing", "4D LiDAR L1, HD Wide-angle Camera", "Standard on all models."],
+];
 ---
 
 <Layout>
@@ -77,7 +110,10 @@ console.log(resImages[0]);
       <SequenceSection images={resImages} />
     </div>
   </section>
-  <section class="simple-section bck-black no-padding-top-mobile" id="first-simple">
+  <section
+    class="simple-section bck-black no-padding-top-mobile"
+    id="first-simple"
+  >
     <h2 class="h1">3D LiDAR Mapping</h2>
     <p class="paragraph-1">
       With L1 LiDAR and a dedicated App, you can construct point cloud map
@@ -164,52 +200,27 @@ console.log(resImages[0]);
       <table class="robot-spec-table">
         <thead>
           <tr>
-            <th>Characteristic</th>
-            <th>Value</th>
-            <th>Notes</th>
+            <th>
+              {robotSpecsTable[0][0]}
+            </th>
+            <th>
+              {robotSpecsTable[0][1]}
+            </th>
+            <th>
+              {robotSpecsTable[0][2]}
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Weight (with battery)</td>
-            <td>18kg</td>
-            <td>Highly portable for a wheeled-legged robot.</td>
-          </tr>
-          <tr>
-            <td>Payload (Max)</td>
-            <td>8kg (MAX ~ 12kg)</td>
-            <td>Suitable for various sensors and payloads.</td>
-          </tr>
-          <tr>
-            <td>Speed Range</td>
-            <td>0 - 2.5 m/s</td>
-            <td>Efficient wheeled movement and dynamic legged motion.</td>
-          </tr>
-          <tr>
-            <td>Endurance</td>
-            <td>1.5 - 3h (15000mAh battery)</td>
-            <td>Varies based on mode of locomotion and load.</td>
-          </tr>
-          <tr>
-            <td>Max Joint Torque</td>
-            <td>45 N.m</td>
-            <td>Ensures responsive and stable movement.</td>
-          </tr>
-          <tr>
-            <td>Obstacle Crossing</td>
-            <td>Up to 70cm</td>
-            <td>Superior capability for overcoming large obstacles.</td>
-          </tr>
-          <tr>
-            <td>Sensing</td>
-            <td>3D LiDAR + HD Wide-angle Camera</td>
-            <td>Advanced environmental awareness.</td>
-          </tr>
-          <tr>
-            <td>Computing</td>
-            <td>8-core CPU, Orin NX optional</td>
-            <td>Powerful core for AI and development.</td>
-          </tr>
+          {
+            robotSpecsTable.slice(1).map((item) => (
+              <tr>
+                <td>{item[0]}</td>
+                <td>{item[1]}</td>
+                <td>{item[2]}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>
