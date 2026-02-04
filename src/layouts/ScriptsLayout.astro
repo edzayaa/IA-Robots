@@ -259,6 +259,10 @@
           import("../scripts/careers").then(({ careers }) => careers());
           break;
 
+        case pages.story.path:
+          import("../scripts/story").then(({ story }) => story());
+          break;
+
         case pages.privacy_policy.path:
           import("../scripts/legal").then(({ legal }) => legal());
           break;

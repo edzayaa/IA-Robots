@@ -167,6 +167,31 @@ export const pages = {
         title: "Story",
         description: "Story",
     },
+    signin: {
+        path: "/access/signin",
+        title: "Sign In",
+        description: "Sign In",
+    },
+    signup: {
+        path: "/access/signup",
+        title: "Sign Up",
+        description: "Sign Up",
+    },
+    forgot_password: {
+        path: "/access/forgot-password",
+        title: "Forgot Password",
+        description: "Forgot Password",
+    },
+    reset_password: {
+        path: "/access/reset-password",
+        title: "Reset Password",
+        description: "Reset Password",
+    },
+    confirmed: {
+        path: "/access/confirmed",
+        title: "Confirmed",
+        description: "Confirmed",
+    },
     privacy_policy: {
         path: "/legal/privacy",
         title: "Privacy Policy",

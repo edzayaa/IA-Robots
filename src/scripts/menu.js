@@ -9,6 +9,8 @@ export function menu() {
     accordionGroups = gsap.utils.toArray("#menu .accordion-group");
     menuBtn = document.getElementById("menu");
 
+    if (!hamburger) return;
+
 
     function hamburgerClick() {
         if (menuBtn.classList.contains("open")) {

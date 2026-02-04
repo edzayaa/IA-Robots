@@ -1,0 +1,86 @@
+---
+import Layout from "@layouts/Layout.astro";
+import img from "@assets/access/access_signin.jpg";
+import "@styles/access.scss";
+import { Picture } from "astro:assets";
+import ButtonPrimary from "@components/ButtonPrimary";
+import { pages } from "@scripts/pages";
+---
+
+<Layout renderFooter={false} headerClasses="no-desktop-header">
+  <section class="access-section" transition:animate="none">
+    <Picture
+      src={img}
+      alt="Access section"
+      fetchpriority={"high"}
+      quality={"max"}
+      loading={"eager"}
+    />
+    <div class="form-wrapper">
+      <form action="">
+        <span class="paragraph-1 text-center intro-anim"
+          >Log In to AI ROBOTICS</span
+        >
+        <h1 class="subtitle-1 color-white intro-anim">Welcome Back!</h1>
+        <div class="field-wrapper intro-anim">
+          <label class="paragraph-1 text-start color-white" for="email"
+            >Email</label
+          >
+          <div class="field">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Type your email"
+            />
+          </div>
+        </div>
+
+        <div class="field-wrapper intro-anim">
+          <label class="paragraph-1 text-start color-white" for="password"
+            >Password</label
+          >
+          <div class="field">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="********"
+            />
+          </div>
+        </div>
+        <ButtonPrimary
+          content="Log In"
+          className="full-width icon-right intro-anim"
+        />
+        <a
+          class="forgot paragraph-2 intro-anim"
+          href={pages.forgot_password.path}
+        >
+          Forgot Password?
+        </a>
+      </form>
+      <div class="alternative">
+        <div class="or intro-anim">
+          <strong></strong>
+          <span class="paragraph-2"> or </span>
+          <strong></strong>
+        </div>
+        <div class="options intro-anim">
+          <button class="btn paragraph-2">
+            <img src="/icons/google.svg" alt="" loading="lazy" />
+            Continue with Google
+          </button>
+          <button class="btn paragraph-2">
+            <img src="/icons/apple.svg" alt="" loading="lazy" />
+            Continue with Apple
+          </button>
+        </div>
+      </div>
+      <span class="reset paragraph-1 intro-anim">
+        Don’t have an account?
+        <a href={pages.signup.path}>Sign Up</a>
+      </span>
+    </div>
+  </section>
+</Layout>

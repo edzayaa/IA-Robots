@@ -2,12 +2,17 @@
 import Search from "@components/Search";
 import Sidecart from "@components/Sidecart";
 import { menuLinks } from "../scripts/utils/menuButtons";
+import { pages } from "@scripts/pages";
 
-const { headerOpacity: desktopOpacity = 1 } = Astro.props;
+const { headerOpacity: desktopOpacity = 1, headerClasses } = Astro.props;
 ---
 
 <>
-  <header transition:persist="header" transition:animate="none">
+  <header
+    transition:persist="header"
+    transition:animate="none"
+    class={headerClasses}
+  >
     <a href="/" class="brand-link home-link" aria-label="Click to go home">
       <img
         src="/logos/ai_robots_logo.svg"
@@ -24,13 +29,17 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
 
       <Search client:load />
       <span></span>
-      <button aria-label="Click to check account">
+      <a
+        href={pages.signin.path}
+        target="_blank"
+        aria-label="Click to check account"
+      >
         <img src="/icons/user.svg" alt="User Account" />
-      </button>
+      </a>
       <Sidecart client:load />
     </div>
   </header>
-  <nav transition:animate="none">
+  <nav transition:animate="none" class={headerClasses}>
     {
       menuLinks.map((link, index) =>
         link.isLink ? (
@@ -125,7 +134,8 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
       span {
         display: none;
       }
-      button {
+      button,
+      a {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -318,6 +328,17 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
   @media (orientation: landscape) {
     header,
     nav {
+      &.no-desktop-header {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+
+  @media (orientation: landscape) {
+    header,
+    nav {
       opacity: var(--desktopOpacity);
     }
   }
@@ -331,7 +352,8 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
         span {
           display: block;
         }
-        button {
+        button,
+        a {
           background: #121212 !important;
           backdrop-filter: unset !important;
         }
@@ -351,7 +373,8 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
       }
       .menus {
         gap: 0;
-        button {
+        button,
+        a {
           margin-right: calc(var(--fs) * 0.25);
           border-radius: calc(var(--fs) * 0.8);
           border: none;
@@ -464,7 +487,8 @@ const { headerOpacity: desktopOpacity = 1 } = Astro.props;
         gap: calc(var(--fs) * 1);
         height: 100%;
         width: 100%;
-        button {
+        button,
+        a {
           border-radius: initial;
           border-top: initial;
           border-bottom: initial;

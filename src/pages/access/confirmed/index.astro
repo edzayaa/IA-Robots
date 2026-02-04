@@ -1,0 +1,32 @@
+---
+import Layout from "@layouts/Layout.astro";
+import img from "@assets/access/access_signin.jpg";
+import "@styles/access.scss";
+import { Picture } from "astro:assets";
+import ButtonPrimary from "@components/ButtonPrimary";
+import ellipse from "@assets/ellipse_large.png";
+---
+
+<Layout renderFooter={false} headerClasses="no-desktop-header">
+  <section class="access-section" transition:animate="none">
+    <div class="ellipse-wrapper">
+      <Picture
+        src={ellipse}
+        alt=""
+        class={"ellipse"}
+        fetchpriority={"high"}
+        quality={"max"}
+        loading={"eager"}
+      />
+    </div>
+    <div class="confirmed">
+      <img src="/icons/confirmed.svg" alt="" class="intro-anim" />
+      <h1 class="h1 intro-anim">Confirmed Request</h1>
+      <p class="paragraph-1 color-white intro-anim">Password Confirmation</p>
+      <span class="paragraph-1 intro-anim">
+        If that email address is in our system, you will receive an email with
+        instructions about how to reset your password in a few minutes.
+      </span>
+    </div>
+  </section>
+</Layout>

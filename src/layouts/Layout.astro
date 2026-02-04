@@ -14,6 +14,8 @@ interface Props {
   bodyClasses?: string;
   renderFooter?: boolean;
   headerDesktopOpacity?: number;
+  renderHeader?: boolean;
+  headerClasses?: string;
 }
 
 const {
@@ -21,6 +23,8 @@ const {
   bodyClasses,
   renderFooter = true,
   headerDesktopOpacity = 1,
+  renderHeader = true,
+  headerClasses,
 } = Astro.props;
 
 const routePattern = decodeURI(Astro.routePattern);
@@ -92,7 +96,7 @@ const description = headData?.description
   </head>
   <body class={bodyClasses}>
     <Preloader visible={isHome ? "visible" : "invisible"} />
-    <Header desktopOpacity={headerDesktopOpacity} />
+    {renderHeader && <Header desktopOpacity={headerDesktopOpacity} {headerClasses} />}
     <Menu />
     <div id="smooth-wrapper">
       <div id="smooth-content">
@@ -286,6 +290,15 @@ const description = headData?.description
     font-size: calc(var(--fs) * 3.5);
     font-style: normal;
     font-weight: 500;
+    line-height: normal;
+  }
+
+  .subtitle-1 {
+    color: var(--White, #fff);
+    font-family: "Work Sans";
+    font-size: calc(var(--fs) * 3);
+    font-style: normal;
+    font-weight: 400;
     line-height: normal;
   }
 
@@ -623,6 +636,9 @@ const description = headData?.description
     .h2 {
       font-size: calc(var(--fs) * 2);
     }
+    .subtitle-1 {
+      font-size: calc(var(--fs) * 2.1875);
+    }
     .subtitle-2 {
       font-size: calc(var(--fs) * 1.375);
     }
@@ -795,6 +811,7 @@ const description = headData?.description
       .h2 {
         font-size: calc(var(--fs) * 3.125);
       }
+
       .subtitle-2 {
         font-size: calc(var(--fs) * 1.375);
       }
