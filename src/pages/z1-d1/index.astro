@@ -12,6 +12,17 @@ import newPic from "@assets/manipulators/manipulator.png";
 
 import book_bck from "@assets/book_bck.png";
 import { pages } from "@/scripts/pages";
+
+const robotSpecsTable = [
+  ["Characteristic", "Z1 PRO Manipulator", "Dex3-1/Dex5-1 Hands"],
+  ["Axis/Fingers", "6-Axis", "3-Fingered / 5-Fingered"],
+  ["Weight", "4.5kg", "Lightweight (0.71kg - 1.1kg)"],
+  ["Payload", "3kg - 5kg", "N/A (End-effector)"],
+  ["Reach", "740mm", "N/A"],
+  ["Repeatability", "0.1mm", "High precision (±1mm - ±2mm)"],
+  ["Control", "Position + Force Control", "Force-position hybrid control"],
+  ["Sensing", "Collision & Force Feedback", "Optional Tactile Sensor Arrays"],
+];
 ---
 
 <Layout>
@@ -27,7 +38,9 @@ import { pages } from "@/scripts/pages";
         Unitree Manipulators <br />
         and Dexterous Hands
       </h1>
-      <span class="subtitle-3 intro-anim"> Extending the Reach of AI Robots </span>
+      <span class="subtitle-3 intro-anim">
+        Extending the Reach of AI Robots
+      </span>
       <p class="paragraph-1 intro-anim">
         Equip your Unitree platform with high-precision robotic arms and
         dexterous hands to unlock complex manipulation, inspection, and
@@ -174,52 +187,27 @@ import { pages } from "@/scripts/pages";
       <table class="robot-spec-table">
         <thead>
           <tr>
-            <th>Characteristic</th>
-            <th>Z1 PRO Manipulator</th>
-            <th>Dex3-1/Dex5-1 Hands</th>
+            <th>
+              {robotSpecsTable[0][0]}
+            </th>
+            <th>
+              {robotSpecsTable[0][1]}
+            </th>
+            <th>
+              {robotSpecsTable[0][2]}
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Weight (with battery)</td>
-            <td>18kg</td>
-            <td>Highly portable for a wheeled-legged robot.</td>
-          </tr>
-          <tr>
-            <td>Payload (Max)</td>
-            <td>8kg (MAX ~ 12kg)</td>
-            <td>Suitable for various sensors and payloads.</td>
-          </tr>
-          <tr>
-            <td>Speed Range</td>
-            <td>0 - 2.5 m/s</td>
-            <td>Efficient wheeled movement and dynamic legged motion.</td>
-          </tr>
-          <tr>
-            <td>Endurance</td>
-            <td>1.5 - 3h (15000mAh battery)</td>
-            <td>Varies based on mode of locomotion and load.</td>
-          </tr>
-          <tr>
-            <td>Max Joint Torque</td>
-            <td>45 N.m</td>
-            <td>Ensures responsive and stable movement.</td>
-          </tr>
-          <tr>
-            <td>Obstacle Crossing</td>
-            <td>Up to 70cm</td>
-            <td>Superior capability for overcoming large obstacles.</td>
-          </tr>
-          <tr>
-            <td>Sensing</td>
-            <td>3D LiDAR + HD Wide-angle Camera</td>
-            <td>Advanced environmental awareness.</td>
-          </tr>
-          <tr>
-            <td>Computing</td>
-            <td>8-core CPU, Orin NX optional</td>
-            <td>Powerful core for AI and development.</td>
-          </tr>
+          {
+            robotSpecsTable.slice(1).map((item) => (
+              <tr>
+                <td>{item[0]}</td>
+                <td>{item[1]}</td>
+                <td>{item[2]}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>

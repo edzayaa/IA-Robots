@@ -18,6 +18,34 @@ import "@styles/new_section.scss";
 import "@styles/simple_section.scss";
 import "@styles/tech_section.scss";
 import { pages } from "@/scripts/pages";
+
+const robotSpecsTable = [
+  ["Characteristic", "L2 Model", "Notes"],
+  ["Scanning Angle (FOV)", "360° × 96°", "Ultra-wide-angle scanning."],
+  ["Effective Frequency", "64,000 points/s", "High-density data acquisition."],
+  [
+    "Scanning Distance",
+    "30m (@90% reflectivity)",
+    "Reliable long-range detection.",
+  ],
+  [
+    "Nearby Blind Area",
+    "0.05m",
+    "Minimal blind spot for close-range operation.",
+  ],
+  ["Measurement Accuracy", "± 2.0cm", "High precision for SLAM."],
+  [
+    "Anti-glare Capability",
+    "100Klux",
+    "Stable performance in strong sunlight.",
+  ],
+  [
+    "Data Output",
+    "3D position + 1D grayscale",
+    "Provides rich 4D environmental data.",
+  ],
+  ["Weight", "230g", "Lightweight and compact (75x75x65mm)."],
+];
 ---
 
 <Layout>
@@ -180,52 +208,27 @@ import { pages } from "@/scripts/pages";
       <table class="robot-spec-table">
         <thead>
           <tr>
-            <th>Characteristic</th>
-            <th>L2 Model</th>
-            <th>Notes</th>
+            <th>
+              {robotSpecsTable[0][0]}
+            </th>
+            <th>
+              {robotSpecsTable[0][1]}
+            </th>
+            <th>
+              {robotSpecsTable[0][2]}
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Weight (with battery)</td>
-            <td>18kg</td>
-            <td>Highly portable for a wheeled-legged robot.</td>
-          </tr>
-          <tr>
-            <td>Payload (Max)</td>
-            <td>8kg (MAX ~ 12kg)</td>
-            <td>Suitable for various sensors and payloads.</td>
-          </tr>
-          <tr>
-            <td>Speed Range</td>
-            <td>0 - 2.5 m/s</td>
-            <td>Efficient wheeled movement and dynamic legged motion.</td>
-          </tr>
-          <tr>
-            <td>Endurance</td>
-            <td>1.5 - 3h (15000mAh battery)</td>
-            <td>Varies based on mode of locomotion and load.</td>
-          </tr>
-          <tr>
-            <td>Max Joint Torque</td>
-            <td>45 N.m</td>
-            <td>Ensures responsive and stable movement.</td>
-          </tr>
-          <tr>
-            <td>Obstacle Crossing</td>
-            <td>Up to 70cm</td>
-            <td>Superior capability for overcoming large obstacles.</td>
-          </tr>
-          <tr>
-            <td>Sensing</td>
-            <td>3D LiDAR + HD Wide-angle Camera</td>
-            <td>Advanced environmental awareness.</td>
-          </tr>
-          <tr>
-            <td>Computing</td>
-            <td>8-core CPU, Orin NX optional</td>
-            <td>Powerful core for AI and development.</td>
-          </tr>
+          {
+            robotSpecsTable.slice(1).map((item) => (
+              <tr>
+                <td>{item[0]}</td>
+                <td>{item[1]}</td>
+                <td>{item[2]}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>

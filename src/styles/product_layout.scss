@@ -189,10 +189,10 @@
     #product-section {
       padding: calc(var(--top-space) * 1.5) calc(var(--hor-padding)) 0;
       column-gap: calc(var(--fs) * 1.44);
-      .pagination {
-        padding-bottom: calc(var(--fs) * 0.75);
-        font-size: var(--fs);
-      }
+    //   .pagination {
+    //     padding-bottom: calc(var(--fs) * 0.75);
+    //     font-size: var(--fs);
+    //   }
       .shots {
         width: calc(var(--fs) * 24.1875);
         height: calc(var(--fs) * 22.1875);
@@ -287,10 +287,10 @@
         grid-column: 1 / 2 !important;
         grid-row: auto !important;
       }
-      .pagination {
-        padding-bottom: calc(var(--fs) * 1.25);
-        font-size: calc(var(--fs) * 0.75);
-      }
+    //   .pagination {
+    //     padding-bottom: calc(var(--fs) * 1.25);
+    //     font-size: calc(var(--fs) * 0.75);
+    //   }
       .shots {
         width: 100%;
         height: calc(var(--fs) * 22.1875);

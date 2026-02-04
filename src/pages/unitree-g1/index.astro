@@ -38,6 +38,18 @@ const resImages = await Promise.all(
 );
 
 console.log(resImages[0]);
+
+const robotSpecsTable = [
+  ["Characteristic", "G1 (Base)", "G1 EDU"],
+  ["Height / Weight", "130cm / ~35kg", "130cm / ~35kg+"],
+  ["Total DOF", "23", "23 to 43 (Configurable)"],
+  ["Max Knee Joint Torque", "90 N.m", "120 N.m"],
+  ["Arm Max Load", "2 kg", "3 kg"],
+  ["Dexterous Hand", "-", "Optional Dex3-1 (7 DOF)"],
+  ["Computing", "8-Core CPU", "NVIDIA Jetson Orin (Optional)"],
+  ["Endurance", "2 hours (9000mAh)", "2 hours (9000mAh)"],
+  ["Sensing", "Depth Camera + 3D LiDAR", "Depth Camera + 3D LiDAR"],
+];
 ---
 
 <Layout>
@@ -180,52 +192,27 @@ console.log(resImages[0]);
       <table class="robot-spec-table">
         <thead>
           <tr>
-            <th>Characteristic</th>
-            <th>G1</th>
-            <th>g1 EDU</th>
+            <th>
+              {robotSpecsTable[0][0]}
+            </th>
+            <th>
+              {robotSpecsTable[0][1]}
+            </th>
+            <th>
+              {robotSpecsTable[0][2]}
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Weight (with battery)</td>
-            <td>18kg</td>
-            <td>Highly portable for a wheeled-legged robot.</td>
-          </tr>
-          <tr>
-            <td>Payload (Max)</td>
-            <td>8kg (MAX ~ 12kg)</td>
-            <td>Suitable for various sensors and payloads.</td>
-          </tr>
-          <tr>
-            <td>Speed Range</td>
-            <td>0 - 2.5 m/s</td>
-            <td>Efficient wheeled movement and dynamic legged motion.</td>
-          </tr>
-          <tr>
-            <td>Endurance</td>
-            <td>1.5 - 3h (15000mAh battery)</td>
-            <td>Varies based on mode of locomotion and load.</td>
-          </tr>
-          <tr>
-            <td>Max Joint Torque</td>
-            <td>45 N.m</td>
-            <td>Ensures responsive and stable movement.</td>
-          </tr>
-          <tr>
-            <td>Obstacle Crossing</td>
-            <td>Up to 70cm</td>
-            <td>Superior capability for overcoming large obstacles.</td>
-          </tr>
-          <tr>
-            <td>Sensing</td>
-            <td>3D LiDAR + HD Wide-angle Camera</td>
-            <td>Advanced environmental awareness.</td>
-          </tr>
-          <tr>
-            <td>Computing</td>
-            <td>8-core CPU, Orin NX optional</td>
-            <td>Powerful core for AI and development.</td>
-          </tr>
+          {
+            robotSpecsTable.slice(1).map((item) => (
+              <tr>
+                <td>{item[0]}</td>
+                <td>{item[1]}</td>
+                <td>{item[2]}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>

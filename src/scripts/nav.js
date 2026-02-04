@@ -62,6 +62,13 @@ export function nav() {
     window.addEventListener("click", ({ target }) => {
         if (target.classList.contains("nav-link") || target.classList.contains("sub-nav")) return;
 
+        subNavs.forEach((subNav) => {
+            subNav.removeEventListener("mouseleave", () => mouseleave(tl));
+        })
+        navLinks.forEach((link, index) => {
+            link.removeEventListener("mouseenter", () => mouseenter(index));
+        });
+
         subNavTls.forEach(tl => {
             tl.tweenTo(0)
         })

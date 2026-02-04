@@ -16,7 +16,7 @@ export function video_media() {
             start: "top bottom+=10%",
             onEnter: () => {
                 if (!media.paused) return;
-                console.log("played", index)
+                // console.log("played", index)
                 media.play()
 
             }

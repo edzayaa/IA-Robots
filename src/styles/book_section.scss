@@ -109,7 +109,11 @@
       grid-auto-flow: row;
       grid-auto-rows: max-content;
       min-height: initial;
-      border-radius: calc(var(--fs) * 1.875);
+      border-radius: calc(var(--fs) * 1.875) !important;
+      overflow: hidden;
+      & > * {
+        border-radius: 0 !important;
+      }
 
       .first {
         display: flex;
@@ -201,7 +205,7 @@
         grid-auto-flow: row;
         grid-auto-rows: max-content;
         min-height: initial;
-        border-radius: calc(var(--fs) * 2.7);
+        border-radius: calc(var(--fs) * 2.7) !important;
         .first {
           display: flex;
           flex-direction: column;
