@@ -145,7 +145,8 @@ export const menuLinks = [
     {
         name: "industry",
         href: pages.industry.path,
-        // options: [{
+        options: [
+        //     {
         //     name: "industry robot",
         //     products: [
         //         {
@@ -154,7 +155,8 @@ export const menuLinks = [
         //             link: ""
         //         }
         //     ]
-        // }],
+        // }
+    ],
         isLink: true,
     },
 
