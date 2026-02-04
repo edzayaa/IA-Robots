@@ -5,6 +5,6 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-  server: { open: import.meta.env.DEV, host: true},
+  server: { open: import.meta.env.DEV, host: import.meta.env.DEV },
   integrations: [react()]
 });
