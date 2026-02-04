@@ -1,0 +1,522 @@
+---
+import Layout from "@layouts/Layout.astro";
+import storyImg from "@assets/story.png";
+import storyImg_2 from "@assets/story_2.png";
+import ellipse from "@assets/ellipse_large.png";
+import { Picture } from "astro:assets";
+---
+
+<Layout>
+  <section>
+    <div class="line">
+      <strong></strong>
+      <span></span><span></span><span></span>
+    </div>
+    <div class="ellipse-wrapper">
+      <Picture
+        src={ellipse}
+        alt=""
+        class={"ellipse intro-anim"}
+        fetchpriority={"high"}
+        quality={"max"}
+        loading={"eager"}
+      />
+    </div>
+    <h1 class="h1 text-center intro-anim">Our Story</h1>
+    <p class="paragraph-1 text-center second-text intro-anim">
+      Lorem ipsum dolor sit amet consectetur. Quam nisl non dictumst dignissim
+      fringilla curabitur tellus quisque at. Dictum justo praesent morbi massa.
+      Adipiscing ornare urna aliquet eu felis turpis. Viverra arcu vivamus nec
+      in fusce vitae. Porttitor nibh libero condimentum in. Amet quisque
+    </p>
+    <div class="group first intro-anim">
+      <Picture
+        class="shot"
+        src={storyImg}
+        alt="Our Story"
+        fetchpriority={"high"}
+        quality={"max"}
+      />
+      <div class="content">
+        <h2 class="h2 text-start">
+          Forging the Future of <br class="br-desktop br-tablet" /> Robotics
+        </h2>
+        <p class="paragraph-1 text-start">
+          Since its inception, AI Robots has been driven by a singular vision:
+          to bring the transformative power of advanced robotics out of the lab
+          and into the everyday operations of businesses and individuals.
+          <br /><br />
+
+          Our journey began with a commitment to identifying and delivering the
+          most cutting-edge, reliable, and innovative robotic solutions
+          available worldwide. This commitment led us directly to Unitree
+          Robotics, a recognized global leader in the development of
+          high-performance quadruped and bipedal robots.
+        </p>
+      </div>
+      <div class="line">
+        <strong></strong>
+        <span></span><span></span>
+      </div>
+    </div>
+    <div class="group second">
+      <div class="content">
+        <h2 class="h2 text-start">
+          The Power of <br class="br-mobile" /> Partnership
+        </h2>
+        <p class="paragraph-1 text-start">
+          At AI Robots, we don't just sell robots; we provide access to the
+          future of automation. By partnering with Unitree, we are able to offer
+          their acclaimed lineup—including the ground breaking GO, Aliens, and
+          other models—known for their dynamic stability, advanced AI
+          capabilities, and robust design.
+          <br /><br />
+        </p>
+        <span class="paragraph-1 text-start color-white"> Our Mission </span>
+        <p class="paragraph-1 text-start">
+          To empower industries—from logistics and security to research and
+          education—with versatile, intelligent, and scalable robotic platforms
+          that enhance efficiency, safety, and innovation
+        </p>
+      </div>
+
+      <div class="logos">
+        <img
+          src="/logos/unitree_logo.png"
+          alt=""
+          loading="lazy"
+          fetchpriority="high"
+        />
+        <span class="subtitle-3 color-white"> x </span>
+        <img
+          src="/logos/ai_robots_logo.svg"
+          alt=""
+          loading="lazy"
+          fetchpriority="high"
+        />
+      </div>
+      <div class="line">
+        <strong></strong>
+        <span></span><span></span>
+      </div>
+    </div>
+    <div class="last-group">
+      <h2 class="h1 color-white text-center">Looking Ahead</h2>
+      <p class="paragraph-1 text-center">
+        We believe that the next decade will be defined by the integration of
+        AI-powered robots into the fabric of society. AI Robots is poised to
+        lead this transition, not just as a distributor, but as your dedicated
+        partner in exploring the full potential of robotics.
+        <br /><br />
+        We are more than a company; we are a team of passionate engineers, technologists,
+        and support specialists dedicated to ensuring that your investment in Unitree
+        technology delivers maximum value from day one.
+      </p>
+      <Picture
+        src={storyImg_2}
+        alt="Our Story"
+        fetchpriority={"high"}
+        quality={"high"}
+      />
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: calc(var(--top-space) * 0.75) calc(var(--hor-padding))
+      calc(var(--fs) * 10);
+    overflow: hidden;
+    .line {
+      position: absolute;
+      top: 40vw;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      width: 0;
+      height: clamp(70vw, 130vh, 75vw);
+      z-index: 1;
+      pointer-events: none;
+      strong {
+        // width: 1px;
+        height: 100%;
+        border-left: 1px dashed var(--MAIN-BLUE);
+        display: block;
+      }
+      span {
+        width: calc(var(--fs) * 1);
+        height: calc(var(--fs) * 1);
+        background-color: var(--MAIN-BLUE);
+        position: absolute;
+        &:nth-of-type(1) {
+          top: 0;
+          left: 50%;
+          transform: translate(-55%, 0%) rotate(45deg);
+        }
+        &:nth-of-type(2) {
+          top: 65%;
+          left: 50%;
+          transform: translate(-55%, -50%) rotate(45deg);
+        }
+        &:nth-of-type(3) {
+          top: 100%;
+          left: 50%;
+          transform: translate(-55%, -100%) rotate(45deg);
+        }
+      }
+    }
+    .second-text {
+      width: calc(var(--fs) * 49.0625);
+      margin-top: calc(var(--fs) * 6.15);
+    }
+    .group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      .line {
+        display: none;
+      }
+      &.first {
+        margin-top: calc(var(--fs) * 12.5);
+        padding-right: calc(var(--hor-padding) * 3);
+        position: relative;
+        &::after {
+          content: "";
+          width: calc(var(--fs) * 60);
+          height: calc(var(--fs) * 90);
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translate(-50%, -25%);
+          opacity: 0.35;
+          z-index: -1;
+          border-radius: 50%;
+          pointer-events: none;
+          background: radial-gradient(
+            50% 50% at 50% 50%,
+            rgba(0, 85, 255, 0.5) 0%,
+            rgba(0, 120, 255, 0) 100%
+          );
+        }
+      }
+      &.second {
+        margin-top: calc(var(--fs) * 21);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center;
+        position: relative;
+        &::after {
+          content: "";
+          width: calc(var(--fs) * 60);
+          height: calc(var(--fs) * 90);
+          position: absolute;
+          top: 0;
+          right: 0;
+          transform: translate(50%, -25%);
+          opacity: 0.35;
+          z-index: -1;
+          border-radius: 50%;
+          pointer-events: none;
+          background: radial-gradient(
+            50% 50% at 50% 50%,
+            rgba(0, 85, 255, 0.5) 0%,
+            rgba(0, 120, 255, 0) 100%
+          );
+        }
+      }
+      .shot {
+        width: calc(var(--fs) * 40.75);
+        height: calc(var(--fs) * 23.6875);
+        border-radius: calc(var(--fs) * 1.875);
+      }
+      .content {
+        width: calc(var(--fs) * 37.125);
+        h2 {
+          margin-bottom: calc(var(--fs) * 3.31);
+        }
+        span {
+          margin: calc(var(--fs) * 1.62) 0;
+          display: block;
+        }
+      }
+      .logos {
+        display: grid;
+        grid-auto-flow: row;
+        grid-auto-rows: max-content;
+        place-items: center;
+        place-content: center;
+        gap: calc(var(--fs) * 2.5);
+        img {
+          width: calc(var(--fs) * 23.46594);
+          height: auto;
+        }
+      }
+    }
+    .last-group {
+      margin-top: calc(var(--fs) * 22);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      &::after {
+        content: "";
+        width: calc(var(--fs) * 60);
+        height: calc(var(--fs) * 90);
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -25%);
+        opacity: 0.35;
+        z-index: -1;
+        border-radius: 50%;
+        pointer-events: none;
+        background: radial-gradient(
+          50% 50% at 50% 50%,
+          rgba(0, 85, 255, 0.5) 0%,
+          rgba(0, 120, 255, 0) 100%
+        );
+      }
+      h2 {
+        margin-bottom: calc(var(--fs) * 4);
+      }
+      p {
+        width: calc(var(--fs) * 46.9375);
+      }
+      img {
+        width: calc(var(--fs) * 89);
+        height: calc(var(--fs) * 45.3125);
+        border-radius: calc(var(--fs) * 3.75);
+        margin-top: calc(var(--fs) * 6);
+      }
+    }
+  }
+
+  @media (orientation: landscape) {
+    .line {
+        opacity: 0;
+    }
+  }
+
+  @media (orientation: portrait) {
+    section {
+      padding: calc(var(--top-space) * 2) calc(var(--hor-padding) * 2)
+        calc(var(--fs) * 10);
+      .line {
+        display: none;
+      }
+      .second-text {
+        width: 75%;
+        margin-top: calc(var(--fs) * 2);
+      }
+      .group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        .line {
+          display: block;
+          position: static;
+          top: unset;
+          left: unset;
+          margin-top: calc(var(--fs) * 5);
+          height: calc(var(--fs) * 10);
+          span {
+            width: calc(var(--fs) * 0.75);
+            height: calc(var(--fs) * 0.75);
+            &:nth-of-type(1) {
+              top: 0%;
+            }
+            &:nth-of-type(2) {
+              top: 100%;
+            }
+          }
+        }
+        &.first {
+          margin-top: calc(var(--fs) * 6.38);
+          padding: 0;
+          &::after {
+            display: none;
+          }
+        }
+        &.second {
+          margin-top: calc(var(--fs) * 4.5);
+          display: grid;
+          grid-template-columns: 100%;
+          grid-auto-flow: row;
+          grid-auto-rows: max-content;
+          place-items: center;
+          .logos {
+            margin-top: 10vw;
+            grid-row: 3/4;
+          }
+          &::after {
+            width: 100vw;
+            height: 100vw;
+            right: 50%;
+            top: unset;
+            bottom: 0;
+            transform: translate(50%, 25%);
+            opacity: 0.25;
+          }
+        }
+        picture {
+          width: 100%;
+        }
+        .shot {
+          width: 100%;
+          height: calc(var(--fs) * 25.8125);
+          border-radius: calc(var(--fs) * 1.875);
+        }
+        .content {
+          width: 100%;
+          h2 {
+            margin-top: calc(var(--fs) * 4.63);
+            margin-bottom: calc(var(--fs) * 1.75);
+          }
+          span {
+            margin: calc(var(--fs) * 0.5) 0;
+            display: block;
+          }
+        }
+        .logos {
+          display: grid;
+          grid-auto-flow: row;
+          grid-auto-rows: max-content;
+          place-items: center;
+          place-content: center;
+          gap: calc(var(--fs) * 2.5);
+          img {
+            width: calc(var(--fs) * 23.46594);
+            height: calc(var(--fs) * 5.5);
+            object-fit: contain;
+          }
+        }
+      }
+      .last-group {
+        margin-top: calc(var(--fs) * 9);
+        &::after {
+          content: "";
+          width: calc(var(--fs) * 60);
+          height: calc(var(--fs) * 90);
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translate(-50%, -25%);
+          opacity: 0.35;
+          z-index: -1;
+          border-radius: 50%;
+          pointer-events: none;
+          background: radial-gradient(
+            50% 50% at 50% 50%,
+            rgba(0, 85, 255, 0.5) 0%,
+            rgba(0, 120, 255, 0) 100%
+          );
+        }
+        h2 {
+          margin-bottom: calc(var(--fs) * 4);
+        }
+        p {
+          width: calc(var(--fs) * 38.4375);
+        }
+        img {
+          width: 100%;
+          height: calc(var(--fs) * 22.875);
+          border-radius: calc(var(--fs) * 1.75);
+          margin-top: calc(var(--fs) * 3.5);
+        }
+      }
+    }
+
+    @media (max-aspect-ratio: 0.625) {
+      section {
+        padding: calc(var(--top-space) * 2) calc(var(--hor-padding) * 1)
+          calc(var(--fs) * 5);
+        .second-text {
+          width: 85%;
+          margin-top: calc(var(--fs) * 2.19);
+        }
+
+        .paragraph-1 {
+          padding: 0 calc(var(--hor-padding) * 2) !important;
+          width: 100% !important;
+        }
+        .group {
+          &.first {
+            margin-top: calc(var(--fs) * 3.31);
+          }
+          &.second {
+            margin-top: calc(var(--fs) * 4.5);
+            display: grid;
+            grid-template-columns: 100%;
+            grid-auto-flow: row;
+            grid-auto-rows: max-content;
+            place-items: center;
+            .logos {
+              grid-row: auto;
+            }
+          }
+          .shot {
+            width: 100%;
+            height: calc(var(--fs) * 14.5);
+          }
+          .content {
+            width: 100%;
+            grid-row: 2/3;
+            & > * {
+              text-align: center;
+            }
+            h2 {
+              margin-top: calc(var(--fs) * 2.12);
+              margin-bottom: calc(var(--fs) * 1.19);
+            }
+
+            span {
+              margin: calc(var(--fs) * 0.5) 0;
+              display: none;
+            }
+          }
+          .logos {
+            gap: calc(var(--fs) * 1.15);
+            img {
+              width: calc(var(--fs) * 13.5);
+              height: calc(var(--fs) * 3);
+            }
+          }
+        }
+        .last-group {
+          margin-top: calc(var(--fs) * 7);
+          &::after {
+            content: "";
+            width: calc(var(--fs) * 60);
+            height: calc(var(--fs) * 90);
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -25%);
+            opacity: 0.35;
+            z-index: -1;
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(
+              50% 50% at 50% 50%,
+              rgba(0, 85, 255, 0.5) 0%,
+              rgba(0, 120, 255, 0) 100%
+            );
+          }
+          h2 {
+            margin-bottom: calc(var(--fs) * 2.12);
+          }
+          img {
+            width: 100%;
+            height: calc(var(--fs) * 13.1875);
+            border-radius: calc(var(--fs) * 1.875);
+            margin-top: calc(var(--fs) * 2.12);
+          }
+        }
+      }
+    }
+  }
+</style>

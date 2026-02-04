@@ -50,10 +50,10 @@ import { pages } from "../scripts/pages";
       >Contact us
       <img src="/icons/chevron-down.svg" alt="" loading="lazy" />
     </button>
-    <a href="/sales">Contact Sales</a>
-    <a href="/demo">Request Demo</a>
-    <a href="/support">Technical Support</a>
-    <a href="/location"> Location & Hours </a>
+    <a href={pages.contact.path}>Contact Sales</a>
+    <a href={pages.request_demo.path}>Request Demo</a>
+    <a href={pages.tech_support.path}>Technical Support</a>
+    <a href={pages.locations.path}> Location & Hours </a>
   </div>
   <div class="links">
     <button
@@ -70,25 +70,25 @@ import { pages } from "../scripts/pages";
       >Resources Overview
       <img src="/icons/chevron-down.svg" alt="" loading="lazy" />
     </button>
-    <a href="/getting-started">Getting Started Guides</a>
+    <!-- <a href="/getting-started">Getting Started Guides</a>
     <a href="/tech-docs">Technical Documentation</a>
     <a href="/construction">Construction</a>
     <a href="/tutorials"> Video Tutorials </a>
     <a href="/sdks"> SDK Downloads </a>
     <a href="/faqs"> FAQs </a>
-    <a href="/warranty"> Warranty & Maintenance </a>
-    <a href="/news"> News </a>
+    <a href="/warranty"> Warranty & Maintenance </a> -->
+    <a href={pages.blog.path}> news </a>
   </div>
   <div class="links">
     <button
       >Legal
       <img src="/icons/chevron-down.svg" alt="" loading="lazy" />
     </button>
-    <a href="/returns">Returns & Refunds Policy </a>
-    <a href="/terms">Terms & Conditions</a>
-    <a href="/privacy">Privacy Policy</a>
-    <a href="/cookies"> Cookie Policy </a>
-    <a href="/shipping"> Shipping & Delivery </a>
+    <a href={pages.returns_refunds.path}>Returns & Refunds Policy </a>
+    <a href={pages.terms_conditions.path}>Terms & Conditions</a>
+    <a href={pages.privacy_policy.path}>Privacy Policy</a>
+    <a href={pages.cookie_policy.path}> Cookie Policy </a>
+    <a href={pages.shipping_delivery.path}> Shipping & Delivery </a>
   </div>
 
   <a class="bottom-link" href="/" target="_blank">
@@ -192,6 +192,7 @@ import { pages } from "../scripts/pages";
         font-weight: 400;
         line-height: normal;
         text-align: left;
+        text-transform: capitalize;
       }
       button {
         color: #fff;

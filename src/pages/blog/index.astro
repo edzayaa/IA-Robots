@@ -1,0 +1,571 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { Picture } from "astro:assets";
+import heroImg from "@assets/blog/hero.png";
+import ButtonPrimary from "@components/ButtonPrimary";
+
+const posts = new Array(6).fill(null);
+---
+
+<Layout>
+  <section id="hero-section">
+    <h1 class="h1 intro-anim">News Center</h1>
+    <div class="banner intro-anim border-gradient">
+      <div class="first">
+        <h2 class="h2">Unitree H1: 1.5 Yrs Old "Debuted" at the SFG</h2>
+        <p class="paragraph-1">
+          Lorem ipsum dolor sit amet consectetur. Aenean nunc in placerat nulla.
+          Netus imperdiet at lacus rhoncus at varius.
+        </p>
+        <div class="bottom">
+          <span class="indicator">Media Coverage</span>
+          <span class="date">March 17,2025</span>
+        </div>
+      </div>
+      <div class="second">
+        <Picture
+          src={heroImg}
+          alt="Hero Blog"
+          loading={"eager"}
+          fetchpriority={"high"}
+          quality={"max"}
+          formats={["avif", "webp"]}
+        />
+      </div>
+    </div>
+  </section>
+  <section id="contact-section">
+    <div>
+      <p class="subtitle-3 color-white">
+        Subscribe to our newsletter for daily industry insights
+      </p>
+      <form class="field">
+        <input type="email" placeholder="Enter your email" />
+        <ButtonPrimary client:load content="submit" className="inside-input" />
+      </form>
+    </div>
+    <div>
+      <p class="subtitle-3 color-white">Follow Us</p>
+      <span class="paragraph-1">
+        Get the latest news and industry Inspiration.
+      </span>
+      <div class="socials">
+        <a>
+          <img src="/icons/x.svg" alt="" loading="lazy" />
+        </a>
+        <a>
+          <img src="/icons/youtube.svg" alt="" loading="lazy" />
+        </a>
+        <a>
+          <img src="/icons/fb.svg" alt="" loading="lazy" />
+        </a>
+      </div>
+    </div>
+  </section>
+  <section id="blog-section" class="m-b-5">
+    {
+      posts.map((post, index) => (
+        <a class="post border-gradient" href="/blog/single/">
+          <div class="img">
+            <img
+              src={`/images/blog/${index + 1}.png`}
+              alt="Post Nr 1"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="content">
+            <h2 class="subtitle-3 color-white text-start">
+              Unitree G1 Humanoid Agent | Price from $16K
+            </h2>
+            <p class="paragraph-1 text-start">
+              Lorem ipsum dolor sit amet consectetur. Aenean nunc in placerat
+              nulla. Netus imperdiet at lacus rhoncus at varius.
+            </p>
+            <div class="bottom">
+              <div class="indicator">Media Coverage</div>
+              <span class="date">March 17,2025</span>
+            </div>
+          </div>
+        </a>
+      ))
+    }
+  </section>
+</Layout>
+
+<style lang="scss">
+  .indicator {
+    color: #fff;
+    font-family: "Work Sans";
+    font-size: calc(var(--fs) * 1.125);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    height: calc(var(--fs) * 2.5);
+    padding: 0 calc(var(--fs) * 1);
+    border-radius: calc(var(--fs) * 1.875);
+    background: #1d1d1d;
+    display: flex;
+    align-items: center;
+    position: relative;
+    &:before {
+      content: "";
+      width: calc(var(--fs) * 0.3125);
+      height: calc(var(--fs) * 0.3125);
+      border-radius: 50%;
+      background: #fff;
+      margin-right: calc(var(--fs) * 0.5);
+      display: block;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0.9px solid rgba(102, 102, 102, 1);
+      z-index: 1;
+      pointer-events: none;
+      border-radius: inherit;
+      clip-path: polygon(0% 0%, 40% 1px, 90% calc(100% - 0.75px), 0% 100%);
+    }
+  }
+
+  .date {
+    color: var(--Gray-Paragraph, #cbcbcb);
+    font-family: "Work Sans";
+    font-size: calc(var(--fs) * 1.25);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  #hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: calc(var(--top-space) * 0.625) calc(var(--hor-padding)) 0;
+    .banner {
+      margin-top: calc(var(--fs) * 8);
+      display: grid;
+      grid-template-columns: 1fr max-content;
+      width: 100%;
+      height: calc(var(--fs) * 35.5);
+      border-radius: calc(var(--fs) * 1.875);
+      position: relative;
+      //   border: 1px solid #000;
+      //   background: #101010;
+      & > * {
+        height: 100%;
+        z-index: 1;
+      }
+      .first {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, max-content) 1fr;
+        padding: calc(var(--fs) * 4.69) calc(var(--fs) * 3.63);
+        & > * {
+          text-align: left;
+        }
+        p {
+          margin-top: calc(var(--fs) * 2.75);
+          width: 90%;
+        }
+        .bottom {
+          width: 100%;
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+        }
+      }
+      .second {
+        width: calc(var(--fs) * 63.25);
+        overflow: hidden;
+        picture {
+          width: 100%;
+          height: 100%;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+  #contact-section {
+    margin-top: calc(var(--fs) * 4.875);
+    width: 100%;
+    padding: 0 calc(var(--hor-padding));
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    min-height: unset;
+    div {
+      padding-top: calc(var(--fs) * 5);
+      border: 1px solid #4f4f4f;
+      border-top: unset;
+      .field {
+        input {
+          color: #757575;
+          font-size: var(--fs);
+          font-style: normal;
+          font-weight: 300;
+          line-height: 134%; /* 1.34rem */
+          text-transform: capitalize;
+        }
+      }
+      .paragraph-1 {
+        margin-top: calc(var(--fs) * 2);
+        width: calc(var(--fs) * 15);
+        display: block;
+      }
+      & > * {
+        text-align: left;
+      }
+      &:first-of-type {
+        border-left: unset;
+        border-right: unset;
+      }
+      &:last-of-type {
+        border-right: unset;
+        padding-left: calc(var(--fs) * 7);
+        padding-bottom: calc(var(--fs) * 5.75);
+        .socials {
+          display: grid;
+          grid-auto-flow: column;
+          grid-auto-columns: max-content;
+          gap: calc(var(--fs) * 2.37);
+          align-items: center;
+          padding: 0;
+          border: unset;
+          margin-top: calc(var(--fs) * 2);
+          a {
+            img {
+              height: calc(var(--fs) * 1.66);
+              width: auto;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+    }
+  }
+  #blog-section {
+    margin-top: calc(var(--fs) * 6);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 calc(var(--hor-padding));
+    min-height: unset;
+    row-gap: calc(var(--fs) * 2.37);
+    .post {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: calc(var(--fs) * 36);
+      border-radius: calc(var(--fs) * 1.875);
+
+      &:after {
+        transition: border-color 0.3s ease-in-out;
+      }
+      & > * {
+        position: relative;
+        z-index: 1;
+      }
+      .img {
+        width: 100%;
+        height: calc(var(--fs) * 23.3125);
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s ease-in-out;
+        }
+      }
+      .content {
+        padding: calc(var(--fs) * 2.5) calc(var(--fs) * 1.87);
+        display: grid;
+        grid-auto-flow: row;
+        grid-auto-rows: max-content;
+        gap: calc(var(--fs) * 2.5);
+        h2 {
+          text-wrap: unset;
+          width: 95%;
+        }
+        .bottom {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+      &:hover {
+        &:after {
+          border-color: #fff;
+        }
+        .img {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+
+  @media (orientation: portrait) {
+    #hero-section {
+      padding: calc(var(--top-space) * 2) calc(var(--hor-padding) * 2) 0;
+      .banner {
+        margin-top: calc(var(--fs) * 6.44);
+        height: initial;
+        border-radius: calc(var(--fs) * 1.25);
+        grid-template-columns: 100%;
+        grid-auto-flow: row;
+        grid-auto-rows: max-content;
+        .first {
+          grid-template-rows: repeat(3, max-content);
+          padding: calc(var(--fs) * 3.19) calc(var(--fs) * 1.81);
+          grid-row: 2/3;
+
+          & > * {
+            text-align: left;
+          }
+          p {
+            margin-top: calc(var(--fs) * 2.5);
+            width: 100%;
+          }
+          .bottom {
+            margin-top: calc(var(--fs) * 2.81);
+          }
+        }
+        .second {
+          width: 100%;
+          height: calc(var(--fs) * 24.375);
+          grid-row: 1/2;
+        }
+      }
+    }
+    #contact-section {
+      margin-top: calc(var(--fs) * 5);
+      padding: 0 calc(var(--hor-padding) * 2);
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      min-height: unset;
+      div {
+        padding: 0;
+        border: unset !important;
+        .paragraph-1 {
+          margin-top: calc(var(--fs) * 2);
+          width: calc(var(--fs) * 15);
+          display: block;
+        }
+        & > * {
+          text-align: left;
+        }
+        &:first-of-type {
+          border-left: unset;
+          border-right: unset;
+        }
+        &:last-of-type {
+          border-right: unset;
+          padding-left: calc(var(--fs) * 7);
+          padding-bottom: calc(var(--fs) * 5.75);
+          .socials {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: max-content;
+            gap: calc(var(--fs) * 2.37);
+            align-items: center;
+            padding: 0;
+            border: unset;
+            margin-top: calc(var(--fs) * 2);
+            a {
+              img {
+                height: calc(var(--fs) * 1.66);
+                width: auto;
+                object-fit: contain;
+              }
+            }
+          }
+        }
+      }
+    }
+    #blog-section {
+      margin-top: calc(var(--fs) * 6.5);
+      padding: 0 calc(var(--hor-padding) * 2);
+      row-gap: calc(var(--fs) * 0.85);
+      .post {
+        width: calc(var(--fs) * 14);
+        border-radius: calc(var(--fs) * 1);
+        &:after {
+          transition: border-color 0.3s ease-in-out;
+        }
+        & > * {
+          position: relative;
+          z-index: 1;
+        }
+        .img {
+          height: calc(var(--fs) * 9);
+        }
+        .content {
+          padding: calc(var(--fs) * 1.1) calc(var(--fs) * 0.75);
+          gap: calc(var(--fs) * 0.875);
+          h2 {
+            width: 95%;
+            font-size: calc(var(--fs));
+          }
+          .paragraph-1 {
+            display: none;
+          }
+          .bottom {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+        }
+        &:hover {
+          &:after {
+            border-color: #fff;
+          }
+          .img {
+            img {
+              transform: scale(1.1);
+            }
+          }
+        }
+
+        .bottom {
+          .indicator {
+            font-size: calc(var(--fs) * 0.625);
+            height: calc(var(--fs) * 1.23);
+            padding: 0 calc(var(--fs) * 0.34);
+            border-radius: calc(var(--fs) * 1);
+            &:before {
+              width: calc(var(--fs) * 0.3125);
+              height: calc(var(--fs) * 0.3125);
+              margin-right: calc(var(--fs) * 0.5);
+            }
+            &::after {
+              border: 0.9px solid rgba(102, 102, 102, 1);
+              clip-path: polygon(
+                0% 0%,
+                40% 1px,
+                90% calc(100% - 0.75px),
+                0% 100%
+              );
+            }
+          }
+
+          .date {
+            font-size: calc(var(--fs) * 0.45);
+          }
+        }
+      }
+    }
+
+    @media (max-aspect-ratio: 0.625) {
+      .indicator,
+      .date {
+        font-size: calc(var(--fs) * 0.875);
+      }
+      #hero-section {
+        padding: calc(var(--top-space) * 2) calc(var(--hor-padding) * 1) 0;
+        .banner {
+          margin-top: calc(var(--fs) * 2.94);
+          .first {
+            grid-template-rows: repeat(3, max-content);
+            padding: calc(var(--fs) * 1.625);
+            p {
+              margin-top: calc(var(--fs) * 1.44);
+            }
+            .bottom {
+              margin-top: calc(var(--fs) * 2);
+              align-items: center;
+            }
+          }
+          .second {
+            width: 100%;
+            height: calc(var(--fs) * 14.2);
+            grid-row: 1/2;
+          }
+        }
+      }
+      #contact-section {
+        margin-top: calc(var(--fs) * 3);
+        padding: 0 calc(var(--hor-padding) * 1);
+        grid-template-columns: 100%;
+        grid-auto-flow: row;
+        grid-auto-rows: max-content;
+        min-height: unset;
+        div {
+          padding: 0;
+          border: unset !important;
+          .paragraph-1 {
+            margin-top: calc(var(--fs) * 2);
+            width: calc(var(--fs) * 15);
+            display: block;
+          }
+          & > * {
+            text-align: left;
+          }
+          &:first-of-type {
+            border-left: unset;
+            border-right: unset;
+            .field {
+              width: 100%;
+            }
+          }
+          &:last-of-type {
+            display: grid;
+            grid-auto-flow: row;
+            grid-auto-rows: max-content;
+            gap: calc(var(--fs) * 1.25);
+            margin-top: calc(var(--fs) * 2.75);
+            padding: 0;
+            & > * {
+              margin: 0 !important;
+            }
+            .socials {
+              gap: calc(var(--fs) * 1.5);
+              a {
+                img {
+                  height: calc(var(--fs) * 1.25);
+                }
+              }
+            }
+          }
+        }
+      }
+      #blog-section {
+        margin-top: calc(var(--fs) * 4.5);
+        padding: 0 calc(var(--hor-padding) * 1);
+        row-gap: calc(var(--fs) * 0.85);
+        grid-template-columns: repeat(2, 1fr);
+        .post {
+          width: calc(var(--fs) * 12.375);
+          border-radius: calc(var(--fs) * 1);
+          &:after {
+            transition: border-color 0.3s ease-in-out;
+            border-width: 0.5px;
+          }
+
+          .img {
+            height: calc(var(--fs) * 7.8125);
+          }
+          .content {
+            padding: calc(var(--fs) * 0.94) calc(var(--fs) * 0.62);
+            gap: calc(var(--fs) * 0.94);
+            h2 {
+              width: 95%;
+              font-size: calc(var(--fs) * 0.75);
+            }
+            .paragraph-1 {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

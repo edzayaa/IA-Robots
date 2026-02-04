@@ -126,6 +126,97 @@ export const pages = {
         path: "/team",
         title: "Team",
         description: "Team",
+    },
+    blog: {
+        path: "/blog",
+        title: "Blog",
+        description: "Blog",
+    },
+    blog_single: {
+        path: "/blog/single",
+        title: "Blog Single",
+        description: "Blog Single",
+    },
+    contact: {
+        path: "/contact",
+        title: "Contact",
+        description: "Contact",
+    },
+    request_demo: {
+        path: "/request-demo",
+        title: "Request Demo",
+        description: "Request Demo",
+    },
+    tech_support: {
+        path: "/tech-support",
+        title: "Tech Support",
+        description: "Tech Support",
+    },
+    locations: {
+        path: "/locations",
+        title: "Locations",
+        description: "Locations",
+    },
+    careers: {
+        path: "/careers",
+        title: "Careers",
+        description: "Careers",
+    },
+    story: {
+        path: "/story",
+        title: "Story",
+        description: "Story",
+    },
+    signin: {
+        path: "/access/signin",
+        title: "Sign In",
+        description: "Sign In",
+    },
+    signup: {
+        path: "/access/signup",
+        title: "Sign Up",
+        description: "Sign Up",
+    },
+    forgot_password: {
+        path: "/access/forgot-password",
+        title: "Forgot Password",
+        description: "Forgot Password",
+    },
+    reset_password: {
+        path: "/access/reset-password",
+        title: "Reset Password",
+        description: "Reset Password",
+    },
+    confirmed: {
+        path: "/access/confirmed",
+        title: "Confirmed",
+        description: "Confirmed",
+    },
+    privacy_policy: {
+        path: "/legal/privacy",
+        title: "Privacy Policy",
+        description: "Privacy Policy",
+    },
+    returns_refunds: {
+        path: "/legal/returns-refunds",
+        title: "Returns & Refunds",
+        description: "Returns & Refunds",
+    },
+    terms_conditions: {
+        path: "/legal/terms-conditions",
+        title: "Terms & Conditions",
+        description: "Terms & Conditions",
+    },
+    cookie_policy: {
+        path: "/legal/cookie-policy",
+        title: "Cookie Policy",
+        description: "Cookie Policy",
+    },
+    shipping_delivery: {
+        path: "/legal/shipping-delivery",
+        title: "Shipping & Delivery",
+        description: "Shipping & Delivery",
     }
+
 
 }

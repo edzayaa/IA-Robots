@@ -1,0 +1,185 @@
+---
+import ButtonPrimary from "@components/ButtonPrimary";
+import Layout from "@layouts/Layout.astro";
+import "@styles/field.scss";
+import { Picture } from "astro:assets";
+import ellipse from "@assets/ellipse_large.png";
+
+const fields = [
+  {
+    name: "Full Name",
+    placeholder: "Enter your full name",
+  },
+  {
+    name: "Company Name",
+    placeholder: "Enter your company name",
+  },
+  {
+    name: "Work Email",
+    placeholder: "Enter your work email",
+  },
+  {
+    name: "Country",
+    placeholder: "Enter your country",
+  },
+  {
+    name: "Industry",
+    placeholder: "Enter your industry",
+  },
+  {
+    name: "Which Unitree Robot(s) are you interested in? ",
+    placeholder: "Select Robot(s)",
+  },
+];
+---
+
+<Layout>
+  <section>
+    <div class="ellipse-wrapper intro-anim">
+      <Picture
+        src={ellipse}
+        alt=""
+        class={"ellipse"}
+        fetchpriority={"high"}
+        quality={"max"}
+        loading={"eager"}
+      />
+    </div>
+    <h1 class="h1 text-center intro-anim">Request your Demo</h1>
+    <p class="paragraph-1 intro-anim color-white">
+      Please fill out the form below so we can prepare a demonstration tailored
+      exactly to your needs.
+    </p>
+    <form action="">
+      {
+        fields.map((field) => (
+          <div class={`field-wrapper intro-anim`}>
+            <label class="paragraph-1 color-white text-start" for="name">
+              {" "}
+              {field.name}{" "}
+            </label>
+            <div class="field">
+              {field.className === "textarea" ? (
+                <textarea
+                  class="paragraph-1 text-start"
+                  name={field.name}
+                  id={field.name}
+                  placeholder={field.placeholder}
+                />
+              ) : (
+                <input
+                  class="paragraph-1 text-start"
+                  type="text"
+                  name={field.name}
+                  id={field.name}
+                  placeholder={field.placeholder}
+                />
+              )}
+            </div>
+          </div>
+        ))
+      }
+      <div class="submit-wrapper intro-anim">
+        <ButtonPrimary
+          client:load
+          content="Submit"
+          className="icon-right full-width"
+        />
+      </div>
+    </form>
+  </section>
+</Layout>
+
+<style lang="scss">
+  section {
+    padding-top: calc(var(--top-space) * 0.75);
+    padding-bottom: calc(var(--top-space) * 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      text-transform: none;
+    }
+    p {
+      width: calc(var(--fs) * 31.325);
+      margin-top: calc(var(--fs) * 3.5);
+    }
+    form {
+      margin-top: calc(var(--fs) * 5.5);
+      display: grid;
+      grid-template-columns: 100%;
+      grid-auto-flow: row;
+      grid-template-rows: max-content;
+      gap: calc(var(--fs) * 2.31);
+      width: calc(var(--fs) * 32);
+      & > * {
+        grid-column: 1 / 2 !important;
+        width: 100%;
+      }
+      .field {
+        margin: 0 !important;
+        width: 100%;
+      }
+      .submit-wrapper {
+        margin-top: calc(var(--fs) * 0.5);
+        width: 100%;
+      }
+    }
+  }
+
+  @media (orientation: portrait) {
+    section {
+      padding: calc(var(--top-space) * 2) calc(var(--hor-padding));
+      h1 {
+        text-transform: none;
+      }
+      p {
+        width: 100%;
+        margin-top: calc(var(--fs) * 2.19);
+      }
+      form {
+        margin-top: calc(var(--fs) * 4.25);
+        gap: calc(var(--fs) * 2);
+        width: 100%;
+        & > * {
+          grid-column: 1 / 2 !important;
+          width: 100%;
+        }
+        .field {
+          margin: 0 !important;
+          width: 100%;
+        }
+        .submit-wrapper {
+          margin-top: calc(var(--fs) * 0.5);
+          width: 100%;
+        }
+      }
+    }
+
+    @media (min-aspect-ratio: 0.625) {
+      section {
+        padding: calc(var(--top-space) * 2) calc(var(--hor-padding) * 4);
+        h1 {
+          text-transform: none;
+        }
+        p {
+          width: 80%;
+          margin-top: calc(var(--fs) * 2.4);
+        }
+        form {
+          margin-top: calc(var(--fs) * 4.25);
+          gap: calc(var(--fs) * 2.31);
+
+          .field {
+            margin: 0 !important;
+            width: 100%;
+          }
+          .submit-wrapper {
+            margin-top: calc(var(--fs) * 0.5);
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+</style>

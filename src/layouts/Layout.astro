@@ -14,6 +14,8 @@ interface Props {
   bodyClasses?: string;
   renderFooter?: boolean;
   headerDesktopOpacity?: number;
+  renderHeader?: boolean;
+  headerClasses?: string;
 }
 
 const {
@@ -21,6 +23,8 @@ const {
   bodyClasses,
   renderFooter = true,
   headerDesktopOpacity = 1,
+  renderHeader = true,
+  headerClasses,
 } = Astro.props;
 
 const routePattern = decodeURI(Astro.routePattern);
@@ -92,7 +96,7 @@ const description = headData?.description
   </head>
   <body class={bodyClasses}>
     <Preloader visible={isHome ? "visible" : "invisible"} />
-    <Header desktopOpacity={headerDesktopOpacity} />
+    {renderHeader && <Header desktopOpacity={headerDesktopOpacity} {headerClasses} />}
     <Menu />
     <div id="smooth-wrapper">
       <div id="smooth-content">
@@ -119,6 +123,11 @@ const description = headData?.description
     --top-space: min(calc(var(--fs) * 20), 30vh);
     --MAIN-BLUE: #6289ff !important;
     --line-color: var(--MAIN-BLUE) !important;
+    --border-gradient-color: linear-gradient(
+      90deg,
+      rgba(102, 102, 102, 1),
+      #00000000
+    );
   }
 
   *,
@@ -281,6 +290,15 @@ const description = headData?.description
     font-size: calc(var(--fs) * 3.5);
     font-style: normal;
     font-weight: 500;
+    line-height: normal;
+  }
+
+  .subtitle-1 {
+    color: var(--White, #fff);
+    font-family: "Work Sans";
+    font-size: calc(var(--fs) * 3);
+    font-style: normal;
+    font-weight: 400;
     line-height: normal;
   }
 
@@ -465,11 +483,7 @@ const description = headData?.description
     margin-bottom: calc(var(--fs) * -0.25) !important;
   }
 
-  .intro-1 {
-    opacity: 0;
-  }
-
-  .intro-2 {
+  .intro-anim {
     opacity: 0;
   }
 
@@ -488,6 +502,59 @@ const description = headData?.description
       position: absolute;
       top: 0;
       left: 0;
+    }
+  }
+
+  .border-gradient {
+    overflow: hidden;
+    position: relative;
+    background: var(--border-gradient-color);
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% - 1px);
+      height: calc(100% - 1px);
+      background: #101010;
+      border-radius: inherit;
+      border: 1px solid rgba(0, 0, 0, 0);
+    }
+  }
+
+  .ellipse-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    picture {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      width: 90vw;
+      max-width: unset;
+      height: initial;
+      display: block;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-user-drag: none;
+    }
+    .ellipse {
+      position: absolute;
+      top: 0;
+      right: 50%;
+      transform: translate(50%, calc(var(--fs) * -2.5));
+      width: 100%;
+      height: auto;
+      max-width: unset;
     }
   }
 
@@ -568,6 +635,9 @@ const description = headData?.description
     }
     .h2 {
       font-size: calc(var(--fs) * 2);
+    }
+    .subtitle-1 {
+      font-size: calc(var(--fs) * 2.1875);
     }
     .subtitle-2 {
       font-size: calc(var(--fs) * 1.375);
@@ -694,10 +764,37 @@ const description = headData?.description
       }
     }
 
+    .ellipse-wrapper {
+      picture {
+        width: 250vw;
+        max-width: unset;
+      }
+      .ellipse {
+        position: absolute;
+        top: 0%;
+        right: 50%;
+        transform: translate(50%, -17%);
+        max-width: unset;
+      }
+    }
+
     @media (min-aspect-ratio: 0.625) {
       :root {
         --fs: 2vw;
         --top-padding: calc(var(--fs) * 3);
+      }
+      .ellipse-wrapper {
+        picture {
+          width: 200vw;
+        }
+        .ellipse {
+          position: absolute;
+          top: 0;
+          right: 50%;
+          transform: translate(50%, -2.5%);
+          max-width: unset;
+          width: 100%;
+        }
       }
 
       .br-desktop,
@@ -714,6 +811,7 @@ const description = headData?.description
       .h2 {
         font-size: calc(var(--fs) * 3.125);
       }
+
       .subtitle-2 {
         font-size: calc(var(--fs) * 1.375);
       }

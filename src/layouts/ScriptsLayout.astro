@@ -255,6 +255,38 @@
           );
           break;
 
+        case pages.careers.path:
+          import("../scripts/careers").then(({ careers }) => careers());
+          break;
+
+        case pages.story.path:
+          import("../scripts/story").then(({ story }) => story());
+          break;
+
+        case pages.locations.path:
+          import("../scripts/locations").then(({ locations }) => locations());
+          break;
+
+        case pages.privacy_policy.path:
+          import("../scripts/legal").then(({ legal }) => legal());
+          break;
+
+        case pages.returns_refunds.path:
+          import("../scripts/legal").then(({ legal }) => legal());
+          break;
+
+        case pages.terms_conditions.path:
+          import("../scripts/legal").then(({ legal }) => legal());
+          break;
+
+        case pages.cookie_policy.path:
+          import("../scripts/legal").then(({ legal }) => legal());
+          break;
+
+        case pages.shipping_delivery.path:
+          import("../scripts/legal").then(({ legal }) => legal());
+          break;
+
         default:
           break;
       }

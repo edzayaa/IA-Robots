@@ -1,0 +1,186 @@
+---
+import Faqs from "@components/Faqs";
+import Layout from "@layouts/Layout.astro";
+import "@styles/field.scss";
+---
+
+<Layout>
+  <section id="top-section">
+    <h1 class="h1 intro-anim">Hello, How Can We Help You?</h1>
+    <p class="paragraph-1 intro-anim">
+      Lorem ipsum dolor sit amet consectetur. Aenean nunc in placerat nulla.
+      Netus imperdiet at lacus
+    </p>
+    <div class="field intro-anim">
+      <input
+        type="text"
+        placeholder="Search your keyword here.."
+        class="paragraph-1 text-start"
+      />
+      <button class="btn-search">
+        <img src="/icons/magnifier.svg" alt="" />
+      </button>
+    </div>
+    <div class="boxes intro-anim">
+      <div class="box">
+        <img src="/icons/box.svg" alt="" loading="lazy" />
+        <h2 class="subtitle-3 color-white">Topic 1</h2>
+        <p class="paragraph-1 text-center color-white">
+          Lorem ipsum dolor sit amet consectetur. Aenean nunc in placerat nulla.
+          Netus imperdiet at lacus rhoncus at varius.
+        </p>
+      </div>
+      <div class="box">
+        <img src="/icons/box.svg" alt="" loading="lazy" />
+        <h2 class="subtitle-3 color-white">Topic 2</h2>
+        <p class="paragraph-1 text-center color-white">
+          Lorem ipsum dolor sit amet consectetur. Aenean nunc in placerat nulla.
+          Netus imperdiet at lacus rhoncus at varius.
+        </p>
+      </div>
+      <div class="box">
+        <img src="/icons/box.svg" alt="" loading="lazy" />
+        <h2 class="subtitle-3 color-white">Topic 3</h2>
+        <p class="paragraph-1 text-center color-white">
+          Lorem ipsum dolor sit amet consectetur. Aenean nunc in placerat nulla.
+          Netus imperdiet at lacus rhoncus at varius.
+        </p>
+      </div>
+    </div>
+  </section>
+  <Faqs client:load />
+</Layout>
+
+<style lang="scss">
+  #top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: calc(var(--top-space) * 0.75) calc(var(--hor-padding)) 0;
+    min-height: unset;
+    margin-bottom: calc(var(--fs) * 12);
+    p {
+      margin-top: calc(var(--fs) * 3.5);
+      width: calc(var(--fs) * 31.3125);
+    }
+    .field {
+      margin-top: calc(var(--fs) * 2.25) !important;
+      width: calc(var(--fs) * 37.875);
+    }
+    .boxes {
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
+      margin-top: calc(var(--fs) * 6);
+      gap: calc(var(--fs) * 1.5);
+      .box {
+        width: calc(var(--fs) * 29.875);
+        height: calc(var(--fs) * 23.375);
+        border-radius: calc(var(--fs) * 1.25);
+        background: #161616;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: calc(var(--fs) * 4.27);
+        padding-bottom: calc(var(--fs) * 5.65);
+        padding-right: calc(var(--fs) * 1.56);
+        padding-left: calc(var(--fs) * 1.56);
+        h2 {
+          margin-top: calc(var(--fs) * 1.875);
+        }
+        p {
+          width: 100%;
+        }
+        img {
+          width: calc(var(--fs) * 3.58331);
+          height: calc(var(--fs) * 3.58331);
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  @media (orientation: portrait) {
+    #top-section {
+      padding: calc(var(--top-space) * 2) calc(var(--hor-padding)) 0;
+      min-height: unset;
+      margin-bottom: calc(var(--fs) * 5);
+      & > * {
+        text-align: center !important;
+      }
+      p {
+        margin-top: calc(var(--fs) * 2.5);
+        width: 100%;
+      }
+      .field {
+        margin-top: calc(var(--fs) * 3) !important;
+        width: 100%;
+      }
+      .boxes {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: calc(var(--fs) * 2.81);
+        gap: calc(var(--fs) * 0.5);
+        .box {
+          width: 100%;
+          height: calc(var(--fs) * 13.625);
+          border-radius: calc(var(--fs) * 0.6);
+          padding-top: calc(var(--fs) * 2);
+          padding-bottom: calc(var(--fs) * 2.63);
+          padding-right: calc(var(--fs) * 1.25);
+          padding-left: calc(var(--fs) * 1.25);
+          &:last-of-type {
+            grid-column: 1 / 3;
+            p {
+              width: 80%;
+            }
+          }
+          h2 {
+            margin-top: calc(var(--fs) * 0.95);
+          }
+          p {
+            width: 100%;
+            font-size: calc(var(--fs) * 0.75);
+            margin-top: calc(var(--fs) * 1.5);
+          }
+          img {
+            width: calc(var(--fs) * 1.94);
+            height: calc(var(--fs) * 1.94);
+          }
+        }
+      }
+    }
+
+    @media (min-aspect-ratio: 0.625) {
+      #top-section {
+        padding: calc(var(--top-space) * 2) calc(var(--hor-padding) * 2) 0;
+        p {
+          margin-top: calc(var(--fs) * 2.5);
+          width: 70%;
+        }
+        .field {
+          width: 90%;
+        }
+        .boxes {
+          gap: calc(var(--fs) * 0.85);
+          .box {
+            height: calc(var(--fs) * 23);
+            border-radius: var(--fs);
+            &:last-of-type {
+              p {
+                width: 65%;
+              }
+            }
+            img {
+              width: calc(var(--fs) * 3.31);
+              height: calc(var(--fs) * 3.31);
+            }
+            p {
+              font-size: calc(var(--fs) * 1.125);
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

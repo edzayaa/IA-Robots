@@ -1,0 +1,49 @@
+---
+import Layout from "@layouts/Layout.astro";
+import img from "@assets/access/access_pass.jpg";
+import "@styles/access.scss";
+import { Picture } from "astro:assets";
+import ButtonPrimary from "@components/ButtonPrimary";
+import { pages } from "@scripts/pages";
+---
+
+<Layout renderFooter={false} headerClasses="no-desktop-header">
+  <section class="access-section" transition:animate="none">
+    <Picture
+      src={img}
+      alt="Access section"
+      fetchpriority={"high"}
+      quality={"max"}
+      loading={"eager"}
+    />
+    <div class="form-wrapper">
+      <form action={pages.reset_password.path}>
+        <span class="paragraph-1 text-center intro-anim">Password Recovery</span
+        >
+        <h1 class="subtitle-1 color-white intro-anim">Forgot Password?</h1>
+        <div class="field-wrapper intro-anim">
+          <label class="paragraph-1 text-start color-white" for="email"
+            >Email</label
+          >
+          <div class="field">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Type your email"
+            />
+          </div>
+        </div>
+
+        <ButtonPrimary
+          content="send email"
+          className="full-width icon-right intro-anim"
+        />
+      </form>
+      <span class="reset paragraph-1 intro-anim">
+        Reset to
+        <a href={pages.signin.path}>Log In</a>
+      </span>
+    </div>
+  </section>
+</Layout>
