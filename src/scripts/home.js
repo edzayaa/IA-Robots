@@ -16,10 +16,10 @@ export function home() {
 
         function launch() {
             if (import.meta.env.DEV) console.log("mounted")
-            gsap.set("#hero-section", {
-                opacity: 1,
-                delay: 0.5,
-            })
+            // gsap.set("#hero-section", {
+            //     opacity: 1,
+            //     delay: 0.5,
+            // })
 
 
             const introHome = gsap.timeline({
