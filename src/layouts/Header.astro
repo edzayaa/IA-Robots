@@ -17,8 +17,9 @@ const { headerOpacity: desktopOpacity = 1, headerClasses } = Astro.props;
       <img
         src="/logos/ai_robots_logo.svg"
         alt="Ai Robots Brand"
-        width=""
-        height=""
+        width="211"
+        height="26"
+        fetchpriority="high"
       />
     </a>
 
@@ -34,7 +35,7 @@ const { headerOpacity: desktopOpacity = 1, headerClasses } = Astro.props;
         target="_blank"
         aria-label="Click to check account"
       >
-        <img src="/icons/user.svg" alt="User Account" />
+        <img src="/icons/user.svg" alt="User Account" width="17" height="20" />
       </a>
       <Sidecart client:load />
     </div>
@@ -62,9 +63,10 @@ const { headerOpacity: desktopOpacity = 1, headerClasses } = Astro.props;
     {
       menuLinks.map(
         (link, index) =>
-          link.options && (
+          link.options &&
+          link.options.length > 0 && (
             <div class="sub-nav" data-link={link.name}>
-              {link.options?.map((group) => (
+              {link.options.map((group) => (
                 <div class="group">
                   <span>{group.name}</span>
                   {group.products.map((product) => (
@@ -80,7 +82,7 @@ const { headerOpacity: desktopOpacity = 1, headerClasses } = Astro.props;
               {link.href && (
                 <a href={link.href} class="own-link">
                   {`About ${link.name}`}
-                  <img src="/icons/arrow_right.svg" alt="" loading="lazy" />
+                  <img src="/icons/arrow_right.svg" alt="" loading="lazy" width="22" height="17" />
                 </a>
               )}
             </div>

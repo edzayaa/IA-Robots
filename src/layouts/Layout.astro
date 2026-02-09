@@ -54,7 +54,11 @@ const description = headData?.description
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#000" />
     <meta name="generator" content={Astro.generator} />
-    <title>{`${title} - AI ROBOTS`}</title>
+     <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <title>{`${title} - AI Robots`}</title>
 
     <meta property="og:url" content="" />
     <meta property="og:type" content="website" />
@@ -73,6 +77,7 @@ const description = headData?.description
       as="image"
       href="/logos/ai_robots_logo.svg"
       type="image/svg+xml"
+      fetchpriority="high"
     />
     <link
       rel="apple-touch-icon"

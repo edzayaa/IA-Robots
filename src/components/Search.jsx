@@ -30,7 +30,7 @@ export default function Search({}) {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
         <button aria-label="Click to search">
-          <img src="/icons/magnifier.svg" alt="Search" />
+          <img src="/icons/magnifier.svg" alt="Search" width={20} height={20} />
         </button>
       </Dialog.Trigger>
       {transitions((styles, item) =>
@@ -57,7 +57,7 @@ export default function Search({}) {
                       aria-label="Click to search"
                       className="flex-center btn-search"
                     >
-                      <img src="/icons/magnifier.svg" alt="" loading="lazy" />
+                      <img src="/icons/magnifier.svg" alt="" loading="lazy" width={20} height={20} />
                     </button>
                   </div>
                 </div>

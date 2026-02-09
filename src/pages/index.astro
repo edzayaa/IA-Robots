@@ -5,11 +5,11 @@ import hero_home_1 from "../assets/hero_home_1.png";
 import hero_home_2 from "../assets/hero_home_2.png";
 import hero_home_3 from "../assets/hero_home_3.png";
 import hero_home_4 from "../assets/hero_home_4.png";
-import autonomy_robot from "../assets/autonomy_robot_2.png";
+import autonomy_robot from "../assets/autonomy_robot_2_min.png";
 import blue_shade from "../assets/blue_shade.png";
 import ellipse from "../assets/ellipse.png";
 import autonomy_line from "../assets/autonomy_line.png";
-import redefining_robot from "../assets/redefining_robot.png";
+import redefining_robot from "../assets/redefining_robot_min.png";
 import shade from "../assets/shade.png";
 import texture from "../assets/texture.png";
 import target_3 from "../assets/target_3.png";
@@ -90,10 +90,20 @@ import { pages } from "@/scripts/pages";
     <div class="splide" id="hero-splide">
       <div class="splide__arrows">
         <button class="splide__arrow splide__arrow--prev">
-          <img src="/icons/arrow_right.svg" alt="Arrow left" />
+          <img
+            src="/icons/arrow_right.svg"
+            alt="Arrow left"
+            width="22"
+            height="17"
+          />
         </button>
         <button class="splide__arrow splide__arrow--next">
-          <img src="/icons/arrow_right.svg" alt="Arrow right" />
+          <img
+            src="/icons/arrow_right.svg"
+            alt="Arrow right"
+            width="22"
+            height="17"
+          />
         </button>
       </div>
 
@@ -108,6 +118,7 @@ import { pages } from "@/scripts/pages";
               fetchpriority="high"
               quality="high"
               loading="eager"
+              layout="full-width"
             />
           </div>
           <div class="splide__slide close-right">
@@ -119,6 +130,7 @@ import { pages } from "@/scripts/pages";
               fetchpriority="high"
               quality="high"
               loading="eager"
+              layout="full-width"
             />
           </div>
           <div class="splide__slide close-right">
@@ -130,6 +142,7 @@ import { pages } from "@/scripts/pages";
               fetchpriority="high"
               quality="high"
               loading="eager"
+              layout="full-width"
             />
           </div>
           <div class="splide__slide close-left">
@@ -141,6 +154,7 @@ import { pages } from "@/scripts/pages";
               fetchpriority="high"
               quality="high"
               loading="eager"
+              layout="full-width"
             />
           </div>
         </div>
@@ -159,7 +173,7 @@ import { pages } from "@/scripts/pages";
     </div>
     <div class="scroll-down">
       scroll
-      <img src="/icons/scroll_down.svg" alt="Scroll down" />
+      <img src="/icons/scroll_down.svg" alt="Scroll down" width="23" height="37" />
       down
     </div>
   </section>
@@ -174,16 +188,34 @@ import { pages } from "@/scripts/pages";
         alt="Advanced autonomy"
         formats={["avif", "webp"]}
         fetchpriority={"high"}
-        quality={"max"}
+        quality={"high"}
+        layout="full-width"
+        widths={[480, 640, 750, 828, 960, 1280]}
       />
     </div>
 
     <Image class={"blue-shade"} src={blue_shade} alt={""} format="webp" />
-    <Image class={"ellipse"} src={ellipse} alt={""} format="webp" />
+    <Image
+      class={"ellipse"}
+      src={ellipse}
+      alt=""
+      format="webp"
+      quality="mid"
+      layout="constrained"
+      width={1545}
+      height={732}
+    />
 
     <div class="autonomy-details">
       <div class="detail">
-        <img class="img" src="/icons/gps.svg" alt="" loading="lazy" />
+        <img
+          class="img"
+          src="/icons/gps.svg"
+          alt=""
+          loading="lazy"
+          width="80"
+          height="80"
+        />
         <p>Autonomous Tracking & Patrol</p>
         <span>
           Automatically identifies inspection tasks and target components,
@@ -193,7 +225,14 @@ import { pages } from "@/scripts/pages";
         <Image class="autonomy-line" src={autonomy_line} alt="" />
       </div>
       <div class="detail">
-        <img class="img" src="/icons/waves.svg" alt="" loading="lazy" />
+        <img
+          class="img"
+          src="/icons/waves.svg"
+          alt=""
+          loading="lazy"
+          width="80"
+          height="80"
+        />
         <p>Unmatched Terrain Adaptability</p>
         <span>
           Effortlessly navigates complex environments, including stairs, slopes,
@@ -202,7 +241,14 @@ import { pages } from "@/scripts/pages";
         <Image class="autonomy-line" src={autonomy_line} alt="" />
       </div>
       <div class="detail">
-        <img class="img" src="/icons/central.png" alt="" loading="lazy" />
+        <img
+          class="img"
+          src="/icons/central.svg"
+          alt=""
+          loading="lazy"
+          width="80"
+          height="80"
+        />
         <p>Centralized Remote Control</p>
         <span>
           Real-time data upload to a centralized control platform allows for
@@ -212,7 +258,14 @@ import { pages } from "@/scripts/pages";
         <Image class="autonomy-line" src={autonomy_line} alt="" />
       </div>
       <div class="detail">
-        <img class="img" src="/icons/eye.png" alt="" loading="lazy" />
+        <img
+          class="img"
+          src="/icons/eye.svg"
+          alt=""
+          loading="lazy"
+          width="80"
+          height="80"
+        />
         <p>Advanced LiDAR & AI Vision</p>
         <span>
           Utilizes high-definition LiDAR and AI-powered vision for 3D mapping,
@@ -245,7 +298,14 @@ import { pages } from "@/scripts/pages";
             <div class="splide__slide with-border">
               <strong class="shade"></strong>
               <strong class="shade"></strong>
-              <img src="/icons/ray.png" alt="" class="icon" />
+              <img
+                src="/icons/ray.svg"
+                alt=""
+                class="icon"
+                loading="lazy"
+                width="80"
+                height="80"
+              />
               <span> Dynamic Interaction </span>
               <p>
                 A personality that learns and evolves with your family, powered
@@ -255,7 +315,14 @@ import { pages } from "@/scripts/pages";
             <div class="splide__slide with-border">
               <strong class="shade"></strong>
               <strong class="shade"></strong>
-              <img src="/icons/infinity.svg" alt="" class="icon" />
+              <img
+                src="/icons/infinity.svg"
+                alt=""
+                class="icon"
+                loading="lazy"
+                width="80"
+                height="80"
+              />
               <span> Ultimate Mobility </span>
               <p>
                 Proprietary motors and control algorithms for seamless
@@ -265,7 +332,14 @@ import { pages } from "@/scripts/pages";
             <div class="splide__slide with-border">
               <strong class="shade"></strong>
               <strong class="shade"></strong>
-              <img src="/icons/side.png" alt="" class="icon" />
+              <img
+                src="/icons/side.svg"
+                alt=""
+                class="icon"
+                loading="lazy"
+                width="80"
+                height="80"
+              />
               <span> Open Platform Fun </span>
               <p>
                 An open SDK for coding, education, and unlimited customization
@@ -291,8 +365,19 @@ import { pages } from "@/scripts/pages";
         formats={["avif", "webp"]}
         fetchpriority="high"
         quality={"high"}
+        layout="full-width"
+        widths={[480, 640, 750, 828, 960, 1280]}
       />
-      <Image class="ellipse" src={ellipse} alt="" />
+      <Image
+        class="ellipse"
+        src={ellipse}
+        alt=""
+        format="webp"
+        quality="mid"
+        layout="constrained"
+        width={1545}
+        height={732}
+      />
     </div>
   </section>
   <section id="target-section">
@@ -383,6 +468,13 @@ import { pages } from "@/scripts/pages";
               class={"media"}
               src={target_3}
               alt="Precise Temperature Measurement"
+              fetchpriority={"high"}
+              quality={"mid"}
+              formats={["avif", "webp"]}
+              layout="constrained"
+              width={876}
+              height={447}
+              widths={[480, 640, 750, 828, 960, 1280]}
             />
           </div>
         </div>
@@ -403,6 +495,8 @@ import { pages } from "@/scripts/pages";
       fetchpriority={"high"}
       quality="high"
       formats={["avif", "webp"]}
+      layout="full-width"
+      widths={[480, 640, 750, 828, 960, 1280]}
     />
     <h2 class="h1">
       Step into the Future <br class="br-mobile br-tablet" /> of <br
@@ -432,7 +526,7 @@ import { pages } from "@/scripts/pages";
   }
   #hero-section {
     height: 100svh;
-    opacity: 0;
+    // opacity: 0;
     .hero-content {
       position: absolute;
       bottom: 0;

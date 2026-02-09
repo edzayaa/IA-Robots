@@ -19,7 +19,7 @@ export default function Sidecart({}) {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
         <button aria-label="Click to open the cart">
-          <img src="/icons/bag.svg" alt="Cart" />
+          <img src="/icons/bag.svg" alt="Cart" width={21} height={21} />
         </button>
       </Dialog.Trigger>
       {transitions((styles, item) =>

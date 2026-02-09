@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
+    "@googlemaps/js-api-loader": "^1.16.10",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-visually-hidden": "^1.2.4",
     "@react-spring/web": "^10.0.3",
@@ -22,5 +23,8 @@
     "react-dom": "^19.2.3",
     "sass": "^1.97.2",
     "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/google.maps": "^3.58.1"
   }
 }

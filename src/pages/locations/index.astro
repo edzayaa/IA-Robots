@@ -7,7 +7,8 @@ const locations = new Array(4).fill(null);
 <Layout>
   <section>
     <div class="bck">
-      <img src="/images/locations.png" alt="" />
+      <!-- <img src="/images/locations.png" alt="" /> -->
+      <div id="map"></div>
     </div>
     <div class="popup">
       <button id="mobile-toggle" aria-label="Click to show and hide the popup">
@@ -55,12 +56,15 @@ const locations = new Array(4).fill(null);
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
       opacity: 0.85;
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+      #map {
+        width: 100%;
+        height: 100%;
       }
     }
 
@@ -73,10 +77,11 @@ const locations = new Array(4).fill(null);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: calc(var(--fs) * 1.5);
+      padding: calc(var(--fs) * 1.5); 
       right: calc(var(--hor-padding));
       top: calc(var(--top-space) * 0.25);
       height: initial;
+      z-index: 1;
       button {
         display: none;
         opacity: 0;
@@ -201,7 +206,6 @@ const locations = new Array(4).fill(null);
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1;
         opacity: 0.85;
         img {
           width: 100%;
@@ -328,7 +332,6 @@ const locations = new Array(4).fill(null);
           left: 0;
           width: 100%;
           height: 100%;
-          z-index: -1;
           opacity: 0.85;
           img {
             width: 100%;

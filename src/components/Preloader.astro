@@ -5,17 +5,13 @@ interface Props {
 const { visible = "invisible" } = Astro.props;
 ---
 
-<aside
-  id="preloader"
-  class={visible}
-  transition:animate="none"
->
+<aside id="preloader" class={visible} transition:animate="none">
   <div class="logo intro">
     <img
       src="/logos/ai_robots_logo.svg"
       alt="Ai Robots Brand"
-      width=""
-      height=""
+      width="211"
+      height="26"
     />
   </div>
 </aside>
