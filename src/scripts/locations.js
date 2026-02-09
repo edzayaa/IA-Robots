@@ -1,4 +1,5 @@
 import { breakPoints, mm } from "./utils/resolution";
+import './map'
 
 export function locations() {
     mm.add(breakPoints, (context) => {
@@ -29,4 +30,5 @@ export function locations() {
         }
 
     })
+    
 }
