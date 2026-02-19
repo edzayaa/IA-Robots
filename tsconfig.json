@@ -1,0 +1,52 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "lib": [
+            "ES2022"
+        ],
+        "types": [
+            "node",
+            "vitest/globals"
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "#config/*.js": [
+                "src/config/*.ts"
+            ],
+            "infraestruture/*.js": [
+                "src/infraestructure/*.ts"
+            ],
+            "modules/*.js": [
+                "src/modules/*.ts"
+            ],
+            "shared/*.js": [
+                "src/shared/*.ts"
+            ],
+            "#types/*.js": [
+                "src/types/*.ts"
+            ],
+            "#container/*": ["src/container/*"],
+        },
+        "rootDir": ".",
+        "outDir": "dist",
+        "strict": true,
+        "noUncheckedIndexedAccess": true,
+        "noImplicitOverride": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true
+    },
+    "include": [
+        "src",
+        "test",
+        "vitest.config.ts",
+        "eslint.config.mjs"
+    ],
+    "exclude": [
+        "dist",
+        "node_modules"
+    ]
+}
